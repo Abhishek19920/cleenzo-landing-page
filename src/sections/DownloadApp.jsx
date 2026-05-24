@@ -1,4 +1,4 @@
-import { APP_LINKS } from "../constants";
+import AppStoreButtons from "./AppStoreButtons";
 
 function DownloadApp() {
   return (
@@ -6,41 +6,20 @@ function DownloadApp() {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="uppercase tracking-widest font-bold text-sm mb-3 text-white/80">
-            Download now
+            Available on iOS & Android
           </p>
           <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-            Get the Cleenzo app
+            Download the app now
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-lg leading-relaxed">
-            Track express deliveries live, view history, get notifications, and
-            book faster than chat — all in one place.
+            Get express laundry pickup and delivery from your phone. Simple,
+            fast, and built for your daily routine.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href={APP_LINKS.android}
-              className="inline-flex items-center justify-center gap-3 bg-black text-white font-bold px-8 py-4 rounded-2xl hover:bg-slate-900 transition"
-            >
-              <span className="text-2xl">▶</span>
-              <span>
-                <span className="block text-xs font-normal opacity-80">Get it on</span>
-                Google Play
-              </span>
-            </a>
-            <a
-              href={APP_LINKS.ios}
-              className="inline-flex items-center justify-center gap-3 bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-2xl hover:bg-white/30 transition"
-            >
-              <span className="text-2xl">🍎</span>
-              <span>
-                <span className="block text-xs font-normal opacity-80">Download on the</span>
-                App Store
-              </span>
-            </a>
-          </div>
+          <AppStoreButtons variant="light" />
 
           <p className="mt-6 text-sm text-white/70">
-            App links coming soon — book on WhatsApp meanwhile!
+            Store links coming soon — use WhatsApp on the homepage if you need help today.
           </p>
         </div>
 
@@ -50,16 +29,9 @@ function DownloadApp() {
               <p className="text-4xl mb-2">📱</p>
               <p className="font-black text-2xl">Cleenzo</p>
               <p className="text-slate-500 text-sm mt-1">Laundry, simplified</p>
-              <div className="mt-6 space-y-2 text-left text-sm">
-                <div className="flex justify-between py-2 border-b">
-                  <span>Active order</span>
-                  <span className="font-bold text-cyan-600">#CLZ2045</span>
-                </div>
-                <div className="flex justify-between py-2">
-                  <span>Status</span>
-                  <span className="text-green-600 font-semibold">Out for delivery</span>
-                </div>
-              </div>
+              <p className="mt-4 text-sm text-slate-600">
+                Express pickup · Express delivery
+              </p>
             </div>
           </div>
         </div>

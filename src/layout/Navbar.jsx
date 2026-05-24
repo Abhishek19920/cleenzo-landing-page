@@ -1,10 +1,7 @@
-import { openWhatsAppBooking } from "../whatsapp";
-
 const links = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Why us", href: "#why" },
-  { label: "App", href: "#download" },
 ];
 
 function Navbar() {
@@ -21,22 +18,20 @@ function Navbar() {
               {link.label}
             </a>
           ))}
-          <button
-            type="button"
-            onClick={() => openWhatsAppBooking()}
-            className="bg-[#25D366] text-white font-bold px-5 py-2.5 rounded-full hover:bg-[#1fb855] transition"
+          <a
+            href="#download"
+            className="bg-cyan-400 text-black font-bold px-5 py-2.5 rounded-full hover:bg-cyan-300 transition"
           >
-            Book on WhatsApp
-          </button>
+            Download the app now
+          </a>
         </div>
 
-        <button
-          type="button"
-          onClick={() => openWhatsAppBooking()}
-          className="md:hidden bg-[#25D366] text-white font-bold px-4 py-2 rounded-full text-sm"
+        <a
+          href="#download"
+          className="md:hidden bg-cyan-400 text-black font-bold px-4 py-2 rounded-full text-sm"
         >
-          Book
-        </button>
+          Get app
+        </a>
       </div>
     </nav>
   );

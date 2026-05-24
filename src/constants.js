@@ -23,3 +23,12 @@ export const USP = {
   description:
     "No slow lanes or extra charges — fast turnaround and doorstep delivery on every Cleenzo order.",
 };
+
+export const STORE_LAUNCH = {
+  label: "Grand opening",
+  dateDisplay: "16 June 2026",
+  launchDate: "2026-06-16",
+  headline: "Store goes live soon!",
+  message:
+    "We're opening our Cleenzo store on 16 June 2026 — right after 15 June. Download the app and get ready for express laundry at your doorstep.",
+};

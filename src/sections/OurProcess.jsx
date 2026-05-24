@@ -1,9 +1,9 @@
 const steps = [
   {
     step: "01",
-    title: "Chat on WhatsApp",
-    desc: "Send a message, tell us your address and preferred pickup slot.",
-    icon: "💬",
+    title: "Download the app",
+    desc: "Get Cleenzo on your phone and place your laundry order in minutes.",
+    icon: "📱",
   },
   {
     step: "02",

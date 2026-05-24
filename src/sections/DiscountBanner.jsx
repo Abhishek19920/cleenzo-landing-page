@@ -2,7 +2,7 @@ import { DISCOUNT } from "../constants";
 import { openWhatsAppBooking } from "../whatsapp";
 
 function DiscountBanner() {
-  const message = `Hi Cleenzo! I'd like to book a pickup and use code ${DISCOUNT.code} for my first order discount.`;
+  const message = `Hi Cleenzo! I'd like to use code ${DISCOUNT.code} for my first order discount.`;
 
   return (
     <section className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-black py-4 px-4">

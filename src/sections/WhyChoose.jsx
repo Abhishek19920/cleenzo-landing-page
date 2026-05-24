@@ -1,8 +1,8 @@
 const reasons = [
   {
     icon: "💬",
-    title: "WhatsApp booking",
-    desc: "No forms — message us, confirm pickup time, and you're done.",
+    title: "WhatsApp support",
+    desc: "Questions or help? Message us anytime on WhatsApp.",
   },
   {
     icon: "🚚",
@@ -10,9 +10,9 @@ const reasons = [
     desc: "We collect and return fresh laundry at your home.",
   },
   {
-    icon: "📍",
-    title: "Live order tracking",
-    desc: "Track every step from pickup to delivery in the Cleenzo app.",
+    icon: "📱",
+    title: "All in one app",
+    desc: "Download Cleenzo to place orders and get updates in one place.",
   },
   {
     icon: "✨",
@@ -22,7 +22,7 @@ const reasons = [
   {
     icon: "⚡",
     title: "Express delivery — always",
-    desc: "Our USP: every order gets fast turnaround and express doorstep delivery. No slow add-ons.",
+    desc: "Our USP: every order gets fast turnaround and express doorstep delivery.",
   },
   {
     icon: "🎁",

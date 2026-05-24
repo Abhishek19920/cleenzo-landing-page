@@ -7,21 +7,21 @@ function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div>
           <p className="text-2xl font-black mb-1">Cleenzo</p>
-          <p className="text-slate-400 text-sm">Premium laundry · WhatsApp booking</p>
+          <p className="text-slate-400 text-sm">Premium laundry · Express delivery</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 text-sm">
+          <a href="#download" className="text-cyan-400 font-semibold hover:underline">
+            Download the app now
+          </a>
           <button
             type="button"
             onClick={() => openWhatsAppBooking()}
             className="text-[#25D366] font-semibold hover:underline"
           >
-            Chat on WhatsApp
+            WhatsApp support
           </button>
           <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, "")}`} className="text-slate-400 hover:text-white">
             {PHONE_DISPLAY}
-          </a>
-          <a href="#download" className="text-slate-400 hover:text-white">
-            Download app
           </a>
         </div>
       </div>

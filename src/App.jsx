@@ -3,9 +3,11 @@ import MainLayout from "./layout/MainLayout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import StickyCTA from "./sections/StickyCTA";
+import LaunchPopup from "./sections/LaunchPopup";
 
 function App() {
   const { pathname } = useLocation();
+  const isHome = pathname === "/";
 
   return (
     <>
@@ -15,7 +17,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-      {pathname === "/" && <StickyCTA />}
+      {isHome && <LaunchPopup />}
+      {isHome && <StickyCTA />}
     </>
   );
 }
