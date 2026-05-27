@@ -1,59 +1,41 @@
-import { useEffect, useState } from "react";
-import { STORE_LAUNCH } from "../constants";
+import { useEffect } from "react";
+import { APP_LINKS, STORE_LAUNCH } from "../constants";
 import { openWhatsAppBooking } from "../whatsapp";
 
-const DISMISS_KEY = "cleenzo-launch-popup-dismissed";
-
 function isBeforeLaunchDay() {
-  const launch = new Date(`${STORE_LAUNCH.launchDate}T00:00:00`);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return today < launch;
+  const [y, m, d] = STORE_LAUNCH.launchDate.split("-").map(Number);
+  const launch = new Date(y, m - 1, d);
+
+  const now = new Date();
+  const today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return today0 < launch;
 }
 
 function LaunchPopup() {
-  const [open, setOpen] = useState(false);
+  const before = isBeforeLaunchDay();
 
   useEffect(() => {
-    if (!isBeforeLaunchDay()) return;
-    if (localStorage.getItem(DISMISS_KEY) === "true") return;
-    const timer = setTimeout(() => setOpen(true), 600);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
+    if (!before) return;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [before]);
 
-  const dismiss = () => {
-    localStorage.setItem(DISMISS_KEY, "true");
-    setOpen(false);
-  };
+  if (!before) return null;
 
-  if (!open) return null;
+  const androidHref = APP_LINKS.android === "#" ? "/#download" : APP_LINKS.android;
+  const iosHref = APP_LINKS.ios === "#" ? "/#download" : APP_LINKS.ios;
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-labelledby="launch-popup-title"
     >
       <div className="relative w-full max-w-md bg-gradient-to-br from-slate-900 via-black to-slate-900 text-white rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-cyan-300 to-emerald-400" />
-
-        <button
-          type="button"
-          onClick={dismiss}
-          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg leading-none transition"
-          aria-label="Close"
-        >
-          ×
-        </button>
 
         <div className="p-8 pt-10 text-center">
           <p className="text-cyan-400 uppercase tracking-widest text-xs font-bold mb-3">
@@ -70,38 +52,41 @@ function LaunchPopup() {
             {STORE_LAUNCH.dateDisplay}
           </p>
 
-          <p className="text-slate-300 text-sm leading-relaxed mb-8">
+          <p className="text-slate-300 text-sm leading-relaxed mb-6">
             {STORE_LAUNCH.message}
           </p>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 mt-2">
             <a
-              href="#download"
-              onClick={dismiss}
+              href={androidHref}
               className="block bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-4 rounded-2xl transition"
             >
-              Download the app now
+              Download the app now (Android)
             </a>
+
+            <a
+              href={iosHref}
+              className="block bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold py-4 rounded-2xl transition"
+            >
+              Download the app now (iOS)
+            </a>
+
             <button
               type="button"
-              onClick={() => {
+              onClick={() =>
                 openWhatsAppBooking(
                   "Hi Cleenzo! I'm excited about your store opening on 16 June 2026. Please keep me updated!",
-                );
-                dismiss();
-              }}
+                )
+              }
               className="bg-[#25D366] hover:bg-[#1fb855] text-white font-bold py-4 rounded-2xl transition"
             >
               Notify me on WhatsApp
             </button>
-            <button
-              type="button"
-              onClick={dismiss}
-              className="text-slate-400 text-sm hover:text-white transition py-2"
-            >
-              Got it, thanks!
-            </button>
           </div>
+
+          <p className="text-slate-400 text-xs mt-4">
+            Access will open after launch date.
+          </p>
         </div>
       </div>
     </div>

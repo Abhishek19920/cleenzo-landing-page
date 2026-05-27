@@ -4,10 +4,24 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import StickyCTA from "./sections/StickyCTA";
 import LaunchPopup from "./sections/LaunchPopup";
+import { STORE_LAUNCH } from "./constants";
+
+function isBeforeLaunchDay() {
+  const [y, m, d] = STORE_LAUNCH.launchDate.split("-").map(Number);
+  const launch = new Date(y, m - 1, d);
+
+  const now = new Date();
+  const today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return today0 < launch;
+}
 
 function App() {
   const { pathname } = useLocation();
-  const isHome = pathname === "/";
+
+  if (isBeforeLaunchDay()) {
+    // Block the entire app until the launch date (including refreshes).
+    return <LaunchPopup />;
+  }
 
   return (
     <>
@@ -17,8 +31,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-      {isHome && <LaunchPopup />}
-      {isHome && <StickyCTA />}
+      {pathname === "/" && <StickyCTA />}
     </>
   );
 }
