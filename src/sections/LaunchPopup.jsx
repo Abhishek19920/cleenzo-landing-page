@@ -1,18 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { APP_LINKS, STORE_LAUNCH } from "../constants";
 import { openWhatsAppBooking } from "../whatsapp";
-
-function isBeforeLaunchDay() {
-  const [y, m, d] = STORE_LAUNCH.launchDate.split("-").map(Number);
-  const launch = new Date(y, m - 1, d);
-
-  const now = new Date();
-  const today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  return today0 < launch;
-}
+import { getLaunchCountdown, isBeforeLaunchDay } from "../launchGate";
 
 function LaunchPopup() {
   const before = isBeforeLaunchDay();
+  const [countdown, setCountdown] = useState(getLaunchCountdown);
 
   useEffect(() => {
     if (!before) return;
@@ -20,6 +13,12 @@ function LaunchPopup() {
     return () => {
       document.body.style.overflow = "";
     };
+  }, [before]);
+
+  useEffect(() => {
+    if (!before) return;
+    const timer = setInterval(() => setCountdown(getLaunchCountdown()), 60_000);
+    return () => clearInterval(timer);
   }, [before]);
 
   if (!before) return null;
@@ -51,6 +50,26 @@ function LaunchPopup() {
           <p className="text-4xl md:text-5xl font-black text-cyan-400 mb-4">
             {STORE_LAUNCH.dateDisplay}
           </p>
+
+          <div className="flex justify-center gap-3 mb-5">
+            {[
+              { value: countdown.days, label: "Days" },
+              { value: countdown.hours, label: "Hrs" },
+              { value: countdown.minutes, label: "Min" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="bg-white/10 border border-white/15 rounded-xl px-3 py-2 min-w-[64px]"
+              >
+                <p className="text-2xl font-black tabular-nums leading-none">
+                  {String(item.value).padStart(2, "0")}
+                </p>
+                <p className="text-[10px] uppercase tracking-wider text-slate-400 mt-1">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
 
           <p className="text-slate-300 text-sm leading-relaxed mb-6">
             {STORE_LAUNCH.message}

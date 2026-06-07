@@ -2,29 +2,29 @@ import { useLocation, Routes, Route } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import PageSEO from "./components/PageSEO";
 import StickyCTA from "./sections/StickyCTA";
 import LaunchPopup from "./sections/LaunchPopup";
-import { STORE_LAUNCH } from "./constants";
-
-function isBeforeLaunchDay() {
-  const [y, m, d] = STORE_LAUNCH.launchDate.split("-").map(Number);
-  const launch = new Date(y, m - 1, d);
-
-  const now = new Date();
-  const today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  return today0 < launch;
-}
+import { SchedulePickupProvider } from "./context/SchedulePickupContext";
+import { ENABLE_LAUNCH_GATE } from "./constants";
+import { isBeforeLaunchDay } from "./launchGate";
 
 function App() {
   const { pathname } = useLocation();
+  const showLaunchGate = ENABLE_LAUNCH_GATE && isBeforeLaunchDay();
 
-  if (isBeforeLaunchDay()) {
-    // Block the entire app until the launch date (including refreshes).
-    return <LaunchPopup />;
+  if (showLaunchGate) {
+    return (
+      <>
+        <PageSEO />
+        <LaunchPopup />
+      </>
+    );
   }
 
   return (
-    <>
+    <SchedulePickupProvider>
+      <PageSEO />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
@@ -32,7 +32,7 @@ function App() {
         </Route>
       </Routes>
       {pathname === "/" && <StickyCTA />}
-    </>
+    </SchedulePickupProvider>
   );
 }
 

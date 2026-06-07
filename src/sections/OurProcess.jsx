@@ -1,57 +1,43 @@
-const steps = [
-  {
-    step: "01",
-    title: "Download the app",
-    desc: "Get Cleenzo on your phone and place your laundry order in minutes.",
-    icon: "📱",
-  },
-  {
-    step: "02",
-    title: "We pick up",
-    desc: "Our partner collects your laundry from your doorstep.",
-    icon: "📦",
-  },
-  {
-    step: "03",
-    title: "Expert cleaning",
-    desc: "Wash, dry-clean, or iron — handled with premium care.",
-    icon: "🧺",
-  },
-  {
-    step: "04",
-    title: "Express delivery",
-    desc: "Fresh clothes back at your door — express delivery on every order, no exceptions.",
-    icon: "🚚",
-  },
-];
+import { DRY_CLEAN_PROCESS } from "../constants";
+import PlaceOrderCTA from "../components/PlaceOrderCTA";
 
 function OurProcess() {
   return (
-    <section id="process" className="bg-black text-white py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-cyan-400 uppercase tracking-widest font-bold text-sm mb-3">
-            Our process
-          </p>
-          <h2 className="text-4xl md:text-5xl font-black">4 easy steps</h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((item, i) => (
-            <div key={item.step} className="relative">
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent" />
-              )}
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 h-full">
-                <span className="text-5xl mb-4 block">{item.icon}</span>
-                <p className="text-cyan-400 font-black text-sm mb-2">{item.step}</p>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-              </div>
+    <section id="process" className="bg-[#fffdf5] text-slate-900 border-y border-amber-100">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-black text-orange-800 leading-tight mb-4">
+              6-step dry cleaning process built for quality
+            </h2>
+            <p className="text-slate-600 leading-relaxed mb-6">
+              From free pickup to express delivery, every Cleenzo order follows a
+              strict quality protocol — no shortcuts, premium fabric care every time.
+            </p>
+            <div className="rounded-2xl bg-gradient-to-br from-slate-200 to-slate-300 h-48 md:h-64 flex items-center justify-center text-6xl">
+              🧺
             </div>
-          ))}
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {DRY_CLEAN_PROCESS.map((item, i) => (
+              <div
+                key={item.title}
+                className="bg-white border border-amber-100 rounded-2xl p-5 shadow-sm relative"
+              >
+                <span className="absolute -top-2 -left-2 w-7 h-7 bg-orange-500 text-white text-xs font-black rounded-full flex items-center justify-center">
+                  {i + 1}
+                </span>
+                <span className="text-2xl block mb-2">{item.icon}</span>
+                <h3 className="font-bold text-orange-900 text-sm mb-1">{item.title}</h3>
+                <p className="text-slate-600 text-xs leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      <PlaceOrderCTA variant="cream" />
     </section>
   );
 }

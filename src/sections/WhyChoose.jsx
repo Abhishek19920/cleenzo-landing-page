@@ -1,65 +1,40 @@
-const reasons = [
-  {
-    icon: "💬",
-    title: "WhatsApp support",
-    desc: "Questions or help? Message us anytime on WhatsApp.",
-  },
-  {
-    icon: "🚚",
-    title: "Doorstep pickup & delivery",
-    desc: "We collect and return fresh laundry at your home.",
-  },
-  {
-    icon: "📱",
-    title: "All in one app",
-    desc: "Download Cleenzo to place orders and get updates in one place.",
-  },
-  {
-    icon: "✨",
-    title: "Premium garment care",
-    desc: "Fabric-safe cleaning for everyday wear and delicate items.",
-  },
-  {
-    icon: "⚡",
-    title: "Express delivery — always",
-    desc: "Our USP: every order gets fast turnaround and express doorstep delivery.",
-  },
-  {
-    icon: "🎁",
-    title: "Rewards & offers",
-    desc: "First-order discounts and loyalty perks for regular customers.",
-  },
-];
+import { WHY_CLEENZO_USP } from "../constants";
+import PlaceOrderCTA from "../components/PlaceOrderCTA";
 
 function WhyChoose() {
   return (
-    <section id="why" className="bg-slate-950 text-white py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-cyan-400 uppercase tracking-widest font-bold text-sm mb-3">
-            Why Cleenzo
-          </p>
-          <h2 className="text-4xl md:text-5xl font-black">
-            Laundry made simple & smart
-          </h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
-            Built for busy people who want quality cleaning without the hassle.
-          </p>
+    <section id="why" className="bg-[#fffdf5] border-t border-amber-100">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-20 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="rounded-2xl bg-gradient-to-br from-slate-300 to-slate-400 h-56 md:h-80 flex items-center justify-center text-7xl shadow-inner">
+          🏭
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reasons.map((item) => (
-            <div
-              key={item.title}
-              className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition"
-            >
-              <span className="text-4xl mb-4 block">{item.icon}</span>
-              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-              <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+        <div>
+          <h2 className="text-3xl md:text-4xl font-black text-orange-800 leading-tight mb-4">
+            What makes Cleenzo laundry service the best choice
+          </h2>
+          <p className="text-slate-600 mb-8 leading-relaxed">
+            Looking for the best laundry & dry cleaners near you? Cleenzo delivers
+            express pickup, premium cleaning & reliable doorstep delivery every order.
+          </p>
+
+          <ul className="space-y-5">
+            {WHY_CLEENZO_USP.map((item) => (
+              <li key={item.title} className="flex gap-3">
+                <span className="shrink-0 w-6 h-6 rounded bg-teal-600 text-white flex items-center justify-center text-sm font-bold">
+                  ✓
+                </span>
+                <div>
+                  <h3 className="font-bold text-slate-900">{item.title}</h3>
+                  <p className="text-slate-600 text-sm mt-0.5">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+
+      <PlaceOrderCTA variant="white" />
     </section>
   );
 }

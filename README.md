@@ -25,4 +25,10 @@ npm start
 
 ## Configure
 
-Edit `src/constants.js` for phone number, discount, and store links.
+Edit `src/constants.js` for phone number, offers, services, and store links.
+
+## Local dev (skip launch gate)
+
+`.env.development` sets `REACT_APP_DISABLE_LAUNCH_GATE=true` so you can work inside the app before 16 June 2026.
+
+Restart `npm start` after changing env files. For production builds, the launch gate stays enabled unless you set that variable.
