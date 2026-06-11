@@ -3,7 +3,7 @@ export const WHATSAPP_NUMBER = "919711924411";
 export const WHATSAPP_BOOKING_MESSAGE =
   "Hi Cleenzo! I'd like to book a laundry pickup. Please share available slots.";
 
-export const PHONE_DISPLAY = "+91 97119 24411";
+export const PHONE_DISPLAY = "+91 99992 25311";
 
 export const PHONE_TEL = "+919711924411";
 
@@ -33,6 +33,21 @@ export const APP_LINKS = {
   android: "#",
   ios: "#",
 };
+
+export const SOCIAL_LINKS = [
+  {
+    id: "instagram",
+    label: "Instagram",
+    handle: "@CLEENZO_OFFICIAL",
+    href: "https://www.instagram.com/cleenzo_official/",
+  },
+  {
+    id: "youtube",
+    label: "YouTube",
+    handle: "Cleenzo",
+    href: "https://www.youtube.com/@CLEENZO_OFFICIAL",
+  },
+];
 
 export const USP = {
   badge: "Our promise",
@@ -104,6 +119,11 @@ export const FABRIC_SERVICES = [
   },
 ];
 
+export const APP_PROMO_HEADLINE = {
+  title: "Fresh clothes, one tap away",
+  accent: "laundry & dry cleaning near you",
+};
+
 export const APP_PROMO_STEPS = [
   { icon: "📅", label: "Schedule free pickup" },
   { icon: "📍", label: "Track your order" },
@@ -143,37 +163,63 @@ export const DRY_CLEAN_PROCESS = [
   },
 ];
 
+export const WHY_CLEENZO = {
+  headline: "What makes Cleenzo laundry service the best choice",
+  subtext:
+    "Premium quality service, safe & hygienic cleaning, and on-time express delivery — grand store opening 16 June 2026 at Raj Nagar, Ghaziabad.",
+  imageAlt:
+    "Cleenzo grand store opening 16 June 2026 — 24 hour laundry and dry cleaning with launch offers in Ghaziabad",
+  badge: "Grand opening · 16 June 2026",
+};
+
 export const WHY_CLEENZO_USP = [
   {
-    title: "Eco-friendly solvents",
-    desc: "Safe, fabric-friendly cleaning for your family.",
+    title: "Trained professionals",
+    desc: "Skilled team for laundry, dry clean & delicate garment care.",
+    icon: "👥",
   },
   {
-    title: "Advanced fabric care",
-    desc: "Colour-safe tech for shrink & bleed protection.",
+    title: "Premium quality",
+    desc: "Imported fabric-safe chemicals with strict quality checks.",
+    icon: "✅",
   },
   {
-    title: "Stain removal expertise",
-    desc: "Tough stains treated with professional methods.",
+    title: "Advanced machines",
+    desc: "Modern equipment for deep clean, steam iron & dry cleaning.",
+    icon: "⚙️",
   },
   {
-    title: "Hygiene-first handling",
-    desc: "Clean processes from pickup to packed delivery.",
+    title: "On-time delivery",
+    desc: "Express pickup & doorstep return — clean clothes, happy you.",
+    icon: "🚚",
   },
 ];
 
 export const OFFERS = {
-  headline: "Offers that save more",
+  badge: "Grand launch offer",
+  headline: "Premium care. Unbelievable offers.",
+  tagline: "Clean clothes, happy you",
+  subtext:
+    "Exclusive launch deals on dry clean, laundry & doorstep service — better savings than flat discounts.",
+  terms: "*T&C apply",
   items: [
-    { icon: "👕", title: "WASH 5 CLOTHES", price: "@ ₹299", highlight: true },
-    { icon: "👟", title: "FREE SHOE CLEANING", price: "On orders above ₹999" },
-    { icon: "🧺", title: "FIRST ORDER", price: "Starting @ ₹99" },
-    { icon: "🚚", title: "Free Pickup & Delivery", price: "On every order" },
+    { icon: "🧥", title: "Dry Clean", price: "Starts @ ₹49", highlight: true },
+    { icon: "⭐", title: "Flat 51% OFF", price: "On select garments" },
+    { icon: "👔", title: "5 Dry Clean", price: "@ ₹199" },
+    { icon: "🏷️", title: "Flat 25% OFF", price: "On orders above ₹499" },
+    { icon: "📅", title: "Monthly Laundry Plan", price: "@ ₹999" },
+    {
+      icon: "🛵",
+      title: "FREE Pickup & Delivery",
+      price: "Save time, we care!",
+      highlight: true,
+    },
   ],
   benefits: [
-    "Premium Laundry & Dry Cleaning",
-    "Shoe & Bag Cleaning",
-    "Imported Fabric Care Chemicals",
+    "Trained professionals",
+    "Premium quality",
+    "Advanced machines",
+    "On-time delivery",
   ],
 };
 
@@ -182,25 +228,33 @@ export const CAROUSEL_BANNERS = [
     id: "hero",
     theme: "light",
     badge: "⚡ Express delivery on every order",
-    title: "Fresh clothes, one tap away",
-    titleAccent: "laundry & dry cleaning near you",
-    subtitle: "Free pickup • Premium fabric care • Track orders in the Cleenzo app",
+    title: APP_PROMO_HEADLINE.title,
+    titleAccent: APP_PROMO_HEADLINE.accent,
+    subtitle:
+      "Free pickup • Premium fabric care • Track orders in the Cleenzo app",
     primaryCta: { label: "Schedule free pickup", action: "schedule" },
     secondaryCta: { label: "Download app", action: "link", href: "#download" },
-    visual: { emoji: "📱", title: "Cleenzo", tagline: "Book · Track · Delivered" },
+    visual: {
+      emoji: "📱",
+      title: "Cleenzo",
+      tagline: "Book · Track · Delivered",
+    },
   },
   {
     id: "offers",
     theme: "warm",
-    badge: "🔥 Hot deals — better than flat discount",
-    title: "Offers that save more",
-    subtitle: "Book laundry pickup today & unlock exclusive Cleenzo deals",
-    primaryCta: { label: "Schedule free pickup", action: "schedule" },
-    secondaryCta: { label: "Chat on WhatsApp", action: "whatsapp" },
-    highlightOffer: { icon: "👕", title: "WASH 5 CLOTHES", price: "@ ₹299" },
+    badge: "🎉 Grand launch offer",
+    title: "Premium care.",
+    titleAccent: "Unbelievable offers.",
+    subtitle:
+      "Dry clean from ₹49 · 51% off select garments · free pickup & delivery",
+    primaryCta: { label: "Book now on WhatsApp", action: "whatsapp" },
+    secondaryCta: { label: "Schedule free pickup", action: "schedule" },
+    highlightOffer: { icon: "🧥", title: "Dry Clean", price: "Starts @ ₹49" },
     miniOffers: [
-      { icon: "👟", text: "Free shoe cleaning above ₹999" },
-      { icon: "🧺", text: "First order from ₹99" },
+      { icon: "👔", text: "5 Dry Clean @ ₹199" },
+      { icon: "🏷️", text: "25% OFF above ₹499" },
+      { icon: "📅", text: "Monthly plan @ ₹999" },
     ],
   },
   {
@@ -209,10 +263,18 @@ export const CAROUSEL_BANNERS = [
     badge: "🧺 Professional home & wardrobe care",
     title: "Laundry · Dry clean · Sofa & carpet",
     subtitle: "Steam iron, shoe cleaning & imported fabric-safe chemicals",
-    primaryCta: { label: "Explore services", action: "link", href: "#services" },
+    primaryCta: {
+      label: "Explore services",
+      action: "link",
+      href: "#services",
+    },
     secondaryCta: { label: "Get a quote", action: "whatsapp" },
     serviceTags: ["Laundry", "Dry clean", "Sofa", "Carpet", "Steam iron"],
-    visual: { emoji: "✨", title: "Premium care", tagline: "Every fabric, every garment" },
+    visual: {
+      emoji: "✨",
+      title: "Premium care",
+      tagline: "Every fabric, every garment",
+    },
   },
 ];
 

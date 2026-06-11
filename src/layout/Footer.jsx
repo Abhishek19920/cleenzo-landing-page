@@ -1,4 +1,5 @@
 import logo from "../assets/image/cleenzo-logo.png";
+import SocialLinks from "../components/SocialLinks";
 import {
   PHONE_DISPLAY,
   PHONE_TEL,
@@ -22,7 +23,13 @@ function Footer() {
               className="w-40 md:w-48 h-auto object-contain bg-white rounded-xl px-3 py-2"
             />
           </a>
-          <p className="text-slate-400 text-sm">Premium laundry · Express delivery</p>
+          <p className="text-slate-400 text-sm mb-4">Premium laundry · Express delivery</p>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+              Follow us
+            </p>
+            <SocialLinks className="justify-center md:justify-start" />
+          </div>
         </div>
 
         <div>

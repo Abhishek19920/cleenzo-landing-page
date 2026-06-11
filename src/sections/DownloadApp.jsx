@@ -16,7 +16,7 @@ function DownloadApp() {
             Schedule pickup, track express laundry delivery & get offers — best
             dry cleaning app for busy homes in your city.
           </p>
-          <AppStoreButtons variant="light" />
+          <AppStoreButtons variant="onDark" />
         </div>
 
         <div className="flex justify-center">

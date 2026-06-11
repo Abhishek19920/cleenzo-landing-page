@@ -98,7 +98,7 @@ function StoreOpeningSection() {
           </p>
 
           <div className="flex justify-center mb-6">
-            <AppStoreButtons variant="light" />
+            <AppStoreButtons variant="onDark" />
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
