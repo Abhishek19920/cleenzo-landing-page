@@ -1,4 +1,4 @@
-import { APP_PROMO_STEPS } from "../constants";
+import { APP_PROMO_HEADLINE, APP_PROMO_STEPS } from "../constants";
 import AppStoreButtons from "./AppStoreButtons";
 import PlaceOrderCTA from "../components/PlaceOrderCTA";
 
@@ -7,8 +7,11 @@ function AppPromoBanner() {
     <section className="bg-white border-b border-orange-200">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <h2 className="text-center text-2xl md:text-4xl font-bold text-slate-900 max-w-3xl mx-auto leading-snug">
-          Fresh clothes, one tap away —{" "}
-          <span className="text-orange-600">laundry & dry cleaning near you</span>
+          {APP_PROMO_HEADLINE.title}
+          <span className="hidden sm:inline"> — </span>
+          <span className="block sm:inline text-orange-600 mt-1 sm:mt-0">
+            {APP_PROMO_HEADLINE.accent}
+          </span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-10 mb-12">
@@ -35,7 +38,7 @@ function AppPromoBanner() {
             Book laundry pickup, track express delivery & pay online with Cleenzo.
           </p>
           <div className="flex justify-center">
-            <AppStoreButtons />
+            <AppStoreButtons variant="onLight" />
           </div>
         </div>
       </div>

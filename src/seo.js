@@ -1,6 +1,7 @@
 import {
   PHONE_DISPLAY,
   PHONE_TEL,
+  SOCIAL_LINKS,
   STORE_ADDRESS,
   STORE_ADDRESS_LINES,
 } from "./constants";
@@ -91,7 +92,7 @@ export function getLocalBusinessJsonLd() {
       opens: "09:00",
       closes: "21:00",
     },
-    sameAs: [`https://wa.me/919711924411`],
+    sameAs: [`https://wa.me/919711924411`, ...SOCIAL_LINKS.map((s) => s.href)],
   };
 }
 

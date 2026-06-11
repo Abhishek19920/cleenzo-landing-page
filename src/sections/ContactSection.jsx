@@ -1,3 +1,4 @@
+import SocialLinks from "../components/SocialLinks";
 import { PHONE_DISPLAY, PHONE_TEL, STORE_ADDRESS, STORE_MAPS_URL } from "../constants";
 import { openWhatsAppBooking } from "../whatsapp";
 
@@ -50,6 +51,13 @@ function ContactSection() {
             <p className="text-slate-600 text-sm">{PHONE_DISPLAY}</p>
             <p className="text-[#25D366] text-xs font-semibold mt-3">Chat with us →</p>
           </button>
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">
+            Follow us on social media
+          </p>
+          <SocialLinks className="justify-center" showLabels />
         </div>
       </div>
     </section>
