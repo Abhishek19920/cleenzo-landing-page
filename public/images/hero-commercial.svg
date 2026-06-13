@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Premium hotel bed linen, towels and staff uniforms">
+  <defs>
+    <linearGradient id="hero-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fb"/>
+      <stop offset="100%" stop-color="#c5d9f5"/>
+    </linearGradient>
+    <linearGradient id="hero-blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A3D91"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </linearGradient>
+    <filter id="hero-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0A3D91" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="800" height="560" fill="url(#hero-bg)" rx="24"/>
+  <g filter="url(#hero-shadow)">
+    <rect x="56" y="56" width="688" height="448" rx="20" fill="#ffffff"/>
+    <rect x="96" y="108" width="300" height="188" rx="14" fill="#f1f5f9"/>
+    <rect x="96" y="108" width="300" height="52" rx="14" fill="url(#hero-blue)"/>
+    <rect x="432" y="108" width="280" height="188" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="460" y="136" width="224" height="28" rx="8" fill="#e0f2fe"/>
+    <rect x="460" y="172" width="224" height="28" rx="8" fill="#dbeafe"/>
+    <rect x="460" y="208" width="224" height="28" rx="8" fill="#bfdbfe"/>
+    <rect x="96" y="332" width="616" height="140" rx="14" fill="#f8fafc"/>
+    <text x="480" y="392" fill="#0A3D91" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Hotel Linen and Uniforms</text>
+  </g>
+</svg>

@@ -1,0 +1,319 @@
+/* Commercial hero — full-width banner with photo on the right */
+
+.commercial-hero-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.commercial-hero-banner {
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4fc 45%, #e3edf9 100%);
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.commercial-hero-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.75rem clamp(1rem, 4vw, 3rem) 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .commercial-hero-main {
+    gap: 2rem;
+    padding: 2rem clamp(1.25rem, 4vw, 3rem) 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .commercial-hero-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    min-height: 32rem;
+    padding: 0;
+  }
+}
+
+.commercial-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  order: 1;
+}
+
+@media (min-width: 1024px) {
+  .commercial-hero-copy {
+    padding: 3rem clamp(2rem, 4vw, 4rem) 3rem clamp(1.5rem, 5vw, 5rem);
+  }
+}
+
+.commercial-hero-title {
+  font-size: clamp(1.5rem, 5vw, 2.75rem);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  line-height: 1.12;
+  color: #0a3d91;
+  text-transform: uppercase;
+}
+
+.commercial-hero-subtitle {
+  margin-top: 0.75rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.55;
+  max-width: 38rem;
+}
+
+.commercial-hero-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .commercial-hero-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.commercial-hero-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.65rem 0.75rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+.commercial-hero-feature-icon {
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(145deg, #0a3d91, #1565c0);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+
+.commercial-hero-feature-text {
+  font-size: clamp(0.58rem, 2vw, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1e293b;
+  line-height: 1.35;
+}
+
+.commercial-hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .commercial-hero-ctas {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.commercial-hero-btn-primary,
+.commercial-hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.15rem;
+  border-radius: 0.65rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .commercial-hero-btn-primary,
+  .commercial-hero-btn-secondary {
+    width: auto;
+    padding: 0.9rem 1.35rem;
+  }
+}
+
+.commercial-hero-btn-primary {
+  background: #0a3d91;
+  color: white;
+  border: none;
+  box-shadow: 0 8px 20px rgba(10, 61, 145, 0.25);
+}
+
+.commercial-hero-btn-primary:hover {
+  background: #072d6b;
+  transform: translateY(-1px);
+}
+
+.commercial-hero-btn-secondary {
+  background: white;
+  color: #0a3d91;
+  border: 2px solid #0a3d91;
+}
+
+.commercial-hero-btn-secondary:hover {
+  background: #f0f6ff;
+  transform: translateY(-1px);
+}
+
+.commercial-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #cbd5e1;
+}
+
+.commercial-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  font-weight: 700;
+  color: #475569;
+}
+
+.commercial-hero-trust-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #15803d;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* Right-side photo */
+.commercial-hero-visual {
+  position: relative;
+  order: 2;
+  width: 100%;
+  min-height: 220px;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  background: #dbeafe;
+  box-shadow: 0 12px 40px rgba(10, 61, 145, 0.12);
+}
+
+@media (min-width: 640px) {
+  .commercial-hero-visual {
+    min-height: 280px;
+    border-radius: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .commercial-hero-visual {
+    order: 2;
+    min-height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+  }
+}
+
+.commercial-hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (min-width: 640px) {
+  .commercial-hero-image {
+    min-height: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .commercial-hero-image {
+    position: absolute;
+    inset: 0;
+    min-height: 100%;
+    object-position: 60% center;
+  }
+}
+
+/* Bottom industry strip */
+.commercial-hero-industries {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  background: #0a3d91;
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .commercial-hero-industries {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .commercial-hero-industries {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.commercial-hero-industry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 1024px) {
+  .commercial-hero-industry {
+    padding: 1rem 0.75rem;
+    border-bottom: none;
+  }
+
+  .commercial-hero-industry:last-child {
+    border-right: none;
+  }
+}
+
+.commercial-hero-industry-icon {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1;
+}
+
+.commercial-hero-industry-label {
+  font-size: clamp(0.52rem, 2vw, 0.65rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.25;
+  opacity: 0.95;
+}

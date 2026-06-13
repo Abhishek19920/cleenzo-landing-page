@@ -1,4 +1,5 @@
 import { APP_LINKS } from "../constants";
+import { isAppDownloadAvailable, useAppDownload } from "../context/AppDownloadContext";
 
 function AppleIcon({ className = "w-7 h-7" }) {
   return (
@@ -11,22 +12,10 @@ function AppleIcon({ className = "w-7 h-7" }) {
 function GooglePlayIcon({ className = "w-7 h-7" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        fill="#EA4335"
-        d="M3.609 1.814 13.792 12 3.61 22.186a1.203 1.203 0 0 1-.805-1.13V2.944a1.203 1.203 0 0 1 .804-1.13z"
-      />
-      <path
-        fill="#FBBC04"
-        d="M16.548 15.326 5.303 23.23l8.49-8.49 2.755 2.586z"
-      />
-      <path
-        fill="#34A853"
-        d="M3.61 1.814 16.548 8.674l-2.755 2.586L5.303.77z"
-      />
-      <path
-        fill="#4285F4"
-        d="M16.548 15.326 5.303 23.23l11.245-7.904a1.203 1.203 0 0 0 0-1.952z"
-      />
+      <path fill="#EA4335" d="M3.609 1.814 13.792 12 3.61 22.186a1.203 1.203 0 0 1-.805-1.13V2.944a1.203 1.203 0 0 1 .804-1.13z" />
+      <path fill="#FBBC04" d="M16.548 15.326 5.303 23.23l8.49-8.49 2.755 2.586z" />
+      <path fill="#34A853" d="M3.61 1.814 16.548 8.674l-2.755 2.586L5.303.77z" />
+      <path fill="#4285F4" d="M16.548 15.326 5.303 23.23l11.245-7.904a1.203 1.203 0 0 0 0-1.952z" />
     </svg>
   );
 }
@@ -44,35 +33,55 @@ const variants = {
   },
 };
 
-function storeHref(link) {
-  return link === "#" ? "#download" : link;
-}
-
-function AppStoreButtons({ className = "", variant = "onLight" }) {
+function StoreButton({ platform, variant, onAppClick }) {
   const styles = variants[variant] || variants.onLight;
+  const isLive = isAppDownloadAvailable();
+  const href = platform === "android" ? APP_LINKS.android : APP_LINKS.ios;
+  const className = `inline-flex items-center justify-center gap-3 font-bold px-6 py-3.5 rounded-2xl transition min-w-[200px] w-full sm:w-auto ${
+    platform === "android" ? styles.android : styles.ios
+  }`;
 
-  return (
-    <div className={`flex flex-col sm:flex-row gap-3 ${className}`}>
-      <a
-        href={storeHref(APP_LINKS.android)}
-        className={`inline-flex items-center justify-center gap-3 font-bold px-6 py-3.5 rounded-2xl transition min-w-[200px] ${styles.android}`}
-      >
+  const content =
+    platform === "android" ? (
+      <>
         <GooglePlayIcon />
         <span className="text-left leading-tight">
           <span className="block text-[10px] font-normal opacity-80">Get it on</span>
           Google Play
         </span>
-      </a>
-      <a
-        href={storeHref(APP_LINKS.ios)}
-        className={`inline-flex items-center justify-center gap-3 font-bold px-6 py-3.5 rounded-2xl transition min-w-[200px] ${styles.ios}`}
-      >
+      </>
+    ) : (
+      <>
         <AppleIcon className={`w-7 h-7 shrink-0 ${styles.iosIcon}`} />
         <span className="text-left leading-tight">
           <span className="block text-[10px] font-normal opacity-80">Download on the</span>
           App Store
         </span>
-      </a>
+      </>
+    );
+
+  if (!isLive) {
+    return (
+      <button type="button" onClick={onAppClick} className={className}>
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      {content}
+    </a>
+  );
+}
+
+function AppStoreButtons({ className = "", variant = "onLight" }) {
+  const { openAppDownload } = useAppDownload();
+
+  return (
+    <div className={`flex flex-col sm:flex-row gap-3 ${className}`}>
+      <StoreButton platform="android" variant={variant} onAppClick={openAppDownload} />
+      <StoreButton platform="ios" variant={variant} onAppClick={openAppDownload} />
     </div>
   );
 }

@@ -1,6 +1,9 @@
+/** PRE_LAUNCH_CLEANUP — remove entire file after store is live */
 import { useEffect, useState } from "react";
-import { APP_LINKS, PHONE_DISPLAY, PHONE_TEL, STORE_ADDRESS_LINES, STORE_MAPS_URL, STORE_LAUNCH } from "../constants";
-import { getLaunchCountdown, isBeforeLaunchDay } from "../launchGate";
+import { PHONE_DISPLAY, PHONE_TEL, STORE_ADDRESS_LINES, STORE_MAPS_URL, STORE_LAUNCH } from "../constants";
+import { useAppDownload } from "../context/AppDownloadContext";
+import { getLaunchCountdown } from "../launchGate";
+import { getStoreOpeningWhatsAppMessage, showPreLaunchUI } from "../preLaunch";
 import { openWhatsAppBooking } from "../whatsapp";
 import AppStoreButtons from "./AppStoreButtons";
 
@@ -12,7 +15,7 @@ function CountdownUnit({ value, label }) {
           {String(value).padStart(2, "0")}
         </p>
       </div>
-      <p className="mt-2 text-xs md:text-sm font-semibold uppercase tracking-wider text-cyan-100">
+      <p className="mt-2 text-xs md:text-sm font-semibold uppercase tracking-wider text-cleenzo-sky">
         {label}
       </p>
     </div>
@@ -21,27 +24,28 @@ function CountdownUnit({ value, label }) {
 
 function StoreOpeningSection() {
   const [countdown, setCountdown] = useState(getLaunchCountdown);
+  const { openAppDownload } = useAppDownload();
 
   useEffect(() => {
     const timer = setInterval(() => setCountdown(getLaunchCountdown()), 60_000);
     return () => clearInterval(timer);
   }, []);
 
-  if (!isBeforeLaunchDay()) return null;
+  if (!showPreLaunchUI()) return null;
 
   return (
     <section
       id="opening"
-      className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-teal-950 to-cyan-950 text-white"
+      className="relative overflow-hidden bg-gradient-to-br from-cleenzo-deeper via-cleenzo-deep to-cleenzo text-white"
     >
       <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-cyan-400 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-teal-400 blur-3xl" />
+        <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-cleenzo-sky/30 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-cleenzo/30 blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-widest text-cyan-200 mb-6">
+          <p className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-widest text-cleenzo-sky mb-6">
             <span aria-hidden="true">📅</span>
             {STORE_LAUNCH.label}
           </p>
@@ -50,7 +54,7 @@ function StoreOpeningSection() {
             {STORE_LAUNCH.headline}
           </h2>
 
-          <p className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-emerald-300 mb-5">
+          <p className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cleenzo-sky to-white mb-5">
             {STORE_LAUNCH.dateDisplay}
           </p>
 
@@ -59,7 +63,7 @@ function StoreOpeningSection() {
           </p>
 
           <div className="inline-block text-left bg-white/5 border border-white/10 rounded-2xl px-5 py-4 mb-10 max-w-md mx-auto">
-            <p className="text-xs font-bold uppercase tracking-widest text-cyan-200 mb-2">
+            <p className="text-xs font-bold uppercase tracking-widest text-cleenzo-sky mb-2">
               Store location
             </p>
             <a
@@ -74,7 +78,7 @@ function StoreOpeningSection() {
                 </span>
               ))}
             </a>
-            <p className="text-sm text-cyan-100 mt-3">
+            <p className="text-sm text-cleenzo-pale mt-3">
               WhatsApp / Call:{" "}
               <a href={`tel:${PHONE_TEL}`} className="font-bold hover:underline">
                 {PHONE_DISPLAY}
@@ -90,7 +94,7 @@ function StoreOpeningSection() {
         </div>
 
         <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 text-center backdrop-blur-sm">
-          <p className="text-sm font-semibold text-cyan-200 mb-2">
+          <p className="text-sm font-semibold text-cleenzo-sky mb-2">
             Be ready before we go live
           </p>
           <p className="text-lg md:text-xl font-bold mb-6">
@@ -104,21 +108,18 @@ function StoreOpeningSection() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               type="button"
-              onClick={() =>
-                openWhatsAppBooking(
-                  "Hi Cleenzo! I'm excited about your store opening on 16 June 2026. Please keep me updated!",
-                )
-              }
+              onClick={() => openWhatsAppBooking(getStoreOpeningWhatsAppMessage())}
               className="bg-[#25D366] hover:bg-[#1fb855] text-white font-bold py-3.5 px-6 rounded-full transition"
             >
               Notify me on WhatsApp
             </button>
-            <a
-              href={APP_LINKS.android === "#" ? "#download" : APP_LINKS.android}
-              className="bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-bold py-3.5 px-6 rounded-full transition"
+            <button
+              type="button"
+              onClick={openAppDownload}
+              className="bg-white hover:bg-cleenzo-pale text-cleenzo font-bold py-3.5 px-6 rounded-full transition"
             >
-              Download the app
-            </a>
+              Get the app
+            </button>
           </div>
         </div>
       </div>

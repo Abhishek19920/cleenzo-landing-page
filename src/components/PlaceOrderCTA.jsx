@@ -3,7 +3,7 @@ import { openWhatsAppBooking } from "../whatsapp";
 
 const variants = {
   light: "bg-slate-100 text-slate-800",
-  cream: "bg-amber-50/80 text-slate-800",
+  cream: "bg-cleenzo-pale/80 text-slate-800",
   dark: "bg-slate-900/40 text-white",
   white: "bg-white text-slate-800 border-t border-slate-200",
 };
@@ -33,7 +33,7 @@ function PlaceOrderCTA({ title = "To place your order", variant = "light", class
         <button
           type="button"
           onClick={openSchedulePickup}
-          className="flex-1 bg-lime-500 hover:bg-lime-600 text-white font-bold py-4 px-6 rounded-full transition shadow-md"
+          className="flex-1 bg-cleenzo hover:bg-cleenzo-dark text-white font-bold py-4 px-6 rounded-full transition shadow-md"
         >
           Schedule free pickup
         </button>

@@ -52,7 +52,7 @@ Address: ${address}`;
         className="w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 py-5 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-cleenzo-deep to-cleenzo text-white px-6 py-5 flex items-center justify-between">
           <div>
             <p className="text-xs uppercase tracking-widest opacity-90">Free doorstep service</p>
             <h2 id="pickup-modal-title" className="text-xl font-black">
@@ -81,7 +81,7 @@ Address: ${address}`;
               value={form.name}
               onChange={handleChange}
               placeholder="Your name"
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cleenzo/40"
               autoComplete="name"
             />
           </div>
@@ -97,7 +97,7 @@ Address: ${address}`;
               value={form.phone}
               onChange={handleChange}
               placeholder="10-digit mobile"
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cleenzo/40"
               autoComplete="tel"
             />
           </div>
@@ -113,7 +113,7 @@ Address: ${address}`;
               onChange={handleChange}
               placeholder="House no., street, area, city"
               rows={3}
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cleenzo/40 resize-none"
               autoComplete="street-address"
             />
           </div>
@@ -122,7 +122,7 @@ Address: ${address}`;
 
           <button
             type="submit"
-            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-2xl transition"
+            className="w-full bg-cleenzo hover:bg-cleenzo-dark text-white font-bold py-4 rounded-2xl transition"
           >
             Confirm pickup on WhatsApp
           </button>

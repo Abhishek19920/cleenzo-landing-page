@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/image/cleenzo-logo.png";
 import SocialLinks from "../components/SocialLinks";
+import { useAppDownload } from "../context/AppDownloadContext";
 import {
   PHONE_DISPLAY,
   PHONE_TEL,
@@ -11,6 +13,7 @@ import { openWhatsAppBooking } from "../whatsapp";
 function Footer() {
   const telHref = `tel:${PHONE_TEL}`;
   const mapsHref = STORE_MAPS_URL;
+  const { openAppDownload } = useAppDownload();
 
   return (
     <footer className="bg-black text-white py-12 px-6 pb-28 md:pb-12">
@@ -51,9 +54,19 @@ function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 text-sm md:items-end">
-          <a href="#download" className="text-cyan-400 font-semibold hover:underline">
-            Download the app now
-          </a>
+          <Link
+            to="/commercial-laundry"
+            className="text-cleenzo-sky font-semibold hover:underline text-left"
+          >
+            Commercial laundry solutions
+          </Link>
+          <button
+            type="button"
+            onClick={openAppDownload}
+            className="text-cleenzo-sky font-semibold hover:underline text-left"
+          >
+            Get the Cleenzo app
+          </button>
           <button
             type="button"
             onClick={() => openWhatsAppBooking()}

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Premium hotel bed linen, towels and staff uniforms">
+  <defs>
+    <linearGradient id="hero-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fb"/>
+      <stop offset="100%" stop-color="#c5d9f5"/>
+    </linearGradient>
+    <linearGradient id="hero-blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A3D91"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </linearGradient>
+    <filter id="hero-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0A3D91" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="560" fill="url(#hero-bg)" rx="24"/>
+
+  <g filter="url(#hero-shadow)">
+    <rect x="56" y="56" width="688" height="448" rx="20" fill="#ffffff"/>
+
+    <!-- Hotel bed -->
+    <rect x="96" y="108" width="300" height="188" rx="14" fill="#f1f5f9"/>
+    <rect x="96" y="108" width="300" height="52" rx="14" fill="url(#hero-blue)"/>
+    <rect x="116" y="176" width="260" height="18" rx="6" fill="#dbeafe"/>
+    <rect x="116" y="204" width="220" height="12" rx="4" fill="#e2e8f0"/>
+    <rect x="116" y="226" width="180" height="12" rx="4" fill="#e2e8f0"/>
+    <rect x="116" y="256" width="110" height="28" rx="8" fill="#0A3D91" opacity="0.12"/>
+    <rect x="330" y="248" width="48" height="48" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="338" y="256" width="32" height="32" rx="6" fill="#bfdbfe"/>
+
+    <!-- Towels stack -->
+    <rect x="432" y="108" width="280" height="188" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="460" y="136" width="224" height="28" rx="8" fill="#e0f2fe"/>
+    <rect x="460" y="172" width="224" height="28" rx="8" fill="#dbeafe"/>
+    <rect x="460" y="208" width="224" height="28" rx="8" fill="#bfdbfe"/>
+    <rect x="460" y="244" width="224" height="28" rx="8" fill="#93c5fd"/>
+    <circle cx="572" cy="152" r="6" fill="#0A3D91" opacity="0.35"/>
+    <circle cx="592" cy="188" r="6" fill="#0A3D91" opacity="0.35"/>
+    <circle cx="552" cy="224" r="6" fill="#0A3D91" opacity="0.35"/>
+
+    <!-- Uniforms row -->
+    <rect x="96" y="332" width="616" height="140" rx="14" fill="#f8fafc"/>
+    <rect x="120" y="356" width="96" height="92" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M136 368 h64 l-8 20 h-48 z" fill="#0A3D91" opacity="0.85"/>
+    <rect x="144" y="404" width="48" height="36" rx="4" fill="#1e3a8a" opacity="0.75"/>
+
+    <rect x="236" y="356" width="96" height="92" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M252 368 h64 l-8 20 h-48 z" fill="#334155" opacity="0.85"/>
+    <rect x="260" y="404" width="48" height="36" rx="4" fill="#475569" opacity="0.75"/>
+
+    <rect x="352" y="356" width="96" height="92" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M368 368 h64 l-8 20 h-48 z" fill="#ffffff" stroke="#0A3D91" stroke-width="3"/>
+    <rect x="376" y="404" width="48" height="36" rx="4" fill="#0A3D91" opacity="0.2"/>
+
+    <text x="480" y="392" fill="#0A3D91" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Staff Uniforms</text>
+    <text x="480" y="420" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Chef coats · Aprons · Jackets</text>
+
+    <circle cx="680" cy="404" r="30" fill="#0A3D91" opacity="0.1"/>
+    <path d="M668 404 l8 8 16-16" stroke="#0A3D91" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

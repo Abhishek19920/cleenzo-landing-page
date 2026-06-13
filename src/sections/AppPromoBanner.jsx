@@ -4,12 +4,12 @@ import PlaceOrderCTA from "../components/PlaceOrderCTA";
 
 function AppPromoBanner() {
   return (
-    <section className="bg-white border-b border-orange-200">
+    <section className="bg-white border-b border-cleenzo-sky-light">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <h2 className="text-center text-2xl md:text-4xl font-bold text-slate-900 max-w-3xl mx-auto leading-snug">
           {APP_PROMO_HEADLINE.title}
           <span className="hidden sm:inline"> — </span>
-          <span className="block sm:inline text-orange-600 mt-1 sm:mt-0">
+          <span className="block sm:inline text-cleenzo mt-1 sm:mt-0">
             {APP_PROMO_HEADLINE.accent}
           </span>
         </h2>
@@ -20,19 +20,19 @@ function AppPromoBanner() {
               <div className="relative">
                 <span className="text-4xl">{step.icon}</span>
                 {i < APP_PROMO_STEPS.length - 1 && (
-                  <span className="hidden md:block absolute top-5 left-full w-16 h-0.5 bg-orange-300 ml-2" />
+                  <span className="hidden md:block absolute top-5 left-full w-16 h-0.5 bg-cleenzo-sky ml-2" />
                 )}
               </div>
-              <p className="mt-3 text-sm font-bold text-orange-700">{step.label}</p>
+              <p className="mt-3 text-sm font-bold text-cleenzo-dark">{step.label}</p>
             </div>
           ))}
         </div>
 
-        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-10 max-w-4xl mx-auto text-center shadow-sm">
-          <p className="text-cyan-700 font-semibold text-sm mb-2">For a seamless experience</p>
+        <div className="bg-cleenzo-pale border border-cleenzo-sky-light rounded-3xl p-6 md:p-10 max-w-4xl mx-auto text-center shadow-sm">
+          <p className="text-cleenzo font-semibold text-sm mb-2">For a seamless experience</p>
           <p className="text-3xl md:text-4xl font-black mb-2">
-            <span className="text-cyan-600">DOWNLOAD</span>{" "}
-            <span className="text-orange-600">OUR APP</span>
+            <span className="text-cleenzo">DOWNLOAD</span>{" "}
+            <span className="text-cleenzo-deep">OUR APP</span>
           </p>
           <p className="text-slate-600 text-sm mb-6">
             Book laundry pickup, track express delivery & pay online with Cleenzo.
