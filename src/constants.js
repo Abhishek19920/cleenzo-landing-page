@@ -22,6 +22,8 @@ export const STORE_MAP_QUERY = encodeURIComponent(
 
 export const STORE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${STORE_MAP_QUERY}`;
 
+export const COMMERCIAL_LAUNDRY_URL = "/commercial-laundry";
+
 export const DISCOUNT = {
   label: "Limited offer",
   headline: "Get 20% OFF on your first order",
@@ -34,6 +36,16 @@ export const APP_LINKS = {
   ios: "#",
 };
 
+export const APP_IS_LIVE = false;
+
+export const APP_COMING_SOON = {
+  title: "App goes live soon!",
+  message:
+    "The Cleenzo app is launching with our store opening. Book on WhatsApp or schedule a free pickup on the website until then.",
+  whatsappMessage:
+    "Hi Cleenzo! Please notify me when your mobile app goes live on the Play Store and App Store.",
+};
+
 export const SOCIAL_LINKS = [
   {
     id: "instagram",
@@ -44,8 +56,8 @@ export const SOCIAL_LINKS = [
   {
     id: "youtube",
     label: "YouTube",
-    handle: "Cleenzo",
-    href: "https://www.youtube.com/@CLEENZO_OFFICIAL",
+    handle: "Cleenzo Official",
+    href: "https://www.youtube.com/channel/UC_05FWBPDFDa6e2Qb0n3EFQ",
   },
 ];
 
@@ -54,8 +66,18 @@ export const USP = {
   headline: "Every delivery is express",
   description:
     "No slow lanes or extra charges — fast turnaround and doorstep delivery on every Cleenzo order.",
+  cta: "Need express laundry today?",
 };
 
+export const PERSONAL_HERO = {
+  badge: "Premium personal laundry",
+  title: "Premium Laundry & Dry Cleaning",
+  accent: "Technology Designed for You",
+  subtitle:
+    "Free pickup, fabric-safe care and express delivery at your doorstep in Raj Nagar, Ghaziabad.",
+};
+
+/** PRE_LAUNCH_CLEANUP — remove with launchGate.js and store-opening UI */
 export const STORE_LAUNCH = {
   label: "Grand opening",
   dateDisplay: "16 June 2026",
@@ -65,6 +87,7 @@ export const STORE_LAUNCH = {
     "We're opening our Cleenzo store on 16 June 2026 — right after 15 June. Download the app and get ready for express laundry at your doorstep.",
 };
 
+/** PRE_LAUNCH_CLEANUP — full-site gate until launch day; remove after 16 June 2026 */
 export const ENABLE_LAUNCH_GATE =
   process.env.REACT_APP_DISABLE_LAUNCH_GATE !== "true";
 
@@ -80,42 +103,58 @@ export const FABRIC_SERVICES = [
   {
     name: "Suits & Blazers",
     desc: "Formal wear cleaned with sharp finishing.",
-    gradient: "from-slate-700 to-slate-900",
+    icon: "🤵",
+    gradient: "from-slate-700 via-slate-800 to-slate-950",
+    glow: "rgba(100,116,139,0.35)",
   },
   {
     name: "Sarees & Ethnic",
     desc: "Silk & embroidered wear handled with care.",
-    gradient: "from-rose-600 to-orange-700",
+    icon: "🥻",
+    gradient: "from-rose-500 via-pink-600 to-orange-600",
+    glow: "rgba(244,63,94,0.35)",
   },
   {
     name: "Winter Wear",
     desc: "Coats & jackets refreshed like new.",
-    gradient: "from-blue-700 to-indigo-900",
+    icon: "🧥",
+    gradient: "from-indigo-600 via-blue-700 to-indigo-950",
+    glow: "rgba(79,70,229,0.35)",
   },
   {
     name: "Kurtas & Sherwanis",
     desc: "Zari & embroidery preserved safely.",
-    gradient: "from-amber-600 to-yellow-700",
+    icon: "👘",
+    gradient: "from-amber-500 via-orange-500 to-amber-700",
+    glow: "rgba(245,158,11,0.35)",
   },
   {
     name: "Dresses & Gowns",
     desc: "Party & bridal wear precision care.",
-    gradient: "from-fuchsia-600 to-pink-700",
+    icon: "👗",
+    gradient: "from-fuchsia-600 via-purple-600 to-violet-800",
+    glow: "rgba(192,38,211,0.35)",
   },
   {
     name: "Home Textiles",
     desc: "Curtains, drapes & soft furnishings.",
-    gradient: "from-teal-600 to-cyan-800",
+    icon: "🏠",
+    gradient: "from-emerald-500 via-teal-600 to-emerald-800",
+    glow: "rgba(16,185,129,0.35)",
   },
   {
     name: "Shoes & Bags",
     desc: "Premium shoe & bag cleaning service.",
-    gradient: "from-stone-600 to-stone-800",
+    icon: "👞",
+    gradient: "from-stone-600 via-amber-800 to-stone-900",
+    glow: "rgba(120,113,108,0.35)",
   },
   {
     name: "Daily Laundry",
     desc: "Affordable wash for everyday clothes.",
-    gradient: "from-emerald-600 to-green-800",
+    icon: "🧺",
+    gradient: "from-cleenzo via-cleenzo-light to-sky-500",
+    glow: "rgba(10,61,145,0.35)",
   },
 ];
 
@@ -196,58 +235,103 @@ export const WHY_CLEENZO_USP = [
 ];
 
 export const OFFERS = {
-  badge: "Grand launch offer",
-  headline: "Premium care. Unbelievable offers.",
+  badge: "Grand launch · 16 June 2026",
+  headline: "World-class dry clean & laundry",
+  headlineAccent: "service in Ghaziabad",
   tagline: "Clean clothes, happy you",
+  promoStrip: "Flat 51% OFF on select garments · Dry clean from ₹49 · Free pickup & delivery",
   subtext:
-    "Exclusive launch deals on dry clean, laundry & doorstep service — better savings than flat discounts.",
-  terms: "*T&C apply",
+    "Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension — launch offers built for real savings.",
+  intro:
+    "Impeccable quality, every time. Book on WhatsApp or schedule a free pickup while our store and app go live on 16 June 2026.",
+  qualityLine: "Impeccable quality, every time",
+  featured: {
+    icon: "🧥",
+    label: "Launch highlight",
+    title: "Dry Clean",
+    price: "₹49",
+    note: "starts at · limited launch slots",
+  },
+  terms: "*T&C apply on select garments & launch offers",
   items: [
-    { icon: "🧥", title: "Dry Clean", price: "Starts @ ₹49", highlight: true },
-    { icon: "⭐", title: "Flat 51% OFF", price: "On select garments" },
-    { icon: "👔", title: "5 Dry Clean", price: "@ ₹199" },
-    { icon: "🏷️", title: "Flat 25% OFF", price: "On orders above ₹499" },
-    { icon: "📅", title: "Monthly Laundry Plan", price: "@ ₹999" },
+    {
+      icon: "🧥",
+      title: "Dry Clean",
+      price: "Starts @ ₹49",
+      desc: "Gentle care for shirts, suits & everyday wear",
+      highlight: true,
+    },
+    {
+      icon: "⭐",
+      title: "Flat 51% OFF",
+      price: "On select garments",
+      desc: "Launch-only savings on premium dry clean",
+    },
+    {
+      icon: "👔",
+      title: "5 Dry Clean",
+      price: "@ ₹199",
+      desc: "Bulk pack — best value for wardrobe refresh",
+      highlight: true,
+    },
+    {
+      icon: "🏷️",
+      title: "Flat 25% OFF",
+      price: "Orders above ₹499",
+      desc: "Stack more items & save more at checkout",
+    },
+    {
+      icon: "📅",
+      title: "Monthly Laundry Plan",
+      price: "@ ₹999",
+      desc: "Regular wash & fold for busy households",
+    },
     {
       icon: "🛵",
       title: "FREE Pickup & Delivery",
-      price: "Save time, we care!",
+      price: "On every order",
+      desc: "Doorstep service — save time, we care",
       highlight: true,
     },
   ],
   benefits: [
-    "Trained professionals",
-    "Premium quality",
-    "Advanced machines",
-    "On-time delivery",
+    { icon: "👥", text: "Trained professionals" },
+    { icon: "✨", text: "Premium quality detergents" },
+    { icon: "⚙️", text: "Advanced machines" },
+    { icon: "🚚", text: "On-time express delivery" },
+  ],
+  perks: [
+    "Free pickup & delivery",
+    "Safe & hygienic cleaning",
+    "100% satisfaction focus",
   ],
 };
 
 export const CAROUSEL_BANNERS = [
   {
-    id: "hero",
-    theme: "light",
-    badge: "⚡ Express delivery on every order",
-    title: APP_PROMO_HEADLINE.title,
-    titleAccent: APP_PROMO_HEADLINE.accent,
+    id: "express",
+    theme: "express",
+    badge: "⚡ Our promise · Express delivery",
+    title: "Every delivery is",
+    titleAccent: "express",
     subtitle:
-      "Free pickup • Premium fabric care • Track orders in the Cleenzo app",
+      "No slow lanes or extra charges — fast turnaround with free pickup & doorstep delivery on every Cleenzo order.",
     primaryCta: { label: "Schedule free pickup", action: "schedule" },
-    secondaryCta: { label: "Download app", action: "link", href: "#download" },
-    visual: {
-      emoji: "📱",
-      title: "Cleenzo",
-      tagline: "Book · Track · Delivered",
-    },
+    secondaryCta: { label: "Book on WhatsApp", action: "whatsapp" },
+    expressFeatures: [
+      { icon: "🛵", label: "Free pickup", desc: "Doorstep collection" },
+      { icon: "⚡", label: "Fast turnaround", desc: "No slow lanes" },
+      { icon: "🚚", label: "Express delivery", desc: "Fresh clothes back" },
+    ],
+    expressSteps: ["Book pickup", "Expert cleaning", "Express delivery"],
   },
   {
     id: "offers",
     theme: "warm",
     badge: "🎉 Grand launch offer",
-    title: "Premium care.",
-    titleAccent: "Unbelievable offers.",
-    subtitle:
-      "Dry clean from ₹49 · 51% off select garments · free pickup & delivery",
+    title: "Launch week deals",
+    titleAccent: "from ₹49",
+    subtitle: OFFERS.promoStrip,
     primaryCta: { label: "Book now on WhatsApp", action: "whatsapp" },
     secondaryCta: { label: "Schedule free pickup", action: "schedule" },
     highlightOffer: { icon: "🧥", title: "Dry Clean", price: "Starts @ ₹49" },

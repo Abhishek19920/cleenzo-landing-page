@@ -1,3 +1,6 @@
+/**
+ * PRE_LAUNCH_CLEANUP — remove with preLaunch.js and store-opening sections after launch.
+ */
 import { STORE_LAUNCH } from "./constants";
 
 function getLaunchDate() {

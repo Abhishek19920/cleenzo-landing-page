@@ -10,7 +10,7 @@ function StickyCTA() {
         <button
           type="button"
           onClick={openSchedulePickup}
-          className="flex-1 bg-lime-500 text-white text-center py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-lime-600 transition"
+          className="flex-1 bg-cleenzo text-white text-center py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-cleenzo-dark transition"
         >
           Schedule pickup
         </button>

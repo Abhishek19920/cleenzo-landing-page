@@ -6,7 +6,7 @@ function SeoContentSection() {
   return (
     <section id="about" className="bg-white border-y border-slate-200">
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-14 md:py-20">
-        <p className="text-cyan-700 font-bold text-sm uppercase tracking-widest mb-3 text-center">
+        <p className="text-cleenzo font-bold text-sm uppercase tracking-widest mb-3 text-center">
           About Cleenzo
         </p>
 
@@ -35,7 +35,7 @@ function SeoContentSection() {
             Serving Raj Nagar, AVS City Square, and nearby neighbourhoods across Ghaziabad (pin code{" "}
             <strong>201017</strong>), Cleenzo offers <strong>free pickup and delivery</strong> on
             every order. Book in seconds on WhatsApp at{" "}
-            <a href={`tel:${PHONE_TEL}`} className="text-cyan-700 font-semibold hover:underline">
+            <a href={`tel:${PHONE_TEL}`} className="text-cleenzo font-semibold hover:underline">
               {PHONE_DISPLAY}
             </a>
             , schedule a pickup on our website, or download the Cleenzo app to track express

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cleenzo-blue: #0a3d91;
+  --cleenzo-blue-dark: #072d6b;
+  --cleenzo-blue-light: #1565c0;
+  --cleenzo-navy-deep: #002b5b;
+  --cleenzo-navy-deeper: #001a38;
+  --cleenzo-sky: #7ec8e3;
+  --cleenzo-sky-light: #dbeafe;
+  --cleenzo-pale: #eef4fc;
+  --cleenzo-pale-bg: #f8fbff;
+}
+
 * {
   box-sizing: border-box;
 }

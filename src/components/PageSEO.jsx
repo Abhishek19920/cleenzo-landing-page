@@ -33,8 +33,9 @@ function upsertJsonLd(id, data) {
   el.textContent = JSON.stringify(data);
 }
 
-function PageSEO() {
+function PageSEO({ pathname = "/" }) {
   useEffect(() => {
+    if (pathname !== "/") return;
     document.documentElement.lang = SEO.locale.split("_")[0];
 
     document.title = SEO.title;
@@ -61,7 +62,7 @@ function PageSEO() {
 
     upsertJsonLd("cleenzo-local-business-jsonld", getLocalBusinessJsonLd());
     upsertJsonLd("cleenzo-faq-jsonld", getFaqJsonLd());
-  }, []);
+  }, [pathname]);
 
   return null;
 }

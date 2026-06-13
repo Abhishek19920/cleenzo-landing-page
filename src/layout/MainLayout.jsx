@@ -7,6 +7,7 @@ function MainLayout() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <header className="sticky top-0 z-40">
+        {/* PRE_LAUNCH_CLEANUP — remove StoreOpeningBanner after launch */}
         <StoreOpeningBanner />
         <Navbar />
       </header>
