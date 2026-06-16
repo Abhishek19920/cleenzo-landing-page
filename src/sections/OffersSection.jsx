@@ -1,8 +1,8 @@
-import { getOffers } from "../preLaunch";
+import { OFFERS } from "../constants";
 import PlaceOrderCTA from "../components/PlaceOrderCTA";
 
 function OffersSection() {
-  const offers = getOffers();
+  const offers = OFFERS;
   return (
     <section id="offers" className="bg-white border-y border-slate-200 text-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20">

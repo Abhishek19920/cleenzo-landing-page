@@ -265,15 +265,14 @@
 }
 
 .personal-hero-promise {
-  background: linear-gradient(90deg, var(--ph-navy-dark) 0%, var(--ph-navy) 50%, var(--ph-navy-mid) 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--ph-navy-mid);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .personal-hero-promise-inner {
   max-width: 80rem;
   margin: 0 auto;
-  padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1rem, 4vw, 3rem);
+  padding: clamp(1.35rem, 3.5vw, 2rem) clamp(1rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -294,14 +293,14 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ph-sky);
+  color: rgba(255, 255, 255, 0.72);
   margin-bottom: 0.5rem;
 }
 
 .personal-hero-promise-title {
   font-size: clamp(1.35rem, 3vw, 1.85rem);
   font-weight: 900;
-  color: white;
+  color: var(--ph-white);
   line-height: 1.15;
   margin-bottom: 0.5rem;
 }
@@ -316,17 +315,16 @@
 .personal-hero-promise-cta {
   flex-shrink: 0;
   width: 100%;
-  padding: 0.9rem 1.5rem;
-  border: none;
+  padding: 0.85rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.45);
   border-radius: 999px;
-  background: white;
-  color: var(--ph-navy);
+  background: transparent;
+  color: var(--ph-white);
   font-weight: 800;
   font-size: clamp(0.78rem, 1.8vw, 0.88rem);
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 @media (min-width: 768px) {
@@ -336,15 +334,15 @@
 }
 
 .personal-hero-promise-cta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.65);
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
 .personal-hero-strip {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background: var(--ph-navy-dark);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 @media (min-width: 640px) {
@@ -357,16 +355,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.85rem 0.5rem;
-  font-size: clamp(0.62rem, 1.8vw, 0.72rem);
-  font-weight: 800;
-  letter-spacing: 0.05em;
+  gap: 0.45rem;
+  padding: 0.9rem 0.75rem;
+  font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--ph-sky);
   text-align: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.5s ease, border-color 0.5s ease;
+}
+
+/* Carousel is blue → strip is white */
+.personal-hero-strip--white {
+  background: #ffffff;
+  border-top: 1px solid rgba(10, 61, 145, 0.1);
+}
+
+.personal-hero-strip--white .personal-hero-strip-item {
+  color: var(--ph-navy);
+  border-right: 1px solid rgba(10, 61, 145, 0.1);
+  border-bottom: 1px solid rgba(10, 61, 145, 0.1);
+}
+
+/* Carousel is white/light → strip is blue */
+.personal-hero-strip--blue {
+  background: var(--ph-navy-mid);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.personal-hero-strip--blue .personal-hero-strip-item {
+  color: var(--ph-sky);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 @media (min-width: 640px) {
@@ -382,4 +402,5 @@
 .personal-hero-strip-icon {
   font-size: 1rem;
   flex-shrink: 0;
+  opacity: 0.9;
 }
