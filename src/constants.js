@@ -39,11 +39,12 @@ export const APP_LINKS = {
 export const APP_IS_LIVE = false;
 
 export const APP_COMING_SOON = {
-  title: "App goes live soon!",
+  title: "App will be live soon!",
+  subtitle: "Google Play & App Store",
   message:
-    "The Cleenzo app is launching with our store opening. Book on WhatsApp or schedule a free pickup on the website until then.",
+    "The Cleenzo mobile app isn't on the stores yet. Book on WhatsApp or schedule a free pickup on our website — we'll notify you when Android and iOS apps go live.",
   whatsappMessage:
-    "Hi Cleenzo! Please notify me when your mobile app goes live on the Play Store and App Store.",
+    "Hi Cleenzo! Please notify me when your mobile app goes live on Google Play and the App Store.",
 };
 
 export const SOCIAL_LINKS = [
@@ -76,20 +77,6 @@ export const PERSONAL_HERO = {
   subtitle:
     "Free pickup, fabric-safe care and express delivery at your doorstep in Raj Nagar, Ghaziabad.",
 };
-
-/** PRE_LAUNCH_CLEANUP — remove with launchGate.js and store-opening UI */
-export const STORE_LAUNCH = {
-  label: "Grand opening",
-  dateDisplay: "16 June 2026",
-  launchDate: "2026-06-16",
-  headline: "Store goes live soon!",
-  message:
-    "We're opening our Cleenzo store on 16 June 2026 — right after 15 June. Download the app and get ready for express laundry at your doorstep.",
-};
-
-/** PRE_LAUNCH_CLEANUP — full-site gate until launch day; remove after 16 June 2026 */
-export const ENABLE_LAUNCH_GATE =
-  process.env.REACT_APP_DISABLE_LAUNCH_GATE !== "true";
 
 export const CORE_SERVICES = [
   { name: "Laundry", desc: "Wash & fold for everyday wear", icon: "🧺" },
@@ -205,10 +192,10 @@ export const DRY_CLEAN_PROCESS = [
 export const WHY_CLEENZO = {
   headline: "What makes Cleenzo laundry service the best choice",
   subtext:
-    "Premium quality service, safe & hygienic cleaning, and on-time express delivery — grand store opening 16 June 2026 at Raj Nagar, Ghaziabad.",
+    "Premium quality service, safe & hygienic cleaning, and on-time express delivery at Raj Nagar, Ghaziabad.",
   imageAlt:
-    "Cleenzo grand store opening 16 June 2026 — 24 hour laundry and dry cleaning with launch offers in Ghaziabad",
-  badge: "Grand opening · 16 June 2026",
+    "Cleenzo laundry and dry cleaning service with express delivery in Ghaziabad",
+  badge: "Now open · Raj Nagar",
 };
 
 export const WHY_CLEENZO_USP = [
@@ -235,24 +222,24 @@ export const WHY_CLEENZO_USP = [
 ];
 
 export const OFFERS = {
-  badge: "Grand launch · 16 June 2026",
+  badge: "Limited time offers",
   headline: "World-class dry clean & laundry",
   headlineAccent: "service in Ghaziabad",
   tagline: "Clean clothes, happy you",
   promoStrip: "Flat 51% OFF on select garments · Dry clean from ₹49 · Free pickup & delivery",
   subtext:
-    "Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension — launch offers built for real savings.",
+    "Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension — real savings on every order.",
   intro:
-    "Impeccable quality, every time. Book on WhatsApp or schedule a free pickup while our store and app go live on 16 June 2026.",
+    "Impeccable quality, every time. Book on WhatsApp or schedule a free pickup today.",
   qualityLine: "Impeccable quality, every time",
   featured: {
     icon: "🧥",
-    label: "Launch highlight",
+    label: "Top offer",
     title: "Dry Clean",
     price: "₹49",
-    note: "starts at · limited launch slots",
+    note: "starts at · limited slots",
   },
-  terms: "*T&C apply on select garments & launch offers",
+  terms: "*T&C apply on select garments",
   items: [
     {
       icon: "🧥",
@@ -265,7 +252,7 @@ export const OFFERS = {
       icon: "⭐",
       title: "Flat 51% OFF",
       price: "On select garments",
-      desc: "Launch-only savings on premium dry clean",
+      desc: "Big savings on premium dry clean",
     },
     {
       icon: "👔",
@@ -328,8 +315,8 @@ export const CAROUSEL_BANNERS = [
   {
     id: "offers",
     theme: "warm",
-    badge: "🎉 Grand launch offer",
-    title: "Launch week deals",
+    badge: "🎉 Special offers",
+    title: "Exclusive deals",
     titleAccent: "from ₹49",
     subtitle: OFFERS.promoStrip,
     primaryCta: { label: "Book now on WhatsApp", action: "whatsapp" },

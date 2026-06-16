@@ -1,5 +1,6 @@
 import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { useAppDownload } from "../context/AppDownloadContext";
+import { useCarouselStrip } from "../context/CarouselStripContext";
 import { PERSONAL_HERO, USP } from "../constants";
 import personalHeroImage from "../assets/image/personal-hero-banner.jpg";
 import "./personal-hero.css";
@@ -26,6 +27,7 @@ const STRIP = [
 function PersonalHeroBanner() {
   const { openSchedulePickup } = useSchedulePickup();
   const { openAppDownload } = useAppDownload();
+  const { stripTone } = useCarouselStrip();
 
   return (
     <section className="personal-hero" aria-label="Personal and home laundry services">
@@ -98,7 +100,7 @@ function PersonalHeroBanner() {
         </div>
       </div>
 
-      <div className="personal-hero-strip">
+      <div className={`personal-hero-strip personal-hero-strip--${stripTone}`}>
         {STRIP.map((item) => (
           <div key={item.label} className="personal-hero-strip-item">
             <span className="personal-hero-strip-icon" aria-hidden="true">

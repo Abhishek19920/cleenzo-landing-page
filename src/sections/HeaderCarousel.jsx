@@ -3,10 +3,11 @@ import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { useAppDownload } from "../context/AppDownloadContext";
 import {
   CAROUSEL_AUTOPLAY_MS,
+  CAROUSEL_BANNERS,
   CAROUSEL_TRANSITION_MS,
 } from "../constants";
-import { getCarouselBanners } from "../preLaunch";
 import { openWhatsAppBooking } from "../whatsapp";
+import { useCarouselStrip } from "../context/CarouselStripContext";
 
 const SWIPE_THRESHOLD = 40;
 
@@ -324,7 +325,7 @@ function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
 }
 
 function HeaderCarousel() {
-  const slides = getCarouselBanners();
+  const slides = CAROUSEL_BANNERS;
   const [active, setActive] = useState(0);
   const [hoverPaused, setHoverPaused] = useState(false);
   const [touchPaused, setTouchPaused] = useState(false);
@@ -332,8 +333,13 @@ function HeaderCarousel() {
   const touchStartY = useRef(null);
   const { openSchedulePickup } = useSchedulePickup();
   const { openAppDownload } = useAppDownload();
+  const { setCarouselTheme } = useCarouselStrip();
   const isPaused = hoverPaused || touchPaused;
   const theme = themes[slides[active].theme];
+
+  useEffect(() => {
+    setCarouselTheme(slides[active].theme);
+  }, [active, slides, setCarouselTheme]);
 
   const goTo = useCallback(
     (index) => {

@@ -6,7 +6,8 @@ import {
   STORE_ADDRESS_LINES,
 } from "./constants";
 
-export const SITE_URL = process.env.REACT_APP_SITE_URL || "https://www.cleenzo.in";
+export const SITE_URL = process.env.REACT_APP_SITE_URL || "https://www.cleenzo.co.in";
+export const SITE_OG_IMAGE = `${SITE_URL}/images/hero-commercial.svg`;
 
 export const SEO = {
   siteName: "Cleenzo",
@@ -28,6 +29,35 @@ export const SEO = {
   ].join(", "),
   locale: "en_IN",
   twitterCard: "summary_large_image",
+  path: "/",
+};
+
+export const SEO_COMMERCIAL = {
+  siteName: "Cleenzo",
+  title: "Commercial Laundry Solutions | Cleenzo B2B — Ghaziabad",
+  description:
+    "Cleenzo commercial laundry for hotels, restaurants, salons, PGs, clinics and offices in Ghaziabad. Dedicated processing, scheduled pickup & delivery, monthly billing.",
+  keywords: [
+    "commercial laundry Ghaziabad",
+    "hotel linen laundry service",
+    "restaurant laundry Raj Nagar",
+    "B2B laundry Ghaziabad",
+    "bulk laundry pickup delivery",
+    "Cleenzo commercial",
+  ].join(", "),
+  locale: "en_IN",
+  twitterCard: "summary_large_image",
+  path: "/commercial-laundry",
+};
+
+export const SEO_NOT_FOUND = {
+  siteName: "Cleenzo",
+  title: "Page not found | Cleenzo",
+  description:
+    "The page you are looking for does not exist. Visit Cleenzo for laundry and dry cleaning in Raj Nagar, Ghaziabad.",
+  locale: "en_IN",
+  twitterCard: "summary",
+  robots: "noindex, follow",
 };
 
 export const SEO_FAQ = [
@@ -59,7 +89,7 @@ export function getLocalBusinessJsonLd() {
     description: SEO.description,
     url: SITE_URL,
     telephone: PHONE_TEL,
-    image: `${SITE_URL}/logo512.png`,
+    image: SITE_OG_IMAGE,
     priceRange: "₹₹",
     address: {
       "@type": "PostalAddress",

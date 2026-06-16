@@ -21,6 +21,7 @@ export function AppDownloadProvider({ children }) {
         setIsOpen(true);
       },
       closeAppDownload: () => setIsOpen(false),
+      isAppLive: isAppDownloadAvailable(),
     }),
     [],
   );

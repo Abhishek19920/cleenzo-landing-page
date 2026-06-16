@@ -1,10 +1,8 @@
 import whyChooseImage from "../assets/image/cleenzo-why-choose.png";
-import { WHY_CLEENZO_USP } from "../constants";
-import { getWhyCleenzo } from "../preLaunch";
+import { WHY_CLEENZO, WHY_CLEENZO_USP } from "../constants";
 import PlaceOrderCTA from "../components/PlaceOrderCTA";
 
 function WhyChoose() {
-  const whyCleenzo = getWhyCleenzo();
   return (
     <section id="why" className="bg-cleenzo-pale-bg border-t border-cleenzo-sky-light">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -13,13 +11,13 @@ function WhyChoose() {
           <div className="relative overflow-hidden rounded-3xl border-4 border-white shadow-2xl bg-slate-50">
             <img
               src={whyChooseImage}
-              alt={whyCleenzo.imageAlt}
+              alt={WHY_CLEENZO.imageAlt}
               className="w-full h-auto object-contain"
               loading="lazy"
             />
           </div>
           <div className="absolute -bottom-4 -right-2 md:right-4 bg-cleenzo text-white text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg border border-cleenzo-sky/40">
-            {whyCleenzo.badge}
+            {WHY_CLEENZO.badge}
           </div>
         </div>
 
@@ -28,9 +26,9 @@ function WhyChoose() {
             Why Cleenzo
           </p>
           <h2 className="text-3xl md:text-4xl font-black text-cleenzo-deep leading-tight mb-4">
-            {whyCleenzo.headline}
+            {WHY_CLEENZO.headline}
           </h2>
-          <p className="text-slate-600 mb-8 leading-relaxed">{whyCleenzo.subtext}</p>
+          <p className="text-slate-600 mb-8 leading-relaxed">{WHY_CLEENZO.subtext}</p>
 
           <ul className="space-y-4">
             {WHY_CLEENZO_USP.map((item) => (

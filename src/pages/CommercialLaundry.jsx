@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import CommercialPageSEO from "../commercial/CommercialPageSEO";
 import CommercialHero from "../commercial/sections/CommercialHero";
 import CommercialIndustries from "../commercial/sections/CommercialIndustries";
 import CommercialWorkflow from "../commercial/sections/CommercialWorkflow";
@@ -16,7 +15,6 @@ function CommercialLaundry() {
 
   return (
     <>
-      <CommercialPageSEO />
       <CommercialHero onQuoteClick={scrollToForm} onMeetingClick={scrollToForm} />
       <CommercialIndustries />
       <CommercialWorkflow />
