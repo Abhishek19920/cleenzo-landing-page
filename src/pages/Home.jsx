@@ -2,6 +2,7 @@ import PersonalHeroBanner from "../sections/PersonalHeroBanner";
 import HeaderCarousel from "../sections/HeaderCarousel";
 import OurProcess from "../sections/OurProcess";
 import OffersSection from "../sections/OffersSection";
+import PricingSection from "../sections/PricingSection";
 import ServicesPreview from "../sections/ServicesPreview";
 import WhyChoose from "../sections/WhyChoose";
 import DownloadApp from "../sections/DownloadApp";
@@ -16,6 +17,7 @@ function Home() {
       <HeaderCarousel />
       <OurProcess />
       <OffersSection />
+      <PricingSection />
       <ServicesPreview />
       <WhyChoose />
       <SeoContentSection />

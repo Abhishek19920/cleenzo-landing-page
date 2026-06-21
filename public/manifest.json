@@ -1,0 +1,18 @@
+{
+  "name": "Cleenzo — Laundry & Dry Cleaning Ghaziabad",
+  "short_name": "Cleenzo",
+  "description": "Premium laundry, dry cleaning and home cleaning in Raj Nagar, Ghaziabad. Free pickup & express delivery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0A3D91",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

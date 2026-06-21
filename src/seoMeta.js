@@ -4,8 +4,10 @@ import {
   SEO_NOT_FOUND,
   SITE_OG_IMAGE,
   SITE_URL,
+  getCommercialJsonLd,
   getFaqJsonLd,
   getLocalBusinessJsonLd,
+  getWebSiteJsonLd,
 } from "./seo";
 
 export function upsertMeta(name, content, property = false) {
@@ -76,6 +78,8 @@ export function applyPageMeta({
   upsertMeta("og:locale", locale, true);
   upsertMeta("og:url", url, true);
   upsertMeta("og:image", image, true);
+  upsertMeta("og:image:width", "1200", true);
+  upsertMeta("og:image:height", "630", true);
   upsertMeta("og:image:alt", `${siteName} — laundry & dry cleaning in Ghaziabad`, true);
 
   upsertMeta("twitter:card", twitterCard);
@@ -87,6 +91,8 @@ export function applyPageMeta({
 
   upsertJsonLd("cleenzo-local-business-jsonld", jsonLd.find((j) => j.id === "local")?.data ?? null);
   upsertJsonLd("cleenzo-faq-jsonld", jsonLd.find((j) => j.id === "faq")?.data ?? null);
+  upsertJsonLd("cleenzo-website-jsonld", jsonLd.find((j) => j.id === "website")?.data ?? null);
+  upsertJsonLd("cleenzo-commercial-jsonld", jsonLd.find((j) => j.id === "commercial")?.data ?? null);
 }
 
 export function getMetaForPathname(pathname) {
@@ -97,6 +103,7 @@ export function getMetaForPathname(pathname) {
       jsonLd: [
         { id: "local", data: getLocalBusinessJsonLd() },
         { id: "faq", data: getFaqJsonLd() },
+        { id: "website", data: getWebSiteJsonLd() },
       ],
     };
   }
@@ -105,7 +112,10 @@ export function getMetaForPathname(pathname) {
     return {
       ...SEO_COMMERCIAL,
       url: `${SITE_URL}${SEO_COMMERCIAL.path}`,
-      jsonLd: [],
+      jsonLd: [
+        { id: "local", data: getLocalBusinessJsonLd() },
+        { id: "commercial", data: getCommercialJsonLd() },
+      ],
     };
   }
 

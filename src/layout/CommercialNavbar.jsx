@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/image/cleenzo-logo.png";
 import { COMMERCIAL_NAV_LINKS, RETAIL_SITE_LABEL } from "../commercial/nav";
 
 function CommercialNavbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 bg-white border-b border-slate-200 transition-shadow duration-200 ${
+        scrolled ? "shadow-sm" : ""
+      }`}
+    >
       <div className="bg-[#0A3D91]/5 border-b border-[#0A3D91]/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-2 flex items-center justify-between gap-3 text-sm">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-1 flex items-center justify-between gap-3 text-xs sm:text-sm">
           <p className="text-slate-600 hidden sm:block">
             B2B commercial laundry for hotels, restaurants & businesses
           </p>
@@ -25,12 +37,12 @@ function CommercialNavbar() {
         </div>
       </div>
 
-      <nav className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between gap-4">
-        <Link to="/commercial-laundry" className="flex items-center gap-3 shrink-0" onClick={closeMenu}>
+      <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between gap-4">
+        <Link to="/commercial-laundry" className="flex items-center gap-2 shrink-0" onClick={closeMenu}>
           <img
             src={logo}
             alt="Cleenzo Commercial"
-            className="h-9 md:h-10 w-auto object-contain"
+            className="h-7 sm:h-8 w-auto object-contain"
           />
           <span className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-md bg-[#0A3D91] text-white text-xs font-bold uppercase tracking-wide">
             Commercial

@@ -1,5 +1,5 @@
 import { PHONE_DISPLAY, PHONE_TEL, STORE_ADDRESS } from "../constants";
-import { SEO_FAQ } from "../seo";
+import { SEO_FAQ, SERVICE_AREAS } from "../seo";
 import { openWhatsAppBooking } from "../whatsapp";
 
 function SeoContentSection() {
@@ -32,14 +32,14 @@ function SeoContentSection() {
           </p>
 
           <p>
-            Serving Raj Nagar, AVS City Square, and nearby neighbourhoods across Ghaziabad (pin code{" "}
-            <strong>201017</strong>), Cleenzo offers <strong>free pickup and delivery</strong> on
-            every order. Book in seconds on WhatsApp at{" "}
+            Serving <strong>{SERVICE_AREAS.slice(0, 6).join(", ")}</strong>, and nearby neighbourhoods
+            across Ghaziabad and Delhi NCR (pin code <strong>201017</strong>), Cleenzo offers{" "}
+            <strong>free pickup and delivery</strong> on every order. Book in seconds on WhatsApp, call{" "}
             <a href={`tel:${PHONE_TEL}`} className="text-cleenzo font-semibold hover:underline">
               {PHONE_DISPLAY}
             </a>
-            , schedule a pickup on our website, or download the Cleenzo app to track express
-            laundry delivery in real time.
+            , schedule a pickup on our website, or download the Cleenzo app to track express laundry
+            delivery in real time.
           </p>
         </div>
 

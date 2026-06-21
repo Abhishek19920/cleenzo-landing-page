@@ -30,5 +30,5 @@ echo "🔒 Restructuring remote directory permissions for Nginx..."
 ssh -i "$KEY_PATH" ubuntu@"$EC2_IP" "sudo chown -R ubuntu:ubuntu /var/www/cleenzo.co.in/html && sudo chmod -R 755 /var/www/cleenzo.co.in/html"
 
 echo "======================================================================="
-echo "🎉 DEPLOYMENT SUCCESSFUL! https://cleenzo.co.in is updated."
+echo "🎉 DEPLOYMENT SUCCESSFUL! https://www.cleenzo.co.in is updated."
 echo "======================================================================="

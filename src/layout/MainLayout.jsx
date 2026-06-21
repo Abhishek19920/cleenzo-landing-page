@@ -5,8 +5,9 @@ import Footer from "./Footer";
 function MainLayout() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      <header className="sticky top-0 z-40">
+      <header>
         <Navbar />
+        <div className="h-11 sm:h-12 md:h-[52px]" aria-hidden="true" />
       </header>
       <main className="w-full">
         <Outlet />

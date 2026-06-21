@@ -5,7 +5,7 @@ export const WHATSAPP_BOOKING_MESSAGE =
 
 export const PHONE_DISPLAY = "+91 99992 25311";
 
-export const PHONE_TEL = "+919711924411";
+export const PHONE_TEL = "+919999225311";
 
 export const STORE_ADDRESS =
   "LGF-19, AVS City Square, Raj Nagar Extn, Ghaziabad — 201017";
@@ -71,11 +71,11 @@ export const USP = {
 };
 
 export const PERSONAL_HERO = {
-  badge: "Premium personal laundry",
-  title: "Premium Laundry & Dry Cleaning",
-  accent: "Technology Designed for You",
+  badge: "Premium personal laundry · Ghaziabad",
+  title: "Premium Laundry & Dry Cleaning in Ghaziabad",
+  accent: "Free Pickup & Express Delivery",
   subtitle:
-    "Free pickup, fabric-safe care and express delivery at your doorstep in Raj Nagar, Ghaziabad.",
+    "Fabric-safe care at your doorstep in Raj Nagar, Vaishali, Indirapuram & nearby Delhi NCR areas.",
 };
 
 export const CORE_SERVICES = [
@@ -221,57 +221,49 @@ export const WHY_CLEENZO_USP = [
   },
 ];
 
+export const PRICING_SECTION = {
+  badge: "Transparent pricing · Ghaziabad",
+  headline: "Laundry & dry cleaning price list",
+  headlineAccent: "Raj Nagar, Ghaziabad",
+  subtext:
+    "Per-piece dry clean & steam press, plus affordable laundry by the kilo — clear rates with no hidden charges.",
+  disclaimer:
+    "Prices shown are indicative for Ghaziabad (Raj Nagar). Rates may vary for specialty garments, express service or seasonal offers. Contact us for bulk or commercial quotes.",
+};
+
 export const OFFERS = {
-  badge: "Limited time offers",
+  badge: "New customer offer",
   headline: "World-class dry clean & laundry",
   headlineAccent: "service in Ghaziabad",
   tagline: "Clean clothes, happy you",
-  promoStrip: "Flat 51% OFF on select garments · Dry clean from ₹49 · Free pickup & delivery",
+  promoStrip: "Get 35% OFF on your first 3 orders — new customers only",
   subtext:
-    "Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension — real savings on every order.",
+    "Welcome to Cleenzo! Enjoy a flat 35% discount on your first three orders. Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension.",
   intro:
     "Impeccable quality, every time. Book on WhatsApp or schedule a free pickup today.",
   qualityLine: "Impeccable quality, every time",
   featured: {
-    icon: "🧥",
-    label: "Top offer",
-    title: "Dry Clean",
-    price: "₹49",
-    note: "starts at · limited slots",
+    icon: "🎉",
+    label: "Welcome offer",
+    title: "First 3 orders",
+    price: "35% OFF",
+    note: "new customers · use at checkout",
   },
-  terms: "*T&C apply on select garments",
+  terms: "*35% off applies to first 3 orders per customer. T&C apply.",
   items: [
     {
-      icon: "🧥",
-      title: "Dry Clean",
-      price: "Starts @ ₹49",
-      desc: "Gentle care for shirts, suits & everyday wear",
+      icon: "🎉",
+      title: "35% OFF",
+      price: "First 3 orders",
+      desc: "New customers save on laundry & dry clean",
       highlight: true,
     },
     {
-      icon: "⭐",
-      title: "Flat 51% OFF",
-      price: "On select garments",
-      desc: "Big savings on premium dry clean",
-    },
-    {
-      icon: "👔",
-      title: "5 Dry Clean",
-      price: "@ ₹199",
-      desc: "Bulk pack — best value for wardrobe refresh",
+      icon: "📋",
+      title: "Full price list",
+      price: "See transparent rates",
+      desc: "Per-piece dry clean, steam press & laundry by kg",
       highlight: true,
-    },
-    {
-      icon: "🏷️",
-      title: "Flat 25% OFF",
-      price: "Orders above ₹499",
-      desc: "Stack more items & save more at checkout",
-    },
-    {
-      icon: "📅",
-      title: "Monthly Laundry Plan",
-      price: "@ ₹999",
-      desc: "Regular wash & fold for busy households",
     },
     {
       icon: "🛵",
@@ -279,6 +271,18 @@ export const OFFERS = {
       price: "On every order",
       desc: "Doorstep service — save time, we care",
       highlight: true,
+    },
+    {
+      icon: "⚡",
+      title: "Express turnaround",
+      price: "12–48 hrs",
+      desc: "Fast laundry & dry clean without extra lanes",
+    },
+    {
+      icon: "✨",
+      title: "Premium fabric care",
+      price: "Safe & hygienic",
+      desc: "Imported chemicals · trained professionals",
     },
   ],
   benefits: [
@@ -315,17 +319,17 @@ export const CAROUSEL_BANNERS = [
   {
     id: "offers",
     theme: "warm",
-    badge: "🎉 Special offers",
-    title: "Exclusive deals",
-    titleAccent: "from ₹49",
+    badge: "🎉 New customer offer",
+    title: "35% OFF your",
+    titleAccent: "first 3 orders",
     subtitle: OFFERS.promoStrip,
     primaryCta: { label: "Book now on WhatsApp", action: "whatsapp" },
-    secondaryCta: { label: "Schedule free pickup", action: "schedule" },
-    highlightOffer: { icon: "🧥", title: "Dry Clean", price: "Starts @ ₹49" },
+    secondaryCta: { label: "View price list", action: "link", href: "#pricing" },
+    highlightOffer: { icon: "🎉", title: "Welcome offer", price: "35% OFF × 3" },
     miniOffers: [
-      { icon: "👔", text: "5 Dry Clean @ ₹199" },
-      { icon: "🏷️", text: "25% OFF above ₹499" },
-      { icon: "📅", text: "Monthly plan @ ₹999" },
+      { icon: "📋", text: "Transparent price list" },
+      { icon: "🛵", text: "Free pickup & delivery" },
+      { icon: "⚡", text: "Express 12–48 hr turnaround" },
     ],
   },
   {
