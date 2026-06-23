@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/image/cleenzo-logo.png";
-import { COMMERCIAL_NAV_LINKS, RETAIL_SITE_LABEL } from "../commercial/nav";
+import { useCommercialNav } from "../commercial/CommercialNavContext";
+import {
+  COMMERCIAL_PAGE_PATH,
+  COMMERCIAL_SECTIONS,
+  RETAIL_SITE_LABEL,
+} from "../commercial/nav";
 
 function CommercialNavbar() {
+  const { activeSection, scrollToSection, scrollToTop } = useCommercialNav();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -15,6 +21,11 @@ function CommercialNavbar() {
   }, []);
 
   const closeMenu = () => setOpen(false);
+
+  const handleSectionClick = (sectionId) => {
+    scrollToSection(sectionId);
+    closeMenu();
+  };
 
   return (
     <header
@@ -31,60 +42,87 @@ function CommercialNavbar() {
             to="/"
             className="inline-flex items-center gap-2 font-semibold text-[#0A3D91] hover:text-[#072d6b] transition ml-auto"
           >
-            <span aria-hidden="true" className="text-base">←</span>
+            <span aria-hidden="true" className="text-base">
+              ←
+            </span>
             {RETAIL_SITE_LABEL}
           </Link>
         </div>
       </div>
 
       <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between gap-4">
-        <Link to="/commercial-laundry" className="flex items-center gap-2 shrink-0" onClick={closeMenu}>
-          <img
-            src={logo}
-            alt="Cleenzo Commercial"
-            className="h-7 sm:h-8 w-auto object-contain"
-          />
+        <Link
+          to={COMMERCIAL_PAGE_PATH}
+          className="flex items-center gap-2 shrink-0"
+          onClick={(event) => {
+            closeMenu();
+            event.preventDefault();
+            scrollToTop();
+          }}
+        >
+          <img src={logo} alt="Cleenzo Commercial" className="h-7 sm:h-8 w-auto object-contain" />
           <span className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-md bg-[#0A3D91] text-white text-xs font-bold uppercase tracking-wide">
             Commercial
           </span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
-          {COMMERCIAL_NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-[#0A3D91] transition">
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <Link
             to="/"
             className="text-sm font-semibold text-slate-600 hover:text-[#0A3D91] px-3 py-2 rounded-lg hover:bg-slate-50 transition"
           >
             {RETAIL_SITE_LABEL}
           </Link>
-          <a
-            href="#commercial-enquiry"
+          <button
+            type="button"
+            onClick={() => handleSectionClick("commercial-enquiry")}
             className="bg-[#0A3D91] text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-[#072d6b] transition"
           >
             Request Quote
-          </a>
+          </button>
         </div>
 
         <button
           type="button"
-          className="md:hidden p-2 rounded-lg border border-slate-200 text-slate-700"
+          className="lg:hidden p-2 rounded-lg border border-slate-200 text-slate-700"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((value) => !value)}
         >
           {open ? "✕" : "☰"}
         </button>
       </nav>
 
-      {open && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-1">
+      <div className="hidden lg:block border-t border-slate-100 bg-white">
+        <div
+          className="max-w-7xl mx-auto px-3 sm:px-6 py-2 flex flex-wrap gap-2"
+          role="tablist"
+          aria-label="Commercial page sections"
+        >
+          {COMMERCIAL_SECTIONS.map((section) => {
+            const isActive = activeSection === section.id;
+            return (
+              <button
+                key={section.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => handleSectionClick(section.id)}
+                className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-bold border transition ${
+                  isActive
+                    ? "bg-[#0A3D91] border-[#0A3D91] text-white shadow-sm"
+                    : "bg-slate-50 border-slate-200 text-slate-700 hover:border-[#0A3D91]/30"
+                }`}
+              >
+                {section.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {open ? (
+        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-1">
           <Link
             to="/"
             onClick={closeMenu}
@@ -93,25 +131,32 @@ function CommercialNavbar() {
             <span aria-hidden="true">←</span>
             {RETAIL_SITE_LABEL}
           </Link>
-          {COMMERCIAL_NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={closeMenu}
-              className="block px-4 py-3 rounded-xl text-slate-700 font-semibold hover:bg-slate-50"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#commercial-enquiry"
-            onClick={closeMenu}
-            className="block text-center mt-3 bg-[#0A3D91] text-white font-bold px-4 py-3 rounded-xl"
+          {COMMERCIAL_SECTIONS.map((section) => {
+            const isActive = activeSection === section.id;
+            return (
+              <button
+                key={section.id}
+                type="button"
+                onClick={() => handleSectionClick(section.id)}
+                className={`block w-full text-left px-4 py-3 rounded-xl font-semibold transition ${
+                  isActive
+                    ? "bg-[#0A3D91] text-white"
+                    : "text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                {section.label}
+              </button>
+            );
+          })}
+          <button
+            type="button"
+            onClick={() => handleSectionClick("commercial-enquiry")}
+            className="block w-full text-center mt-3 bg-[#0A3D91] text-white font-bold px-4 py-3 rounded-xl"
           >
             Request Quote
-          </a>
+          </button>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

@@ -15,12 +15,6 @@ export const SERVICE_AREAS = [
   "AVS City Square",
   "Vaishali",
   "Indirapuram",
-  "Kaushambi",
-  "Crossings Republik",
-  "Sahibabad",
-  "Vasundhara",
-  "Noida Extension",
-  "Delhi NCR",
 ];
 
 export const SEO = {
@@ -28,7 +22,7 @@ export const SEO = {
   title:
     "Cleenzo | Laundry & Dry Cleaning in Raj Nagar, Ghaziabad — Free Pickup & Express Delivery",
   description:
-    "Cleenzo offers premium laundry, dry cleaning, sofa & carpet cleaning in Raj Nagar Extn, Ghaziabad (201017). Free doorstep pickup, express delivery & fabric-safe care. Serving Vaishali, Indirapuram & Delhi NCR. Book on WhatsApp.",
+    "Cleenzo offers premium laundry, dry cleaning, sofa & carpet cleaning in Raj Nagar Extn, Ghaziabad (201017). Free doorstep pickup, express delivery & fabric-safe care. Serving AVS City Square, Vaishali & Indirapuram. Book on WhatsApp.",
   keywords: [
     "laundry service Raj Nagar Ghaziabad",
     "dry cleaning Ghaziabad",
@@ -55,13 +49,17 @@ export const SEO = {
 
 export const SEO_COMMERCIAL = {
   siteName: "Cleenzo",
-  title: "Commercial Laundry Solutions | Cleenzo B2B — Hotels, Restaurants & Offices Ghaziabad",
+  title:
+    "Commercial Laundry Services for Hotels, Restaurants & Hospitals | Cleenzo Ghaziabad",
   description:
-    "Cleenzo commercial laundry for hotels, restaurants, salons, PGs, clinics and offices in Ghaziabad & Delhi NCR. Dedicated processing, scheduled pickup & delivery, monthly billing.",
+    "Cleenzo commercial laundry for hotels, restaurants, cafes, hospitals, hostels, salons & gyms in Ghaziabad. Bulk capacity, monthly contracts, pickup & delivery, GST billing & quality control.",
   keywords: [
     "commercial laundry Ghaziabad",
-    "hotel linen laundry service Ghaziabad",
+    "hotel laundry service Ghaziabad",
     "restaurant laundry Raj Nagar",
+    "hospital linen laundry",
+    "hostel laundry service",
+    "gym towel laundry",
     "B2B laundry Ghaziabad",
     "bulk laundry pickup delivery",
     "commercial dry cleaning Delhi NCR",
@@ -71,6 +69,18 @@ export const SEO_COMMERCIAL = {
   locale: "en_IN",
   twitterCard: "summary_large_image",
   path: "/commercial-laundry",
+};
+
+export const SEO_ABOUT = {
+  siteName: "Cleenzo",
+  title: "About Cleenzo | Modern Laundry Brand in Raj Nagar, Ghaziabad",
+  description:
+    "Learn about Cleenzo — a modern laundry brand in Ghaziabad using German chemicals, professional machines, trained staff and 100% quality checks. Serving Raj Nagar Extension, AVS City Square, Vaishali & Indirapuram.",
+  keywords:
+    "about Cleenzo, Cleenzo laundry Ghaziabad, modern laundry brand Raj Nagar, professional laundry service",
+  locale: "en_IN",
+  twitterCard: "summary_large_image",
+  path: "/about",
 };
 
 export const SEO_NOT_FOUND = {
@@ -91,7 +101,7 @@ export const SEO_FAQ = [
   {
     question: "Does Cleenzo offer free pickup and delivery?",
     answer:
-      "Yes. Cleenzo provides free doorstep pickup and express delivery on laundry and dry cleaning orders across Raj Nagar, Vaishali, Indirapuram, Kaushambi and nearby areas in Ghaziabad and Delhi NCR.",
+      "Yes. Cleenzo provides free doorstep pickup and express delivery on laundry and dry cleaning orders across Raj Nagar Extension, AVS City Square, Vaishali and Indirapuram.",
   },
   {
     question: "What services does Cleenzo provide?",
@@ -104,14 +114,14 @@ export const SEO_FAQ = [
   },
   {
     question: "Which areas does Cleenzo serve near Ghaziabad?",
-    answer: `Cleenzo serves Raj Nagar Extension, AVS City Square, Vaishali, Indirapuram, Kaushambi, Crossings Republik, Sahibabad, Vasundhara, Noida Extension and surrounding Delhi NCR neighbourhoods with free pickup and delivery.`,
+    answer: `Cleenzo serves Raj Nagar Extension, AVS City Square, Vaishali and Indirapuram with free pickup and delivery.`,
   },
 ];
 
 export function getLocalBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "DryCleaningOrLaundry",
+    "@type": ["LocalBusiness", "DryCleaningOrLaundry"],
     "@id": `${SITE_URL}/#localbusiness`,
     name: "Cleenzo",
     description: SEO.description,
@@ -187,7 +197,7 @@ export function getCommercialJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Cleenzo Commercial Laundry",
+    name: "Commercial Laundry Services for Hotels, Restaurants & Hospitals",
     description: SEO_COMMERCIAL.description,
     url: `${SITE_URL}${SEO_COMMERCIAL.path}`,
     provider: { "@id": `${SITE_URL}/#localbusiness` },
@@ -199,12 +209,60 @@ export function getCommercialJsonLd() {
       "Commercial laundry",
       "Hotel linen service",
       "Restaurant laundry",
-      "Institutional dry cleaning",
+      "Hospital laundry",
+      "Hostel laundry",
+      "Salon towel service",
+      "Gym laundry",
     ],
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
       priceCurrency: "INR",
     },
+  };
+}
+
+export function getServicePageJsonLd(page) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: page.h1,
+    description: page.seo.description,
+    url: `${SITE_URL}${page.path}`,
+    provider: { "@id": `${SITE_URL}/#localbusiness` },
+    areaServed: SERVICE_AREAS.map((name) => ({
+      "@type": "Place",
+      name,
+    })),
+    serviceType: page.serviceType,
+  };
+}
+
+export function getPageFaqJsonLd(faqs) {
+  if (!faqs?.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function getBreadcrumbJsonLd(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }

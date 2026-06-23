@@ -32,8 +32,8 @@ function SeoContentSection() {
           </p>
 
           <p>
-            Serving <strong>{SERVICE_AREAS.slice(0, 6).join(", ")}</strong>, and nearby neighbourhoods
-            across Ghaziabad and Delhi NCR (pin code <strong>201017</strong>), Cleenzo offers{" "}
+            Serving <strong>{SERVICE_AREAS.join(", ")}</strong> (pin code{" "}
+            <strong>201017</strong>), Cleenzo offers{" "}
             <strong>free pickup and delivery</strong> on every order. Book in seconds on WhatsApp, call{" "}
             <a href={`tel:${PHONE_TEL}`} className="text-cleenzo font-semibold hover:underline">
               {PHONE_DISPLAY}

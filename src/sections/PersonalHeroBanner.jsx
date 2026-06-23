@@ -30,7 +30,7 @@ function PersonalHeroBanner() {
   const { stripTone } = useCarouselStrip();
 
   return (
-    <section className="personal-hero" aria-label="Personal and home laundry services">
+    <section id="hero" className="personal-hero" aria-label="Personal and home laundry services">
       <div className="personal-hero-grid">
         <div className="personal-hero-copy">
           <span className="personal-hero-badge">{PERSONAL_HERO.badge}</span>

@@ -18,6 +18,12 @@
   box-sizing: border-box;
 }
 
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 html,
 body,
 #root {
