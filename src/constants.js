@@ -75,7 +75,7 @@ export const PERSONAL_HERO = {
   title: "Premium Laundry & Dry Cleaning in Ghaziabad",
   accent: "Free Pickup & Express Delivery",
   subtitle:
-    "Fabric-safe care at your doorstep in Raj Nagar, Vaishali, Indirapuram & nearby Delhi NCR areas.",
+    "Fabric-safe care at your doorstep in Raj Nagar Extension, AVS City Square, Vaishali & Indirapuram.",
 };
 
 export const CORE_SERVICES = [

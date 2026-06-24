@@ -1,14 +1,19 @@
 import {
   SEO,
+  SEO_ABOUT,
   SEO_COMMERCIAL,
   SEO_NOT_FOUND,
   SITE_OG_IMAGE,
   SITE_URL,
+  getBreadcrumbJsonLd,
   getCommercialJsonLd,
   getFaqJsonLd,
   getLocalBusinessJsonLd,
+  getPageFaqJsonLd,
+  getServicePageJsonLd,
   getWebSiteJsonLd,
 } from "./seo";
+import { getServicePageByPath } from "./data/servicePages";
 
 export function upsertMeta(name, content, property = false) {
   const attr = property ? "property" : "name";
@@ -93,6 +98,33 @@ export function applyPageMeta({
   upsertJsonLd("cleenzo-faq-jsonld", jsonLd.find((j) => j.id === "faq")?.data ?? null);
   upsertJsonLd("cleenzo-website-jsonld", jsonLd.find((j) => j.id === "website")?.data ?? null);
   upsertJsonLd("cleenzo-commercial-jsonld", jsonLd.find((j) => j.id === "commercial")?.data ?? null);
+  upsertJsonLd("cleenzo-service-jsonld", jsonLd.find((j) => j.id === "service")?.data ?? null);
+  upsertJsonLd("cleenzo-breadcrumb-jsonld", jsonLd.find((j) => j.id === "breadcrumb")?.data ?? null);
+}
+
+function buildServicePageMeta(page) {
+  const url = `${SITE_URL}${page.path}`;
+  const jsonLd = [
+    { id: "local", data: getLocalBusinessJsonLd() },
+    { id: "service", data: getServicePageJsonLd(page) },
+    {
+      id: "breadcrumb",
+      data: getBreadcrumbJsonLd([
+        { name: "Home", url: SITE_URL },
+        { name: page.serviceType, url },
+      ]),
+    },
+  ];
+  const faqLd = getPageFaqJsonLd(page.faqs);
+  if (faqLd) jsonLd.push({ id: "faq", data: faqLd });
+
+  return {
+    title: page.seo.title,
+    description: page.seo.description,
+    keywords: page.seo.keywords,
+    url,
+    jsonLd,
+  };
 }
 
 export function getMetaForPathname(pathname) {
@@ -115,8 +147,37 @@ export function getMetaForPathname(pathname) {
       jsonLd: [
         { id: "local", data: getLocalBusinessJsonLd() },
         { id: "commercial", data: getCommercialJsonLd() },
+        {
+          id: "breadcrumb",
+          data: getBreadcrumbJsonLd([
+            { name: "Home", url: SITE_URL },
+            { name: "Commercial Laundry", url: `${SITE_URL}${SEO_COMMERCIAL.path}` },
+          ]),
+        },
       ],
     };
+  }
+
+  if (pathname === SEO_ABOUT.path) {
+    return {
+      ...SEO_ABOUT,
+      url: `${SITE_URL}${SEO_ABOUT.path}`,
+      jsonLd: [
+        { id: "local", data: getLocalBusinessJsonLd() },
+        {
+          id: "breadcrumb",
+          data: getBreadcrumbJsonLd([
+            { name: "Home", url: SITE_URL },
+            { name: "About Cleenzo", url: `${SITE_URL}${SEO_ABOUT.path}` },
+          ]),
+        },
+      ],
+    };
+  }
+
+  const servicePage = getServicePageByPath(pathname);
+  if (servicePage) {
+    return buildServicePageMeta(servicePage);
   }
 
   return {

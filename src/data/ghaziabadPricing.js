@@ -8,7 +8,7 @@ export const GHAZIABAD_PRICING = {
       "label": "Dry Cleaning",
       "icon": "\ud83e\udde5",
       "unit": "pc",
-      "turnaround": "3\u20135 days"
+      "turnaround": "Deliver within 24hrs - T&C apply"
     },
     {
       "id": "steam-iron",

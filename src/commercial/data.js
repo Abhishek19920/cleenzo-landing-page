@@ -15,34 +15,39 @@ export const TRUST_BADGES = [
 
 export const INDUSTRIES = [
   {
-    title: "Hotels & Guest Houses",
+    title: "Hotels",
     description: "Fresh linen and uniforms for guest-ready rooms, every cycle.",
     icon: "🏨",
   },
   {
-    title: "PGs & Hostels",
-    description: "Reliable bulk laundry for bedsheets, towels and student linen.",
-    icon: "🏠",
-  },
-  {
-    title: "Restaurants & Cafés",
+    title: "Restaurants",
     description: "Spotless table linen and kitchen towels for daily service.",
     icon: "🍽️",
   },
   {
-    title: "Salons & Spas",
-    description: "Hygienic towels, robes and treatment sheets handled with care.",
-    icon: "💆",
+    title: "Cafes",
+    description: "Napkins, aprons and front-of-house linen handled on schedule.",
+    icon: "☕",
   },
   {
-    title: "Clinics & Healthcare",
+    title: "Hospitals",
     description: "Process-focused handling for hygiene-sensitive textile needs.",
     icon: "🏥",
   },
   {
-    title: "Corporate Offices",
-    description: "Uniform and facility linen programs tailored to your team.",
-    icon: "🏢",
+    title: "Hostels",
+    description: "Reliable bulk laundry for bedsheets, towels and student linen.",
+    icon: "🏠",
+  },
+  {
+    title: "Salons",
+    description: "Hygienic towels, robes and treatment sheets handled with care.",
+    icon: "💆",
+  },
+  {
+    title: "Gyms",
+    description: "Fresh towels and staff uniforms with frequent pickup cycles.",
+    icon: "💪",
   },
 ];
 

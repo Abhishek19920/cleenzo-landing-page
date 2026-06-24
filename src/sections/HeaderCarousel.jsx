@@ -393,6 +393,7 @@ function HeaderCarousel() {
 
   return (
     <section
+      id="carousel"
       className="relative w-full overflow-hidden border-b border-cleenzo/10 select-none touch-pan-y"
       aria-label="Promotions carousel"
       aria-roledescription="carousel"

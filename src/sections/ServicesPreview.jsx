@@ -42,8 +42,8 @@ function ServicesPreview() {
             We handle every fabric, every garment
           </h2>
           <p className="text-slate-600 mt-3 max-w-2xl mx-auto text-sm md:text-base">
-            From daily laundry to sofa, carpet & dry clean — Cleenzo covers home &
-            wardrobe care with express pickup & delivery.
+            From daily laundry to sofa, carpet & dry clean — Cleenzo covers home & wardrobe care
+            with express pickup & delivery.
           </p>
         </div>
 
@@ -73,8 +73,8 @@ function ServicesPreview() {
               </h3>
             </div>
             <p className="text-sm text-slate-500 max-w-md">
-              Each fabric gets its own process — colour-safe, stain-treated and finished to
-              premium standards.
+              Each fabric gets its own process — colour-safe, stain-treated and finished to premium
+              standards.
             </p>
           </div>
 

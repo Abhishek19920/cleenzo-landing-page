@@ -16,9 +16,7 @@ const HERO_TRUST = [
 ];
 
 const INDUSTRY_STRIP = INDUSTRIES.filter((item) =>
-  ["Hotels & Guest Houses", "Restaurants & Cafés", "Salons & Spas", "PGs & Hostels", "Corporate Offices"].includes(
-    item.title,
-  ),
+  ["Hotels", "Restaurants", "Salons", "Hostels"].includes(item.title),
 );
 
 function CommercialHero({ onQuoteClick, onMeetingClick }) {
@@ -27,9 +25,12 @@ function CommercialHero({ onQuoteClick, onMeetingClick }) {
       <div className="commercial-hero-banner">
         <div className="commercial-hero-main">
           <div className="commercial-hero-copy">
-            <h1 className="commercial-hero-title">Commercial Laundry Solutions</h1>
+            <h1 className="commercial-hero-title">
+              Commercial Laundry Services for Hotels, Restaurants &amp; Hospitals
+            </h1>
             <p className="commercial-hero-subtitle">
-              Reliable Laundry Partner for Hotels, Restaurants, Salons, Hostels &amp; Businesses
+              Bulk capacity, monthly contracts, pickup &amp; delivery, GST billing &amp; quality
+              control for hotels, restaurants, cafes, hospitals, hostels, salons &amp; gyms
             </p>
 
             <div className="commercial-hero-features">
