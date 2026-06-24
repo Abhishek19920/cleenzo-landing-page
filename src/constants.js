@@ -24,13 +24,6 @@ export const STORE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=$
 
 export const COMMERCIAL_LAUNDRY_URL = "/commercial-laundry";
 
-export const DISCOUNT = {
-  label: "Limited offer",
-  headline: "Get 20% OFF on your first order",
-  subtext: "Book via WhatsApp today — mention code CLEENZO20",
-  code: "CLEENZO20",
-};
-
 export const APP_LINKS = {
   android: "#",
   ios: "#",
