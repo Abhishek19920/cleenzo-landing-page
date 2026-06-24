@@ -236,9 +236,9 @@ export const OFFERS = {
   headline: "World-class dry clean & laundry",
   headlineAccent: "service in Ghaziabad",
   tagline: "Clean clothes, happy you",
-  promoStrip: "Get 35% OFF on your first 3 orders — new customers only",
+  promoStrip: "Get 30% OFF on your first 3 orders — new customers only",
   subtext:
-    "Welcome to Cleenzo! Enjoy a flat 35% discount on your first three orders. Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension.",
+    "Welcome to Cleenzo! Enjoy a flat 30% discount on your first three orders. Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension.",
   intro:
     "Impeccable quality, every time. Book on WhatsApp or schedule a free pickup today.",
   qualityLine: "Impeccable quality, every time",
@@ -246,14 +246,14 @@ export const OFFERS = {
     icon: "🎉",
     label: "Welcome offer",
     title: "First 3 orders",
-    price: "35% OFF",
+    price: "30% OFF",
     note: "new customers · use at checkout",
   },
-  terms: "*35% off applies to first 3 orders per customer. T&C apply.",
+  terms: "*30% off applies to first 3 orders per customer. T&C apply.",
   items: [
     {
       icon: "🎉",
-      title: "35% OFF",
+      title: "30% OFF",
       price: "First 3 orders",
       desc: "New customers save on laundry & dry clean",
       highlight: true,
@@ -320,7 +320,7 @@ export const CAROUSEL_BANNERS = [
     id: "offers",
     theme: "warm",
     badge: "🎉 New customer offer",
-    title: "35% OFF your",
+    title: "30% OFF your",
     titleAccent: "first 3 orders",
     subtitle: OFFERS.promoStrip,
     primaryCta: { label: "Book now on WhatsApp", action: "whatsapp" },
@@ -332,7 +332,7 @@ export const CAROUSEL_BANNERS = [
     highlightOffer: {
       icon: "🎉",
       title: "Welcome offer",
-      price: "35% OFF × 3",
+      price: "30% OFF × 3",
     },
     miniOffers: [
       { icon: "📋", text: "Transparent price list" },
