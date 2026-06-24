@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = "919711924411";
+export const WHATSAPP_NUMBER = "919999225311";
 
 export const WHATSAPP_BOOKING_MESSAGE =
   "Hi Cleenzo! I'd like to book a laundry pickup. Please share available slots.";
@@ -324,8 +324,16 @@ export const CAROUSEL_BANNERS = [
     titleAccent: "first 3 orders",
     subtitle: OFFERS.promoStrip,
     primaryCta: { label: "Book now on WhatsApp", action: "whatsapp" },
-    secondaryCta: { label: "View price list", action: "link", href: "#pricing" },
-    highlightOffer: { icon: "🎉", title: "Welcome offer", price: "35% OFF × 3" },
+    secondaryCta: {
+      label: "View price list",
+      action: "link",
+      href: "#pricing",
+    },
+    highlightOffer: {
+      icon: "🎉",
+      title: "Welcome offer",
+      price: "35% OFF × 3",
+    },
     miniOffers: [
       { icon: "📋", text: "Transparent price list" },
       { icon: "🛵", text: "Free pickup & delivery" },
