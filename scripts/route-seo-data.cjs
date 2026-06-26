@@ -92,6 +92,17 @@ const ROUTES = [
     intro:
       "Deep shampoo, vacuum extraction, pet odour removal and allergen treatment for home and commercial carpets in Ghaziabad.",
   },
+  {
+    path: "/curtain-cleaning",
+    title: "Curtain Cleaning Service in Ghaziabad | Drapes & Blinds | Cleenzo",
+    description:
+      "Curtain cleaning in Ghaziabad — silk, cotton, velvet & blackout drapes. Dust, stain & odour removal. Free pickup & delivery. Cleenzo Raj Nagar Extension.",
+    keywords:
+      "curtain cleaning Ghaziabad, drape cleaning near me, curtain dry cleaning Raj Nagar, velvet curtain cleaning",
+    h1: "Curtain Cleaning Service in Ghaziabad",
+    intro:
+      "Professional curtain and drape cleaning for silk, cotton, velvet and blackout panels with free pickup across Ghaziabad.",
+  },
 ];
 
 module.exports = { SITE_URL, ROUTES };

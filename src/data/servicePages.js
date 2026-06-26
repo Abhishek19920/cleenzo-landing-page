@@ -6,6 +6,7 @@ export const SERVICE_PAGE_PATHS = [
   "/shoe-cleaning",
   "/sofa-cleaning",
   "/carpet-cleaning",
+  "/curtain-cleaning",
 ];
 
 export const SERVICE_PAGES = {
@@ -443,6 +444,63 @@ export const SERVICE_PAGES = {
         question: "How often should carpets be professionally cleaned?",
         answer:
           "For homes with pets or heavy footfall, every 6–12 months is recommended. Light-use rooms may need annual cleaning.",
+      },
+    ],
+  },
+
+  "/curtain-cleaning": {
+    path: "/curtain-cleaning",
+    h1: "Curtain Cleaning Service in Ghaziabad",
+    badge: "Drapes & window textiles",
+    subtitle:
+      "Professional curtain & drape cleaning — silk, cotton, velvet and blackout panels. Off-site care with free pickup across Raj Nagar & Ghaziabad.",
+    seo: {
+      title: "Curtain Cleaning Service in Ghaziabad | Drapes & Blinds | Cleenzo",
+      description:
+        "Curtain cleaning in Ghaziabad — silk, cotton, velvet & blackout drapes. Dust, stain & odour removal. Free pickup & delivery. Cleenzo Raj Nagar Extension.",
+      keywords:
+        "curtain cleaning Ghaziabad, drape cleaning near me, curtain dry cleaning Raj Nagar, velvet curtain cleaning, blackout curtain wash",
+    },
+    serviceType: "Curtain Cleaning",
+    sections: [
+      {
+        title: "Silk & delicate drapes",
+        body: [
+          "Silk and embroidered curtains need controlled cleaning to protect colour and weave. Cleenzo inspects fabric type before choosing dry clean or wet process.",
+        ],
+      },
+      {
+        title: "Cotton & everyday curtains",
+        body: [
+          "Living-room and bedroom cotton panels collect dust and cooking fumes over time. Professional washing restores brightness without shrinkage when care labels allow.",
+        ],
+      },
+      {
+        title: "Velvet & blackout panels",
+        body: [
+          "Heavy velvet and blackout curtains need structured handling off-site. We collect, clean, press and return ready to re-hang.",
+        ],
+      },
+      {
+        title: "Free pickup & delivery",
+        body: [
+          "Large curtains are awkward to transport — our team picks up from Raj Nagar Extension, AVS City Square, Vaishali and Indirapuram at no extra visit charge.",
+        ],
+        cta: "Book curtain cleaning on WhatsApp",
+      },
+    ],
+    showAreas: true,
+    showPricing: false,
+    faqs: [
+      {
+        question: "Do you remove and re-hang curtains?",
+        answer:
+          "We collect curtains for off-site cleaning. Re-hanging can be discussed when you book — most customers prefer their own fitter for final installation.",
+      },
+      {
+        question: "How long does curtain cleaning take?",
+        answer:
+          "Most curtain orders return within 3–5 days depending on fabric, lining and volume. Express slots may be available — ask on WhatsApp.",
       },
     ],
   },

@@ -3,6 +3,7 @@ import HeaderCarousel from "../sections/HeaderCarousel";
 import OurProcess from "../sections/OurProcess";
 import OffersSection from "../sections/OffersSection";
 import PricingSection from "../sections/PricingSection";
+import ExpertServicesSection from "../sections/ExpertServicesSection";
 import ServicesPreview from "../sections/ServicesPreview";
 import WhyChoose from "../sections/WhyChoose";
 import DownloadApp from "../sections/DownloadApp";
@@ -18,6 +19,7 @@ function Home() {
       <OurProcess />
       <OffersSection />
       <PricingSection />
+      <ExpertServicesSection />
       <ServicesPreview />
       <WhyChoose />
       <SeoContentSection />
