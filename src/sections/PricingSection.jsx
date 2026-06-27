@@ -1,30 +1,23 @@
 import { useEffect, useMemo, useState } from "react";
 
 import PlaceOrderCTA from "../components/PlaceOrderCTA";
+import AlphabetFilter from "../components/pricing/AlphabetFilter";
 import { PRICING_SECTION } from "../constants";
 import { GHAZIABAD_PRICING } from "../data/ghaziabadPricing";
-
-const pricing = GHAZIABAD_PRICING;
-const INITIAL_VISIBLE = 12;
-const SHOW_MORE_STEP = 12;
+import {
+  filterPricingItems,
+  getAvailableLetters,
+  hasSearchQuery,
+  matchesPricingSearch,
+} from "../utils/pricingSearch";
 
 function formatInr(amount) {
   return `₹${amount.toLocaleString("en-IN")}`;
 }
 
-function normalizeForMatch(value) {
-  return value.trim().toLowerCase().replace(/[^a-z0-9]/g, "");
-}
-
-function matchesPricingSearch(name, searchQuery) {
-  const query = normalizeForMatch(searchQuery);
-  if (!query) return true;
-  return normalizeForMatch(name).includes(query);
-}
-
-function hasSearchQuery(searchQuery) {
-  return normalizeForMatch(searchQuery).length > 0;
-}
+const pricing = GHAZIABAD_PRICING;
+const INITIAL_VISIBLE = 12;
+const SHOW_MORE_STEP = 12;
 
 function KgServiceCards() {
   return (
@@ -177,7 +170,7 @@ function PriceTable({ items, unitLabel, emptyMessage, showCategory = false }) {
   );
 }
 
-function CategoryTabs({ selectedCategory, activeService, isSearching, onSelectSection }) {
+function CategoryTabs({ selectedCategory, activeService, isBrowsingAll, onSelectSection }) {
   return (
     <div
       className="flex flex-wrap gap-2 mb-6"
@@ -185,7 +178,7 @@ function CategoryTabs({ selectedCategory, activeService, isSearching, onSelectSe
       aria-label="Garment category"
     >
       {pricing.sectionTabs.map((tab) => {
-        const isCategorySelected = !isSearching && selectedCategory === tab.id;
+        const isCategorySelected = !isBrowsingAll && selectedCategory === tab.id;
         const count = pricing.items[activeService]?.[tab.id]?.length ?? 0;
         return (
           <button
@@ -251,6 +244,7 @@ function PricingSection() {
   const [activeService, setActiveService] = useState("dry-clean");
   const [selectedCategory, setSelectedCategory] = useState("men");
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeLetter, setActiveLetter] = useState(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
   const serviceMeta = useMemo(
@@ -285,16 +279,28 @@ function PricingSection() {
   }, [activeService, selectedCategory, sectionTabById]);
 
   const isSearching = hasSearchQuery(searchQuery);
+  const isLetterFilter = Boolean(activeLetter);
+  const isBrowsingAll = isSearching || isLetterFilter;
+
+  const letterCounts = useMemo(
+    () => getAvailableLetters(allSectionItems),
+    [allSectionItems],
+  );
 
   const filteredItems = useMemo(() => {
-    if (!isSearching) return sectionItems;
-    return allSectionItems.filter((item) => matchesPricingSearch(item.name, searchQuery));
-  }, [allSectionItems, sectionItems, searchQuery, isSearching]);
+    if (isBrowsingAll) {
+      return filterPricingItems(allSectionItems, {
+        searchQuery,
+        letter: activeLetter,
+      });
+    }
+    return sectionItems;
+  }, [allSectionItems, sectionItems, searchQuery, activeLetter, isBrowsingAll]);
 
   const displayedItems = useMemo(() => {
-    if (isSearching) return filteredItems;
+    if (isBrowsingAll) return filteredItems;
     return filteredItems.slice(0, visibleCount);
-  }, [filteredItems, isSearching, visibleCount]);
+  }, [filteredItems, isBrowsingAll, visibleCount]);
 
   const serviceAddons = useMemo(() => {
     if (activeService === "kg-wash") {
@@ -307,30 +313,43 @@ function PricingSection() {
 
   useEffect(() => {
     setSearchQuery("");
+    setActiveLetter(null);
     setVisibleCount(INITIAL_VISIBLE);
   }, [activeService]);
 
   const handleSelectCategory = (sectionId) => {
     setSelectedCategory(sectionId);
     setSearchQuery("");
+    setActiveLetter(null);
     setVisibleCount(INITIAL_VISIBLE);
   };
 
   const handleSearchChange = (value) => {
     setSearchQuery(value);
-    if (!hasSearchQuery(value)) {
+    if (hasSearchQuery(value)) {
+      setActiveLetter(null);
+    } else if (!activeLetter) {
       setSelectedCategory("men");
       setVisibleCount(INITIAL_VISIBLE);
     }
   };
 
-  const searchHint = isSearching
+  const handleLetterSelect = (letter) => {
+    setActiveLetter(letter);
+    if (letter) setSearchQuery("");
+  };
+
+  const searchHint = isBrowsingAll
     ? filteredItems.length
-      ? `${filteredItems.length} result${filteredItems.length === 1 ? "" : "s"} across all categories for “${searchQuery.trim()}”`
-      : `No results for “${searchQuery.trim()}” across Mens, Womens, Kids, Luxury & Household`
-  : sectionItems.length > INITIAL_VISIBLE
-    ? `Showing first ${Math.min(visibleCount, sectionItems.length)} of ${sectionItems.length} — search all categories or show more`
-    : `${sectionItems.length} items in this category`;
+      ? `${filteredItems.length} result${filteredItems.length === 1 ? "" : "s"}${
+          isLetterFilter ? ` starting with “${activeLetter}”` : ""
+        }${isSearching ? ` matching “${searchQuery.trim()}”` : ""} — all categories`
+      : isLetterFilter
+          ? `No items starting with “${activeLetter}”`
+          : `No results for “${searchQuery.trim()}” across all categories`
+    : sectionItems.length > INITIAL_VISIBLE
+      ? `Showing first ${Math.min(visibleCount, sectionItems.length)} of ${sectionItems.length} — search or pick a letter for instant results`
+      : `${sectionItems.length} items in this category`;
 
   return (
     <section id="pricing" className="bg-cleenzo-pale-bg border-t border-cleenzo-sky-light">
@@ -451,29 +470,38 @@ function PricingSection() {
                 <CategoryTabs
                   selectedCategory={selectedCategory}
                   activeService={activeService}
-                  isSearching={isSearching}
+                  isBrowsingAll={isBrowsingAll}
                   onSelectSection={handleSelectCategory}
                 />
 
                 <PriceSearchBar
                   value={searchQuery}
                   onChange={handleSearchChange}
-                  placeholder="Search all categories — e.g. tshirt, saree, curtain…"
+                  placeholder="Type to search — e.g. shirt, saree, blazer…"
                   resultHint={searchHint}
+                />
+
+                <AlphabetFilter
+                  activeLetter={activeLetter}
+                  letterCounts={letterCounts}
+                  onSelectLetter={handleLetterSelect}
+                  totalCount={allSectionItems.length}
                 />
 
                 <PriceTable
                   items={displayedItems}
                   unitLabel={unitLabel}
-                  showCategory={isSearching}
+                  showCategory={isBrowsingAll}
                   emptyMessage={
-                    isSearching
-                      ? `No items match “${searchQuery.trim()}” across Mens, Womens, Kids, Luxury & Household.`
+                    isBrowsingAll
+                      ? isSearching
+                        ? `No items match “${searchQuery.trim()}”. Try another letter or keyword.`
+                        : `No items start with “${activeLetter}”.`
                       : undefined
                   }
                 />
 
-                {!isSearching ? (
+                {!isBrowsingAll ? (
                   <ShowMoreBar
                     visibleCount={displayedItems.length}
                     totalCount={filteredItems.length}
