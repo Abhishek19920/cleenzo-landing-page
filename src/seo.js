@@ -83,6 +83,18 @@ export const SEO_ABOUT = {
   path: "/about",
 };
 
+export const SEO_BLOG = {
+  siteName: "Cleenzo",
+  title: "Cleenzo Blog | Spot Cleaning, Stain Removal & Fabric Care Tips",
+  description:
+    "Read how Cleenzo handles spot cleaning, stain removal with German chemicals, barcode garment tracking and quality checks — practical fabric care guides from Raj Nagar, Ghaziabad.",
+  keywords:
+    "Cleenzo blog, spot cleaning laundry, stain removal Ghaziabad, German chemicals laundry, fabric care tips, laundry quality checks",
+  locale: "en_IN",
+  twitterCard: "summary_large_image",
+  path: "/blog",
+};
+
 export const SEO_NOT_FOUND = {
   siteName: "Cleenzo",
   title: "Page not found | Cleenzo",
@@ -264,5 +276,34 @@ export function getBreadcrumbJsonLd(items) {
       name: item.name,
       item: item.url,
     })),
+  };
+}
+
+export function getArticleJsonLd(post) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: `${SITE_URL}${post.heroImage}`,
+    datePublished: post.datePublished,
+    dateModified: post.datePublished,
+    author: {
+      "@type": "Organization",
+      name: "Cleenzo",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Cleenzo",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/cleenzo-logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}${post.path}`,
+    },
   };
 }

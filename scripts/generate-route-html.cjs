@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { href: "/carpet-cleaning", label: "Carpet cleaning" },
   { href: "/commercial-laundry", label: "Commercial B2B" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
 ];
 
 function escapeHtml(value) {

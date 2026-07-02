@@ -18,6 +18,7 @@ const SERVICE_LINKS = [
   { label: "Carpet cleaning", to: "/carpet-cleaning" },
   { label: "Commercial B2B", to: "/commercial-laundry" },
   { label: "About Cleenzo", to: "/about" },
+  { label: "Blog", to: "/blog" },
 ];
 
 function Footer() {

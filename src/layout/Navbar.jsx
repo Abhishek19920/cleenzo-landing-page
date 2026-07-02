@@ -8,6 +8,7 @@ const links = [
   { label: "Pricing", href: "/#pricing" },
   { label: "Commercial B2B", to: "/commercial-laundry" },
   { label: "About", to: "/about" },
+  { label: "Blog", to: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
 

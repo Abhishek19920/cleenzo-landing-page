@@ -1,10 +1,12 @@
 import {
   SEO,
   SEO_ABOUT,
+  SEO_BLOG,
   SEO_COMMERCIAL,
   SEO_NOT_FOUND,
   SITE_OG_IMAGE,
   SITE_URL,
+  getArticleJsonLd,
   getBreadcrumbJsonLd,
   getCommercialJsonLd,
   getFaqJsonLd,
@@ -13,6 +15,7 @@ import {
   getServicePageJsonLd,
   getWebSiteJsonLd,
 } from "./seo";
+import { getBlogPostByPath } from "./data/blogPosts";
 import { getServicePageByPath } from "./data/servicePages";
 
 export function upsertMeta(name, content, property = false) {
@@ -63,6 +66,7 @@ export function applyPageMeta({
   siteName = SEO.siteName,
   robots = "index, follow",
   twitterCard = SEO.twitterCard,
+  ogType = "website",
   jsonLd = [],
 }) {
   document.documentElement.lang = locale.split("_")[0];
@@ -78,7 +82,7 @@ export function applyPageMeta({
 
   upsertMeta("og:title", title, true);
   upsertMeta("og:description", description, true);
-  upsertMeta("og:type", "website", true);
+  upsertMeta("og:type", ogType, true);
   upsertMeta("og:site_name", siteName, true);
   upsertMeta("og:locale", locale, true);
   upsertMeta("og:url", url, true);
@@ -100,6 +104,31 @@ export function applyPageMeta({
   upsertJsonLd("cleenzo-commercial-jsonld", jsonLd.find((j) => j.id === "commercial")?.data ?? null);
   upsertJsonLd("cleenzo-service-jsonld", jsonLd.find((j) => j.id === "service")?.data ?? null);
   upsertJsonLd("cleenzo-breadcrumb-jsonld", jsonLd.find((j) => j.id === "breadcrumb")?.data ?? null);
+  upsertJsonLd("cleenzo-article-jsonld", jsonLd.find((j) => j.id === "article")?.data ?? null);
+}
+
+function buildBlogPostMeta(post) {
+  const url = `${SITE_URL}${post.path}`;
+  return {
+    title: post.seo.title,
+    description: post.seo.description,
+    keywords: post.seo.keywords,
+    url,
+    image: `${SITE_URL}${post.heroImage}`,
+    ogType: "article",
+    jsonLd: [
+      { id: "local", data: getLocalBusinessJsonLd() },
+      { id: "article", data: getArticleJsonLd(post) },
+      {
+        id: "breadcrumb",
+        data: getBreadcrumbJsonLd([
+          { name: "Home", url: SITE_URL },
+          { name: "Blog", url: `${SITE_URL}${SEO_BLOG.path}` },
+          { name: post.title, url },
+        ]),
+      },
+    ],
+  };
 }
 
 function buildServicePageMeta(page) {
@@ -173,6 +202,28 @@ export function getMetaForPathname(pathname) {
         },
       ],
     };
+  }
+
+  if (pathname === SEO_BLOG.path) {
+    return {
+      ...SEO_BLOG,
+      url: `${SITE_URL}${SEO_BLOG.path}`,
+      jsonLd: [
+        { id: "local", data: getLocalBusinessJsonLd() },
+        {
+          id: "breadcrumb",
+          data: getBreadcrumbJsonLd([
+            { name: "Home", url: SITE_URL },
+            { name: "Blog", url: `${SITE_URL}${SEO_BLOG.path}` },
+          ]),
+        },
+      ],
+    };
+  }
+
+  const blogPost = getBlogPostByPath(pathname);
+  if (blogPost) {
+    return buildBlogPostMeta(blogPost);
   }
 
   const servicePage = getServicePageByPath(pathname);

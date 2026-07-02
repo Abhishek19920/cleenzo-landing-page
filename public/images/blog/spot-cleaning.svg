@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Spot cleaning at Cleenzo">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A3D91"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="120" r="180" fill="#ffffff" opacity="0.08"/>
+  <circle cx="200" cy="520" r="140" fill="#7ec8e3" opacity="0.15"/>
+  <text x="80" y="120" fill="#7ec8e3" font-family="system-ui,sans-serif" font-size="22" font-weight="700" letter-spacing="6">CLEENZO BLOG</text>
+  <text x="80" y="280" fill="#ffffff" font-family="system-ui,sans-serif" font-size="56" font-weight="800">Spot Cleaning</text>
+  <text x="80" y="350" fill="#dbeafe" font-family="system-ui,sans-serif" font-size="28" font-weight="500">Targeted treatment before the main wash</text>
+  <rect x="80" y="400" width="420" height="8" rx="4" fill="#25D366"/>
+</svg>

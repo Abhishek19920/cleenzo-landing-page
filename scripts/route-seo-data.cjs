@@ -103,6 +103,83 @@ const ROUTES = [
     intro:
       "Professional curtain and drape cleaning for silk, cotton, velvet and blackout panels with free pickup across Ghaziabad.",
   },
+  {
+    path: "/blog",
+    title: "Cleenzo Blog | Spot Cleaning, Stain Removal & Fabric Care Tips",
+    description:
+      "Read how Cleenzo handles spot cleaning, stain removal with German chemicals, barcode garment tracking and quality checks — practical fabric care guides from Raj Nagar, Ghaziabad.",
+    keywords:
+      "Cleenzo blog, spot cleaning laundry, stain removal Ghaziabad, German chemicals laundry, fabric care tips",
+    h1: "Cleenzo Blog — Fabric Care & How We Work",
+    intro:
+      "Practical guides on spot cleaning, stain removal, German chemicals, barcode tracking and choosing between laundry and dry clean.",
+  },
+  {
+    path: "/blog/how-we-do-spot-cleaning",
+    title: "How We Do Spot Cleaning | Cleenzo Laundry Ghaziabad",
+    description:
+      "Learn how Cleenzo treats oil, ink, food and collar stains with targeted spot cleaning before wash or dry clean — fabric-safe care in Raj Nagar, Ghaziabad.",
+    keywords:
+      "spot cleaning laundry, stain treatment Ghaziabad, professional laundry stain removal, Cleenzo spot clean",
+    h1: "How We Do Spot Cleaning at Cleenzo",
+    intro:
+      "Spot cleaning is localized stain treatment before the main wash or dry clean cycle — diagnosis, fabric type and the right agent matter more than scrubbing harder.",
+  },
+  {
+    path: "/blog/stain-removal-german-chemicals",
+    title: "Stain Removal with German Chemicals | Cleenzo Ghaziabad",
+    description:
+      "How Cleenzo removes tough stains using German-formulated agents — oil, wine, ink and collar marks on cotton, silk and blends in Raj Nagar, Ghaziabad.",
+    keywords:
+      "stain removal laundry, German chemicals dry cleaning, professional stain treatment Ghaziabad, Cleenzo stain removal",
+    h1: "How We Do Stain Removal with German Chemicals",
+    intro:
+      "Targeted stain removal with German-formulated agents matched to fabric type — oil, food, ink and collar marks treated before wash or dry clean.",
+  },
+  {
+    path: "/blog/why-german-chemicals-fabric-care",
+    title: "Why We Use German Chemicals for Fabric Care | Cleenzo",
+    description:
+      "Cleenzo uses German-formulated laundry and dry clean chemicals for colour-safe, fabric-gentle results — why quality agents matter for your clothes in Ghaziabad.",
+    keywords:
+      "German chemicals laundry, fabric safe detergent Ghaziabad, professional laundry chemicals, Cleenzo fabric care",
+    h1: "Why Cleenzo Uses German Chemicals for Fabric Care",
+    intro:
+      "German-formulated agents deliver consistent stain removal and colour protection without harsh residue — safer for everyday wear and delicate fabrics.",
+  },
+  {
+    path: "/blog/barcode-tracking-garments",
+    title: "Barcode Tracking for Every Garment | Cleenzo Laundry",
+    description:
+      "Every Cleenzo order is barcode-tagged from pickup to delivery — how we track garments, prevent mix-ups and give you order visibility in Ghaziabad.",
+    keywords:
+      "laundry barcode tracking, garment tracking system, Cleenzo order tracking, laundry technology Ghaziabad",
+    h1: "How Barcode Tracking Keeps Your Garments Safe",
+    intro:
+      "Each garment is tagged at pickup and scanned through wash, dry clean, press and packing — fewer mix-ups and full order traceability.",
+  },
+  {
+    path: "/blog/express-laundry-quality-checks",
+    title: "Express Laundry with 100% Quality Checks | Cleenzo",
+    description:
+      "Fast turnaround does not mean skipping steps — how Cleenzo runs express laundry with inspection, stain checks and steam press QC in Raj Nagar, Ghaziabad.",
+    keywords:
+      "express laundry Ghaziabad, laundry quality check, fast laundry delivery Raj Nagar, Cleenzo express service",
+    h1: "Express Laundry Without Compromising Quality",
+    intro:
+      "Express service at Cleenzo still includes inspection, stain review, wash or dry clean, steam press and a final QC pass before delivery.",
+  },
+  {
+    path: "/blog/dry-cleaning-vs-laundry-guide",
+    title: "Dry Cleaning vs Laundry — Which Does Your Garment Need? | Cleenzo",
+    description:
+      "Not sure whether to laundry or dry clean? Cleenzo explains fabric labels, when to wash vs dry clean suits, sarees, kurtas and everyday cotton in Ghaziabad.",
+    keywords:
+      "dry cleaning vs laundry, when to dry clean, wash or dry clean guide, garment care Ghaziabad, Cleenzo laundry advice",
+    h1: "Dry Cleaning vs Laundry — A Practical Guide",
+    intro:
+      "Read the care label, consider the fabric and stain type — everyday cotton for laundry, structured suits and delicate silks often need dry clean.",
+  },
 ];
 
 module.exports = { SITE_URL, ROUTES };

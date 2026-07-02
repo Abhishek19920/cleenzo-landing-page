@@ -5,8 +5,11 @@ import Home from "./pages/Home";
 import CommercialLaundry from "./pages/CommercialLaundry";
 import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import NotFound from "./pages/NotFound";
 import PageSEO from "./components/PageSEO";
+import TrailingSlashRedirect from "./components/TrailingSlashRedirect";
 import StickyCTA from "./sections/StickyCTA";
 import { SchedulePickupProvider } from "./context/SchedulePickupContext";
 import { AppDownloadProvider } from "./context/AppDownloadContext";
@@ -18,11 +21,14 @@ function App() {
   return (
     <AppDownloadProvider>
       <SchedulePickupProvider>
+        <TrailingSlashRedirect />
         <PageSEO pathname={pathname} />
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="blog/:slug" element={<BlogPostPage />} />
             {SERVICE_PAGE_PATHS.map((path) => (
               <Route key={path} path={path.slice(1)} element={<ServicePage />} />
             ))}
