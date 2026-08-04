@@ -1,0 +1,77 @@
+# Deploy Cleenzo landing page (CRA) to EC2 / Nginx.
+#
+# Required GitHub repository secrets:
+#   EC2_HOST              — e.g. 3.110.16.94
+#   EC2_SSH_PRIVATE_KEY   — full contents of your .pem key
+#   EC2_USER              — optional; defaults to ubuntu in the workflow
+#   EC2_DEPLOY_PATH       — optional; defaults to /var/www/cleenzo.co.in/html
+#
+# Optional secrets (build-time):
+#   REACT_APP_CLEENZO_API_URL
+#   REACT_APP_COMMERCIAL_API_URL
+#   REACT_APP_SITE_URL
+
+name: Deploy production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      EC2_USER: ${{ secrets.EC2_USER || 'ubuntu' }}
+      EC2_DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH || '/var/www/cleenzo.co.in/html' }}
+      REACT_APP_SITE_URL: ${{ secrets.REACT_APP_SITE_URL || 'https://www.cleenzo.co.in' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          REACT_APP_CLEENZO_API_URL: ${{ secrets.REACT_APP_CLEENZO_API_URL }}
+          REACT_APP_COMMERCIAL_API_URL: ${{ secrets.REACT_APP_COMMERCIAL_API_URL }}
+        run: npm run build
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.EC2_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Sync build to EC2
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            build/ \
+            "${EC2_USER}@${{ secrets.EC2_HOST }}:${EC2_DEPLOY_PATH}/"
+
+      - name: Fix permissions on server
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            "${EC2_USER}@${{ secrets.EC2_HOST }}" \
+            "sudo chown -R ${EC2_USER}:${EC2_USER} ${EC2_DEPLOY_PATH} && sudo chmod -R 755 ${EC2_DEPLOY_PATH}"
+
+      - name: Deployment summary
+        run: |
+          echo "Deployed to https://www.cleenzo.co.in"
+          echo "If Search Console shows canonical issues, run apply-nginx-seo.sh on the server."

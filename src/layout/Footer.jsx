@@ -118,9 +118,14 @@ function Footer() {
         </div>
       </div>
 
-      <p className="text-center text-slate-500 text-xs mt-10">
-        © {new Date().getFullYear()} Cleenzo. All rights reserved.
-      </p>
+      <div className="max-w-3xl mx-auto text-center mt-10 space-y-2 px-4">
+        <p className="text-slate-500 text-xs leading-relaxed">
+          Cleenzo is a brand owned and operated by Shineworks Solutions Private Limited.
+        </p>
+        <p className="text-slate-500 text-xs">
+          © {new Date().getFullYear()} Cleenzo. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 }
