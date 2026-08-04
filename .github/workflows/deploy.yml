@@ -1,15 +1,28 @@
 # Deploy Cleenzo landing page (CRA) to EC2 / Nginx.
 #
-# Required GitHub repository secrets (Settings → Secrets and variables → Actions):
-#   EC2_HOST              — server IP or hostname (e.g. 3.110.16.94)
-#   EC2_SSH_PRIVATE_KEY   — entire .pem file (BEGIN/END lines included)
+# Required GitHub repository secrets:
+#   CLEENZO_WEB_EC2_HOST
+#     Example: 13.232.59.8
+#     IMPORTANT: IP/hostname only. Do NOT add https:// or http://
 #
-# Optional:
-#   EC2_USER              — default ubuntu
-#   EC2_DEPLOY_PATH       — default /var/www/cleenzo.co.in/html
-#   REACT_APP_CLEENZO_API_URL, REACT_APP_COMMERCIAL_API_URL, REACT_APP_SITE_URL
+#   CLEENZO_WEB_EC2_SSH_PRIVATE_KEY
+#     Entire .pem file including:
+#     -----BEGIN ... PRIVATE KEY-----
+#     ...
+#     -----END ... PRIVATE KEY-----
+#
+# Optional secrets:
+#   CLEENZO_WEB_EC2_USER
+#     Default: ubuntu
+#
+#   CLEENZO_WEB_EC2_DEPLOY_PATH
+#     Default: /var/www/cleenzo.co.in/html
+#
+#   REACT_APP_CLEENZO_API_URL
+#   REACT_APP_COMMERCIAL_API_URL
+#   REACT_APP_SITE_URL
 
-name: Deploy production
+name: Deploy Cleenzo Website
 
 on:
   push:
@@ -18,20 +31,26 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: deploy-production
+  group: cleenzo-web-production
   cancel-in-progress: true
 
 jobs:
+
+  # =========================================================
+  # BUILD
+  # =========================================================
   build:
     runs-on: ubuntu-latest
+
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: npm
 
       - name: Install dependencies
@@ -47,80 +66,212 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cleenzo-build
+          name: cleenzo-web-build
           path: build/
           retention-days: 7
 
+
+  # =========================================================
+  # DEPLOY
+  # =========================================================
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     env:
-      EC2_USER: ${{ secrets.EC2_USER }}
-      EC2_DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH }}
+      EC2_USER: ${{ secrets.CLEENZO_WEB_EC2_USER }}
+      EC2_DEPLOY_PATH: ${{ secrets.CLEENZO_WEB_EC2_DEPLOY_PATH }}
 
     steps:
+
+      # -------------------------------------------------------
+      # Validate secrets
+      # -------------------------------------------------------
       - name: Verify deploy secrets
         env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          EC2_HOST: ${{ secrets.CLEENZO_WEB_EC2_HOST }}
+          EC2_SSH_PRIVATE_KEY: ${{ secrets.CLEENZO_WEB_EC2_SSH_PRIVATE_KEY }}
         run: |
           set -e
+
           missing=0
+
           if [ -z "$EC2_HOST" ]; then
-            echo "::error title=Missing secret::EC2_HOST is not set. Add it under Settings → Secrets and variables → Actions."
+            echo "::error title=Missing secret::CLEENZO_WEB_EC2_HOST is not set."
             missing=1
           fi
+
           if [ -z "$EC2_SSH_PRIVATE_KEY" ]; then
-            echo "::error title=Missing secret::EC2_SSH_PRIVATE_KEY is not set. Paste your full .pem file as the secret value."
+            echo "::error title=Missing secret::CLEENZO_WEB_EC2_SSH_PRIVATE_KEY is not set."
             missing=1
           fi
+
           if [ "$missing" -ne 0 ]; then
             exit 1
           fi
-          echo "Deploy secrets present (host configured)."
 
+          echo "Required deployment secrets are configured."
+
+
+      # -------------------------------------------------------
+      # Download CRA build
+      # -------------------------------------------------------
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: cleenzo-build
+          name: cleenzo-web-build
           path: build/
 
+
+      # -------------------------------------------------------
+      # Configure SSH
+      # -------------------------------------------------------
       - name: Configure SSH
         env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          RAW_EC2_HOST: ${{ secrets.CLEENZO_WEB_EC2_HOST }}
+          EC2_SSH_PRIVATE_KEY: ${{ secrets.CLEENZO_WEB_EC2_SSH_PRIVATE_KEY }}
         run: |
-          set -e
+          set -euo pipefail
+
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
+
           printf '%s\n' "$EC2_SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
 
-      - name: Sync build to EC2
+          # Remove accidental protocol, slash and whitespace.
+          EC2_HOST="$(printf '%s' "$RAW_EC2_HOST" \
+            | tr -d '\r\n ' \
+            | sed -E 's#^https?://##' \
+            | sed -E 's#/.*$##')"
+
+          if [ -z "$EC2_HOST" ]; then
+            echo "::error::Invalid CLEENZO_WEB_EC2_HOST"
+            exit 1
+          fi
+
+          echo "Scanning SSH host key..."
+
+          ssh-keyscan -T 10 -H "$EC2_HOST" >> ~/.ssh/known_hosts
+
+          chmod 600 ~/.ssh/known_hosts
+
+          echo "SSH configuration completed."
+
+
+      # -------------------------------------------------------
+      # Test SSH before deployment
+      # -------------------------------------------------------
+      - name: Test SSH connection
         env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
+          RAW_EC2_HOST: ${{ secrets.CLEENZO_WEB_EC2_HOST }}
         run: |
-          set -e
+          set -euo pipefail
+
+          EC2_HOST="$(printf '%s' "$RAW_EC2_HOST" \
+            | tr -d '\r\n ' \
+            | sed -E 's#^https?://##' \
+            | sed -E 's#/.*$##')"
+
+          DEPLOY_USER="${EC2_USER:-ubuntu}"
+
+          echo "Testing SSH connection..."
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -o BatchMode=yes \
+            -o ConnectTimeout=10 \
+            -o StrictHostKeyChecking=yes \
+            "${DEPLOY_USER}@${EC2_HOST}" \
+            "echo 'SSH connection successful'"
+
+
+      # -------------------------------------------------------
+      # Ensure deployment directory exists
+      # -------------------------------------------------------
+      - name: Prepare deployment directory
+        env:
+          RAW_EC2_HOST: ${{ secrets.CLEENZO_WEB_EC2_HOST }}
+        run: |
+          set -euo pipefail
+
+          EC2_HOST="$(printf '%s' "$RAW_EC2_HOST" \
+            | tr -d '\r\n ' \
+            | sed -E 's#^https?://##' \
+            | sed -E 's#/.*$##')"
+
           DEPLOY_USER="${EC2_USER:-ubuntu}"
           DEPLOY_PATH="${EC2_DEPLOY_PATH:-/var/www/cleenzo.co.in/html}"
-          rsync -avz --delete \
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -o StrictHostKeyChecking=yes \
+            "${DEPLOY_USER}@${EC2_HOST}" \
+            "sudo mkdir -p '${DEPLOY_PATH}' && sudo chown -R '${DEPLOY_USER}:${DEPLOY_USER}' '${DEPLOY_PATH}'"
+
+
+      # -------------------------------------------------------
+      # Deploy
+      # -------------------------------------------------------
+      - name: Sync build to EC2
+        env:
+          RAW_EC2_HOST: ${{ secrets.CLEENZO_WEB_EC2_HOST }}
+        run: |
+          set -euo pipefail
+
+          EC2_HOST="$(printf '%s' "$RAW_EC2_HOST" \
+            | tr -d '\r\n ' \
+            | sed -E 's#^https?://##' \
+            | sed -E 's#/.*$##')"
+
+          DEPLOY_USER="${EC2_USER:-ubuntu}"
+          DEPLOY_PATH="${EC2_DEPLOY_PATH:-/var/www/cleenzo.co.in/html}"
+
+          echo "Deploying build to ${DEPLOY_PATH}..."
+
+          rsync \
+            -avz \
+            --delete \
             -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
             build/ \
             "${DEPLOY_USER}@${EC2_HOST}:${DEPLOY_PATH}/"
 
-      - name: Fix permissions on server
+
+      # -------------------------------------------------------
+      # Permissions
+      # -------------------------------------------------------
+      - name: Fix permissions
         env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
+          RAW_EC2_HOST: ${{ secrets.CLEENZO_WEB_EC2_HOST }}
         run: |
-          set -e
+          set -euo pipefail
+
+          EC2_HOST="$(printf '%s' "$RAW_EC2_HOST" \
+            | tr -d '\r\n ' \
+            | sed -E 's#^https?://##' \
+            | sed -E 's#/.*$##')"
+
           DEPLOY_USER="${EC2_USER:-ubuntu}"
           DEPLOY_PATH="${EC2_DEPLOY_PATH:-/var/www/cleenzo.co.in/html}"
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${EC2_HOST}" \
-            "sudo chown -R ${DEPLOY_USER}:${DEPLOY_USER} ${DEPLOY_PATH} && sudo chmod -R 755 ${DEPLOY_PATH}"
 
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -o StrictHostKeyChecking=yes \
+            "${DEPLOY_USER}@${EC2_HOST}" \
+            "sudo chown -R '${DEPLOY_USER}:${DEPLOY_USER}' '${DEPLOY_PATH}' && sudo find '${DEPLOY_PATH}' -type d -exec chmod 755 {} \; && sudo find '${DEPLOY_PATH}' -type f -exec chmod 644 {} \;"
+
+
+      # -------------------------------------------------------
+      # Deployment summary
+      # -------------------------------------------------------
       - name: Deployment summary
         run: |
-          echo "Deployed to https://www.cleenzo.co.in"
-          echo "If Search Console shows canonical issues, run apply-nginx-seo.sh on the server."
+          echo "======================================"
+          echo "Cleenzo website deployment completed."
+          echo "======================================"
+          echo ""
+          echo "Website:"
+          echo "https://www.cleenzo.co.in"
+          echo ""
+          echo "Deploy path:"
+          echo "${EC2_DEPLOY_PATH:-/var/www/cleenzo.co.in/html}"
