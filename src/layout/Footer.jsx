@@ -10,13 +10,19 @@ import {
 } from "../constants";
 import { openWhatsAppBooking } from "../whatsapp";
 
+const HUB_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "Laundry", to: "/laundry-service-ghaziabad" },
+  { label: "Dry Cleaning", to: "/dry-cleaning-ghaziabad" },
+  { label: "Shoe Cleaning", to: "/shoe-cleaning" },
+  { label: "Commercial Laundry", to: "/commercial-laundry" },
+];
+
 const SERVICE_LINKS = [
-  { label: "Laundry service", to: "/laundry-service-ghaziabad" },
-  { label: "Dry cleaning", to: "/dry-cleaning-ghaziabad" },
-  { label: "Shoe cleaning", to: "/shoe-cleaning" },
+  { label: "Dry cleaners Raj Nagar Extn", to: "/dry-cleaners-raj-nagar-extension" },
   { label: "Sofa cleaning", to: "/sofa-cleaning" },
   { label: "Carpet cleaning", to: "/carpet-cleaning" },
-  { label: "Commercial B2B", to: "/commercial-laundry" },
+  { label: "Curtain cleaning", to: "/curtain-cleaning" },
   { label: "About Cleenzo", to: "/about" },
   { label: "Blog", to: "/blog" },
 ];
@@ -48,7 +54,19 @@ function Footer() {
 
         <div>
           <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
-            Services
+            Quick links
+          </p>
+          <ul className="space-y-2 text-sm mb-6">
+            {HUB_LINKS.map((link) => (
+              <li key={link.to}>
+                <Link to={link.to} className="text-slate-300 hover:text-white transition">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+            More services
           </p>
           <ul className="space-y-2 text-sm">
             {SERVICE_LINKS.map((link) => (

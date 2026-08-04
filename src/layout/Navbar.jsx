@@ -16,9 +16,12 @@ const serviceLinks = [
   { label: "All services overview", to: "/#services", hash: true },
   { label: "Laundry — Ghaziabad", to: "/laundry-service-ghaziabad" },
   { label: "Dry cleaning", to: "/dry-cleaning-ghaziabad" },
+  { label: "Dry cleaners — Raj Nagar Extn", to: "/dry-cleaners-raj-nagar-extension" },
   { label: "Shoe cleaning", to: "/shoe-cleaning" },
   { label: "Sofa cleaning", to: "/sofa-cleaning" },
   { label: "Carpet cleaning", to: "/carpet-cleaning" },
+  { label: "Curtain cleaning", to: "/curtain-cleaning" },
+  { label: "Commercial laundry", to: "/commercial-laundry" },
 ];
 
 function Navbar() {

@@ -4,6 +4,7 @@ import OurProcess from "../sections/OurProcess";
 import OffersSection from "../sections/OffersSection";
 import PricingSection from "../sections/PricingSection";
 import ExpertServicesSection from "../sections/ExpertServicesSection";
+import GoogleReviewsSection from "../components/GoogleReviewsSection";
 import ServicesPreview from "../sections/ServicesPreview";
 import WhyChoose from "../sections/WhyChoose";
 import DownloadApp from "../sections/DownloadApp";
@@ -22,6 +23,7 @@ function Home() {
       <ExpertServicesSection />
       <ServicesPreview />
       <WhyChoose />
+      <GoogleReviewsSection />
       <SeoContentSection />
       <ContactSection />
       <DownloadApp />

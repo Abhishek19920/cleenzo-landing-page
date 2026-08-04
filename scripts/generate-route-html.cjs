@@ -12,6 +12,7 @@ const ROOT_INDEX = path.join(BUILD_DIR, "index.html");
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/laundry-service-ghaziabad", label: "Laundry" },
+  { href: "/dry-cleaners-raj-nagar-extension", label: "Dry cleaners RNE" },
   { href: "/dry-cleaning-ghaziabad", label: "Dry cleaning" },
   { href: "/shoe-cleaning", label: "Shoe cleaning" },
   { href: "/sofa-cleaning", label: "Sofa cleaning" },
@@ -29,8 +30,10 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
+/** Canonical URLs use trailing slash (matches nginx folder routes & sitemap). */
 function pageUrl(routePath) {
-  return routePath === "/" ? `${SITE_URL}/` : `${SITE_URL}${routePath}`;
+  if (routePath === "/") return `${SITE_URL}/`;
+  return `${SITE_URL}${routePath.endsWith("/") ? routePath : `${routePath}/`}`;
 }
 
 function buildPrerenderBlock(route) {

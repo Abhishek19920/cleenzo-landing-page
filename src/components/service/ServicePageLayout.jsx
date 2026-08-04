@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PlaceOrderCTA from "../PlaceOrderCTA";
+import GoogleReviewsSection from "../GoogleReviewsSection";
 import { SERVICE_AREAS } from "../../data/servicePages";
 import { openWhatsAppBooking } from "../../whatsapp";
 import "./service-page.css";
@@ -11,12 +12,23 @@ const HERO_PILLS = [
   { icon: "✅", label: "Quality assured" },
 ];
 
+/** Required hub links on every service page */
+const HUB_LINKS = [
+  { path: "/", label: "Home" },
+  { path: "/laundry-service-ghaziabad", label: "Laundry" },
+  { path: "/dry-cleaning-ghaziabad", label: "Dry Cleaning" },
+  { path: "/shoe-cleaning", label: "Shoe Cleaning" },
+  { path: "/commercial-laundry", label: "Commercial Laundry" },
+];
+
 const RELATED_SERVICES = [
   { path: "/laundry-service-ghaziabad", label: "Laundry", icon: "🧺", desc: "Wash & fold · Wash & iron" },
   { path: "/dry-cleaning-ghaziabad", label: "Dry cleaning", icon: "🧥", desc: "Suits, silk & woollens" },
+  { path: "/dry-cleaners-raj-nagar-extension", label: "Dry cleaners RNE", icon: "📍", desc: "Raj Nagar Extension hub" },
   { path: "/shoe-cleaning", label: "Shoe cleaning", icon: "👟", desc: "Sneakers & leather care" },
   { path: "/sofa-cleaning", label: "Sofa cleaning", icon: "🛋️", desc: "Fabric & upholstery" },
   { path: "/carpet-cleaning", label: "Carpet cleaning", icon: "🧶", desc: "Rugs & room carpets" },
+  { path: "/curtain-cleaning", label: "Curtain cleaning", icon: "🪟", desc: "Drapes & blackout" },
   { path: "/commercial-laundry", label: "Commercial B2B", icon: "🏢", desc: "Hotels & businesses" },
 ];
 
@@ -36,8 +48,38 @@ function ServiceBreadcrumb({ title }) {
   );
 }
 
+function ServiceHubLinks({ currentPath }) {
+  return (
+    <nav className="service-hub-links" aria-label="Main services">
+      <ul className="flex flex-wrap justify-center gap-2 md:gap-3">
+        {HUB_LINKS.map((link) => {
+          const isActive =
+            link.path === "/"
+              ? currentPath === "/"
+              : currentPath === link.path || currentPath.startsWith(`${link.path}/`);
+          return (
+            <li key={link.path}>
+              <Link
+                to={link.path}
+                className={`inline-flex text-xs md:text-sm font-bold px-3.5 py-2 rounded-full border transition ${
+                  isActive
+                    ? "bg-cleenzo text-white border-cleenzo"
+                    : "bg-white text-cleenzo-deep border-cleenzo-sky-light hover:border-cleenzo hover:text-cleenzo"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
 function ServiceHero({ page }) {
   const title = displayTitle(page);
+  const imageAlt = page.heroImageAlt || title;
 
   return (
     <section className="service-page-hero">
@@ -73,7 +115,7 @@ function ServiceHero({ page }) {
             <div className="service-page-hero-visual">
               <img
                 src={page.heroImage}
-                alt={title}
+                alt={imageAlt}
                 width={1536}
                 height={1024}
                 fetchPriority="high"
@@ -238,7 +280,8 @@ function ServiceAreas({ serviceType }) {
         <SectionEyebrow>Service areas</SectionEyebrow>
         <h2 className="text-2xl md:text-3xl font-black text-cleenzo-deep mb-4">Areas we serve</h2>
         <p className="text-slate-600 mb-8 max-w-xl mx-auto leading-relaxed">
-          Cleenzo provides {serviceType.toLowerCase()} with free pickup &amp; delivery across Ghaziabad.
+          Cleenzo provides {serviceType.toLowerCase()} with free pickup laundry &amp; delivery across
+          Raj Nagar Extension, Ghaziabad and nearby localities.
         </p>
         <ul className="flex flex-wrap justify-center gap-2.5">
           {SERVICE_AREAS.map((area) => (
@@ -261,7 +304,7 @@ function ServicePricingBand() {
       <div className="max-w-3xl mx-auto rounded-2xl bg-gradient-to-br from-cleenzo to-cleenzo-light p-8 md:p-10 text-center text-white shadow-xl shadow-cleenzo/20">
         <h2 className="text-2xl md:text-3xl font-black mb-3">Transparent pricing</h2>
         <p className="text-white/85 mb-6 max-w-md mx-auto leading-relaxed">
-          Clear per-piece and per-kg rates for Raj Nagar, Ghaziabad — no hidden charges.
+          Clear per-piece and per-kg rates for Raj Nagar Extension &amp; Ghaziabad — no hidden charges.
         </p>
         <Link
           to="/#pricing"
@@ -353,10 +396,15 @@ function ServiceRelated({ currentPath }) {
 
 function ServicePageLayout({ page }) {
   const { pathname } = useLocation();
+  const currentPath = pathname.replace(/\/$/, "") || "/";
 
   return (
     <>
       <ServiceHero page={page} />
+
+      <div className="bg-cleenzo-pale-bg border-b border-cleenzo-sky-light py-4 px-4">
+        <ServiceHubLinks currentPath={currentPath} />
+      </div>
 
       <ServiceGallery
         images={page.galleryImages}
@@ -371,7 +419,13 @@ function ServicePageLayout({ page }) {
 
       <ServiceFAQ faqs={page.faqs} />
 
-      <ServiceRelated currentPath={pathname} />
+      <GoogleReviewsSection compact />
+
+      <ServiceRelated currentPath={currentPath} />
+
+      <div className="bg-white border-t border-cleenzo-sky-light py-6 px-4">
+        <ServiceHubLinks currentPath={currentPath} />
+      </div>
 
       <PlaceOrderCTA title={`Book ${page.serviceType.toLowerCase()} with Cleenzo`} variant="cream" />
     </>

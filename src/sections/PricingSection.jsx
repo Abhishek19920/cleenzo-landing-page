@@ -3,23 +3,22 @@ import { useEffect, useMemo, useState } from "react";
 import PlaceOrderCTA from "../components/PlaceOrderCTA";
 import AlphabetFilter from "../components/pricing/AlphabetFilter";
 import { PRICING_SECTION } from "../constants";
-import { GHAZIABAD_PRICING } from "../data/ghaziabadPricing";
 import {
   filterPricingItems,
   getAvailableLetters,
   hasSearchQuery,
   matchesPricingSearch,
 } from "../utils/pricingSearch";
+import { useWebsitePricing } from "../hooks/useWebsitePricing";
 
 function formatInr(amount) {
   return `₹${amount.toLocaleString("en-IN")}`;
 }
 
-const pricing = GHAZIABAD_PRICING;
 const INITIAL_VISIBLE = 12;
 const SHOW_MORE_STEP = 12;
 
-function KgServiceCards() {
+function KgServiceCards({ pricing }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
       {pricing.kgServices.map((service) => (
@@ -170,7 +169,13 @@ function PriceTable({ items, unitLabel, emptyMessage, showCategory = false }) {
   );
 }
 
-function CategoryTabs({ selectedCategory, activeService, isBrowsingAll, onSelectSection }) {
+function CategoryTabs({
+  pricing,
+  selectedCategory,
+  activeService,
+  isBrowsingAll,
+  onSelectSection,
+}) {
   return (
     <div
       className="flex flex-wrap gap-2 mb-6"
@@ -241,6 +246,7 @@ function ShowMoreBar({ visibleCount, totalCount, onShowMore, onShowAll }) {
 }
 
 function PricingSection() {
+  const { pricing, loading } = useWebsitePricing();
   const [activeService, setActiveService] = useState("dry-clean");
   const [selectedCategory, setSelectedCategory] = useState("men");
   const [searchQuery, setSearchQuery] = useState("");
@@ -249,12 +255,12 @@ function PricingSection() {
 
   const serviceMeta = useMemo(
     () => pricing.serviceTabs.find((tab) => tab.id === activeService),
-    [activeService],
+    [activeService, pricing.serviceTabs],
   );
 
   const sectionTabById = useMemo(
     () => Object.fromEntries(pricing.sectionTabs.map((tab) => [tab.id, tab])),
-    [],
+    [pricing.sectionTabs],
   );
 
   const allSectionItems = useMemo(() => {
@@ -267,7 +273,7 @@ function PricingSection() {
         sectionLabel: tab.label,
       })),
     );
-  }, [activeService]);
+  }, [activeService, pricing.items, pricing.sectionTabs]);
 
   const sectionItems = useMemo(() => {
     if (activeService === "kg-wash") return [];
@@ -276,7 +282,7 @@ function PricingSection() {
       sectionId: selectedCategory,
       sectionLabel: sectionTabById[selectedCategory]?.label ?? selectedCategory,
     }));
-  }, [activeService, selectedCategory, sectionTabById]);
+  }, [activeService, selectedCategory, sectionTabById, pricing.items]);
 
   const isSearching = hasSearchQuery(searchQuery);
   const isLetterFilter = Boolean(activeLetter);
@@ -307,7 +313,7 @@ function PricingSection() {
       return [...(pricing.addons["kg-wash"] ?? [])];
     }
     return pricing.addons[activeService] ?? [];
-  }, [activeService]);
+  }, [activeService, pricing.addons]);
 
   const unitLabel = serviceMeta?.unit === "kg" ? "per kg" : "per pc";
 
@@ -354,6 +360,9 @@ function PricingSection() {
   return (
     <section id="pricing" className="bg-cleenzo-pale-bg border-t border-cleenzo-sky-light">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
+        {loading ? (
+          <p className="text-center text-sm text-slate-500 mb-6">Loading latest prices…</p>
+        ) : null}
         <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
           <p className="text-cleenzo font-bold text-xs sm:text-sm uppercase tracking-[0.2em] mb-4">
             {PRICING_SECTION.badge}
@@ -373,7 +382,7 @@ function PricingSection() {
           </p>
         </div>
 
-        <KgServiceCards />
+        <KgServiceCards pricing={pricing} />
 
         <div className="grid lg:grid-cols-[240px_1fr] gap-6 lg:gap-8 items-start">
           <aside className="lg:sticky lg:top-24">
@@ -468,6 +477,7 @@ function PricingSection() {
                 </div>
 
                 <CategoryTabs
+                  pricing={pricing}
                   selectedCategory={selectedCategory}
                   activeService={activeService}
                   isBrowsingAll={isBrowsingAll}

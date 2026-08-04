@@ -1,5 +1,5 @@
 #!/bin/bash
-# Apply canonical www redirect on EC2 (run on server after reviewing nginx/cleenzo-frontend.conf)
+# Apply SEO nginx config on EC2 (apex → www, HTTP → HTTPS www)
 set -e
 
 CONF_SRC="$(dirname "$0")/nginx/cleenzo-frontend.conf"
@@ -18,3 +18,7 @@ sudo systemctl reload nginx
 echo "Done. Verify:"
 echo "  curl -sI https://cleenzo.co.in/ | grep -i location"
 echo "  Expected: Location: https://www.cleenzo.co.in/"
+echo "  curl -sI http://cleenzo.co.in/ | grep -i location"
+echo "  Expected: Location: https://www.cleenzo.co.in/"
+echo "  curl -sI -o /dev/null -w '%{http_code}\n' https://www.cleenzo.co.in/about/"
+echo "  Expected: 200"

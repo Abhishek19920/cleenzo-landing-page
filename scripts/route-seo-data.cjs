@@ -60,6 +60,17 @@ const ROUTES = [
       "Expert dry cleaning for suits, sarees, blazers, wedding wear and curtains with stain removal, steam press and free pickup in Raj Nagar, Ghaziabad.",
   },
   {
+    path: "/dry-cleaners-raj-nagar-extension",
+    title: "Best Dry Cleaners in Raj Nagar Extension | Cleenzo",
+    description:
+      "Looking for the best dry cleaners in Raj Nagar Extension? Cleenzo offers premium dry cleaning, express 24-hour delivery, free pickup & delivery and professional garment care.",
+    keywords:
+      "dry cleaners raj nagar extension, dry clean near me, best dry cleaners, premium dry cleaning, dry cleaning service, 24 hour dry cleaning, laundry service near me, dry cleaning ghaziabad",
+    h1: "Best Dry Cleaners in Raj Nagar Extension",
+    intro:
+      "Cleenzo at AVS City Square offers premium dry cleaning, free doorstep pickup and express 24-hour delivery for homes in Raj Nagar Extension, Ghaziabad.",
+  },
+  {
     path: "/shoe-cleaning",
     title: "Shoe Cleaning Service in Ghaziabad | Sneaker & Sports Shoe Wash | Cleenzo",
     description:

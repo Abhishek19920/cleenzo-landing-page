@@ -20,7 +20,8 @@ export const STORE_MAP_QUERY = encodeURIComponent(
   "LGF-19 AVS City Square Raj Nagar Extn Ghaziabad 201017",
 );
 
-export const STORE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${STORE_MAP_QUERY}`;
+export const STORE_MAPS_URL =
+  "https://www.google.com/maps/place/Cleenzo+Laundry+and+Dry+clean+hub/@28.7035856,77.4311244,17z/data=!4m6!3m5!1s0x390cf10040e7a323:0xb1faee4693d31d59!8m2!3d28.7035856!4d77.4311244!16s%2Fg%2F11nqf352yx";
 
 export const COMMERCIAL_LAUNDRY_URL = "/commercial-laundry";
 

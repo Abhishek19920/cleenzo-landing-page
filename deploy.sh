@@ -31,4 +31,7 @@ ssh -i "$KEY_PATH" ubuntu@"$EC2_IP" "sudo chown -R ubuntu:ubuntu /var/www/cleenz
 
 echo "======================================================================="
 echo "🎉 DEPLOYMENT SUCCESSFUL! https://www.cleenzo.co.in is updated."
+echo ""
+echo "If Google Search Console shows redirect/canonical errors, apply nginx SEO fix:"
+echo "  ssh to EC2, cd to repo, run: ./apply-nginx-seo.sh"
 echo "======================================================================="
