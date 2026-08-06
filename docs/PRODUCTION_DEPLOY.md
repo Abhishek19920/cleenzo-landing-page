@@ -49,5 +49,5 @@ Secrets: `EC2_HOST`, `EC2_SSH_PRIVATE_KEY` or `EC2_SSH_KEY`, optional `EC2_USER`
 |---------|--------|
 | Pull OK, site old | Forgot `npm run build` or `pm2 restart` |
 | rsync to `/var/www` fails / no effect | Nginx uses **proxy :3003**, not that folder |
-| Same JS hash, UI unchanged | Offer/Tiranga dates start **9 Aug IST** in `offers.js` / `freedomCampaign.js` |
+| Same JS hash, UI unchanged | Before campaign start: offers/Tiranga use dates in `offers.js` / `freedomCampaign.js` (IST) |
 | PM2 wrong port | `pm2 delete cleenzo-website` then `pm2 start npx --name cleenzo-website -- serve -s build -l 3003` from `~/cleenzo-website` |
