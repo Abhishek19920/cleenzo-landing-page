@@ -1,14 +1,3 @@
-# Deploy Cleenzo landing page (CRA) to EC2 / Nginx.
-#
-# Required GitHub repository secrets (Settings → Secrets and variables → Actions):
-#   EC2_HOST              — server IP or hostname (e.g. 3.110.16.94)
-#   EC2_SSH_PRIVATE_KEY   — entire .pem file (BEGIN/END lines included)
-#
-# Optional:
-#   EC2_USER              — default ubuntu
-#   EC2_DEPLOY_PATH       — default /var/www/cleenzo.co.in/html
-#   REACT_APP_CLEENZO_API_URL, REACT_APP_COMMERCIAL_API_URL, REACT_APP_SITE_URL
-
 name: Deploy production
 
 on:
@@ -23,7 +12,9 @@ concurrency:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: npm
 
       - name: Install dependencies
@@ -52,75 +43,130 @@ jobs:
           retention-days: 7
 
   deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    env:
-      EC2_USER: ${{ secrets.EC2_USER }}
-      EC2_DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH }}
 
     steps:
-      - name: Verify deploy secrets
+      - name: Verify deployment secrets
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         run: |
           set -e
-          missing=0
+
           if [ -z "$EC2_HOST" ]; then
-            echo "::error title=Missing secret::EC2_HOST is not set. Add it under Settings → Secrets and variables → Actions."
-            missing=1
-          fi
-          if [ -z "$EC2_SSH_PRIVATE_KEY" ]; then
-            echo "::error title=Missing secret::EC2_SSH_PRIVATE_KEY is not set. Paste your full .pem file as the secret value."
-            missing=1
-          fi
-          if [ "$missing" -ne 0 ]; then
+            echo "::error::EC2_HOST is not configured"
             exit 1
           fi
-          echo "Deploy secrets present (host configured)."
+
+          if [ -z "$EC2_SSH_PRIVATE_KEY" ]; then
+            echo "::error::EC2_SSH_PRIVATE_KEY is not configured"
+            exit 1
+          fi
+
+          echo "Deployment secrets are configured."
 
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: cleenzo-build
-          path: build/
+          path: build
 
       - name: Configure SSH
         env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         run: |
           set -e
+
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf '%s\n' "$EC2_SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
 
-      - name: Sync build to EC2
+          printf '%s\n' "$EC2_SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+
+          chmod 600 ~/.ssh/deploy_key
+
+          echo "SSH private key configured."
+
+      - name: Test SSH connection
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
         run: |
           set -e
+
+          DEPLOY_USER="${EC2_USER:-ubuntu}"
+
+          echo "Testing connection to EC2..."
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
+            -o ConnectTimeout=15 \
+            "${DEPLOY_USER}@${EC2_HOST}" \
+            "echo 'EC2 SSH connection successful'"
+
+      - name: Prepare deployment directory
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH }}
+        run: |
+          set -e
+
           DEPLOY_USER="${EC2_USER:-ubuntu}"
           DEPLOY_PATH="${EC2_DEPLOY_PATH:-/var/www/cleenzo.co.in/html}"
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
+            "${DEPLOY_USER}@${EC2_HOST}" \
+            "sudo mkdir -p '${DEPLOY_PATH}' && sudo chown -R '${DEPLOY_USER}:${DEPLOY_USER}' '${DEPLOY_PATH}'"
+
+      - name: Deploy website
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH }}
+        run: |
+          set -e
+
+          DEPLOY_USER="${EC2_USER:-ubuntu}"
+          DEPLOY_PATH="${EC2_DEPLOY_PATH:-/var/www/cleenzo.co.in/html}"
+
+          echo "Deploying build to ${DEPLOY_PATH}..."
+
+          rsync \
+            -avz \
+            --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
             build/ \
             "${DEPLOY_USER}@${EC2_HOST}:${DEPLOY_PATH}/"
 
-      - name: Fix permissions on server
+      - name: Set production permissions
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH }}
         run: |
           set -e
+
           DEPLOY_USER="${EC2_USER:-ubuntu}"
           DEPLOY_PATH="${EC2_DEPLOY_PATH:-/var/www/cleenzo.co.in/html}"
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
             "${DEPLOY_USER}@${EC2_HOST}" \
-            "sudo chown -R ${DEPLOY_USER}:${DEPLOY_USER} ${DEPLOY_PATH} && sudo chmod -R 755 ${DEPLOY_PATH}"
+            "sudo find '${DEPLOY_PATH}' -type d -exec chmod 755 {} \; && \
+             sudo find '${DEPLOY_PATH}' -type f -exec chmod 644 {} \;"
 
       - name: Deployment summary
         run: |
-          echo "Deployed to https://www.cleenzo.co.in"
-          echo "If Search Console shows canonical issues, run apply-nginx-seo.sh on the server."
+          echo "======================================"
+          echo "Cleenzo website deployed successfully"
+          echo "======================================"
+          echo "https://www.cleenzo.co.in"
