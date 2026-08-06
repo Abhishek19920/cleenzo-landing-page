@@ -3,12 +3,12 @@ import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { openWhatsAppBooking } from "../whatsapp";
 import OfferCard from "../components/offers/OfferCard";
 import OfferTermsModal from "../components/offers/OfferTermsModal";
-import { getActiveHomepageOffers } from "../data/offers";
+import { getVisibleHomepageOffers, isOfferRedeemable } from "../data/offers";
 import { trackOfferEvent } from "../utils/offerAnalytics";
 import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 
 function OffersSection() {
-  const offers = useMemo(() => getActiveHomepageOffers(), []);
+  const offers = useMemo(() => getVisibleHomepageOffers(), []);
   const { openSchedulePickup } = useSchedulePickup();
   const [termsOffer, setTermsOffer] = useState(null);
   const sectionRef = useRef(null);
@@ -83,6 +83,7 @@ function OffersSection() {
               <OfferCard
                 offer={offer}
                 featured={offer.id === featuredId}
+                redeemable={isOfferRedeemable(offer)}
                 onCtaClick={handleCta}
                 onTermsClick={setTermsOffer}
               />

@@ -40,12 +40,16 @@ import { isOfferActive } from "../utils/offerDates";
  * @property {OfferTermSection[]} termsSections
  */
 
+/** Homepage campaign: show all offer cards in this window (IST). */
+export const HOMEPAGE_OFFERS_CAMPAIGN_START = "2026-08-06";
+export const HOMEPAGE_OFFERS_CAMPAIGN_END = "2026-08-30";
+
 /** @type {HomepageOffer[]} */
 export const HOMEPAGE_OFFERS = [
   {
     id: "freedom-rakhi-sale-2026",
     active: true,
-    startDate: "2026-08-09",
+    startDate: "2026-08-06",
     endDate: "2026-08-30",
     variant: "freedom",
     featured: true,
@@ -55,7 +59,7 @@ export const HOMEPAGE_OFFERS = [
     description:
       "As Cleenzo Credit on your next order. Free pickup & delivery for everyone — new & existing customers.",
     audience: "FOR EVERYONE · New & Existing Customers",
-    validityLabel: "9th – 30th August",
+    validityLabel: "6th – 30th August",
     cta: { label: "Book Now", action: "schedule" },
     termsSections: [
       {
@@ -90,7 +94,7 @@ export const HOMEPAGE_OFFERS = [
       },
       {
         heading: "Campaign validity",
-        body: "Freedom & Rakhi Sale valid from 9th to 30th August 2026 (India Standard Time), unless withdrawn earlier by Cleenzo.",
+        body: "Freedom & Rakhi Sale valid from 6th to 30th August 2026 (India Standard Time), unless withdrawn earlier by Cleenzo.",
         todo: false,
       },
     ],
@@ -139,10 +143,10 @@ export const HOMEPAGE_OFFERS = [
     variant: "independence",
     badge: "INDEPENDENCE DAY 🇮🇳",
     discount: "FLAT 50% OFF",
-    title: "Independence Day Outfit Cleaning",
-    subtitle: "Celebrate in clean festive wear",
+    title: "Ethnic & Festive Wear Cleaning",
+    subtitle: "Independence Day special",
     description:
-      "Laundry & dry clean for your Independence Day outfits — for everyone. Free pickup & delivery where available.",
+      "Laundry & dry clean on ethnic wear, kurtas, sarees & festive outfits — for everyone. Free pickup & delivery where available.",
     audience: "FOR EVERYONE · New & Existing Customers",
     validityLabel: "13th – 15th August",
     cta: { label: "Book Now", action: "schedule" },
@@ -171,8 +175,20 @@ export const HOMEPAGE_OFFERS = [
   },
 ];
 
+export function isOfferRedeemable(offer, now = new Date()) {
+  return Boolean(offer.active && isOfferActive(offer.startDate, offer.endDate, now));
+}
+
+/** Cards below carousel — all active offers during campaign window. */
+export function getVisibleHomepageOffers(now = new Date()) {
+  if (
+    !isOfferActive(HOMEPAGE_OFFERS_CAMPAIGN_START, HOMEPAGE_OFFERS_CAMPAIGN_END, now)
+  ) {
+    return [];
+  }
+  return HOMEPAGE_OFFERS.filter((offer) => offer.active);
+}
+
 export function getActiveHomepageOffers(now = new Date()) {
-  return HOMEPAGE_OFFERS.filter(
-    (offer) => offer.active && isOfferActive(offer.startDate, offer.endDate, now),
-  );
+  return HOMEPAGE_OFFERS.filter((offer) => isOfferRedeemable(offer, now));
 }

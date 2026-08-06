@@ -38,12 +38,14 @@ const variantStyles = {
 function OfferCard({
   offer,
   featured = false,
+  redeemable = true,
   onCtaClick,
   onTermsClick,
 }) {
   const styles = variantStyles[offer.variant] || variantStyles.benefit;
 
   const handleCta = () => {
+    if (!redeemable) return;
     trackOfferEvent("offer_book_now_click", { offer_id: offer.id });
     onCtaClick(offer);
   };
@@ -113,9 +115,13 @@ function OfferCard({
           <button
             type="button"
             onClick={handleCta}
-            className={`w-full sm:w-auto inline-flex justify-center items-center font-bold text-sm px-6 py-3.5 rounded-full transition shadow-sm min-h-[44px] ${styles.cta}`}
+            disabled={!redeemable}
+            aria-disabled={!redeemable}
+            className={`w-full sm:w-auto inline-flex justify-center items-center font-bold text-sm px-6 py-3.5 rounded-full transition shadow-sm min-h-[44px] ${styles.cta} ${
+              !redeemable ? "opacity-60 cursor-not-allowed hover:bg-inherit" : ""
+            }`}
           >
-            {offer.cta.label}
+            {redeemable ? offer.cta.label : `Starts ${offer.validityLabel.split("–")[0].trim()}`}
           </button>
           <button
             type="button"
