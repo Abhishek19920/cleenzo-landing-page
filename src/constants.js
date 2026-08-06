@@ -226,57 +226,57 @@ export const PRICING_SECTION = {
 };
 
 export const OFFERS = {
-  badge: "New customer offer",
-  headline: "World-class dry clean & laundry",
-  headlineAccent: "service in Ghaziabad",
-  tagline: "Clean clothes, happy you",
-  promoStrip: "Get 30% OFF on your first 3 orders — new customers only",
+  badge: "Freedom & Rakhi Sale",
+  headline: "FLAT 40% OFF",
+  headlineAccent: "* GET 10% BACK as Cleenzo Credit",
+  tagline: "Free pickup & delivery",
+  promoStrip:
+    "FLAT 40% OFF + 10% Cleenzo Credit back — FOR EVERYONE, 9th – 30th August. Free pickup & delivery.",
   subtext:
-    "Welcome to Cleenzo! Enjoy a flat 30% discount on your first three orders. Premium fabric care with express doorstep service at AVS City Square, Raj Nagar Extension.",
-  intro:
-    "Impeccable quality, every time. Book on WhatsApp or schedule a free pickup today.",
-  qualityLine: "Impeccable quality, every time",
+    "Freedom & Rakhi Sale at Cleenzo — premium laundry & dry cleaning with free pickup across Raj Nagar Extension, Ghaziabad.",
+  intro: "Book on WhatsApp or schedule a free pickup today.",
+  qualityLine: "Quality cleaning assured · Expert fabric care",
   featured: {
-    icon: "🎉",
-    label: "Welcome offer",
-    title: "First 3 orders",
-    price: "30% OFF",
-    note: "new customers · use at checkout",
+    icon: "🇮🇳",
+    label: "Freedom & Rakhi Sale",
+    title: "Flat 40% off",
+    price: "* 10% credit back",
+    note: "everyone · 9th – 30th August",
   },
-  terms: "*30% off applies to first 3 orders per customer. T&C apply.",
+  terms: "*Freedom & Rakhi Sale T&C apply. Cleenzo Credit rules as per offer details.",
   items: [
     {
-      icon: "🎉",
-      title: "30% OFF",
-      price: "First 3 orders",
-      desc: "New customers save on laundry & dry clean",
+      icon: "🔥",
+      title: "40% OFF",
+      price: "Freedom & Rakhi",
+      desc: "Laundry & dry clean — everyone",
       highlight: true,
     },
     {
-      icon: "📋",
-      title: "Full price list",
-      price: "See transparent rates",
-      desc: "Per-piece dry clean, steam press & laundry by kg",
+      icon: "💳",
+      title: "10% credit back",
+      price: "Next order",
+      desc: "Cleenzo Credit on eligible orders",
       highlight: true,
     },
     {
       icon: "🛵",
       title: "FREE Pickup & Delivery",
       price: "On every order",
-      desc: "Doorstep service — save time, we care",
+      desc: "Doorstep service across Ghaziabad",
       highlight: true,
     },
     {
       icon: "⚡",
       title: "Express turnaround",
       price: "12–48 hrs",
-      desc: "Fast laundry & dry clean without extra lanes",
+      desc: "Fast laundry & dry clean",
     },
     {
       icon: "✨",
       title: "Premium fabric care",
       price: "Safe & hygienic",
-      desc: "Imported chemicals · trained professionals",
+      desc: "German chemicals · trained staff",
     },
   ],
   benefits: [
@@ -287,12 +287,37 @@ export const OFFERS = {
   ],
   perks: [
     "Free pickup & delivery",
-    "Safe & hygienic cleaning",
-    "100% satisfaction focus",
+    "Quality cleaning assured",
+    "Expert care for every fabric",
   ],
 };
 
 export const CAROUSEL_BANNERS = [
+  {
+    id: "offers",
+    theme: "tiranga",
+    badge: "🇮🇳 Freedom & Rakhi Sale · 9th – 30th August",
+    title: "FLAT 40% OFF",
+    titleAccent: "* GET 10% BACK",
+    subtitle: OFFERS.promoStrip,
+    primaryCta: { label: "Book now", action: "schedule" },
+    secondaryCta: {
+      label: "View price list",
+      action: "link",
+      href: "#pricing",
+    },
+    highlightOffer: {
+      icon: "🇮🇳",
+      title: "Freedom & Rakhi Sale",
+      price: "FLAT 40% OFF",
+      subline: "* GET 10% BACK — Cleenzo Credit on next order",
+    },
+    miniOffers: [
+      { icon: "👥", text: "FOR EVERYONE — new & existing customers" },
+      { icon: "🛵", text: "FREE pickup & delivery" },
+      { icon: "⚡", text: "Express 12–48 hr turnaround" },
+    ],
+  },
   {
     id: "express",
     theme: "express",
@@ -309,30 +334,6 @@ export const CAROUSEL_BANNERS = [
       { icon: "🚚", label: "Express delivery", desc: "Fresh clothes back" },
     ],
     expressSteps: ["Book pickup", "Expert cleaning", "Express delivery"],
-  },
-  {
-    id: "offers",
-    theme: "warm",
-    badge: "🎉 New customer offer",
-    title: "30% OFF your",
-    titleAccent: "first 3 orders",
-    subtitle: OFFERS.promoStrip,
-    primaryCta: { label: "Book now on WhatsApp", action: "whatsapp" },
-    secondaryCta: {
-      label: "View price list",
-      action: "link",
-      href: "#pricing",
-    },
-    highlightOffer: {
-      icon: "🎉",
-      title: "Welcome offer",
-      price: "30% OFF × 3",
-    },
-    miniOffers: [
-      { icon: "📋", text: "Transparent price list" },
-      { icon: "🛵", text: "Free pickup & delivery" },
-      { icon: "⚡", text: "Express 12–48 hr turnaround" },
-    ],
   },
   {
     id: "services",

@@ -2,8 +2,17 @@ import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { useAppDownload } from "../context/AppDownloadContext";
 import { useCarouselStrip } from "../context/CarouselStripContext";
 import { PERSONAL_HERO, USP } from "../constants";
+import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 import personalHeroImage from "../assets/image/personal-hero-banner.jpg";
 import "./personal-hero.css";
+
+const TIRANGA_HERO = {
+  badge: "🇮🇳 Freedom & Rakhi Sale · 9th – 30th August",
+  title: "FLAT 40% OFF laundry & dry clean",
+  accent: "* GET 10% BACK as Cleenzo Credit",
+  subtitle:
+    "FOR EVERYONE — new & existing customers. FREE pickup & delivery across Raj Nagar Extension, Ghaziabad.",
+};
 
 const FEATURES = [
   { icon: "⭐", label: "Quality Care" },
@@ -17,6 +26,14 @@ const TRUST = [
   { icon: "🔒", label: "Safe Handling" },
 ];
 
+const TIRANGA_USP = {
+  badge: "FREE PICKUP & DELIVERY",
+  headline: "Freedom & Rakhi Sale is live",
+  description:
+    "Flat 40% off plus 10% Cleenzo Credit back on your next order — 9th to 30th August.",
+  cta: "Book Freedom & Rakhi Sale",
+};
+
 const STRIP = [
   { icon: "🧺", label: "Laundry" },
   { icon: "🧥", label: "Dry Clean" },
@@ -27,18 +44,26 @@ const STRIP = [
 function PersonalHeroBanner() {
   const { openSchedulePickup } = useSchedulePickup();
   const { openAppDownload } = useAppDownload();
-  const { stripTone } = useCarouselStrip();
+  const { stripTone, homeTiranga } = useCarouselStrip();
+  const tiranga = homeTiranga || isHomeTirangaThemeActive();
+  const hero = tiranga ? TIRANGA_HERO : PERSONAL_HERO;
+  const usp = tiranga ? TIRANGA_USP : USP;
+  const stripClass = tiranga ? "tiranga" : stripTone;
 
   return (
-    <section id="hero" className="personal-hero" aria-label="Personal and home laundry services">
+    <section
+      id="hero"
+      className={`personal-hero ${tiranga ? "personal-hero--tiranga" : ""}`}
+      aria-label="Personal and home laundry services"
+    >
       <div className="personal-hero-grid">
         <div className="personal-hero-copy">
-          <span className="personal-hero-badge">{PERSONAL_HERO.badge}</span>
+          <span className="personal-hero-badge">{hero.badge}</span>
           <h1 className="personal-hero-title">
-            {PERSONAL_HERO.title}
-            <span className="personal-hero-title-accent">{PERSONAL_HERO.accent}</span>
+            {hero.title}
+            <span className="personal-hero-title-accent">{hero.accent}</span>
           </h1>
-          <p className="personal-hero-subtitle">{PERSONAL_HERO.subtitle}</p>
+          <p className="personal-hero-subtitle">{hero.subtitle}</p>
 
           <div className="personal-hero-features">
             {FEATURES.map((item) => (
@@ -84,10 +109,10 @@ function PersonalHeroBanner() {
       <div className="personal-hero-promise">
         <div className="personal-hero-promise-inner">
           <div className="personal-hero-promise-copy">
-            <p className="personal-hero-promise-badge">{USP.badge}</p>
-            <h2 className="personal-hero-promise-title">{USP.headline}</h2>
+            <p className="personal-hero-promise-badge">{usp.badge}</p>
+            <h2 className="personal-hero-promise-title">{usp.headline}</h2>
             <p className="personal-hero-promise-desc">
-              {USP.description} Fast laundry service with free pickup &amp; express doorstep delivery.
+              {tiranga ? usp.description : `${USP.description} Fast laundry service with free pickup & express doorstep delivery.`}
             </p>
           </div>
           <button
@@ -95,12 +120,12 @@ function PersonalHeroBanner() {
             className="personal-hero-promise-cta"
             onClick={openSchedulePickup}
           >
-            {USP.cta}
+            {usp.cta}
           </button>
         </div>
       </div>
 
-      <div className={`personal-hero-strip personal-hero-strip--${stripTone}`}>
+      <div className={`personal-hero-strip personal-hero-strip--${stripClass}`}>
         {STRIP.map((item) => (
           <div key={item.label} className="personal-hero-strip-item">
             <span className="personal-hero-strip-icon" aria-hidden="true">

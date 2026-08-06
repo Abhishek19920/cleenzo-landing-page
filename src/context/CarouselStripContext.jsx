@@ -1,5 +1,6 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import { CAROUSEL_BANNERS } from "../constants";
+import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 
 const CarouselStripContext = createContext(null);
 
@@ -11,20 +12,28 @@ export function isCarouselThemeDark(theme) {
 
 /** Strip inverts carousel: blue carousel → white strip, light carousel → blue strip */
 export function getStripToneForCarouselTheme(theme) {
+  if (theme === "tiranga") return "tiranga";
   return isCarouselThemeDark(theme) ? "white" : "blue";
 }
 
+function getInitialCarouselTheme() {
+  if (isHomeTirangaThemeActive()) return "tiranga";
+  return CAROUSEL_BANNERS[0]?.theme ?? "express";
+}
+
 export function CarouselStripProvider({ children }) {
-  const initialTheme = CAROUSEL_BANNERS[0]?.theme ?? "express";
+  const initialTheme = getInitialCarouselTheme();
   const [carouselTheme, setCarouselTheme] = useState(initialTheme);
+  const homeTiranga = isHomeTirangaThemeActive();
 
   const value = useMemo(
     () => ({
       carouselTheme,
       stripTone: getStripToneForCarouselTheme(carouselTheme),
+      homeTiranga,
       setCarouselTheme,
     }),
-    [carouselTheme],
+    [carouselTheme, homeTiranga],
   );
 
   return (

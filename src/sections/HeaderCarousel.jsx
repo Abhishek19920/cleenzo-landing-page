@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { useAppDownload } from "../context/AppDownloadContext";
 import {
@@ -6,10 +6,23 @@ import {
   CAROUSEL_BANNERS,
   CAROUSEL_TRANSITION_MS,
 } from "../constants";
+import FreedomSaleCarouselBanner from "../components/carousel/FreedomSaleCarouselBanner";
+import { getActivePromoCarouselSlides } from "../data/homePromoCarousel";
+import { trackOfferEvent } from "../utils/offerAnalytics";
+import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 import { openWhatsAppBooking } from "../whatsapp";
 import { useCarouselStrip } from "../context/CarouselStripContext";
 
 const SWIPE_THRESHOLD = 40;
+
+/** During Independence / Tiranga campaign, all carousel slides use Tiranga styling. */
+function resolveSlideTheme(slide, homeTiranga) {
+  if (!homeTiranga) return slide.theme;
+  if (slide.theme === "express" || slide.theme === "brand" || slide.theme === "light") {
+    return "tiranga";
+  }
+  return slide.theme;
+}
 
 const themes = {
   light: {
@@ -68,6 +81,21 @@ const themes = {
     arrow: "bg-white/20 text-white border border-white/30 hover:bg-white/30",
     mobileArrow: "bg-white/20 text-white border border-white/30",
   },
+  tiranga: {
+    section:
+      "bg-gradient-to-br from-[#FFF4E8] via-white to-[#EEF8F0] relative overflow-hidden",
+    badge: "bg-white text-cleenzo-deep border border-[#FF9933]/35 shadow-sm",
+    title: "text-cleenzo-deep",
+    accent: "text-[#138808]",
+    subtitle: "text-slate-700",
+    card: "bg-white border border-slate-200/90 shadow-xl",
+    cardText: "text-cleenzo-deep",
+    cardMuted: "text-slate-600",
+    dot: "bg-[#FF9933]",
+    dotIdle: "bg-[#138808]/25",
+    arrow: "bg-white/95 text-cleenzo-deep border border-[#FF9933]/30 shadow-md hover:bg-white",
+    mobileArrow: "bg-white/95 text-cleenzo-deep border border-[#138808]/25",
+  },
 };
 
 function BannerCTA({ cta, theme, onSchedule, onWhatsApp, onApp, fullWidth = false }) {
@@ -78,7 +106,11 @@ function BannerCTA({ cta, theme, onSchedule, onWhatsApp, onApp, fullWidth = fals
       <button
         type="button"
         onClick={onSchedule}
-        className={`inline-flex justify-center items-center bg-cleenzo hover:bg-cleenzo-dark text-white font-bold px-5 py-3 sm:py-3.5 rounded-full transition shadow-md text-sm sm:text-base ${widthClass}`}
+        className={`inline-flex justify-center items-center text-white font-bold px-5 py-3 sm:py-3.5 rounded-full transition shadow-md text-sm sm:text-base ${widthClass} ${
+          theme === "tiranga"
+            ? "bg-[#138808] hover:bg-[#0f6b06]"
+            : "bg-cleenzo hover:bg-cleenzo-dark"
+        }`}
       >
         {cta.label}
       </button>
@@ -105,7 +137,9 @@ function BannerCTA({ cta, theme, onSchedule, onWhatsApp, onApp, fullWidth = fals
         className={`inline-flex justify-center items-center font-bold px-5 py-3 sm:py-3.5 rounded-full transition shadow-md text-sm sm:text-base ${widthClass} ${
           theme === "brand"
             ? "bg-white text-cleenzo hover:bg-cleenzo-pale"
-            : "bg-cleenzo text-white hover:bg-cleenzo-dark"
+            : theme === "tiranga"
+              ? "bg-cleenzo text-white hover:bg-cleenzo-dark"
+              : "bg-cleenzo text-white hover:bg-cleenzo-dark"
         }`}
       >
         {cta.label}
@@ -119,7 +153,9 @@ function BannerCTA({ cta, theme, onSchedule, onWhatsApp, onApp, fullWidth = fals
       className={`inline-flex justify-center items-center font-bold px-5 py-3 sm:py-3.5 rounded-full transition shadow-md text-sm sm:text-base ${widthClass} ${
         theme === "brand"
           ? "bg-white text-cleenzo hover:bg-cleenzo-pale"
-          : "bg-cleenzo text-white hover:bg-cleenzo-dark"
+          : theme === "tiranga"
+            ? "border-2 border-cleenzo-deep text-cleenzo-deep bg-white hover:bg-cleenzo-pale"
+            : "bg-cleenzo text-white hover:bg-cleenzo-dark"
       }`}
     >
       {cta.label}
@@ -131,6 +167,71 @@ function SlideVisual({ slide, theme, compact = false }) {
   const t = themes[theme];
 
   if (slide.id === "express") {
+    const isTiranga = theme === "tiranga";
+    if (isTiranga) {
+      return (
+        <div className={`rounded-2xl sm:rounded-3xl overflow-hidden ${t.card}`}>
+          <div
+            className="h-1.5 w-full bg-gradient-to-r from-[#FF9933] via-white to-[#138808]"
+            aria-hidden="true"
+          />
+          <div className="relative bg-gradient-to-br from-white to-[#F0FAF2] p-5 sm:p-6 md:p-7 border-t border-[#138808]/10">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF9933]/15 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative text-center mb-4 sm:mb-5">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#FFF4E8] border border-[#FF9933]/30 text-4xl sm:text-5xl mb-3 shadow-md">
+                ⚡
+              </div>
+              <p className="font-black text-xl sm:text-2xl text-cleenzo-deep">Express Delivery</p>
+              <p className="text-xs sm:text-sm mt-1 text-slate-600">Pickup → Clean → Delivered</p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-5">
+              {slide.expressFeatures.map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-white border border-[#138808]/15 rounded-xl p-2.5 sm:p-3 text-center shadow-sm"
+                >
+                  <span className="text-xl sm:text-2xl block mb-1" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <p className="text-[10px] sm:text-xs font-bold text-cleenzo-deep leading-tight">
+                    {item.label}
+                  </p>
+                  <p className="text-[9px] sm:text-[10px] text-slate-500 mt-0.5 hidden sm:block">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-between gap-1 bg-white rounded-xl px-3 py-3 border border-[#FF9933]/20 shadow-sm">
+              {slide.expressSteps.map((step, i) => (
+                <div key={step} className="flex items-center flex-1 min-w-0">
+                  <div className="text-center flex-1 min-w-0">
+                    <span className="inline-flex w-6 h-6 sm:w-7 sm:h-7 items-center justify-center rounded-full bg-[#138808] text-white text-[10px] sm:text-xs font-black mb-1">
+                      {i + 1}
+                    </span>
+                    <p className="text-[9px] sm:text-[10px] font-bold text-cleenzo-deep leading-tight truncate px-0.5">
+                      {step}
+                    </p>
+                  </div>
+                  {i < slide.expressSteps.length - 1 && (
+                    <span className="text-[#FF9933] text-xs shrink-0 px-0.5" aria-hidden="true">
+                      →
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <p className="text-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#138808] mt-4">
+              No extra charge for express
+            </p>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className={`rounded-2xl sm:rounded-3xl overflow-hidden ${compact ? "p-0" : "p-0"} ${t.card}`}>
         <div className="relative bg-gradient-to-br from-cleenzo-deep/80 to-cleenzo/90 p-5 sm:p-6 md:p-7">
@@ -187,25 +288,59 @@ function SlideVisual({ slide, theme, compact = false }) {
   }
 
   if (slide.id === "offers") {
+    const isTiranga = theme === "tiranga";
     return (
-      <div className={`rounded-2xl sm:rounded-3xl ${compact ? "p-4" : "p-5 sm:p-6 md:p-8"} ${t.card}`}>
-        <div className="bg-black text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center mb-3 sm:mb-4 shadow-lg">
-          <p className="text-3xl sm:text-4xl mb-1 sm:mb-2">{slide.highlightOffer.icon}</p>
-          <p className="font-black text-lg sm:text-xl md:text-2xl">{slide.highlightOffer.title}</p>
-          <p className="text-cleenzo-sky font-black text-2xl sm:text-3xl md:text-4xl mt-1">
-            {slide.highlightOffer.price}
-          </p>
-        </div>
-        <div className="space-y-2 sm:space-y-3">
-          {slide.miniOffers.map((item) => (
-            <div
-              key={item.text}
-              className="flex items-center gap-2 sm:gap-3 bg-cleenzo-pale border border-cleenzo-sky-light rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3"
+      <div
+        className={`rounded-2xl sm:rounded-3xl overflow-hidden ${compact ? "p-0" : "p-0"} ${t.card}`}
+      >
+        {isTiranga ? (
+          <div
+            className="h-1.5 w-full bg-gradient-to-r from-[#FF9933] via-white to-[#138808]"
+            aria-hidden="true"
+          />
+        ) : null}
+        <div className={compact ? "p-4" : "p-5 sm:p-6 md:p-8"}>
+          <div
+            className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center mb-3 sm:mb-4 shadow-lg ${
+              isTiranga
+                ? "bg-cleenzo-deep text-white border border-[#FF9933]/20"
+                : "bg-black text-white"
+            }`}
+          >
+            <p className="text-3xl sm:text-4xl mb-1 sm:mb-2">{slide.highlightOffer.icon}</p>
+            <p className="font-black text-lg sm:text-xl md:text-2xl">{slide.highlightOffer.title}</p>
+            <p
+              className={`font-black text-2xl sm:text-3xl md:text-4xl mt-1 ${
+                isTiranga ? "text-[#FF9933]" : "text-cleenzo-sky"
+              }`}
             >
-              <span className="text-xl sm:text-2xl shrink-0">{item.icon}</span>
-              <p className="font-semibold text-slate-800 text-xs sm:text-sm">{item.text}</p>
-            </div>
-          ))}
+              {slide.highlightOffer.price}
+            </p>
+            {slide.highlightOffer.subline ? (
+              <p
+                className={`font-bold text-sm sm:text-base mt-2 ${
+                  isTiranga ? "text-[#8FD99A]" : "text-white/90"
+                }`}
+              >
+                {slide.highlightOffer.subline}
+              </p>
+            ) : null}
+          </div>
+          <div className="space-y-2 sm:space-y-3">
+            {slide.miniOffers.map((item) => (
+              <div
+                key={item.text}
+                className={`flex items-center gap-2 sm:gap-3 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 ${
+                  isTiranga
+                    ? "bg-white border border-[#138808]/15"
+                    : "bg-cleenzo-pale border border-cleenzo-sky-light"
+                }`}
+              >
+                <span className="text-xl sm:text-2xl shrink-0">{item.icon}</span>
+                <p className="font-semibold text-slate-800 text-xs sm:text-sm">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -251,19 +386,112 @@ function SlideVisual({ slide, theme, compact = false }) {
   );
 }
 
-function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
-  const theme = slide.theme;
+function FreedomBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
+  const theme = slide.theme || "light";
   const t = themes[theme];
+  const blendPage = isHomeTirangaThemeActive();
+
+  const handleBannerClick = () => {
+    trackOfferEvent("offer_banner_click", { offer_id: slide.offerId || slide.id });
+    if (slide.clickAction === "whatsapp") {
+      onWhatsApp();
+      return;
+    }
+    onSchedule();
+  };
 
   return (
     <div
-      className={`w-full min-w-full flex-shrink-0 ${t.section} relative overflow-hidden`}
+      className={`carousel-slide-panel w-full min-w-full flex-shrink-0 ${
+        blendPage ? "bg-transparent" : t.section
+      } relative overflow-hidden`}
       aria-hidden="false"
     >
-      <div className="absolute top-0 right-0 w-48 sm:w-72 h-48 sm:h-72 bg-cleenzo-sky/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-40 sm:w-64 h-40 sm:h-64 bg-cleenzo/10 rounded-full blur-3xl pointer-events-none" />
-      {theme === "express" && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8">
+        <FreedomSaleCarouselBanner
+          onClick={handleBannerClick}
+          ariaLabel={slide.ariaLabel || slide.imageAlt}
+        />
+      </div>
+    </div>
+  );
+}
+
+function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
+  const theme = slide.theme || "light";
+  const t = themes[theme];
+  const blendPage = isHomeTirangaThemeActive();
+
+  const handleBannerClick = () => {
+    trackOfferEvent("offer_banner_click", { offer_id: slide.offerId || slide.id });
+    if (slide.clickAction === "whatsapp") {
+      onWhatsApp();
+      return;
+    }
+    onSchedule();
+  };
+
+  return (
+    <div
+      className={`carousel-slide-panel w-full min-w-full flex-shrink-0 ${
+        blendPage ? "bg-transparent" : t.section
+      } relative overflow-hidden`}
+      aria-hidden="false"
+    >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8">
+        <button
+          type="button"
+          onClick={handleBannerClick}
+          className="group w-full block rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 bg-white shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-cleenzo focus-visible:ring-offset-2"
+          aria-label={slide.imageAlt || "View offer and book"}
+        >
+          <span className="block w-full aspect-[7/3] max-h-[min(42vw,300px)] sm:max-h-[min(36vw,320px)] md:max-h-none bg-cleenzo-pale/30">
+            <img
+              src={slide.imageSrc}
+              alt={slide.imageAlt || ""}
+              width={1400}
+              height={600}
+              className="w-full h-full object-contain md:object-cover md:object-center transition group-hover:opacity-[0.98]"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
+  const homeTiranga = isHomeTirangaThemeActive();
+  const theme = resolveSlideTheme(slide, homeTiranga);
+  const t = themes[theme] ?? themes.tiranga;
+  const sectionClass = homeTiranga ? "bg-transparent" : t.section;
+
+  return (
+    <div
+      className={`carousel-slide-panel w-full min-w-full flex-shrink-0 ${sectionClass} relative overflow-hidden`}
+      aria-hidden="false"
+    >
+      {theme === "tiranga" ? (
+        <div
+          className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] opacity-90 pointer-events-none"
+          aria-hidden="true"
+        />
+      ) : null}
+      {theme === "tiranga" ? (
+        <>
+          <div className="absolute top-0 right-0 w-48 sm:w-72 h-48 sm:h-72 bg-[#FF9933]/12 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-40 sm:w-64 h-40 sm:h-64 bg-[#138808]/10 rounded-full blur-3xl pointer-events-none" />
+        </>
+      ) : (
+        <>
+          <div className="absolute top-0 right-0 w-48 sm:w-72 h-48 sm:h-72 bg-cleenzo-sky/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-40 sm:w-64 h-40 sm:h-64 bg-cleenzo/10 rounded-full blur-3xl pointer-events-none" />
+          {slide.theme === "express" && (
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+          )}
+        </>
       )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-8 pb-20 sm:pt-10 sm:pb-22 md:py-14 lg:py-16">
@@ -325,7 +553,12 @@ function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
 }
 
 function HeaderCarousel() {
-  const slides = CAROUSEL_BANNERS;
+  const promoSlides = useMemo(() => getActivePromoCarouselSlides(), []);
+  const slides = useMemo(() => {
+    const offersSlide = CAROUSEL_BANNERS.find((s) => s.id === "offers");
+    const otherBanners = CAROUSEL_BANNERS.filter((s) => s.id !== "offers");
+    return [...(offersSlide ? [offersSlide] : []), ...promoSlides, ...otherBanners];
+  }, [promoSlides]);
   const [active, setActive] = useState(0);
   const [hoverPaused, setHoverPaused] = useState(false);
   const [touchPaused, setTouchPaused] = useState(false);
@@ -335,11 +568,19 @@ function HeaderCarousel() {
   const { openAppDownload } = useAppDownload();
   const { setCarouselTheme } = useCarouselStrip();
   const isPaused = hoverPaused || touchPaused;
-  const theme = themes[slides[active].theme];
 
   useEffect(() => {
-    setCarouselTheme(slides[active].theme);
+    if (!slides.length) return;
+    const slide = slides[active];
+    const homeTiranga = isHomeTirangaThemeActive();
+    setCarouselTheme(resolveSlideTheme(slide, homeTiranga) || "light");
   }, [active, slides, setCarouselTheme]);
+
+  useEffect(() => {
+    if (active >= slides.length && slides.length > 0) {
+      setActive(0);
+    }
+  }, [active, slides.length]);
 
   const goTo = useCallback(
     (index) => {
@@ -356,7 +597,7 @@ function HeaderCarousel() {
   }, []);
 
   useEffect(() => {
-    if (isPaused) return undefined;
+    if (isPaused || slides.length < 2) return undefined;
     const timer = setInterval(() => {
       setActive((prev) => (prev + 1) % slides.length);
     }, CAROUSEL_AUTOPLAY_MS);
@@ -391,6 +632,13 @@ function HeaderCarousel() {
     setTimeout(() => setTouchPaused(false), 400);
   };
 
+  if (!slides.length) return null;
+
+  const homeTirangaActive = isHomeTirangaThemeActive();
+  const theme =
+    themes[resolveSlideTheme(slides[active] ?? { theme: "light" }, homeTirangaActive)] ??
+    themes.tiranga;
+
   return (
     <section
       id="carousel"
@@ -414,15 +662,31 @@ function HeaderCarousel() {
           transition: `transform ${CAROUSEL_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
         }}
       >
-        {slides.map((slide) => (
-          <SlidePanel
-            key={slide.id}
-            slide={slide}
-            onSchedule={openSchedulePickup}
-            onWhatsApp={handleWhatsApp}
-            onApp={openAppDownload}
-          />
-        ))}
+        {slides.map((slide) =>
+          slide.type === "freedom-banner" ? (
+            <FreedomBannerSlidePanel
+              key={slide.id}
+              slide={slide}
+              onSchedule={openSchedulePickup}
+              onWhatsApp={handleWhatsApp}
+            />
+          ) : slide.type === "image" ? (
+            <ImageSlidePanel
+              key={slide.id}
+              slide={slide}
+              onSchedule={openSchedulePickup}
+              onWhatsApp={handleWhatsApp}
+            />
+          ) : (
+            <SlidePanel
+              key={slide.id}
+              slide={slide}
+              onSchedule={openSchedulePickup}
+              onWhatsApp={handleWhatsApp}
+              onApp={openAppDownload}
+            />
+          ),
+        )}
       </div>
 
       {/* Desktop arrows */}

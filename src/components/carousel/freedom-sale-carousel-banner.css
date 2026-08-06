@@ -1,0 +1,299 @@
+.freedom-sale-banner {
+  --fs-saffron: #ff9933;
+  --fs-green: #138808;
+  --fs-navy: #002b5b;
+  --fs-cream: #fff8f0;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(255, 153, 51, 0.25);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--fs-cream) 0%, #ffffff 45%, #f0faf2 100%);
+  box-shadow: 0 8px 28px rgba(0, 43, 91, 0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 640px) {
+  .freedom-sale-banner {
+    border-radius: 1.25rem;
+  }
+}
+
+.freedom-sale-banner:hover {
+  box-shadow: 0 12px 32px rgba(0, 43, 91, 0.12);
+  transform: translateY(-1px);
+}
+
+.freedom-sale-banner:focus-visible {
+  outline: 2px solid var(--fs-navy);
+  outline-offset: 3px;
+}
+
+.freedom-sale-banner__tricolor {
+  height: 4px;
+  background: linear-gradient(90deg, var(--fs-saffron), #ffffff 50%, var(--fs-green));
+}
+
+.freedom-sale-banner__inner {
+  aspect-ratio: 7 / 3;
+  max-height: min(42vw, 320px);
+  min-height: 11rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem 1rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .freedom-sale-banner__inner {
+    grid-template-columns: 1.05fr 1fr 0.85fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem 1.1rem;
+    max-height: none;
+    min-height: 0;
+  }
+}
+
+.freedom-sale-banner__left {
+  z-index: 1;
+}
+
+.freedom-sale-banner__flag {
+  font-size: 1.1rem;
+  line-height: 1;
+  margin-bottom: 0.15rem;
+}
+
+.freedom-sale-banner__headline {
+  font-size: clamp(0.95rem, 3.2vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--fs-navy);
+  letter-spacing: -0.01em;
+}
+
+.freedom-sale-banner__title {
+  font-size: clamp(1.35rem, 4.5vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--fs-navy);
+  letter-spacing: -0.02em;
+}
+
+.freedom-sale-banner__title-sale {
+  color: var(--fs-saffron);
+  font-style: italic;
+  font-weight: 800;
+}
+
+.freedom-sale-banner__tagline {
+  margin-top: 0.35rem;
+  font-size: clamp(0.7rem, 2vw, 0.95rem);
+  font-weight: 600;
+  color: #b45309;
+  font-style: italic;
+}
+
+.freedom-sale-banner__dates {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--fs-navy);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .freedom-sale-banner__dates {
+    font-size: 0.72rem;
+    margin-top: 0.65rem;
+  }
+}
+
+.freedom-sale-banner__offer {
+  background: #fff;
+  border: 2px solid rgba(0, 43, 91, 0.12);
+  border-radius: 0.65rem;
+  padding: 0.65rem 0.75rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 43, 91, 0.06);
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .freedom-sale-banner__offer {
+    padding: 0.85rem 1rem;
+  }
+}
+
+.freedom-sale-banner__flat {
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--fs-navy);
+}
+
+.freedom-sale-banner__pct {
+  font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--fs-navy);
+  margin: 0.15rem 0;
+}
+
+.freedom-sale-banner__credit {
+  font-size: clamp(0.62rem, 1.7vw, 0.78rem);
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.35;
+}
+
+.freedom-sale-banner__credit strong {
+  color: var(--fs-green);
+}
+
+.freedom-sale-banner__credit-sub {
+  display: block;
+  font-size: 0.55em;
+  font-weight: 700;
+  margin-top: 0.2rem;
+  letter-spacing: 0.02em;
+}
+
+.freedom-sale-banner__asterisk {
+  color: var(--fs-saffron);
+  font-weight: 900;
+}
+
+.freedom-sale-banner__audience-sub {
+  display: block;
+  font-size: 0.85em;
+  font-weight: 700;
+  opacity: 0.95;
+  margin-top: 0.15rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.freedom-sale-banner__audience {
+  margin-top: 0.45rem;
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--fs-navy);
+  padding: 0.4rem 0.55rem;
+  border-radius: 0.35rem;
+  text-align: center;
+  line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+  .freedom-sale-banner__audience {
+    font-size: 0.62rem;
+  }
+}
+
+.freedom-sale-banner__right {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .freedom-sale-banner__right {
+    display: flex;
+  }
+}
+
+.freedom-sale-banner__shirts {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.15rem;
+}
+
+.freedom-sale-banner__shirt {
+  width: 2.1rem;
+  height: 2.5rem;
+  border-radius: 0.35rem 0.35rem 0.15rem 0.15rem;
+  border: 1px solid rgba(0, 43, 91, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.freedom-sale-banner__shirt--1 {
+  background: linear-gradient(180deg, #93c5fd, #60a5fa);
+}
+.freedom-sale-banner__shirt--2 {
+  background: #f8fafc;
+  height: 2.65rem;
+}
+.freedom-sale-banner__shirt--3 {
+  background: linear-gradient(180deg, #86efac, #4ade80);
+}
+.freedom-sale-banner__shirt--4 {
+  background: linear-gradient(180deg, #93c5fd, #3b82f6);
+}
+
+.freedom-sale-banner__bag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--fs-navy);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 800;
+  padding: 0.4rem 0.55rem;
+  border-radius: 0.45rem;
+  letter-spacing: 0.02em;
+}
+
+.freedom-sale-banner__bag-icon {
+  color: var(--fs-green);
+  font-size: 0.85rem;
+}
+
+.freedom-sale-banner__watermark {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background: radial-gradient(circle at 15% 85%, var(--fs-navy) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, var(--fs-saffron) 0%, transparent 40%);
+}
+
+.freedom-sale-banner__mobile-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--fs-navy);
+}
+
+@media (min-width: 768px) {
+  .freedom-sale-banner__mobile-perks {
+    display: none;
+  }
+}
+
+.freedom-sale-banner__mobile-perks span {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(19, 136, 8, 0.15);
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+}

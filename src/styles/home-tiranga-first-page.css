@@ -1,0 +1,168 @@
+/* Full homepage first fold — Freedom Sale Tiranga (saffron · white · green) */
+
+.home-first-page-tiranga {
+  --tiranga-saffron: #ff9933;
+  --tiranga-green: #138808;
+  --tiranga-cream: #fff8f0;
+  --tiranga-mint: #f0faf2;
+  background: linear-gradient(
+    180deg,
+    var(--tiranga-cream) 0%,
+    #ffffff 42%,
+    var(--tiranga-mint) 100%
+  );
+}
+
+.home-first-page-tiranga__bar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--tiranga-saffron) 0%, #ffffff 50%, var(--tiranga-green) 100%);
+}
+
+/* —— Personal hero —— */
+.home-first-page-tiranga .personal-hero.personal-hero--tiranga {
+  background: transparent;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-copy {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-badge {
+  background: rgba(255, 153, 51, 0.12);
+  border-color: rgba(255, 153, 51, 0.35);
+  color: #b45309;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-title {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-title-accent {
+  color: var(--tiranga-green);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-subtitle {
+  color: #475569;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-feature {
+  background: #ffffff;
+  border-color: rgba(19, 136, 8, 0.12);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-feature-label {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-btn-primary {
+  background: var(--tiranga-green);
+  color: #ffffff;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-btn-primary:hover {
+  background: #0f6b06;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-btn-secondary {
+  border-color: var(--cleenzo-blue, #0a3d91);
+  color: var(--cleenzo-blue, #0a3d91);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-btn-secondary:hover {
+  background: rgba(10, 61, 145, 0.06);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-trust {
+  border-top-color: rgba(19, 136, 8, 0.15);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-trust-item {
+  color: #64748b;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-visual {
+  background: #eef2f7;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-visual::after {
+  background: linear-gradient(to right, rgba(255, 248, 240, 0.92) 0%, transparent 32%);
+}
+
+@media (max-width: 1023px) {
+  .home-first-page-tiranga .personal-hero--tiranga .personal-hero-visual::after {
+    background: linear-gradient(to top, rgba(255, 248, 240, 0.95) 0%, transparent 40%);
+  }
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-promise {
+  background: rgba(255, 255, 255, 0.65);
+  border-top: 1px solid rgba(255, 153, 51, 0.2);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-promise-badge {
+  color: var(--tiranga-green);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-promise-title {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-promise-desc {
+  color: #475569;
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-promise-cta {
+  border-color: var(--tiranga-green);
+  color: var(--tiranga-green);
+}
+
+.home-first-page-tiranga .personal-hero--tiranga .personal-hero-promise-cta:hover {
+  background: rgba(19, 136, 8, 0.08);
+}
+
+.personal-hero-strip--tiranga {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 153, 51, 0.12) 0%,
+    #ffffff 50%,
+    rgba(19, 136, 8, 0.12) 100%
+  );
+  border-top: 1px solid rgba(255, 153, 51, 0.25);
+}
+
+.personal-hero-strip--tiranga .personal-hero-strip-item {
+  color: var(--cleenzo-navy-deep, #002b5b);
+  border-right: 1px solid rgba(19, 136, 8, 0.12);
+  border-bottom: 1px solid rgba(19, 136, 8, 0.12);
+}
+
+.home-first-page-tiranga #carousel .carousel-slide-panel.bg-transparent,
+.home-first-page-tiranga #carousel .carousel-slide-panel[class*="bg-transparent"] {
+  background: transparent;
+}
+
+/* Express / brand slides on first page — softer edge */
+.home-first-page-tiranga #carousel .carousel-slide-panel:not(.bg-transparent) {
+  border-bottom: 1px solid rgba(255, 153, 51, 0.08);
+}
+
+/* Offers + process on first page */
+.home-first-page-tiranga .home-tiranga-offers {
+  background: transparent;
+  border-color: rgba(19, 136, 8, 0.12);
+}
+
+.home-first-page-tiranga .home-tiranga-process {
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 153, 51, 0.15);
+}
+
+.home-first-page-tiranga .home-tiranga-process h2,
+.home-first-page-tiranga .home-tiranga-process h3 {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.home-first-page-tiranga .home-tiranga-process .text-cleenzo {
+  color: #b45309;
+}

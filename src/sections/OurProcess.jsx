@@ -1,10 +1,26 @@
 import { DRY_CLEAN_PROCESS } from "../constants";
 import PlaceOrderCTA from "../components/PlaceOrderCTA";
+import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 
 function OurProcess() {
+  const tirangaPage = isHomeTirangaThemeActive();
+
   return (
-    <section id="process" className="relative bg-white border-b border-cleenzo-sky-light overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(10,61,145,0.06),transparent_55%)] pointer-events-none" />
+    <section
+      id="process"
+      className={`relative border-b overflow-hidden ${
+        tirangaPage
+          ? "home-tiranga-process border-[#FF9933]/20 bg-white/40"
+          : "bg-white border-cleenzo-sky-light"
+      }`}
+    >
+      <div
+        className={`absolute inset-0 pointer-events-none ${
+          tirangaPage
+            ? "bg-[radial-gradient(ellipse_at_top,rgba(255,153,51,0.06),transparent_55%)]"
+            : "bg-[radial-gradient(ellipse_at_top,rgba(10,61,145,0.06),transparent_55%)]"
+        }`}
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
