@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      maxWidth: {
+        "7xl": "90rem",
+      },
       colors: {
         cleenzo: {
           DEFAULT: "#0A3D91",

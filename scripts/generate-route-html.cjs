@@ -148,6 +148,8 @@ function main() {
   }
 
   generateSitemap(BUILD_DIR, ROUTES);
+  const sitemapXml = fs.readFileSync(path.join(BUILD_DIR, "sitemap.xml"), "utf8");
+  fs.writeFileSync(path.join(__dirname, "..", "public", "sitemap.xml"), sitemapXml, "utf8");
   console.log(`Generated static HTML for ${ROUTES.length} routes.`);
 }
 

@@ -146,7 +146,7 @@ jobs:
             "${DEPLOY_USER}@${EC2_HOST}:${APP_DIR}/build/"
 
           ssh ${SSH_OPTS} "${DEPLOY_USER}@${EC2_HOST}" \
-            "pm2 restart '${PM2_NAME}' && sleep 1 && curl -sf http://127.0.0.1:3003/ | grep -q main."
+            "pm2 startOrRestart '${APP_DIR}/ecosystem.config.cjs' --only '${PM2_NAME}' 2>/dev/null || pm2 start '${APP_DIR}/ecosystem.config.cjs' --only '${PM2_NAME}'; pm2 save; sleep 2; curl -sf http://127.0.0.1:3003/laundry-service-ghaziabad/ | grep -q 'laundry-service-ghaziabad/'"
 
       - name: Deployment summary
         run: |

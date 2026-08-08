@@ -8,7 +8,7 @@
     "longitude": 77.4311244,
     "region": "IN-UP",
     "placename": "Ghaziabad, Raj Nagar Extension",
-    "_note": "TODO_VERIFY_GBP_COORDINATES — values match Google Maps place URL in src/constants.js STORE_MAPS_URL"
+    "_note": "TODO_VERIFY_MAPS_COORDINATES — values match Google Maps place URL in src/constants.js STORE_MAPS_URL"
   },
   "openingHours": {
     "opens": "09:30",

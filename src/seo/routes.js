@@ -19,3 +19,10 @@ export function canonicalPath(path = "/") {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return normalized.endsWith("/") ? normalized : `${normalized}/`;
 }
+
+/** Compare paths regardless of trailing slash (for nav active states). */
+export function normalizePathKey(path = "/") {
+  if (!path || path === "/") return "/";
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return normalized.replace(/\/$/, "") || "/";
+}

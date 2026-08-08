@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/image/cleenzo-logo.png";
+import CleenzoLogo, { CLEENZO_LOGO_ALT } from "../components/CleenzoLogo";
 import { useCommercialNav } from "../commercial/CommercialNavContext";
 import {
   COMMERCIAL_PAGE_PATH,
@@ -34,7 +34,7 @@ function CommercialNavbar() {
       }`}
     >
       <div className="bg-[#0A3D91]/5 border-b border-[#0A3D91]/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-1 flex items-center justify-between gap-3 text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-0 py-1 flex items-center justify-between gap-3 text-xs sm:text-sm">
           <p className="text-slate-600 hidden sm:block">
             B2B commercial laundry for hotels, restaurants & businesses
           </p>
@@ -50,7 +50,7 @@ function CommercialNavbar() {
         </div>
       </div>
 
-      <nav className="max-w-7xl mx-auto px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between gap-4">
+      <nav className="max-w-7xl mx-auto px-0 py-1.5 sm:py-2 flex items-center justify-between gap-4">
         <Link
           to={COMMERCIAL_PAGE_PATH}
           className="flex items-center gap-2 shrink-0"
@@ -60,7 +60,12 @@ function CommercialNavbar() {
             scrollToTop();
           }}
         >
-          <img src={logo} alt="Cleenzo Commercial" className="h-7 sm:h-8 w-auto object-contain" />
+          <CleenzoLogo
+            alt={`${CLEENZO_LOGO_ALT} — Commercial`}
+            className="h-7 sm:h-8 w-auto object-contain"
+            width={120}
+            height={54}
+          />
           <span className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-md bg-[#0A3D91] text-white text-xs font-bold uppercase tracking-wide">
             Commercial
           </span>
@@ -95,7 +100,7 @@ function CommercialNavbar() {
 
       <div className="hidden lg:block border-t border-slate-100 bg-white">
         <div
-          className="max-w-7xl mx-auto px-3 sm:px-6 py-2 flex flex-wrap gap-2"
+          className="max-w-7xl mx-auto px-0 py-2 flex flex-wrap gap-2"
           role="tablist"
           aria-label="Commercial page sections"
         >

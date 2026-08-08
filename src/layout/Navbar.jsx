@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/image/cleenzo-logo.png";
+import CleenzoLogo from "../components/CleenzoLogo";
 import { useAppDownload } from "../context/AppDownloadContext";
+import { canonicalPath } from "../seo/routes";
 
 const links = [
   { label: "Offers", href: "/#offers" },
@@ -73,13 +74,9 @@ function Navbar() {
         scrolled ? "shadow-sm" : ""
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-6 py-1.5 sm:py-2">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-0 py-1.5 sm:py-2">
         <Link to="/" className="shrink-0" onClick={closeMobile}>
-          <img
-            src={logo}
-            alt="Cleenzo — laundry and dry cleaning in Raj Nagar, Ghaziabad"
-            className="w-28 sm:w-32 md:w-36 h-auto object-contain"
-          />
+          <CleenzoLogo className="w-36 h-auto object-contain" width={160} height={73} />
         </Link>
 
         <div className="hidden lg:flex items-center gap-4 text-sm font-medium text-slate-700">
@@ -87,7 +84,7 @@ function Navbar() {
             link.to ? (
               <Link
                 key={link.to}
-                to={link.to}
+                to={canonicalPath(link.to)}
                 className="hover:text-black transition"
                 onClick={
                   link.to === "/commercial-laundry"
@@ -146,7 +143,7 @@ function Navbar() {
                     ) : (
                       <Link
                         key={item.to}
-                        to={item.to}
+                        to={canonicalPath(item.to)}
                         role="menuitem"
                         className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-cleenzo-pale hover:text-cleenzo"
                         onClick={() => setServicesOpen(false)}
@@ -195,7 +192,7 @@ function Navbar() {
             link.to ? (
               <Link
                 key={link.to}
-                to={link.to}
+                to={canonicalPath(link.to)}
                 onClick={closeMobile}
                 className="block px-4 py-3 rounded-xl text-slate-700 font-semibold hover:bg-slate-50"
               >
@@ -229,7 +226,7 @@ function Navbar() {
             ) : (
               <Link
                 key={item.to}
-                to={item.to}
+                to={canonicalPath(item.to)}
                 onClick={() => {
                   closeMobile();
                   if (item.to === "/commercial-laundry") {

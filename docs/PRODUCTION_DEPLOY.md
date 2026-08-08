@@ -5,7 +5,7 @@
 | Layer | What |
 |--------|------|
 | **Nginx** | `cleenzo.co.in` / `www` → `proxy_pass http://127.0.0.1:3003` (not static `/var/www/...`) |
-| **PM2** | `cleenzo-website` serves `build/` on port **3003** (e.g. `serve -s build -l 3003`) |
+| **PM2** | `cleenzo-website` runs **`node scripts/serve-production.cjs`** on port **3003** (serves prerendered `build/<route>/index.html` first). **Do not use `serve -s`** — SPA mode breaks route SEO. |
 | **Git clone on server** | `~/cleenzo-website` = repo `cleenzo-landing-page` |
 
 **Do not rsync to `/var/www/cleenzo.co.in/html`** unless nginx is switched back to a static `root`.
@@ -20,7 +20,21 @@ bash scripts/ec2-deploy-website-pm2.sh
 Or manually:
 
 ```bash
-cd ~/cleenzo-website && git pull origin main && npm ci && npm run build && pm2 restart cleenzo-website && curl -sS http://127.0.0.1:3003/ | grep -o 'static/js/main\.[a-f0-9]*\.js'
+cd ~/cleenzo-website && git pull origin main && npm ci && npm run build
+pm2 startOrRestart ecosystem.config.cjs --only cleenzo-website || pm2 start ecosystem.config.cjs
+pm2 save
+bash scripts/verify-production-seo.sh http://127.0.0.1:3003
+bash scripts/verify-production-seo.sh https://cleenzo.co.in
+```
+
+**One-time migration off `serve -s`:**
+
+```bash
+cd ~/cleenzo-website
+pm2 delete cleenzo-website 2>/dev/null || true
+pm2 start ecosystem.config.cjs
+pm2 save
+pm2 show cleenzo-website
 ```
 
 Verify bundle matches `build/index.html`:
@@ -50,7 +64,8 @@ Secrets: `EC2_HOST`, `EC2_SSH_PRIVATE_KEY` or `EC2_SSH_KEY`, optional `EC2_USER`
 | Pull OK, site old | Forgot `npm run build` or `pm2 restart` |
 | rsync to `/var/www` fails / no effect | Nginx uses **proxy :3003**, not that folder |
 | Same JS hash, UI unchanged | Before campaign start: offers/Tiranga use dates in `offers.js` / `freedomCampaign.js` (IST) |
-| PM2 wrong port | `pm2 delete cleenzo-website` then `pm2 start npx --name cleenzo-website -- serve -s build -l 3003` from `~/cleenzo-website` |
+| PM2 wrong port | `pm2 delete cleenzo-website` then from `~/cleenzo-website`: `pm2 start ecosystem.config.cjs && pm2 save` |
+| Service URLs show homepage canonical | PM2 still on `serve -s` — switch to `ecosystem.config.cjs` / `npm run serve:production` |
 
 ## Google Search Console (indexing)
 

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import PlaceOrderCTA from "../PlaceOrderCTA";
 import GoogleReviewsSection from "../GoogleReviewsSection";
 import { SERVICE_AREAS } from "../../data/servicePages";
+import { canonicalPath, normalizePathKey } from "../../seo/routes";
 import { openWhatsAppBooking } from "../../whatsapp";
 import "./service-page.css";
 
@@ -55,12 +56,12 @@ function ServiceHubLinks({ currentPath }) {
         {HUB_LINKS.map((link) => {
           const isActive =
             link.path === "/"
-              ? currentPath === "/"
-              : currentPath === link.path || currentPath.startsWith(`${link.path}/`);
+              ? normalizePathKey(currentPath) === "/"
+              : normalizePathKey(currentPath) === normalizePathKey(link.path);
           return (
             <li key={link.path}>
               <Link
-                to={link.path}
+                to={canonicalPath(link.path)}
                 className={`inline-flex text-xs md:text-sm font-bold px-3.5 py-2 rounded-full border transition ${
                   isActive
                     ? "bg-cleenzo text-white border-cleenzo"
@@ -360,7 +361,10 @@ function ServiceFAQ({ faqs }) {
 }
 
 function ServiceRelated({ currentPath }) {
-  const others = RELATED_SERVICES.filter((s) => s.path !== currentPath);
+  const currentKey = normalizePathKey(currentPath);
+  const others = RELATED_SERVICES.filter(
+    (s) => normalizePathKey(s.path) !== currentKey,
+  );
 
   return (
     <section className="bg-cleenzo-pale-bg py-12 md:py-14 border-t border-cleenzo-sky-light">
@@ -373,7 +377,7 @@ function ServiceRelated({ currentPath }) {
           {others.map((service) => (
             <Link
               key={service.path}
-              to={service.path}
+              to={canonicalPath(service.path)}
               className="group flex items-center gap-4 rounded-2xl border border-cleenzo-sky-light bg-white p-4 hover:border-cleenzo hover:shadow-md transition"
             >
               <span

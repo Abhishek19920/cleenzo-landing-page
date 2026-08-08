@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .max-w-7xl {
+    max-width: 90rem;
+  }
+
+  .w-36 {
+    width: 10rem;
+  }
+
+  /* Site-wide: no horizontal padding from sm:px-6 (all breakpoints ≥ sm) */
+  @media (min-width: 640px) {
+    .sm\:px-6 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
 :root {
   --cleenzo-blue: #0a3d91;
   --cleenzo-blue-dark: #072d6b;

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/image/cleenzo-logo.png";
+import CleenzoLogo from "../components/CleenzoLogo";
 import SocialLinks from "../components/SocialLinks";
 import { useAppDownload } from "../context/AppDownloadContext";
 import {
@@ -9,6 +9,7 @@ import {
   STORE_MAPS_URL,
 } from "../constants";
 import { openWhatsAppBooking } from "../whatsapp";
+import { canonicalPath } from "../seo/routes";
 
 const HUB_LINKS = [
   { label: "Home", to: "/" },
@@ -37,10 +38,10 @@ function Footer() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
           <Link to="/" className="inline-block mb-3">
-            <img
-              src={logo}
-              alt="Cleenzo — laundry and dry cleaning in Raj Nagar, Ghaziabad"
+            <CleenzoLogo
               className="w-40 md:w-48 h-auto object-contain bg-white rounded-xl px-3 py-2"
+              width={192}
+              height={87}
             />
           </Link>
           <p className="text-slate-400 text-sm mb-4">Premium laundry · Express delivery</p>
@@ -59,7 +60,7 @@ function Footer() {
           <ul className="space-y-2 text-sm mb-6">
             {HUB_LINKS.map((link) => (
               <li key={link.to}>
-                <Link to={link.to} className="text-slate-300 hover:text-white transition">
+                <Link to={canonicalPath(link.to)} className="text-slate-300 hover:text-white transition">
                   {link.label}
                 </Link>
               </li>
@@ -71,7 +72,7 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             {SERVICE_LINKS.map((link) => (
               <li key={link.to}>
-                <Link to={link.to} className="text-slate-300 hover:text-white transition">
+                <Link to={canonicalPath(link.to)} className="text-slate-300 hover:text-white transition">
                   {link.label}
                 </Link>
               </li>

@@ -11,7 +11,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && node scripts/generate-route-html.cjs && node scripts/validate-seo.cjs",
+    "serve:production": "node scripts/serve-production.cjs",
     "seo:validate": "node scripts/validate-seo.cjs",
+    "optimize:logo": "node scripts/optimize-brand-logo.cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
