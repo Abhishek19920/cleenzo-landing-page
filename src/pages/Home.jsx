@@ -12,30 +12,28 @@ import ContactSection from "../sections/ContactSection";
 import SeoContentSection from "../sections/SeoContentSection";
 import { CarouselStripProvider } from "../context/CarouselStripContext";
 import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
+import { useCampaignExperience } from "../hooks/useCampaignExperience";
+import NoidaExtensionSection from "../components/campaign/NoidaExtensionSection";
+import IndependenceUniformBlock from "../components/campaign/IndependenceUniformBlock";
 import "../styles/home-tiranga-first-page.css";
 
 function Home() {
   const tirangaFirstPage = isHomeTirangaThemeActive();
+  const { noida, showUniformBlock } = useCampaignExperience();
 
   const firstPageSections = (
     <>
       <PersonalHeroBanner />
       <HeaderCarousel />
+      {tirangaFirstPage ? <NoidaExtensionSection noida={noida} /> : null}
+      {showUniformBlock ? <IndependenceUniformBlock /> : null}
       <OffersSection />
       <OurProcess />
     </>
   );
 
-  return (
-    <CarouselStripProvider>
-      {tirangaFirstPage ? (
-        <div className="home-first-page-tiranga">
-          <div className="home-first-page-tiranga__bar" aria-hidden="true" />
-          {firstPageSections}
-        </div>
-      ) : (
-        firstPageSections
-      )}
+  const belowFoldSections = (
+    <>
       <PricingSection />
       <ExpertServicesSection />
       <ServicesPreview />
@@ -44,6 +42,23 @@ function Home() {
       <SeoContentSection />
       <ContactSection />
       <DownloadApp />
+    </>
+  );
+
+  return (
+    <CarouselStripProvider>
+      {tirangaFirstPage ? (
+        <div className="home-first-page-tiranga home-page-tiranga">
+          <div className="home-first-page-tiranga__bar" aria-hidden="true" />
+          {firstPageSections}
+          {belowFoldSections}
+        </div>
+      ) : (
+        <>
+          {firstPageSections}
+          {belowFoldSections}
+        </>
+      )}
     </CarouselStripProvider>
   );
 }

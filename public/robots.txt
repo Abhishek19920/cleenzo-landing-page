@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.cleenzo.co.in/sitemap.xml
+Sitemap: https://cleenzo.co.in/sitemap.xml

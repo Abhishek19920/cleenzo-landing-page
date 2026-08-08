@@ -1,0 +1,21 @@
+{
+  "siteUrl": "https://cleenzo.co.in",
+  "siteName": "Cleenzo",
+  "locale": "en_IN",
+  "defaultOgImagePath": "/images/og-image.jpg",
+  "geo": {
+    "latitude": 28.7035856,
+    "longitude": 77.4311244,
+    "region": "IN-UP",
+    "placename": "Ghaziabad, Raj Nagar Extension",
+    "_note": "TODO_VERIFY_GBP_COORDINATES — values match Google Maps place URL in src/constants.js STORE_MAPS_URL"
+  },
+  "openingHours": {
+    "opens": "09:30",
+    "closes": "21:00",
+    "_note": "TODO_VERIFY_OPENING_HOURS — public/index.html previously used 09:00; runtime seo.js used 09:30"
+  },
+  "localBusinessId": "https://cleenzo.co.in/#localbusiness",
+  "websiteId": "https://cleenzo.co.in/#website",
+  "phoneTel": "+919999225311"
+}

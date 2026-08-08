@@ -8,7 +8,8 @@
   background: linear-gradient(
     180deg,
     var(--tiranga-cream) 0%,
-    #ffffff 42%,
+    #ffffff 28%,
+    #ffffff 55%,
     var(--tiranga-mint) 100%
   );
 }
@@ -165,4 +166,104 @@
 
 .home-first-page-tiranga .home-tiranga-process .text-cleenzo {
   color: #b45309;
+}
+
+/* —— Below-the-fold sections: same Tiranga canvas (no sudden pale-bg break) —— */
+.home-page-tiranga #pricing,
+.home-page-tiranga #expert-services,
+.home-page-tiranga #services,
+.home-page-tiranga #why,
+.home-page-tiranga #about,
+.home-page-tiranga #contact {
+  background: transparent !important;
+  border-color: rgba(19, 136, 8, 0.12) !important;
+}
+
+.home-page-tiranga #pricing {
+  border-top-color: rgba(255, 153, 51, 0.22) !important;
+}
+
+.home-page-tiranga #expert-services {
+  border-top-color: rgba(19, 136, 8, 0.1) !important;
+}
+
+.home-page-tiranga #services {
+  border-color: rgba(255, 153, 51, 0.12) !important;
+}
+
+.home-page-tiranga #why {
+  border-top-color: rgba(255, 153, 51, 0.15) !important;
+}
+
+.home-page-tiranga #about {
+  border-color: rgba(19, 136, 8, 0.1) !important;
+}
+
+.home-page-tiranga #contact {
+  border-color: rgba(255, 153, 51, 0.12) !important;
+}
+
+.home-page-tiranga #pricing h2,
+.home-page-tiranga #expert-services h2,
+.home-page-tiranga #services h2,
+.home-page-tiranga #why h2,
+.home-page-tiranga #about h2,
+.home-page-tiranga #contact h2 {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.home-page-tiranga #pricing .bg-cleenzo {
+  background-color: var(--tiranga-green) !important;
+}
+
+.home-page-tiranga #pricing .border-cleenzo {
+  border-color: rgba(19, 136, 8, 0.35) !important;
+}
+
+.home-page-tiranga #pricing .text-cleenzo {
+  color: var(--tiranga-green) !important;
+}
+
+.home-page-tiranga #pricing [class*="bg-cleenzo-pale"] {
+  background: rgba(255, 255, 255, 0.72) !important;
+}
+
+.home-page-tiranga #expert-services article,
+.home-page-tiranga #services [class*="rounded-2xl"],
+.home-page-tiranga #why [class*="rounded-2xl"],
+.home-page-tiranga #contact [class*="rounded-2xl"] {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(19, 136, 8, 0.15) !important;
+}
+
+.home-page-tiranga #about [class*="rounded-2xl"] {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(255, 153, 51, 0.15) !important;
+}
+
+.home-page-tiranga #why .bg-cleenzo {
+  background-color: var(--tiranga-saffron) !important;
+  color: var(--cleenzo-navy-deep, #002b5b) !important;
+}
+
+.home-page-tiranga #why .from-cleenzo {
+  --tw-gradient-from: var(--tiranga-green) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(19 136 8 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.home-page-tiranga #why .to-cleenzo-light {
+  --tw-gradient-to: #0f6b06 var(--tw-gradient-to-position);
+}
+
+/* Reviews + app: keep contrast blocks; soften top edge into Tiranga page */
+.home-page-tiranga #google-reviews,
+.home-page-tiranga #reviews {
+  margin-top: 0;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--tiranga-saffron), #fff, var(--tiranga-green)) 1;
+}
+
+.home-page-tiranga #download {
+  border-top: 1px solid rgba(255, 153, 51, 0.2);
 }

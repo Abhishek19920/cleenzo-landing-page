@@ -1,8 +1,21 @@
+import { useEffect } from "react";
 import SocialLinks from "../components/SocialLinks";
 import { PHONE_DISPLAY, PHONE_TEL, STORE_ADDRESS, STORE_MAPS_URL } from "../constants";
 import { openWhatsAppBooking } from "../whatsapp";
+import { reportGoogleAdsContactConversion } from "../utils/googleAds";
 
 function ContactSection() {
+  useEffect(() => {
+    const maybeReport = () => {
+      if (window.location.hash === "#contact") {
+        reportGoogleAdsContactConversion();
+      }
+    };
+    maybeReport();
+    window.addEventListener("hashchange", maybeReport);
+    return () => window.removeEventListener("hashchange", maybeReport);
+  }, []);
+
   return (
     <section id="contact" className="bg-cleenzo-pale-bg border-y border-cleenzo-sky-light">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">

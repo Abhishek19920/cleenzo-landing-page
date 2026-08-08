@@ -34,7 +34,7 @@ jobs:
           REACT_APP_CLEENZO_API_URL: ${{ secrets.REACT_APP_CLEENZO_API_URL }}
           REACT_APP_COMMERCIAL_API_URL: ${{ secrets.REACT_APP_COMMERCIAL_API_URL }}
         run: |
-          export REACT_APP_SITE_URL="${REACT_APP_SITE_URL:-https://www.cleenzo.co.in}"
+          export REACT_APP_SITE_URL="${REACT_APP_SITE_URL:-https://cleenzo.co.in}"
           npm run build
 
       - name: Write deploy metadata
@@ -153,4 +153,4 @@ jobs:
           echo "======================================"
           echo "Cleenzo website deployed successfully"
           echo "======================================"
-          echo "https://www.cleenzo.co.in"
+          echo "https://cleenzo.co.in"

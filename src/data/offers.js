@@ -1,4 +1,10 @@
 import { isOfferActive } from "../utils/offerDates";
+import {
+  FREEDOM_SALE_END,
+  FREEDOM_SALE_START,
+  UNIFORM_SALE_END,
+  UNIFORM_SALE_START,
+} from "../utils/freedomCampaign";
 
 /**
  * Homepage offer cards — edit copy, dates, and terms here.
@@ -40,61 +46,56 @@ import { isOfferActive } from "../utils/offerDates";
  * @property {OfferTermSection[]} termsSections
  */
 
-/** Homepage campaign: show all offer cards in this window (IST). */
-export const HOMEPAGE_OFFERS_CAMPAIGN_START = "2026-08-06";
-export const HOMEPAGE_OFFERS_CAMPAIGN_END = "2026-08-30";
+/** Homepage campaign: show offer cards in Freedom window (IST). */
+export const HOMEPAGE_OFFERS_CAMPAIGN_START = FREEDOM_SALE_START;
+export const HOMEPAGE_OFFERS_CAMPAIGN_END = FREEDOM_SALE_END;
 
 /** @type {HomepageOffer[]} */
 export const HOMEPAGE_OFFERS = [
   {
     id: "freedom-rakhi-sale-2026",
     active: true,
-    startDate: "2026-08-06",
-    endDate: "2026-08-30",
+    startDate: FREEDOM_SALE_START,
+    endDate: FREEDOM_SALE_END,
     variant: "freedom",
     featured: true,
     badge: "FREEDOM & RAKHI SALE 🇮🇳",
     discount: "FLAT 40% OFF",
-    secondaryBenefit: "* GET 10% BACK",
+    secondaryBenefit: "Earn 10% Cleenzo Credit",
     description:
-      "As Cleenzo Credit on your next order. Free pickup & delivery for everyone — new & existing customers.",
+      "Get 40% OFF on eligible laundry & dry cleaning + earn 10% Cleenzo Credit on the post-discount amount. Credit unlocks after the campaign ends.",
     audience: "FOR EVERYONE · New & Existing Customers",
-    validityLabel: "6th – 30th August",
-    cta: { label: "Book Now", action: "schedule" },
+    validityLabel: "9th – 30th August",
+    cta: { label: "Book Pickup Now", action: "schedule" },
     termsSections: [
       {
-        heading: "Minimum order value",
-        body: null,
-        todo: true,
-      },
-      {
-        heading: "Maximum discount",
-        body: null,
-        todo: true,
-      },
-      {
-        heading: "Cleenzo Credit cap",
-        body: null,
-        todo: true,
-      },
-      {
-        heading: "Credit validity",
-        body: null,
-        todo: true,
+        heading: "Campaign validity",
+        body: "Freedom & Rakhi Sale valid 9–30 August 2026 (Asia/Kolkata).",
+        todo: false,
       },
       {
         heading: "Eligible services",
-        body: null,
-        todo: true,
+        body: "Eligible laundry and dry cleaning items as determined by Cleenzo catalog rules.",
+        todo: false,
       },
       {
-        heading: "Usage limit",
-        body: null,
-        todo: true,
+        heading: "40% campaign discount",
+        body: "Applied on eligible lines during checkout/order processing. Not combinable with wallet redemption on the same Freedom campaign order.",
+        todo: false,
       },
       {
-        heading: "Campaign validity",
-        body: "Freedom & Rakhi Sale valid from 6th to 30th August 2026 (India Standard Time), unless withdrawn earlier by Cleenzo.",
+        heading: "10% Cleenzo Credit",
+        body: "Calculated on the post-40%-discount eligible amount for Freedom lines. Locked until after the campaign; not an instant extra discount.",
+        todo: false,
+      },
+      {
+        heading: "Customers",
+        body: "New and existing customers.",
+        todo: false,
+      },
+      {
+        heading: "Serviceability",
+        body: "Doorstep pickup & delivery subject to pincode/service area coverage.",
         todo: false,
       },
     ],
@@ -102,26 +103,21 @@ export const HOMEPAGE_OFFERS = [
   {
     id: "heroes-uniform-2026",
     active: true,
-    startDate: "2026-08-13",
-    endDate: "2026-08-15",
+    startDate: UNIFORM_SALE_START,
+    endDate: UNIFORM_SALE_END,
     variant: "heroes",
-    badge: "CLEENZO SALUTES OUR HEROES 🇮🇳",
-    discount: "FLAT 50% OFF",
-    title: "ON UNIFORM CLEANING",
-    subtitle: "A Small Salute to Those Who Serve",
-    description: "For Police & Armed Forces Personnel.",
+    badge: "SALUTING THOSE WHO SERVE 🇮🇳",
+    discount: "50% OFF",
+    title: "Police & Force Uniform Cleaning",
+    subtitle: "Independence Day special",
+    description: "Eligible police & force uniform services only — 13–15 August.",
     validityLabel: "13th – 15th August",
     cta: { label: "Book Now", action: "schedule" },
     termsSections: [
       {
-        heading: "Eligible personnel",
-        body: null,
-        todo: true,
-      },
-      {
-        heading: "Eligible uniform services",
-        body: null,
-        todo: true,
+        heading: "Eligible services",
+        body: "Police & force uniform cleaning items flagged in Cleenzo catalog.",
+        todo: false,
       },
       {
         heading: "Validity",
@@ -129,42 +125,32 @@ export const HOMEPAGE_OFFERS = [
         todo: false,
       },
       {
-        heading: "Verification",
-        body: null,
-        todo: true,
+        heading: "Not site-wide",
+        body: "50% applies only to eligible uniform lines; other eligible items may receive Freedom 40% during overlap dates.",
+        todo: false,
       },
     ],
   },
   {
     id: "independence-outfit-2026",
     active: true,
-    startDate: "2026-08-13",
-    endDate: "2026-08-15",
+    startDate: UNIFORM_SALE_START,
+    endDate: UNIFORM_SALE_END,
     variant: "independence",
     badge: "INDEPENDENCE DAY 🇮🇳",
-    discount: "FLAT 50% OFF",
+    discount: "50% OFF",
     title: "Ethnic & Festive Wear Cleaning",
     subtitle: "Independence Day special",
     description:
-      "Laundry & dry clean on ethnic wear, kurtas, sarees & festive outfits — for everyone. Free pickup & delivery where available.",
+      "Laundry & dry clean on ethnic wear, kurtas, sarees & festive outfits — for everyone.",
     audience: "FOR EVERYONE · New & Existing Customers",
     validityLabel: "13th – 15th August",
     cta: { label: "Book Now", action: "schedule" },
     termsSections: [
       {
-        heading: "Eligible garments / services",
-        body: null,
-        todo: true,
-      },
-      {
-        heading: "Minimum order value",
-        body: null,
-        todo: true,
-      },
-      {
-        heading: "Maximum discount",
-        body: null,
-        todo: true,
+        heading: "Eligible garments",
+        body: "Ethnic wear, kurtas, sarees and festive outfits as per Cleenzo catalog.",
+        todo: false,
       },
       {
         heading: "Validity",
@@ -175,11 +161,7 @@ export const HOMEPAGE_OFFERS = [
   },
 ];
 
-export function isOfferRedeemable(offer, now = new Date()) {
-  return Boolean(offer.active && isOfferActive(offer.startDate, offer.endDate, now));
-}
-
-/** Cards below carousel — all active offers during campaign window. */
+/** Cards below carousel — all active offers during campaign window (dev: always). */
 export function getVisibleHomepageOffers(now = new Date()) {
   if (
     !isOfferActive(HOMEPAGE_OFFERS_CAMPAIGN_START, HOMEPAGE_OFFERS_CAMPAIGN_END, now)
@@ -187,6 +169,10 @@ export function getVisibleHomepageOffers(now = new Date()) {
     return [];
   }
   return HOMEPAGE_OFFERS.filter((offer) => offer.active);
+}
+
+export function isOfferRedeemable(offer, now = new Date()) {
+  return Boolean(offer.active && isOfferActive(offer.startDate, offer.endDate, now));
 }
 
 export function getActiveHomepageOffers(now = new Date()) {

@@ -15,13 +15,12 @@ const LOCATION_BLURB =
 export const SERVICE_PAGES = {
   "/laundry-service-ghaziabad": {
     path: "/laundry-service-ghaziabad",
-    h1: "Best Laundry Service Near Me in Raj Nagar Extension, Ghaziabad",
+    h1: "Laundry Service in Ghaziabad",
     badge: "Raj Nagar Extension laundry · Free pickup",
     subtitle:
       "Looking for laundry service near me in Raj Nagar Extension? Cleenzo offers wash & fold from ₹99/kg, free pickup laundry and express delivery across Ghaziabad.",
     seo: {
-      title:
-        "Best Laundry Service in Raj Nagar Extension | Free Pickup & Express Delivery | Cleenzo",
+      title: "Laundry Service in Ghaziabad | Pickup & Delivery | Cleenzo",
       description:
         "Need laundry service near me in Raj Nagar Extension? Cleenzo — wash & fold from ₹99/kg, free pickup laundry, express delivery. Serving Ghaziabad, Wave City, Crossings Republik & Noida Extension. Book on WhatsApp.",
       keywords:
@@ -147,13 +146,12 @@ export const SERVICE_PAGES = {
 
   "/dry-cleaning-ghaziabad": {
     path: "/dry-cleaning-ghaziabad",
-    h1: "Best Dry Cleaning Service in Ghaziabad | Dry Clean Near Me",
-    badge: "Premium dry cleaning · 24 hour options",
+    h1: "Dry Cleaning in Ghaziabad",
+    badge: "Premium dry cleaning · Express options",
     subtitle:
       "Searching dry clean near me or dry cleaners near me in Ghaziabad? Cleenzo offers premium dry cleaning, free pickup and 24 hour dry cleaning options from Raj Nagar Extension.",
     seo: {
-      title:
-        "Best Dry Cleaning Service in Ghaziabad | Free Pickup & 24 Hour Delivery | Cleenzo",
+      title: "Dry Cleaning in Ghaziabad | Pickup & Delivery | Cleenzo",
       description:
         "Dry clean near me in Ghaziabad? Cleenzo — suits, sarees, blazers & wedding wear. Free pickup, 24 hour dry cleaning options, premium finish. Raj Nagar Extension · Wave City · Crossings Republik. Book WhatsApp.",
       keywords:

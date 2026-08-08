@@ -11,12 +11,12 @@ import {
   getBreadcrumbJsonLd,
   getCommercialJsonLd,
   getFaqJsonLd,
-  getGoogleReviewsJsonLd,
   getLocalBusinessJsonLd,
   getPageFaqJsonLd,
   getServicePageJsonLd,
   getWebSiteJsonLd,
 } from "./seo";
+import { BUSINESS_GEO } from "./seo/business";
 import { getBlogPostByPath } from "./data/blogPosts";
 import {
   DRY_CLEANERS_RNE_CONTENT,
@@ -80,12 +80,11 @@ export function applyPageMeta({
   document.title = title;
 
   upsertMeta("description", description);
-  if (keywords) upsertMeta("keywords", keywords);
   upsertMeta("robots", robots);
   upsertMeta("author", siteName);
-  upsertMeta("geo.region", "IN-UP");
-  upsertMeta("geo.placename", "Ghaziabad, Raj Nagar Extension");
-  upsertMeta("ICBM", "28.7035856, 77.4311244");
+  upsertMeta("geo.region", BUSINESS_GEO.region);
+  upsertMeta("geo.placename", BUSINESS_GEO.placename);
+  upsertMeta("ICBM", `${BUSINESS_GEO.latitude}, ${BUSINESS_GEO.longitude}`);
 
   upsertMeta("og:title", title, true);
   upsertMeta("og:description", description, true);
@@ -165,7 +164,9 @@ function buildServicePageMeta(page) {
 }
 
 export function getMetaForPathname(pathname) {
-  if (pathname === SEO.path || pathname === "/") {
+  const pathKey = pathname.replace(/\/$/, "") || "/";
+
+  if (pathKey === SEO.path || pathKey === "/") {
     return {
       ...SEO,
       url: canonicalUrl("/"),
@@ -173,12 +174,11 @@ export function getMetaForPathname(pathname) {
         { id: "local", data: getLocalBusinessJsonLd() },
         { id: "faq", data: getFaqJsonLd() },
         { id: "website", data: getWebSiteJsonLd() },
-        { id: "reviews", data: getGoogleReviewsJsonLd() },
       ],
     };
   }
 
-  if (pathname === SEO_COMMERCIAL.path) {
+  if (pathKey === SEO_COMMERCIAL.path) {
     return {
       ...SEO_COMMERCIAL,
       url: canonicalUrl(SEO_COMMERCIAL.path),
@@ -196,7 +196,7 @@ export function getMetaForPathname(pathname) {
     };
   }
 
-  if (pathname === SEO_ABOUT.path) {
+  if (pathKey === SEO_ABOUT.path) {
     return {
       ...SEO_ABOUT,
       url: canonicalUrl(SEO_ABOUT.path),
@@ -213,7 +213,7 @@ export function getMetaForPathname(pathname) {
     };
   }
 
-  if (pathname === SEO_BLOG.path) {
+  if (pathKey === SEO_BLOG.path) {
     return {
       ...SEO_BLOG,
       url: canonicalUrl(SEO_BLOG.path),
@@ -230,12 +230,12 @@ export function getMetaForPathname(pathname) {
     };
   }
 
-  const blogPost = getBlogPostByPath(pathname);
+  const blogPost = getBlogPostByPath(pathKey);
   if (blogPost) {
     return buildBlogPostMeta(blogPost);
   }
 
-  const normalizedPath = pathname.replace(/\/$/, "") || "/";
+  const normalizedPath = pathKey;
   if (normalizedPath === DRY_CLEANERS_RNE_PATH) {
     const url = canonicalUrl(DRY_CLEANERS_RNE_PATH);
     const ogImage = `${SITE_URL}${DRY_CLEANERS_RNE_SEO.ogImage}`;
@@ -254,19 +254,18 @@ export function getMetaForPathname(pathname) {
             { name: "Dry Cleaners Raj Nagar Extension", url },
           ]),
         },
-        { id: "reviews", data: getGoogleReviewsJsonLd() },
       ],
     };
   }
 
-  const servicePage = getServicePageByPath(pathname);
+  const servicePage = getServicePageByPath(pathKey);
   if (servicePage) {
     return buildServicePageMeta(servicePage);
   }
 
   return {
     ...SEO_NOT_FOUND,
-    url: canonicalUrl(pathname),
+    url: canonicalUrl(pathKey),
     jsonLd: [],
   };
 }

@@ -1,8 +1,41 @@
+import {
+  SITE_CANONICAL_ORIGIN,
+  SITE_NAME,
+  SITE_LOCALE,
+  DEFAULT_OG_IMAGE_PATH,
+  BUSINESS_GEO,
+  BUSINESS_HOURS,
+  LOCAL_BUSINESS_ID,
+  WEBSITE_ID,
+} from "./seo/business";
+import { getStaticRouteSeo } from "./seo/routes";
 import { PHONE_DISPLAY, PHONE_TEL, SOCIAL_LINKS, STORE_ADDRESS, STORE_ADDRESS_LINES, WHATSAPP_NUMBER } from "./constants";
 import { GOOGLE_RATING, GOOGLE_REVIEWS_SCHEMA, GOOGLE_REVIEWS_URL, GOOGLE_BUSINESS_NAME } from "./data/googleReviews";
 
-export const SITE_URL = process.env.REACT_APP_SITE_URL || "https://www.cleenzo.co.in";
-export const SITE_OG_IMAGE = `${SITE_URL}/images/og-image.jpg`;
+export const SITE_URL = process.env.REACT_APP_SITE_URL || SITE_CANONICAL_ORIGIN;
+export const SITE_OG_IMAGE = `${SITE_URL}${DEFAULT_OG_IMAGE_PATH}`;
+
+function metaFromRoute(path, twitterCard = "summary_large_image") {
+  const route = getStaticRouteSeo(path);
+  if (!route) {
+    return {
+      siteName: SITE_NAME,
+      title: "Cleenzo",
+      description: "",
+      locale: SITE_LOCALE,
+      twitterCard,
+      path,
+    };
+  }
+  return {
+    siteName: SITE_NAME,
+    title: route.title,
+    description: route.description,
+    locale: SITE_LOCALE,
+    twitterCard,
+    path: route.path,
+  };
+}
 
 /** Canonical page URL — trailing slash matches nginx folder routes & sitemap. */
 export function canonicalUrl(path = "/") {
@@ -25,75 +58,13 @@ export const SERVICE_AREAS = [
   "Indirapuram",
 ];
 
-export const SEO = {
-  siteName: "Cleenzo",
-  title:
-    "Best Laundry & Dry Cleaning Near Me in Raj Nagar Extension | Free Pickup | Cleenzo",
-  description:
-    "Laundry service near me & dry clean near me in Raj Nagar Extension? Cleenzo — free pickup laundry, 24 hour dry cleaning options, wash & fold from ₹99/kg. Ghaziabad · Wave City · Crossings Republik. Book WhatsApp.",
-  keywords: [
-    "laundry service near me",
-    "dry clean near me",
-    "dry cleaners raj nagar extension",
-    "best laundry service",
-    "dry cleaning ghaziabad",
-    "raj nagar extension laundry",
-    "24 hour dry cleaning",
-    "free pickup laundry",
-    "cleenzo",
-    "cleanzo dry cleaners",
-    "dry cleaners near me",
-    "laundry ghaziabad",
-  ].join(", "),
-  locale: "en_IN",
-  twitterCard: "summary_large_image",
-  path: "/",
-};
+export const SEO = metaFromRoute("/");
 
-export const SEO_COMMERCIAL = {
-  siteName: "Cleenzo",
-  title:
-    "Best Commercial Laundry in Ghaziabad | Hotels, Restaurants & Hospitals | Cleenzo",
-  description:
-    "Commercial laundry near me in Ghaziabad? Cleenzo — hotels, restaurants, hospitals & hostels. Bulk capacity, GST billing, free pickup routes across Raj Nagar Extension & Noida Extension. Get a quote.",
-  keywords: [
-    "commercial laundry Ghaziabad",
-    "hotel laundry service Ghaziabad",
-    "restaurant laundry Raj Nagar",
-    "hospital linen laundry",
-    "hostel laundry service",
-    "B2B laundry Ghaziabad",
-    "bulk laundry pickup delivery",
-    "Cleenzo commercial",
-  ].join(", "),
-  locale: "en_IN",
-  twitterCard: "summary_large_image",
-  path: "/commercial-laundry",
-};
+export const SEO_COMMERCIAL = metaFromRoute("/commercial-laundry");
 
-export const SEO_ABOUT = {
-  siteName: "Cleenzo",
-  title: "About Cleenzo | Best Laundry & Dry Cleaners in Raj Nagar Extension",
-  description:
-    "Meet Cleenzo — dry cleaners & best laundry service in Raj Nagar Extension. German chemicals, barcode tracking, free pickup laundry across Ghaziabad, Wave City & Crossings Republik.",
-  keywords:
-    "about Cleenzo, cleenzo dry cleaners, cleanzo dry cleaners, best laundry service raj nagar, dry cleaners raj nagar extension",
-  locale: "en_IN",
-  twitterCard: "summary_large_image",
-  path: "/about",
-};
+export const SEO_ABOUT = metaFromRoute("/about");
 
-export const SEO_BLOG = {
-  siteName: "Cleenzo",
-  title: "Cleenzo Blog | Laundry Tips, Dry Cleaning & Fabric Care Ghaziabad",
-  description:
-    "Practical guides from Cleenzo — spot cleaning, stain removal, dry cleaning Ghaziabad tips and laundry service near me advice for Raj Nagar Extension families.",
-  keywords:
-    "Cleenzo blog, laundry tips ghaziabad, dry cleaning tips, fabric care raj nagar, stain removal",
-  locale: "en_IN",
-  twitterCard: "summary_large_image",
-  path: "/blog",
-};
+export const SEO_BLOG = metaFromRoute("/blog");
 
 export const SEO_NOT_FOUND = {
   siteName: "Cleenzo",
@@ -107,42 +78,37 @@ export const SEO_NOT_FOUND = {
 
 export const SEO_FAQ = [
   {
-    question: "Where can I find laundry service near me in Raj Nagar Extension?",
-    answer: `Cleenzo is at ${STORE_ADDRESS}. Book free pickup laundry across Raj Nagar Extension, Ghaziabad, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar and Noida Extension.`,
+    question: "Where is Cleenzo located in Raj Nagar Extension?",
+    answer: `Cleenzo is at ${STORE_ADDRESS}, inside AVS City Square at Raj Nagar Extension, Ghaziabad.`,
   },
   {
-    question: "Do you offer dry clean near me pickup?",
+    question: "Do you provide laundry pickup in Raj Nagar Extension?",
     answer:
-      "Yes. Cleenzo provides free doorstep pickup for dry cleaning Ghaziabad orders — suits, sarees, blazers and more — with optional 24 hour dry cleaning when available.",
+      "Yes. Cleenzo offers free doorstep pickup and delivery for laundry and dry cleaning across Raj Nagar Extension, AVS City Square, Vaishali, Indirapuram and nearby Ghaziabad areas.",
   },
   {
-    question: "Does Cleenzo offer free pickup and delivery?",
+    question: "Do you provide pickup and delivery?",
     answer:
-      "Yes. Free pickup laundry and dry cleaning across our service areas. Free delivery applies on orders above ₹480.",
+      "Yes. Free pickup is available in our service areas. Free delivery applies on orders above ₹480 — confirm details when you book.",
   },
   {
-    question: "Is Cleenzo the same as Cleanzo dry cleaners?",
+    question: "How quickly can Cleenzo dry clean a suit?",
     answer:
-      "Our brand is Cleenzo (often searched as cleanzo dry cleaners). We are the laundry and dry cleaners at AVS City Square, Raj Nagar Extension.",
+      "Turnaround depends on garment type and load. Express and 24-hour dry cleaning options are often available — share your deadline when you book on WhatsApp or via Book Pickup.",
+  },
+  {
+    question: "Which areas do you serve?",
+    answer:
+      "Raj Nagar Extension, AVS City Square, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar, Vaishali and Indirapuram.",
+  },
+  {
+    question: "How can I book a pickup with Cleenzo?",
+    answer: `WhatsApp or call ${PHONE_DISPLAY}, or use Book Pickup on cleenzo.co.in with your address and service needs.`,
   },
   {
     question: "What services does Cleenzo provide?",
     answer:
-      "Best laundry service options (wash & fold, wash & iron), premium dry cleaning, shoe, sofa, carpet and curtain cleaning, plus commercial laundry for businesses.",
-  },
-  {
-    question: "How can I book a pickup with Cleenzo?",
-    answer: `WhatsApp or call ${PHONE_DISPLAY}, or use Book Pickup on cleenzo.co.in. Share your address in Raj Nagar Extension or nearby Ghaziabad.`,
-  },
-  {
-    question: "Which areas does Cleenzo serve?",
-    answer:
-      "Raj Nagar Extension, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar, Vaishali, Indirapuram and AVS City Square.",
-  },
-  {
-    question: "Do you offer 24 hour dry cleaning?",
-    answer:
-      "Express and 24 hour dry cleaning options are available depending on garment type and load — confirm when you book.",
+      "Wash & fold, wash & iron, premium dry cleaning, shoe, sofa, carpet and curtain cleaning, plus commercial laundry for businesses.",
   },
 ];
 
@@ -150,11 +116,11 @@ export function getLocalBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "DryCleaningOrLaundry", "LaundryService"],
-    "@id": `${SITE_URL}/#localbusiness`,
+    "@id": LOCAL_BUSINESS_ID,
     name: "Cleenzo",
-    alternateName: ["Cleenzo Laundry and Dry clean hub", "Cleanzo Dry Cleaners"],
+    alternateName: ["Cleenzo Laundry and Dry clean hub"],
     description:
-      "Best laundry service and dry cleaners in Raj Nagar Extension, Ghaziabad — free pickup laundry, dry clean near me, 24 hour dry cleaning options. Serving Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar and Noida Extension.",
+      "Cleenzo offers laundry, dry cleaning, shoe, sofa, carpet and curtain cleaning in Raj Nagar Extension, Ghaziabad with free pickup and express delivery.",
     url: SITE_URL,
     telephone: PHONE_TEL,
     image: [SITE_OG_IMAGE, `${SITE_URL}/images/cleenzo-logo.png`],
@@ -172,8 +138,8 @@ export function getLocalBusinessJsonLd() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 28.7035856,
-      longitude: 77.4311244,
+      latitude: BUSINESS_GEO.latitude,
+      longitude: BUSINESS_GEO.longitude,
     },
     hasMap: GOOGLE_REVIEWS_URL,
     areaServed: SERVICE_AREAS.map((name) => ({
@@ -191,8 +157,8 @@ export function getLocalBusinessJsonLd() {
         "Saturday",
         "Sunday",
       ],
-      opens: "09:30",
-      closes: "21:00",
+      opens: BUSINESS_HOURS.opens,
+      closes: BUSINESS_HOURS.closes,
     },
     sameAs: [
       GOOGLE_REVIEWS_URL,
@@ -202,7 +168,7 @@ export function getLocalBusinessJsonLd() {
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: String(GOOGLE_RATING.value),
-      reviewCount: String(Math.max(GOOGLE_RATING.count, GOOGLE_REVIEWS_SCHEMA.length)),
+      reviewCount: String(GOOGLE_RATING.count),
       bestRating: "5",
       worstRating: "1",
     },
@@ -240,11 +206,11 @@ export function getWebSiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
+    "@id": WEBSITE_ID,
     name: "Cleenzo",
     url: SITE_URL,
     description: SEO.description,
-    publisher: { "@id": `${SITE_URL}/#localbusiness` },
+    publisher: { "@id": LOCAL_BUSINESS_ID },
     inLanguage: "en-IN",
   };
 }
@@ -256,7 +222,7 @@ export function getCommercialJsonLd() {
     name: "Commercial Laundry Services for Hotels, Restaurants & Hospitals",
     description: SEO_COMMERCIAL.description,
     url: canonicalUrl(SEO_COMMERCIAL.path),
-    provider: { "@id": `${SITE_URL}/#localbusiness` },
+    provider: { "@id": LOCAL_BUSINESS_ID },
     areaServed: SERVICE_AREAS.map((name) => ({
       "@type": "Place",
       name,
@@ -285,7 +251,7 @@ export function getServicePageJsonLd(page) {
     name: page.h1,
     description: page.seo.description,
     url: canonicalUrl(page.path),
-    provider: { "@id": `${SITE_URL}/#localbusiness` },
+    provider: { "@id": LOCAL_BUSINESS_ID },
     areaServed: SERVICE_AREAS.map((name) => ({
       "@type": "Place",
       name,

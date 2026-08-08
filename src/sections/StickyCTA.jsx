@@ -1,8 +1,10 @@
 import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { openWhatsAppBooking } from "../whatsapp";
+import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 
 function StickyCTA() {
   const { openSchedulePickup } = useSchedulePickup();
+  const tiranga = isHomeTirangaThemeActive();
 
   return (
     <div className="fixed bottom-4 left-0 right-0 z-50 px-4 md:bottom-6 md:px-6 pointer-events-none">
@@ -10,7 +12,11 @@ function StickyCTA() {
         <button
           type="button"
           onClick={openSchedulePickup}
-          className="flex-1 bg-cleenzo text-white text-center py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-cleenzo-dark transition"
+          className={`flex-1 text-white text-center py-3.5 rounded-xl font-bold text-xs sm:text-sm transition ${
+            tiranga
+              ? "bg-[#138808] hover:bg-[#0f6b06]"
+              : "bg-cleenzo hover:bg-cleenzo-dark"
+          }`}
         >
           Schedule pickup
         </button>

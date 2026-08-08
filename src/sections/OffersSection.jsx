@@ -5,7 +5,7 @@ import OfferCard from "../components/offers/OfferCard";
 import OfferTermsModal from "../components/offers/OfferTermsModal";
 import { getVisibleHomepageOffers, isOfferRedeemable } from "../data/offers";
 import { trackOfferEvent } from "../utils/offerAnalytics";
-import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
+import { isFreedomSaleActive } from "../utils/freedomCampaign";
 
 function OffersSection() {
   const offers = useMemo(() => getVisibleHomepageOffers(), []);
@@ -50,7 +50,7 @@ function OffersSection() {
   if (!offers.length) return null;
 
   const featuredId = offers.find((o) => o.featured)?.id;
-  const tirangaPage = isHomeTirangaThemeActive();
+  const tirangaPage = isFreedomSaleActive();
 
   return (
     <section

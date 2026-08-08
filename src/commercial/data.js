@@ -1,8 +1,8 @@
 export const COMMERCIAL_CONTACT = {
   phone: "9999225311",
   phoneTel: "+919999225311",
-  website: "https://www.cleenzo.co.in",
-  websiteDisplay: "www.cleenzo.co.in",
+  website: "https://cleenzo.co.in",
+  websiteDisplay: "cleenzo.co.in",
   address: "LGF-19, AVS City Square, Raj Nagar Extension, Ghaziabad – 201017",
 };
 

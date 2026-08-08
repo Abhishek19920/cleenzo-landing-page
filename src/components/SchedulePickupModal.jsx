@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { openWhatsAppBooking } from "../whatsapp";
+import CampaignBookingSummary from "./campaign/CampaignBookingSummary";
 
 const emptyForm = { name: "", phone: "", address: "" };
 
@@ -70,6 +71,8 @@ Address: ${address}`;
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <CampaignBookingSummary />
+
           <div>
             <label htmlFor="pickup-name" className="block text-sm font-semibold text-slate-700 mb-1">
               Full name

@@ -1,6 +1,7 @@
-import { isOfferActive } from "../utils/offerDates";
+import { isOfferActiveByCalendar } from "../utils/offerDates";
+import { FREEDOM_SALE_END, FREEDOM_SALE_START } from "../utils/freedomCampaign";
 
-/** Full-width promo carousel slides (sharp HTML banner). */
+/** Full-width promo carousel — same Freedom banner component as production. */
 export const PROMO_CAROUSEL_SLIDES = [
   {
     id: "freedom-rakhi-sale-2026",
@@ -8,16 +9,17 @@ export const PROMO_CAROUSEL_SLIDES = [
     theme: "light",
     offerId: "freedom-rakhi-sale-2026",
     ariaLabel:
-      "Freedom and Rakhi Sale — Flat 40% off plus 10% Cleenzo Credit back. Valid 6th to 30th August. Free pickup and delivery. Book now.",
-    startDate: "2026-08-06",
-    endDate: "2026-08-30",
+      "Freedom and Rakhi Sale — Flat 40% off plus 10% Cleenzo Credit back. Valid 9th to 30th August. Free pickup and delivery. Book now.",
+    startDate: FREEDOM_SALE_START,
+    endDate: FREEDOM_SALE_END,
     clickAction: "schedule",
   },
 ];
 
+/** Calendar dates only (matches cleenzo.co.in — not affected by local dev UI preview). */
 export function getActivePromoCarouselSlides(now = new Date()) {
   return PROMO_CAROUSEL_SLIDES.filter((slide) =>
-    isOfferActive(slide.startDate, slide.endDate, now),
+    isOfferActiveByCalendar(slide.startDate, slide.endDate, now),
   );
 }
 

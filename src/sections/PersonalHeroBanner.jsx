@@ -6,12 +6,15 @@ import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 import personalHeroImage from "../assets/image/personal-hero-banner.jpg";
 import "./personal-hero.css";
 
+/** Matches live cleenzo.co.in Independence / Freedom hero (Aug 2026). */
 const TIRANGA_HERO = {
   badge: "🇮🇳 Freedom & Rakhi Sale · 9th – 30th August",
   title: "FLAT 40% OFF laundry & dry clean",
   accent: "* GET 10% BACK as Cleenzo Credit",
   subtitle:
-    "FOR EVERYONE — new & existing customers. FREE pickup & delivery across Raj Nagar Extension, Ghaziabad.",
+    "FOR EVERYONE — new & existing customers. FREE pickup & delivery across Raj Nagar Extension, Ghaziabad & Noida Extension.",
+  creditNote:
+    "10% Cleenzo Credit is earned after discount — redeemable after the campaign ends, not an extra instant off.",
 };
 
 const FEATURES = [
@@ -30,7 +33,7 @@ const TIRANGA_USP = {
   badge: "FREE PICKUP & DELIVERY",
   headline: "Freedom & Rakhi Sale is live",
   description:
-    "Flat 40% off plus 10% Cleenzo Credit back on your next order — 9th to 30th August.",
+    "Flat 40% off plus 10% Cleenzo Credit back on eligible orders — 9th to 30th August.",
   cta: "Book Freedom & Rakhi Sale",
 };
 
@@ -50,6 +53,10 @@ function PersonalHeroBanner() {
   const usp = tiranga ? TIRANGA_USP : USP;
   const stripClass = tiranga ? "tiranga" : stripTone;
 
+  const scrollToOffers = () => {
+    document.getElementById("offers")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="hero"
@@ -60,10 +67,22 @@ function PersonalHeroBanner() {
         <div className="personal-hero-copy">
           <span className="personal-hero-badge">{hero.badge}</span>
           <h1 className="personal-hero-title">
-            {hero.title}
-            <span className="personal-hero-title-accent">{hero.accent}</span>
+            {tiranga ? (
+              <>
+                {hero.title}
+                <span className="personal-hero-title-accent">{hero.accent}</span>
+              </>
+            ) : (
+              <>
+                {hero.title}
+                <span className="personal-hero-title-accent">{hero.accent}</span>
+              </>
+            )}
           </h1>
           <p className="personal-hero-subtitle">{hero.subtitle}</p>
+          {tiranga ? (
+            <p className="personal-hero-credit-note">{hero.creditNote}</p>
+          ) : null}
 
           <div className="personal-hero-features">
             {FEATURES.map((item) => (
@@ -80,9 +99,15 @@ function PersonalHeroBanner() {
             <button type="button" className="personal-hero-btn-primary" onClick={openSchedulePickup}>
               Schedule free pickup
             </button>
-            <button type="button" className="personal-hero-btn-secondary" onClick={openAppDownload}>
-              Get the Cleenzo app
-            </button>
+            {tiranga ? (
+              <button type="button" className="personal-hero-btn-secondary" onClick={scrollToOffers}>
+                View offers
+              </button>
+            ) : (
+              <button type="button" className="personal-hero-btn-secondary" onClick={openAppDownload}>
+                Get the Cleenzo app
+              </button>
+            )}
           </div>
 
           <div className="personal-hero-trust">
@@ -112,7 +137,9 @@ function PersonalHeroBanner() {
             <p className="personal-hero-promise-badge">{usp.badge}</p>
             <h2 className="personal-hero-promise-title">{usp.headline}</h2>
             <p className="personal-hero-promise-desc">
-              {tiranga ? usp.description : `${USP.description} Fast laundry service with free pickup & express doorstep delivery.`}
+              {tiranga
+                ? usp.description
+                : `${USP.description} Fast laundry service with free pickup & express doorstep delivery.`}
             </p>
           </div>
           <button

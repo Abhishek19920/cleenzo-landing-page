@@ -1,25 +1,29 @@
 /**
- * After CRA build, generate per-route index.html files with unique meta tags.
- * Fixes SPA SEO: Google was seeing homepage canonical on every URL.
+ * After CRA build: per-route index.html, sitemap, static JSON-LD.
+ * Strategy: route-specific title/description/canonical/OG in HTML;
+ * noscript fallback for users without JS (not clipped/hidden SEO blocks).
+ * React hydrates #root — no duplicate visible H1 in initial DOM for JS users.
  */
 const fs = require("fs");
 const path = require("path");
 const { SITE_URL, ROUTES } = require("./route-seo-data.cjs");
+const { buildJsonLdScripts } = require("./seo/schema-static.cjs");
+const { generateSitemap } = require("./generate-sitemap.cjs");
 
 const BUILD_DIR = path.join(__dirname, "..", "build");
 const ROOT_INDEX = path.join(BUILD_DIR, "index.html");
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/laundry-service-ghaziabad", label: "Laundry" },
-  { href: "/dry-cleaners-raj-nagar-extension", label: "Dry cleaners RNE" },
-  { href: "/dry-cleaning-ghaziabad", label: "Dry cleaning" },
-  { href: "/shoe-cleaning", label: "Shoe cleaning" },
-  { href: "/sofa-cleaning", label: "Sofa cleaning" },
-  { href: "/carpet-cleaning", label: "Carpet cleaning" },
-  { href: "/commercial-laundry", label: "Commercial B2B" },
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
+  { href: "/laundry-service-ghaziabad/", label: "Laundry" },
+  { href: "/dry-cleaners-raj-nagar-extension/", label: "Dry cleaners RNE" },
+  { href: "/dry-cleaning-ghaziabad/", label: "Dry cleaning" },
+  { href: "/shoe-cleaning/", label: "Shoe cleaning" },
+  { href: "/sofa-cleaning/", label: "Sofa cleaning" },
+  { href: "/carpet-cleaning/", label: "Carpet cleaning" },
+  { href: "/commercial-laundry/", label: "Commercial B2B" },
+  { href: "/about/", label: "About" },
+  { href: "/blog/", label: "Blog" },
 ];
 
 function escapeHtml(value) {
@@ -30,35 +34,16 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
-/** Canonical URLs use trailing slash (matches nginx folder routes & sitemap). */
 function pageUrl(routePath) {
   if (routePath === "/") return `${SITE_URL}/`;
   return `${SITE_URL}${routePath.endsWith("/") ? routePath : `${routePath}/`}`;
 }
 
-function buildPrerenderBlock(route) {
+function buildNoscriptBlock(route) {
   const nav = NAV_LINKS.map(
     (link) => `<a href="${link.href}">${escapeHtml(link.label)}</a>`,
   ).join(" · ");
 
-  return `<div class="seo-prerender" aria-hidden="true">
-      <main>
-        <h1>${escapeHtml(route.h1)}</h1>
-        <p>${escapeHtml(route.intro)}</p>
-        <p>
-          <strong>Address:</strong> LGF-19, AVS City Square, Raj Nagar Extn,
-          Ghaziabad — 201017
-        </p>
-        <p>
-          <strong>Phone:</strong>
-          <a href="tel:+919999225311">+91 99992 25311</a>
-        </p>
-        <nav aria-label="Primary">${nav}</nav>
-      </main>
-    </div>`;
-}
-
-function buildNoscriptBlock(route) {
   return `<noscript>
       <main
         style="
@@ -72,14 +57,34 @@ function buildNoscriptBlock(route) {
       >
         <h1>${escapeHtml(route.h1)}</h1>
         <p>${escapeHtml(route.intro)}</p>
-        <p>Contact: <a href="tel:+919999225311">+91 99992 25311</a></p>
+        <p>
+          <strong>Address:</strong> LGF-19, AVS City Square, Raj Nagar Extn,
+          Ghaziabad — 201017
+        </p>
+        <p>
+          <strong>Phone:</strong>
+          <a href="tel:+919999225311">+91 99992 25311</a>
+        </p>
+        <nav aria-label="Primary">${nav}</nav>
       </main>
     </noscript>`;
 }
 
+function stripLegacySeo(html) {
+  let out = html;
+  out = out.replace(/<meta\s+name="keywords"[^>]*>\s*/gi, "");
+  out = out.replace(/<div class="seo-prerender"[\s\S]*?<\/div>\s*/i, "");
+  out = out.replace(/<style>[\s\S]*?\.seo-prerender[\s\S]*?<\/style>\s*/i, "");
+  out = out.replace(
+    /<script type="application\/ld\+json" id="cleenzo-[^"]+"[\s\S]*?<\/script>\s*/gi,
+    "",
+  );
+  return out;
+}
+
 function applyRouteMeta(html, route) {
   const url = pageUrl(route.path);
-  let out = html;
+  let out = stripLegacySeo(html);
 
   out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(route.title)}</title>`);
 
@@ -87,13 +92,6 @@ function applyRouteMeta(html, route) {
     /(<meta\s+name="description"\s+content=")[^"]*(")/,
     `$1${escapeHtml(route.description)}$2`,
   );
-
-  if (route.keywords) {
-    out = out.replace(
-      /(<meta\s+name="keywords"\s+content=")[^"]*(")/,
-      `$1${escapeHtml(route.keywords)}$2`,
-    );
-  }
 
   out = out.replace(/(<link\s+rel="canonical"\s+href=")[^"]*(")/, `$1${url}$2`);
   out = out.replace(/(<meta\s+property="og:url"\s+content=")[^"]*(")/, `$1${url}$2`);
@@ -114,7 +112,14 @@ function applyRouteMeta(html, route) {
     `$1${escapeHtml(route.description)}$2`,
   );
 
-  out = out.replace(/<div class="seo-prerender"[\s\S]*?<\/div>/, buildPrerenderBlock(route));
+  out = out.replace(
+    /(<meta\s+name="ICBM"\s+content=")[^"]*(")/,
+    `$1${require("./seo/schema-static.cjs").site.geo.latitude}, ${require("./seo/schema-static.cjs").site.geo.longitude}$2`,
+  );
+
+  const jsonLd = buildJsonLdScripts(route, url);
+  out = out.replace("</head>", `    ${jsonLd}\n  </head>`);
+
   out = out.replace(/<noscript>[\s\S]*?<\/noscript>/, buildNoscriptBlock(route));
 
   return out;
@@ -129,6 +134,7 @@ function main() {
   const baseHtml = fs.readFileSync(ROOT_INDEX, "utf8");
 
   for (const route of ROUTES) {
+    if (route.indexable === false) continue;
     const html = applyRouteMeta(baseHtml, route);
 
     if (route.path === "/") {
@@ -141,6 +147,7 @@ function main() {
     fs.writeFileSync(path.join(routeDir, "index.html"), html, "utf8");
   }
 
+  generateSitemap(BUILD_DIR, ROUTES);
   console.log(`Generated static HTML for ${ROUTES.length} routes.`);
 }
 

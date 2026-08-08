@@ -51,3 +51,23 @@ Secrets: `EC2_HOST`, `EC2_SSH_PRIVATE_KEY` or `EC2_SSH_KEY`, optional `EC2_USER`
 | rsync to `/var/www` fails / no effect | Nginx uses **proxy :3003**, not that folder |
 | Same JS hash, UI unchanged | Before campaign start: offers/Tiranga use dates in `offers.js` / `freedomCampaign.js` (IST) |
 | PM2 wrong port | `pm2 delete cleenzo-website` then `pm2 start npx --name cleenzo-website -- serve -s build -l 3003` from `~/cleenzo-website` |
+
+## Google Search Console (indexing)
+
+| GSC reason | Cause on cleenzo.co.in | Fix |
+|------------|------------------------|-----|
+| **Page with redirect** (many URLs) | Sitemap/canonical used `https://www.cleenzo.co.in` while live site is **`https://cleenzo.co.in`** (www → apex 301) | Deploy this repo: apex canonicals + sitemap. Only **www** and **http** should remain as redirects in GSC. |
+| **Excluded by noindex** | 404 / not-found page (`noindex, follow`) | Expected for bad URLs; do not remove noindex on 404. |
+| **Not found (404)** | Old or mistyped URL | Add nginx/SPA redirect if URL is known; otherwise ignore. |
+| **Alternate page with proper canonical** | Duplicate URL (e.g. with/without trailing slash) | Trailing-slash normalization + one host in sitemap. |
+| **Crawled – currently not indexed** | Quality / duplicate signals | Unique static titles per route (`npm run build` prerender); request indexing for key URLs after deploy. |
+
+After deploy:
+
+1. Search Console → **Sitemaps** → submit `https://cleenzo.co.in/sitemap.xml` (remove old www sitemap if listed).
+2. **URL inspection** → test live URL `https://cleenzo.co.in/` → confirm Google tag **AW-18378385588** (Tag Assistant or page source).
+3. **Page indexing** → open “Page with redirect” → **Validate fix** after 48h (count should drop to redirect-only URLs: http, www).
+
+## Google Ads tag
+
+Global tag **AW-18378385588** is in `public/index.html` (also on every prerendered route). Contact conversion fires when users open `/#contact` (once per session).

@@ -451,9 +451,9 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
               alt={slide.imageAlt || ""}
               width={1400}
               height={600}
-              className="w-full h-full object-contain md:object-cover md:object-center transition group-hover:opacity-[0.98]"
+              className="w-full h-full object-contain object-center md:object-cover md:object-center transition group-hover:opacity-[0.98]"
               decoding="async"
-              fetchPriority="high"
+              fetchPriority={slide.id === "freedom-rakhi-sale-2026" ? "high" : "auto"}
             />
           </span>
         </button>
@@ -555,9 +555,14 @@ function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
 function HeaderCarousel() {
   const promoSlides = useMemo(() => getActivePromoCarouselSlides(), []);
   const slides = useMemo(() => {
-    const offersSlide = CAROUSEL_BANNERS.find((s) => s.id === "offers");
     const otherBanners = CAROUSEL_BANNERS.filter((s) => s.id !== "offers");
-    return [...(offersSlide ? [offersSlide] : []), ...promoSlides, ...otherBanners];
+    const offersSlide = CAROUSEL_BANNERS.find((s) => s.id === "offers");
+    if (promoSlides.length > 0) {
+      // Production: Freedom promo image first when sale is live (9–30 Aug IST).
+      return [...promoSlides, ...otherBanners];
+    }
+    // Before promo starts: first slide is the in-carousel Freedom / Rakhi offer panel (same as prod).
+    return [...(offersSlide ? [offersSlide] : []), ...otherBanners];
   }, [promoSlides]);
   const [active, setActive] = useState(0);
   const [hoverPaused, setHoverPaused] = useState(false);

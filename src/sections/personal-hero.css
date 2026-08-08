@@ -404,3 +404,136 @@
   flex-shrink: 0;
   opacity: 0.9;
 }
+
+/* Independence / Freedom theme — aligned with cleenzo.co.in (light Tiranga) */
+.personal-hero--tiranga {
+  --tiranga-saffron: #ff9933;
+  --tiranga-green: #138808;
+  background: transparent;
+}
+
+.personal-hero--tiranga .personal-hero-copy {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.personal-hero--tiranga .personal-hero-badge {
+  background: rgba(255, 153, 51, 0.12);
+  border-color: rgba(255, 153, 51, 0.35);
+  color: #b45309;
+}
+
+.personal-hero--tiranga .personal-hero-title {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.personal-hero--tiranga .personal-hero-title-accent {
+  color: var(--tiranga-green);
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  font-weight: 800;
+  margin-top: 0.5rem;
+}
+
+.personal-hero--tiranga .personal-hero-subtitle {
+  color: #475569;
+}
+
+.personal-hero-credit-note {
+  margin-top: 0.65rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #64748b;
+  max-width: 34rem;
+}
+
+.personal-hero--tiranga .personal-hero-feature {
+  background: #ffffff;
+  border-color: rgba(19, 136, 8, 0.12);
+}
+
+.personal-hero--tiranga .personal-hero-feature-label {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.personal-hero--tiranga .personal-hero-btn-primary {
+  background: var(--tiranga-green);
+  color: #ffffff;
+}
+
+.personal-hero--tiranga .personal-hero-btn-primary:hover {
+  background: #0f6b06;
+}
+
+.personal-hero--tiranga .personal-hero-btn-secondary {
+  border-color: var(--cleenzo-blue, #0a3d91);
+  color: var(--cleenzo-blue, #0a3d91);
+  background: #ffffff;
+}
+
+.personal-hero--tiranga .personal-hero-btn-secondary:hover {
+  background: rgba(10, 61, 145, 0.06);
+}
+
+.personal-hero--tiranga .personal-hero-trust {
+  border-top-color: rgba(19, 136, 8, 0.15);
+}
+
+.personal-hero--tiranga .personal-hero-trust-item {
+  color: #64748b;
+}
+
+.personal-hero--tiranga .personal-hero-visual {
+  background: #eef2f7;
+}
+
+.personal-hero--tiranga .personal-hero-visual::after {
+  background: linear-gradient(to right, rgba(255, 248, 240, 0.92) 0%, transparent 32%);
+}
+
+@media (max-width: 1023px) {
+  .personal-hero--tiranga .personal-hero-visual::after {
+    background: linear-gradient(to top, rgba(255, 248, 240, 0.95) 0%, transparent 40%);
+  }
+}
+
+.personal-hero--tiranga .personal-hero-promise {
+  background: rgba(255, 255, 255, 0.65);
+  border-top: 1px solid rgba(255, 153, 51, 0.2);
+}
+
+.personal-hero--tiranga .personal-hero-promise-badge {
+  color: var(--tiranga-green);
+}
+
+.personal-hero--tiranga .personal-hero-promise-title {
+  color: var(--cleenzo-navy-deep, #002b5b);
+}
+
+.personal-hero--tiranga .personal-hero-promise-desc {
+  color: #475569;
+}
+
+.personal-hero--tiranga .personal-hero-promise-cta {
+  border-color: var(--tiranga-green);
+  color: var(--tiranga-green);
+  background: #ffffff;
+}
+
+.personal-hero--tiranga .personal-hero-promise-cta:hover {
+  background: rgba(19, 136, 8, 0.08);
+}
+
+.personal-hero-strip--tiranga {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 153, 51, 0.12) 0%,
+    #ffffff 50%,
+    rgba(19, 136, 8, 0.12) 100%
+  );
+  border-top: 1px solid rgba(255, 153, 51, 0.25);
+}
+
+.personal-hero-strip--tiranga .personal-hero-strip-item {
+  color: var(--cleenzo-navy-deep, #002b5b);
+  border-right: 1px solid rgba(19, 136, 8, 0.12);
+  border-bottom: 1px solid rgba(19, 136, 8, 0.12);
+}
