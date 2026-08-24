@@ -71,7 +71,7 @@ Secrets: `EC2_HOST`, `EC2_SSH_PRIVATE_KEY` or `EC2_SSH_KEY`, optional `EC2_USER`
 
 | GSC reason | Cause on cleenzo.co.in | Fix |
 |------------|------------------------|-----|
-| **Page with redirect** (many URLs) | Sitemap/canonical used `https://www.cleenzo.co.in` while live site is **`https://cleenzo.co.in`** (www → apex 301) | Deploy this repo: apex canonicals + sitemap. Only **www** and **http** should remain as redirects in GSC. |
+| **Page with redirect** (many URLs) | (1) **www** / **http** URLs correctly 301 to apex — those should stay in this GSC bucket forever. (2) Apex paths like `/about` without trailing slash. (3) Live was serving **homepage `index.html` for every route** (prerender folders missing / bad `try_files`), so Google only saw client redirects. | On EC2: `bash scripts/ec2-deploy-landing-from-git.sh` then `./apply-nginx-seo.sh`. Confirm `curl -sL https://cleenzo.co.in/about/ \| grep '<title>'` shows **About Cleenzo**, not the homepage title. Then GSC → Validate fix. |
 | **Excluded by noindex** | 404 / not-found page (`noindex, follow`) | Expected for bad URLs; do not remove noindex on 404. |
 | **Not found (404)** | Old or mistyped URL | Add nginx/SPA redirect if URL is known; otherwise ignore. |
 | **Alternate page with proper canonical** | Duplicate URL (e.g. with/without trailing slash) | Trailing-slash normalization + one host in sitemap. |

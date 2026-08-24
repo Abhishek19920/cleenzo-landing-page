@@ -1,1 +1,29 @@
+# Host + path rules (Netlify / compatible hosts). Nginx on EC2 uses nginx/cleenzo-frontend.conf.
+
+# Force apex HTTPS
+https://www.cleenzo.co.in/*  https://cleenzo.co.in/:splat  301!
+http://cleenzo.co.in/*       https://cleenzo.co.in/:splat  301!
+http://www.cleenzo.co.in/*   https://cleenzo.co.in/:splat  301!
+
+# Legacy service URLs
+/laundry-service-raj-nagar-extension  /laundry-service-ghaziabad/  301
+/laundry-service-raj-nagar-extension/ /laundry-service-ghaziabad/  301
+/shoe-cleaning-ghaziabad              /shoe-cleaning/              301
+/shoe-cleaning-ghaziabad/             /shoe-cleaning/              301
+/commercial-laundry-ghaziabad         /commercial-laundry/         301
+/commercial-laundry-ghaziabad/        /commercial-laundry/         301
+
+# Trailing slash for key pages (avoid GSC “Page with redirect” on apex paths)
+/about                               /about/                               301
+/blog                                /blog/                                301
+/commercial-laundry                  /commercial-laundry/                  301
+/laundry-service-ghaziabad           /laundry-service-ghaziabad/           301
+/dry-cleaning-ghaziabad              /dry-cleaning-ghaziabad/              301
+/dry-cleaners-raj-nagar-extension    /dry-cleaners-raj-nagar-extension/    301
+/shoe-cleaning                       /shoe-cleaning/                       301
+/sofa-cleaning                       /sofa-cleaning/                       301
+/carpet-cleaning                     /carpet-cleaning/                     301
+/curtain-cleaning                    /curtain-cleaning/                    301
+
+# SPA fallback (after explicit redirects)
 /*    /index.html   200

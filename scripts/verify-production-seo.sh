@@ -52,6 +52,15 @@ if [[ "$loc" != *"/laundry-service-ghaziabad/"* ]]; then
 fi
 echo "OK   301 /laundry-service-ghaziabad → ${loc}"
 
+echo "→ About page must NOT be homepage shell"
+about_title="$(curl -sL "${BASE}/about/" | grep -oE '<title>[^<]+' | head -1 || true)"
+if [[ "$about_title" != *"About Cleenzo"* ]]; then
+  echo "FAIL /about/ title is homepage shell: ${about_title:-empty}"
+  echo "     Deploy prerendered build/ (ec2-deploy-landing-from-git.sh) and apply-nginx-seo.sh"
+  exit 1
+fi
+echo "OK   /about/ → ${about_title}"
+
 echo "→ robots.txt"
 curl -sf "${BASE}/robots.txt" | grep -q 'Sitemap: https://cleenzo.co.in/sitemap.xml'
 echo "OK   robots.txt"

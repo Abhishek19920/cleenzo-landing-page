@@ -1,7 +1,7 @@
 # Cleenzo Technical SEO — Audit & Implementation Report
 
 **Repo:** `cleenzo-landing-page`  
-**Canonical:** `https://www.cleenzo.co.in` (www, trailing slash on inner routes)  
+**Canonical:** `https://cleenzo.co.in` (apex, trailing slash on inner routes)  
 **Date:** 2026-08-06  
 **Status:** Implementation complete — **not committed** (review `git diff` first)
 
@@ -98,7 +98,7 @@ Markers: `TODO_VERIFY_GBP_COORDINATES`, `TODO_VERIFY_OPENING_HOURS` in `site-dat
 
 ## 7. Canonical strategy
 
-**Unchanged:** `https://www.cleenzo.co.in` with trailing slash on directory routes.  
+**Unchanged:** `https://cleenzo.co.in` with trailing slash on directory routes.  
 Nginx repo config still documents apex → www 301 (apply on server separately).
 
 ---

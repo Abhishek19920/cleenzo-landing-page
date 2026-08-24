@@ -104,7 +104,19 @@ const server = http.createServer((req, res) => {
 
     if (shouldRedirectToTrailingSlash(pathname)) {
       res.statusCode = 301;
-      res.setHeader("Location", `${pathname}/${url.search}`);
+      // Prefer apex host even if request arrived via www / local proxy
+      const locHost = String(host).toLowerCase().startsWith("www.")
+        ? "cleenzo.co.in"
+        : host.replace(/:\d+$/, "") === "127.0.0.1" || host.startsWith("localhost")
+          ? host
+          : host.replace(/^www\./i, "");
+      const proto =
+        req.headers["x-forwarded-proto"] === "http" ? "https" : "https";
+      const absolute =
+        locHost.includes("cleenzo.co.in")
+          ? `${proto}://cleenzo.co.in${pathname}/${url.search}`
+          : `${pathname}/${url.search}`;
+      res.setHeader("Location", absolute);
       res.end();
       return;
     }

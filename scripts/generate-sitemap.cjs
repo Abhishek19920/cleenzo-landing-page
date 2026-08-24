@@ -1,5 +1,5 @@
 /**
- * Build sitemap.xml from authoritative route list (canonical www + trailing slash).
+ * Build sitemap.xml from authoritative route list (canonical apex + trailing slash).
  */
 const fs = require("fs");
 const path = require("path");
