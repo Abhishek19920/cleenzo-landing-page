@@ -65,12 +65,35 @@ export const USP = {
 };
 
 export const PERSONAL_HERO = {
-  badge: "Premium personal laundry · Ghaziabad",
-  title: "Premium Laundry & Dry Cleaning in Ghaziabad",
-  accent: "Free Pickup & Express Delivery",
+  badge: "Top-rated laundry in Raj Nagar Extension",
+  title: "Laundry & Dry Cleaning in Raj Nagar Extension",
+  accent: "Professional fabric care with free doorstep pickup",
   subtitle:
-    "Fabric-safe care at your doorstep in Raj Nagar Extension, AVS City Square, Vaishali & Indirapuram.",
+    "Cleenzo brings premium wash, steam iron, dry clean, shoe cleaning and home textile care to Raj Nagar Extension, AVS City Square and nearby Ghaziabad homes.",
 };
+
+export const LOCAL_TRUST_STATS = [
+  {
+    value: "1,000+",
+    label: "Happy customers",
+    detail: "served across Raj Nagar Extension and nearby Ghaziabad societies",
+  },
+  {
+    value: "5.0",
+    label: "Google rating",
+    detail: "for Cleenzo Laundry and Dry clean hub at AVS City Square",
+  },
+  {
+    value: "24-48 hr",
+    label: "Fast turnaround",
+    detail: "available for most laundry and dry-cleaning orders",
+  },
+  {
+    value: "201017",
+    label: "Local store pin code",
+    detail: "LGF-19, AVS City Square, Raj Nagar Extension",
+  },
+];
 
 export const CORE_SERVICES = [
   { name: "Laundry", desc: "Wash & fold for everyday wear", icon: "🧺" },
@@ -184,12 +207,12 @@ export const DRY_CLEAN_PROCESS = [
 ];
 
 export const WHY_CLEENZO = {
-  headline: "What makes Cleenzo laundry service the best choice",
+  headline: "Why Raj Nagar Extension families choose Cleenzo",
   subtext:
-    "Premium quality service, safe & hygienic cleaning, and on-time express delivery at Raj Nagar, Ghaziabad.",
+    "Premium dry cleaning, hygienic laundry processing, clear pricing and dependable pickup-delivery from our AVS City Square store.",
   imageAlt:
     "Cleenzo laundry and dry cleaning service with express delivery in Ghaziabad",
-  badge: "Now open · Raj Nagar",
+  badge: "Local store · AVS City Square",
 };
 
 export const WHY_CLEENZO_USP = [

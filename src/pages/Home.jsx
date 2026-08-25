@@ -1,4 +1,5 @@
 import PersonalHeroBanner from "../sections/PersonalHeroBanner";
+import LocalTrustSection from "../sections/LocalTrustSection";
 import HeaderCarousel from "../sections/HeaderCarousel";
 import OurProcess from "../sections/OurProcess";
 import OffersSection from "../sections/OffersSection";
@@ -24,6 +25,7 @@ function Home() {
   const firstPageSections = (
     <>
       <PersonalHeroBanner />
+      <LocalTrustSection />
       <HeaderCarousel />
       {tirangaFirstPage ? <NoidaExtensionSection noida={noida} /> : null}
       {showUniformBlock ? <IndependenceUniformBlock /> : null}

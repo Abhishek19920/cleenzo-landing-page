@@ -6,6 +6,7 @@ import {
   GOOGLE_REVIEWS_URL,
   getReviewSliderItems,
 } from "../data/googleReviews";
+import { LOCAL_TRUST_STATS, STORE_ADDRESS } from "../constants";
 
 const AUTOPLAY_MS = 5500;
 const SWIPE_THRESHOLD = 48;
@@ -139,22 +140,39 @@ function GoogleReviewsSection({ compact = false }) {
       />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
           <p className="text-cleenzo-sky font-bold text-xs uppercase tracking-[0.24em] mb-3">
-            Google reviews
+            Google reviews & local trust
           </p>
           <h2
             id="google-reviews-heading"
             className="text-2xl md:text-4xl font-black text-white mb-4 leading-tight"
           >
-            Trusted by customers in Raj Nagar Extension
+            Happy customers choose Cleenzo in Raj Nagar Extension
           </h2>
+          <p className="text-white/72 leading-relaxed mb-5">
+            Families around AVS City Square, Raj Nagar Extension and nearby Ghaziabad societies
+            rely on Cleenzo for laundry, dry cleaning, steam iron and doorstep garment care.
+          </p>
           <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-white/15 bg-white/10 backdrop-blur-md px-5 py-2.5 text-white/90">
             <StarRow rating={5} size="lg" />
             <span className="font-bold text-white">{GOOGLE_RATING.label}</span>
-            <span className="text-sm text-white/70">· 5 customer reviews on Google</span>
+            <span className="text-sm text-white/70">· {GOOGLE_RATING.count} customer reviews on Google</span>
           </div>
         </div>
+
+        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-10">
+          {LOCAL_TRUST_STATS.map((stat) => (
+            <li
+              key={stat.label}
+              className="rounded-2xl border border-white/15 bg-white/10 p-4 text-center backdrop-blur-md"
+            >
+              <p className="text-2xl md:text-3xl font-black text-white">{stat.value}</p>
+              <h3 className="mt-1 text-sm font-bold text-cleenzo-sky">{stat.label}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-white/62">{stat.detail}</p>
+            </li>
+          ))}
+        </ul>
 
         <div
           className="relative"
@@ -233,6 +251,10 @@ function GoogleReviewsSection({ compact = false }) {
             Leave a Google review
           </a>
         </div>
+
+        <p className="mt-5 text-center text-xs md:text-sm text-white/55">
+          Local store: {STORE_ADDRESS}
+        </p>
       </div>
     </section>
   );

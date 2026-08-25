@@ -47,6 +47,10 @@ export function canonicalUrl(path = "/") {
 export const SERVICE_AREAS = [
   "Raj Nagar Extension",
   "AVS City Square",
+  "KW Srishti",
+  "Ajnara Integrity",
+  "Officer City",
+  "Charms Castle",
   "Ghaziabad",
   "Noida Extension",
   "Wave City",
@@ -84,7 +88,12 @@ export const SEO_FAQ = [
   {
     question: "Do you provide laundry pickup in Raj Nagar Extension?",
     answer:
-      "Yes. Cleenzo offers free doorstep pickup and delivery for laundry and dry cleaning across Raj Nagar Extension, AVS City Square, Vaishali, Indirapuram and nearby Ghaziabad areas.",
+      "Yes. Cleenzo offers free doorstep pickup and delivery for laundry and dry cleaning across Raj Nagar Extension, AVS City Square, KW Srishti, Ajnara Integrity, Officer City, Charms Castle, Vaishali, Indirapuram and nearby Ghaziabad areas.",
+  },
+  {
+    question: "Which is the best laundry and dry cleaner near AVS City Square?",
+    answer:
+      "Cleenzo is located at LGF-19, AVS City Square, Raj Nagar Extension and provides wash and fold, wash and iron, steam iron, premium dry cleaning, shoe cleaning and home textile cleaning with professional pickup and delivery.",
   },
   {
     question: "Do you provide pickup and delivery?",
@@ -99,7 +108,12 @@ export const SEO_FAQ = [
   {
     question: "Which areas do you serve?",
     answer:
-      "Raj Nagar Extension, AVS City Square, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar, Vaishali and Indirapuram.",
+      "Raj Nagar Extension, AVS City Square, KW Srishti, Ajnara Integrity, Officer City, Charms Castle, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar, Vaishali and Indirapuram.",
+  },
+  {
+    question: "Can Cleenzo clean shoes, sofas, carpets and curtains?",
+    answer:
+      "Yes. Along with laundry and dry cleaning, Cleenzo offers professional shoe cleaning, sofa cleaning, carpet cleaning and curtain cleaning for homes and businesses in Ghaziabad.",
   },
   {
     question: "How can I book a pickup with Cleenzo?",
@@ -120,7 +134,7 @@ export function getLocalBusinessJsonLd() {
     name: "Cleenzo",
     alternateName: ["Cleenzo Laundry and Dry clean hub"],
     description:
-      "Cleenzo offers laundry, dry cleaning, shoe, sofa, carpet and curtain cleaning in Raj Nagar Extension, Ghaziabad with free pickup and express delivery.",
+      "Cleenzo offers professional laundry, dry cleaning, wash and iron, steam iron, shoe cleaning, sofa cleaning, carpet cleaning and curtain cleaning in Raj Nagar Extension, Ghaziabad with free pickup and express delivery.",
     url: SITE_URL,
     telephone: PHONE_TEL,
     image: [SITE_OG_IMAGE, `${SITE_URL}/images/cleenzo-logo.png`],
@@ -128,6 +142,20 @@ export function getLocalBusinessJsonLd() {
     priceRange: "₹₹",
     currenciesAccepted: "INR",
     paymentAccepted: "Cash, UPI, Card",
+    slogan: "Premium laundry and dry cleaning with free doorstep pickup",
+    knowsAbout: [
+      "Laundry service in Raj Nagar Extension",
+      "Dry cleaning in Ghaziabad",
+      "Dry cleaners near AVS City Square",
+      "Wash and fold laundry",
+      "Wash and iron service",
+      "Steam ironing",
+      "Shoe cleaning",
+      "Sofa cleaning",
+      "Carpet cleaning",
+      "Curtain cleaning",
+      "Commercial laundry",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: STORE_ADDRESS_LINES.slice(0, 2).join(", "),
@@ -165,6 +193,28 @@ export function getLocalBusinessJsonLd() {
       `https://wa.me/${WHATSAPP_NUMBER}`,
       ...SOCIAL_LINKS.map((s) => s.href),
     ],
+    makesOffer: [
+      "Laundry service",
+      "Dry cleaning service",
+      "Wash and fold",
+      "Wash and iron",
+      "Steam iron",
+      "Shoe cleaning",
+      "Sofa cleaning",
+      "Carpet cleaning",
+      "Curtain cleaning",
+      "Commercial laundry",
+    ].map((name) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name,
+        provider: { "@id": LOCAL_BUSINESS_ID },
+        areaServed: SERVICE_AREAS.map((area) => ({ "@type": "Place", name: area })),
+      },
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+    })),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: String(GOOGLE_RATING.value),

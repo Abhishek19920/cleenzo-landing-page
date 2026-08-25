@@ -80,6 +80,7 @@ export function applyPageMeta({
   document.title = title;
 
   upsertMeta("description", description);
+  if (keywords) upsertMeta("keywords", keywords);
   upsertMeta("robots", robots);
   upsertMeta("author", siteName);
   upsertMeta("geo.region", BUSINESS_GEO.region);
