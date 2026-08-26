@@ -69,29 +69,65 @@ export const PERSONAL_HERO = {
   title: "Laundry & Dry Cleaning in Raj Nagar Extension",
   accent: "Professional fabric care with free doorstep pickup",
   subtitle:
-    "Cleenzo brings premium wash, steam iron, dry clean, shoe cleaning and home textile care to Raj Nagar Extension, AVS City Square and nearby Ghaziabad homes.",
+    "Premium wash, steam iron, dry clean and home textile care for Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and nearby Ghaziabad homes.",
+};
+
+/** Highlight neighbourhoods near Raj Nagar Extension — free pickup & delivery. */
+export const NEARBY_SERVICE_AREAS = [
+  "Raj Nagar Extension",
+  "Sidharth Vihar",
+  "Kanawani",
+  "Ahinsa Khand",
+  "Indirapuram",
+  "Vaishali",
+];
+
+/**
+ * Last 30 days growth snapshot — marketing surface (orders / customer records).
+ * Update when you refresh monthly figures.
+ */
+export const MONTHLY_GROWTH_STATS = {
+  eyebrow: "This month at Cleenzo",
+  headline: "Growing with Ghaziabad families",
+  subline:
+    "Real demand across Raj Nagar Extension and nearby societies — quality care people come back for.",
+  total: {
+    value: 319,
+    label: "Orders this month",
+    detail: "Laundry & dry clean jobs completed in the last 30 days",
+  },
+  returning: {
+    value: 56,
+    label: "Returning customers",
+    detail: "Families who booked Cleenzo again",
+  },
+  newCustomers: {
+    value: 148,
+    label: "New customers",
+    detail: "First-time pickups this month",
+  },
 };
 
 export const LOCAL_TRUST_STATS = [
   {
-    value: "1,000+",
-    label: "Happy customers",
-    detail: "served across Raj Nagar Extension and nearby Ghaziabad societies",
+    value: "319",
+    label: "Orders this month",
+    detail: "Active laundry & dry clean demand near Raj Nagar Extension",
+  },
+  {
+    value: "148",
+    label: "New customers",
+    detail: "First-time families who chose Cleenzo this month",
+  },
+  {
+    value: "56",
+    label: "Returning customers",
+    detail: "Repeat bookings — quality that earns trust",
   },
   {
     value: "5.0",
     label: "Google rating",
-    detail: "for Cleenzo Laundry and Dry clean hub at AVS City Square",
-  },
-  {
-    value: "24-48 hr",
-    label: "Fast turnaround",
-    detail: "available for most laundry and dry-cleaning orders",
-  },
-  {
-    value: "201017",
-    label: "Local store pin code",
-    detail: "LGF-19, AVS City Square, Raj Nagar Extension",
+    detail: "Cleenzo Laundry and Dry clean hub at AVS City Square",
   },
 ];
 
@@ -241,11 +277,11 @@ export const WHY_CLEENZO_USP = [
 export const PRICING_SECTION = {
   badge: "Transparent pricing · Ghaziabad",
   headline: "Laundry & dry cleaning price list",
-  headlineAccent: "Raj Nagar, Ghaziabad",
+  headlineAccent: "Ghaziabad & nearby areas",
   subtext:
-    "Per-piece dry clean & steam press, plus affordable laundry by the kilo — clear rates with no hidden charges.",
+    "Per-piece dry clean & steam press, plus affordable laundry by the kilo — clear rates with free pickup across Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and nearby localities.",
   disclaimer:
-    "Prices shown are indicative for Ghaziabad (Raj Nagar). Rates may vary for specialty garments, express service or seasonal offers. Contact us for bulk or commercial quotes.",
+    "Prices shown are indicative for Ghaziabad and nearby service areas. Rates may vary for specialty garments, express service or seasonal offers. Contact us for bulk or commercial quotes.",
 };
 
 export const OFFERS = {
@@ -318,11 +354,12 @@ export const OFFERS = {
 export const CAROUSEL_BANNERS = [
   {
     id: "offers",
-    theme: "tiranga",
-    badge: "🇮🇳 Freedom & Rakhi Sale · 9th – 30th August",
+    theme: "brand",
+    badge: "Quality laundry · Season offer till 30th August",
     title: "FLAT 40% OFF",
-    titleAccent: "* GET 10% BACK",
-    subtitle: OFFERS.promoStrip,
+    titleAccent: "+ 10% credit back",
+    subtitle:
+      "German chemicals, expert finish & free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram & Vaishali.",
     primaryCta: { label: "Book now", action: "schedule" },
     secondaryCta: {
       label: "View price list",
@@ -330,14 +367,14 @@ export const CAROUSEL_BANNERS = [
       href: "#pricing",
     },
     highlightOffer: {
-      icon: "🇮🇳",
-      title: "Freedom & Rakhi Sale",
+      icon: "✦",
+      title: "Quality care. Season savings.",
       price: "FLAT 40% OFF",
-      subline: "* GET 10% BACK — Cleenzo Credit on next order",
+      subline: "+ 10% Cleenzo Credit on next order",
     },
     miniOffers: [
-      { icon: "👥", text: "FOR EVERYONE — new & existing customers" },
-      { icon: "🛵", text: "FREE pickup & delivery" },
+      { icon: "✦", text: "QC-checked · professional finish" },
+      { icon: "🛵", text: "FREE pickup & delivery nearby" },
       { icon: "⚡", text: "Express 12–48 hr turnaround" },
     ],
   },

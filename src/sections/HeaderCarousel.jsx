@@ -402,12 +402,12 @@ function FreedomBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full min-w-full flex-shrink-0 ${
+      className={`carousel-slide-panel w-full ${
         blendPage ? "bg-transparent" : t.section
       } relative overflow-hidden`}
       aria-hidden="false"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
         <FreedomSaleCarouselBanner
           onClick={handleBannerClick}
           ariaLabel={slide.ariaLabel || slide.imageAlt}
@@ -433,12 +433,12 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full min-w-full flex-shrink-0 ${
+      className={`carousel-slide-panel w-full ${
         blendPage ? "bg-transparent" : t.section
       } relative overflow-hidden`}
       aria-hidden="false"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8 pb-12 sm:pb-14">
         <button
           type="button"
           onClick={handleBannerClick}
@@ -470,7 +470,7 @@ function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full min-w-full flex-shrink-0 ${sectionClass} relative overflow-hidden`}
+      className={`carousel-slide-panel w-full ${sectionClass} relative overflow-hidden`}
       aria-hidden="false"
     >
       {theme === "tiranga" ? (
@@ -494,7 +494,7 @@ function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
         </>
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-8 pb-20 sm:pt-10 sm:pb-22 md:py-14 lg:py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-6 pb-12 sm:pt-8 sm:pb-14 md:pt-10 md:pb-14">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 lg:gap-14 md:items-center">
           {/* Text — always first on mobile */}
           <div className="text-left order-1">
@@ -660,38 +660,51 @@ function HeaderCarousel() {
         setTouchPaused(false);
       }}
     >
-      <div
-        className="flex w-full"
-        style={{
-          transform: `translateX(-${active * 100}%)`,
-          transition: `transform ${CAROUSEL_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
-        }}
-      >
-        {slides.map((slide) =>
-          slide.type === "freedom-banner" ? (
-            <FreedomBannerSlidePanel
+      <div className="relative w-full overflow-hidden">
+        {slides.map((slide, index) => {
+          const isActive = index === active;
+          const panel =
+            slide.type === "freedom-banner" ? (
+              <FreedomBannerSlidePanel
+                slide={slide}
+                onSchedule={openSchedulePickup}
+                onWhatsApp={handleWhatsApp}
+              />
+            ) : slide.type === "image" ? (
+              <ImageSlidePanel
+                slide={slide}
+                onSchedule={openSchedulePickup}
+                onWhatsApp={handleWhatsApp}
+              />
+            ) : (
+              <SlidePanel
+                slide={slide}
+                onSchedule={openSchedulePickup}
+                onWhatsApp={handleWhatsApp}
+                onApp={openAppDownload}
+              />
+            );
+
+          return (
+            <div
               key={slide.id}
-              slide={slide}
-              onSchedule={openSchedulePickup}
-              onWhatsApp={handleWhatsApp}
-            />
-          ) : slide.type === "image" ? (
-            <ImageSlidePanel
-              key={slide.id}
-              slide={slide}
-              onSchedule={openSchedulePickup}
-              onWhatsApp={handleWhatsApp}
-            />
-          ) : (
-            <SlidePanel
-              key={slide.id}
-              slide={slide}
-              onSchedule={openSchedulePickup}
-              onWhatsApp={handleWhatsApp}
-              onApp={openAppDownload}
-            />
-          ),
-        )}
+              className={`w-full transition-[transform,opacity] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                isActive
+                  ? "relative z-[1] opacity-100"
+                  : "absolute inset-x-0 top-0 z-0 pointer-events-none opacity-0"
+              }`}
+              style={{
+                transitionDuration: `${CAROUSEL_TRANSITION_MS}ms`,
+                transform: isActive
+                  ? "translateX(0)"
+                  : `translateX(${index < active ? "-28%" : "28%"})`,
+              }}
+              aria-hidden={!isActive}
+            >
+              {panel}
+            </div>
+          );
+        })}
       </div>
 
       {/* Desktop arrows */}
@@ -713,7 +726,7 @@ function HeaderCarousel() {
       </button>
 
       {/* Mobile arrows + dots */}
-      <div className="absolute bottom-3 sm:bottom-4 left-0 right-0 z-20 px-4">
+      <div className="absolute bottom-2 sm:bottom-3 left-0 right-0 z-20 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <button
             type="button"

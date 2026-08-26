@@ -37,8 +37,8 @@ export function useCampaignExperience() {
   const devUi = isLocalFullCampaignUi();
   const freedomActive =
     devUi || (remote?.freedom?.active ?? isFreedomSaleActive());
-  const uniformActive =
-    devUi || (remote?.uniform?.active ?? isUniformSpecialActive());
+  // Independence Day window closed — never force uniform UI in local preview after dates end.
+  const uniformActive = remote?.uniform?.active ?? isUniformSpecialActive();
   const credit = remote?.credit ?? {
     percent: 10,
     messaging: {

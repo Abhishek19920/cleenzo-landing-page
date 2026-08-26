@@ -19,7 +19,6 @@ export function isFreedomSaleActive(now = new Date()) {
 }
 
 export function isUniformSpecialActive(now = new Date()) {
-  if (isLocalFullCampaignUi()) return true;
   return isOfferActive(UNIFORM_SALE_START, UNIFORM_SALE_END, now);
 }
 

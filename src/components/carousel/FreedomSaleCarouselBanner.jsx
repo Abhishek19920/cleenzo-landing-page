@@ -8,47 +8,61 @@ function FreedomSaleCarouselBanner({ onClick, ariaLabel }) {
       onClick={onClick}
       aria-label={ariaLabel}
     >
-      <div className="freedom-sale-banner__tricolor" aria-hidden="true" />
-      <div className="freedom-sale-banner__watermark" aria-hidden="true" />
+      <div className="freedom-sale-banner__accent" aria-hidden="true" />
       <div className="freedom-sale-banner__inner">
         <div className="freedom-sale-banner__left">
+          <p className="freedom-sale-banner__eyebrow">Premium laundry · Ghaziabad &amp; nearby</p>
           <p className="freedom-sale-banner__headline">
-            FREEDOM &amp; RAKHI SALE <span aria-hidden="true">🇮🇳</span>
+            Quality care.{" "}
+            <span className="freedom-sale-banner__headline-em">Season savings.</span>
+          </p>
+          <p className="freedom-sale-banner__tagline">
+            German chemicals · Expert finishing · Free doorstep pickup
           </p>
           <p className="freedom-sale-banner__dates">
-            <span aria-hidden="true">📅</span> 9TH – 30TH AUGUST
+            Offer live · 9th – 30th August
           </p>
-          <div className="freedom-sale-banner__mobile-perks" aria-hidden="true">
-            <span>🛵 FREE PICKUP &amp; DELIVERY</span>
-          </div>
+          <ul className="freedom-sale-banner__areas" aria-label="Service areas">
+            <li>Raj Nagar Extn</li>
+            <li>Sidharth Vihar</li>
+            <li>Kanawani</li>
+            <li>Ahinsa Khand</li>
+            <li>Indirapuram</li>
+            <li>Vaishali</li>
+          </ul>
         </div>
 
         <div className="freedom-sale-banner__offer">
-          <p className="freedom-sale-banner__flat">FLAT</p>
+          <p className="freedom-sale-banner__flat">Flat</p>
           <p className="freedom-sale-banner__pct">40% OFF</p>
           <p className="freedom-sale-banner__credit">
-            <span className="freedom-sale-banner__asterisk">*</span> GET <strong>10% BACK</strong>
+            + <strong>10% Cleenzo Credit</strong>
             <span className="freedom-sale-banner__credit-sub">
-              AS CLEENZO CREDIT ON YOUR NEXT ORDER
+              on your next order after the campaign
             </span>
           </p>
           <span className="freedom-sale-banner__audience">
-            FOR EVERYONE
-            <span className="freedom-sale-banner__audience-sub">New &amp; Existing Customers</span>
+            For everyone
+            <span className="freedom-sale-banner__audience-sub">New &amp; existing customers</span>
           </span>
         </div>
 
         <div className="freedom-sale-banner__right" aria-hidden="true">
-          <div className="freedom-sale-banner__shirts">
-            <span className="freedom-sale-banner__shirt freedom-sale-banner__shirt--1" />
-            <span className="freedom-sale-banner__shirt freedom-sale-banner__shirt--2" />
-            <span className="freedom-sale-banner__shirt freedom-sale-banner__shirt--3" />
-            <span className="freedom-sale-banner__shirt freedom-sale-banner__shirt--4" />
+          <div className="freedom-sale-banner__pillars">
+            <div className="freedom-sale-banner__pillar">
+              <span className="freedom-sale-banner__pillar-icon">✦</span>
+              <span>QC checked</span>
+            </div>
+            <div className="freedom-sale-banner__pillar">
+              <span className="freedom-sale-banner__pillar-icon">⚙</span>
+              <span>Pro machines</span>
+            </div>
+            <div className="freedom-sale-banner__pillar">
+              <span className="freedom-sale-banner__pillar-icon">🛵</span>
+              <span>Free pickup</span>
+            </div>
           </div>
-          <div className="freedom-sale-banner__bag">
-            <span className="freedom-sale-banner__bag-icon">🚚</span>
-            FREE PICKUP &amp; DELIVERY
-          </div>
+          <p className="freedom-sale-banner__cta-hint">Tap to book pickup →</p>
         </div>
       </div>
     </button>

@@ -6,13 +6,12 @@ import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 import personalHeroImage from "../assets/image/personal-hero-banner.jpg";
 import "./personal-hero.css";
 
-/** Matches live cleenzo.co.in Independence / Freedom hero (Aug 2026). */
 const TIRANGA_HERO = {
-  badge: "🇮🇳 Freedom & Rakhi Sale · 9th – 30th August",
+  badge: "Quality laundry · Season offer till 30th August",
   title: "FLAT 40% OFF laundry & dry clean",
   accent: "* GET 10% BACK as Cleenzo Credit",
   subtitle:
-    "FOR EVERYONE — new & existing customers. FREE pickup & delivery across Raj Nagar Extension, Ghaziabad & Noida Extension.",
+    "Premium fabric care with free pickup across Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram & Vaishali.",
   creditNote:
     "10% Cleenzo Credit is earned after discount — redeemable after the campaign ends, not an extra instant off.",
 };
@@ -31,10 +30,10 @@ const TRUST = [
 
 const TIRANGA_USP = {
   badge: "FREE PICKUP & DELIVERY",
-  headline: "Freedom & Rakhi Sale is live",
+  headline: "Quality cleaning. Real savings.",
   description:
-    "Flat 40% off plus 10% Cleenzo Credit back on eligible orders — 9th to 30th August.",
-  cta: "Book Freedom & Rakhi Sale",
+    "Flat 40% off plus 10% Cleenzo Credit on eligible orders — German chemicals, expert finish, doorstep service.",
+  cta: "Book quality care",
 };
 
 const STRIP = [

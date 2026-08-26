@@ -3,7 +3,7 @@ import { trackOfferEvent } from "../../utils/offerAnalytics";
 const variantStyles = {
   freedom: {
     card: "border border-slate-200/80 bg-white shadow-md ring-1 ring-slate-100",
-    accentBar: "bg-gradient-to-r from-[#FF9933] via-white to-[#138808] h-1",
+    accentBar: "bg-gradient-to-r from-cleenzo via-cleenzo-sky to-cleenzo-deep h-1",
     badge: "bg-cleenzo-deep text-white",
     discount: "text-cleenzo-deep",
     secondary: "text-[#138808] font-black",
@@ -19,11 +19,19 @@ const variantStyles = {
   },
   independence: {
     card: "border border-slate-200 bg-white shadow-sm",
-    accentBar: "bg-gradient-to-r from-[#FF9933] to-[#138808] h-1",
+    accentBar: "bg-gradient-to-r from-cleenzo to-cleenzo-deep h-1",
     badge: "bg-cleenzo-pale text-cleenzo-deep border border-cleenzo/10",
     discount: "text-cleenzo-deep",
     secondary: "text-cleenzo",
     cta: "bg-cleenzo hover:bg-cleenzo-dark text-white",
+  },
+  quality: {
+    card: "border border-cleenzo/15 bg-gradient-to-b from-white to-cleenzo-pale/40 shadow-md",
+    accentBar: "bg-gradient-to-r from-cleenzo-deep to-cleenzo h-1.5",
+    badge: "bg-cleenzo-deep text-white",
+    discount: "text-cleenzo-deep",
+    secondary: "text-cleenzo",
+    cta: "bg-cleenzo-deep hover:bg-cleenzo text-white",
   },
   benefit: {
     card: "border border-slate-200 bg-white shadow-sm",

@@ -35,8 +35,8 @@ const STORY_POINTS = [
   },
   {
     icon: "📍",
-    title: "Serving Raj Nagar & Ghaziabad",
-    desc: "From AVS City Square we serve Raj Nagar Extension, Vaishali and Indirapuram with free pickup.",
+    title: "Serving Raj Nagar & nearby",
+    desc: "From AVS City Square we serve Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and Raj Nagar Extension with free pickup.",
   },
 ];
 

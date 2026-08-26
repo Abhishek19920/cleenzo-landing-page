@@ -2,8 +2,6 @@ import { isOfferActive } from "../utils/offerDates";
 import {
   FREEDOM_SALE_END,
   FREEDOM_SALE_START,
-  UNIFORM_SALE_END,
-  UNIFORM_SALE_START,
 } from "../utils/freedomCampaign";
 
 /**
@@ -11,7 +9,7 @@ import {
  * Cards auto-hide after endDate (Asia/Kolkata); no deploy needed to expire.
  */
 
-/** @typedef {'freedom' | 'heroes' | 'independence' | 'benefit'} OfferVariant */
+/** @typedef {'freedom' | 'heroes' | 'independence' | 'benefit' | 'quality'} OfferVariant */
 
 /**
  * @typedef {Object} OfferCta
@@ -46,9 +44,13 @@ import {
  * @property {OfferTermSection[]} termsSections
  */
 
-/** Homepage campaign: show offer cards in Freedom window (IST). */
+/** Homepage campaign window for Freedom sale (IST). */
 export const HOMEPAGE_OFFERS_CAMPAIGN_START = FREEDOM_SALE_START;
 export const HOMEPAGE_OFFERS_CAMPAIGN_END = FREEDOM_SALE_END;
+
+/** Evergreen quality offers — stay visible after Independence Day. */
+const QUALITY_OFFERS_START = "2026-08-16";
+const QUALITY_OFFERS_END = "2027-12-31";
 
 /** @type {HomepageOffer[]} */
 export const HOMEPAGE_OFFERS = [
@@ -59,18 +61,18 @@ export const HOMEPAGE_OFFERS = [
     endDate: FREEDOM_SALE_END,
     variant: "freedom",
     featured: true,
-    badge: "FREEDOM & RAKHI SALE 🇮🇳",
+    badge: "LIMITED SEASON OFFER",
     discount: "FLAT 40% OFF",
     secondaryBenefit: "Earn 10% Cleenzo Credit",
     description:
-      "Get 40% OFF on eligible laundry & dry cleaning + earn 10% Cleenzo Credit on the post-discount amount. Credit unlocks after the campaign ends.",
+      "40% OFF on eligible laundry & dry cleaning + earn 10% Cleenzo Credit on the post-discount amount. Credit unlocks after the campaign ends.",
     audience: "FOR EVERYONE · New & Existing Customers",
     validityLabel: "9th – 30th August",
     cta: { label: "Book Pickup Now", action: "schedule" },
     termsSections: [
       {
         heading: "Campaign validity",
-        body: "Freedom & Rakhi Sale valid 9–30 August 2026 (Asia/Kolkata).",
+        body: "Valid 9–30 August 2026 (Asia/Kolkata).",
         todo: false,
       },
       {
@@ -80,95 +82,80 @@ export const HOMEPAGE_OFFERS = [
       },
       {
         heading: "40% campaign discount",
-        body: "Applied on eligible lines during checkout/order processing. Not combinable with wallet redemption on the same Freedom campaign order.",
+        body: "Applied on eligible lines during checkout/order processing. Not combinable with wallet redemption on the same campaign order.",
         todo: false,
       },
       {
         heading: "10% Cleenzo Credit",
-        body: "Calculated on the post-40%-discount eligible amount for Freedom lines. Locked until after the campaign; not an instant extra discount.",
-        todo: false,
-      },
-      {
-        heading: "Customers",
-        body: "New and existing customers.",
+        body: "Calculated on the post-40%-discount eligible amount. Locked until after the campaign; not an instant extra discount.",
         todo: false,
       },
       {
         heading: "Serviceability",
-        body: "Doorstep pickup & delivery subject to pincode/service area coverage.",
+        body: "Doorstep pickup & delivery across Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and nearby areas.",
         todo: false,
       },
     ],
   },
   {
-    id: "heroes-uniform-2026",
+    id: "premium-quality-care",
     active: true,
-    startDate: UNIFORM_SALE_START,
-    endDate: UNIFORM_SALE_END,
-    variant: "heroes",
-    badge: "SALUTING THOSE WHO SERVE 🇮🇳",
-    discount: "50% OFF",
-    title: "Police & Force Uniform Cleaning",
-    subtitle: "Independence Day special",
-    description: "Eligible police & force uniform services only — 13–15 August.",
-    validityLabel: "13th – 15th August",
-    cta: { label: "Book Now", action: "schedule" },
-    termsSections: [
-      {
-        heading: "Eligible services",
-        body: "Police & force uniform cleaning items flagged in Cleenzo catalog.",
-        todo: false,
-      },
-      {
-        heading: "Validity",
-        body: "13th – 15th August 2026 (Asia/Kolkata).",
-        todo: false,
-      },
-      {
-        heading: "Not site-wide",
-        body: "50% applies only to eligible uniform lines; other eligible items may receive Freedom 40% during overlap dates.",
-        todo: false,
-      },
-    ],
-  },
-  {
-    id: "independence-outfit-2026",
-    active: true,
-    startDate: UNIFORM_SALE_START,
-    endDate: UNIFORM_SALE_END,
-    variant: "independence",
-    badge: "INDEPENDENCE DAY 🇮🇳",
-    discount: "50% OFF",
-    title: "Ethnic & Festive Wear Cleaning",
-    subtitle: "Independence Day special",
+    startDate: QUALITY_OFFERS_START,
+    endDate: QUALITY_OFFERS_END,
+    variant: "quality",
+    badge: "QUALITY FIRST",
+    title: "German chemicals · Expert finish",
+    subtitle: "What families trust us for",
     description:
-      "Laundry & dry clean on ethnic wear, kurtas, sarees & festive outfits — for everyone.",
-    audience: "FOR EVERYONE · New & Existing Customers",
-    validityLabel: "13th – 15th August",
-    cta: { label: "Book Now", action: "schedule" },
+      "Every garment is inspected, treated with professional chemistry, and QC-checked before packing — so clothes return fresher, sharper and safer.",
+    audience: "Premium fabric care · Suits, sarees, daily wear & home textiles",
+    validityLabel: "Always on",
+    cta: { label: "Book Quality Care", action: "schedule" },
     termsSections: [
       {
-        heading: "Eligible garments",
-        body: "Ethnic wear, kurtas, sarees and festive outfits as per Cleenzo catalog.",
+        heading: "Process",
+        body: "Intake inspection, stain treatment, fabric-safe wash or dry clean, steam finish and final QC before delivery.",
         todo: false,
       },
       {
-        heading: "Validity",
-        body: "13th – 15th August 2026 (Asia/Kolkata).",
+        heading: "Chemicals & machines",
+        body: "Professional-grade detergents and calibrated equipment — not supermarket powder.",
+        todo: false,
+      },
+    ],
+  },
+  {
+    id: "free-pickup-nearby",
+    active: true,
+    startDate: QUALITY_OFFERS_START,
+    endDate: QUALITY_OFFERS_END,
+    variant: "benefit",
+    badge: "DOORSTEP SERVICE",
+    title: "Free pickup & delivery",
+    subtitle: "Near Raj Nagar Extension",
+    description:
+      "We collect and return across Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and Raj Nagar Extension — no store visit needed.",
+    audience: "Express turnaround · 12–48 hrs on most orders",
+    validityLabel: "Service areas live",
+    cta: { label: "Schedule Pickup", action: "schedule" },
+    termsSections: [
+      {
+        heading: "Coverage",
+        body: "Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and nearby Ghaziabad localities.",
+        todo: false,
+      },
+      {
+        heading: "Free delivery",
+        body: "Free delivery typically applies on orders above ₹480 — confirm when you book.",
         todo: false,
       },
     ],
   },
 ];
 
-/** Cards below carousel — all active offers during campaign window (dev: always). */
+/** Cards below carousel — only offers within their own date window. */
 export function getVisibleHomepageOffers(now = new Date()) {
-  if (
-    !isOfferActive(HOMEPAGE_OFFERS_CAMPAIGN_START, HOMEPAGE_OFFERS_CAMPAIGN_END, now)
-  ) {
-    return [];
-  }
-  return HOMEPAGE_OFFERS.filter((offer) => offer.active);
+  return HOMEPAGE_OFFERS.filter((offer) => isOfferRedeemable(offer, now));
 }
 
 export function isOfferRedeemable(offer, now = new Date()) {

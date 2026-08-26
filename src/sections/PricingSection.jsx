@@ -378,7 +378,7 @@ function PricingSection() {
             {pricing.promoStrip}
           </div>
           <p className="text-cleenzo-dark/70 text-xs font-semibold mt-3 uppercase tracking-wide">
-            Prices for {pricing.city} · Raj Nagar
+            Prices for {pricing.city} &amp; nearby areas
           </p>
         </div>
 

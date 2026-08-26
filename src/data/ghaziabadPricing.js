@@ -24,6 +24,13 @@ export const GHAZIABAD_PRICING = {
       "icon": "🧺",
       "unit": "kg",
       "turnaround": "12–48 hrs"
+    },
+    {
+      "id": "dyeing",
+      "label": "Dyeing",
+      "icon": "🎨",
+      "unit": "pc",
+      "turnaround": "48–72 hrs"
     }
   ],
   "sectionTabs": [
@@ -75,24 +82,6 @@ export const GHAZIABAD_PRICING = {
   ],
   "items": {
     "dry-clean": {
-      "daily-wear": [
-        {
-          "name": "Pant / Trouser",
-          "price": 100
-        },
-        {
-          "name": "Saree",
-          "price": 180
-        },
-        {
-          "name": "Shirt",
-          "price": 80
-        },
-        {
-          "name": "T-Shirt",
-          "price": 70
-        }
-      ],
       "household": [
         {
           "name": "Bag",
@@ -636,11 +625,11 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Jacket Normal Long",
-          "price": 299
+          "price": 249
         },
         {
           "name": "Jacket Normal Short",
-          "price": 249
+          "price": 299
         },
         {
           "name": "Jacket Puffer Long",
@@ -1501,16 +1490,6 @@ export const GHAZIABAD_PRICING = {
       ]
     },
     "steam-iron": {
-      "daily-wear": [
-        {
-          "name": "Saree",
-          "price": 80
-        },
-        {
-          "name": "Shirt",
-          "price": 30
-        }
-      ],
       "household": [
         {
           "name": "Bag",
@@ -2070,7 +2049,7 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Jacket Normal Long",
-          "price": 199
+          "price": 129
         },
         {
           "name": "Jacket Normal Short",
@@ -2934,7 +2913,91 @@ export const GHAZIABAD_PRICING = {
         }
       ]
     },
-    "kg-wash": {}
+    "kg-wash": {},
+    "dyeing": {
+      "women": [
+        {
+          "name": "Blouse",
+          "price": 149
+        },
+        {
+          "name": "Churidar / Salwar",
+          "price": 169
+        },
+        {
+          "name": "Dress / One Piece",
+          "price": 249
+        },
+        {
+          "name": "Dupatta",
+          "price": 149
+        },
+        {
+          "name": "Kurti",
+          "price": 199
+        },
+        {
+          "name": "Saree",
+          "price": 349
+        },
+        {
+          "name": "Shawl",
+          "price": 249
+        },
+        {
+          "name": "Top",
+          "price": 149
+        }
+      ],
+      "household": [
+        {
+          "name": "Double Bedsheet",
+          "price": 299
+        },
+        {
+          "name": "Pillow Cover",
+          "price": 79
+        },
+        {
+          "name": "Single Bedsheet",
+          "price": 249
+        }
+      ],
+      "men": [
+        {
+          "name": "Handkerchief",
+          "price": 49
+        },
+        {
+          "name": "Jacket",
+          "price": 299
+        },
+        {
+          "name": "Jeans",
+          "price": 199
+        },
+        {
+          "name": "Shirt",
+          "price": 149
+        },
+        {
+          "name": "Shorts",
+          "price": 119
+        },
+        {
+          "name": "Sweater",
+          "price": 249
+        },
+        {
+          "name": "T-Shirt / Polo",
+          "price": 129
+        },
+        {
+          "name": "Trouser / Pant",
+          "price": 169
+        }
+      ]
+    }
   },
   "addons": {
     "dry-clean": [
@@ -3001,6 +3064,7 @@ export const GHAZIABAD_PRICING = {
         "name": "Stain Removal",
         "price": 30
       }
-    ]
+    ],
+    "dyeing": []
   }
 };

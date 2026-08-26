@@ -65,10 +65,10 @@ function OffersSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-cleenzo-deep tracking-tight">
-            Offers Made For You
+            Why Cleenzo
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-2 font-medium">
-            Save more on laundry &amp; dry cleaning
+            Quality fabric care — with savings while the season offer lasts
           </p>
         </div>
 

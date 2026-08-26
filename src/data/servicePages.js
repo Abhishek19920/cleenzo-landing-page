@@ -10,7 +10,7 @@ export const SERVICE_PAGE_PATHS = [
 ];
 
 const LOCATION_BLURB =
-  "We serve Raj Nagar Extension, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar, Vaishali, Indirapuram and AVS City Square with free pickup laundry and dry cleaning.";
+  "We serve Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar and AVS City Square with free pickup laundry and dry cleaning.";
 
 export const SERVICE_PAGES = {
   "/laundry-service-ghaziabad": {
@@ -77,7 +77,7 @@ export const SERVICE_PAGES = {
       {
         title: "Areas we cover beyond Raj Nagar Extension",
         body: [
-          "Our laundry service near me coverage includes Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar and Noida Extension — plus Vaishali and Indirapuram. Share your society name on WhatsApp and we confirm a free pickup slot.",
+          "Our laundry service near me coverage includes Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar and Noida Extension. Share your society name on WhatsApp and we confirm a free pickup slot.",
           "Need dry cleaning for suits or sarees in the same visit? Pair laundry with our dry cleaning Ghaziabad service in one booking.",
         ],
       },

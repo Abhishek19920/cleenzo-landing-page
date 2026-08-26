@@ -47,6 +47,11 @@ export function canonicalUrl(path = "/") {
 export const SERVICE_AREAS = [
   "Raj Nagar Extension",
   "AVS City Square",
+  "Sidharth Vihar",
+  "Kanawani",
+  "Ahinsa Khand",
+  "Indirapuram",
+  "Vaishali",
   "KW Srishti",
   "Ajnara Integrity",
   "Officer City",
@@ -58,8 +63,6 @@ export const SERVICE_AREAS = [
   "Govindpuram",
   "Morta",
   "Kavi Nagar",
-  "Vaishali",
-  "Indirapuram",
 ];
 
 export const SEO = metaFromRoute("/");
@@ -88,7 +91,7 @@ export const SEO_FAQ = [
   {
     question: "Do you provide laundry pickup in Raj Nagar Extension?",
     answer:
-      "Yes. Cleenzo offers free doorstep pickup and delivery for laundry and dry cleaning across Raj Nagar Extension, AVS City Square, KW Srishti, Ajnara Integrity, Officer City, Charms Castle, Vaishali, Indirapuram and nearby Ghaziabad areas.",
+      "Yes. Cleenzo offers free doorstep pickup and delivery for laundry and dry cleaning across Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali, AVS City Square and nearby Ghaziabad areas.",
   },
   {
     question: "Which is the best laundry and dry cleaner near AVS City Square?",
@@ -108,7 +111,7 @@ export const SEO_FAQ = [
   {
     question: "Which areas do you serve?",
     answer:
-      "Raj Nagar Extension, AVS City Square, KW Srishti, Ajnara Integrity, Officer City, Charms Castle, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta, Kavi Nagar, Vaishali and Indirapuram.",
+      "Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali, AVS City Square, KW Srishti, Ajnara Integrity, Officer City, Charms Castle, Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta and Kavi Nagar.",
   },
   {
     question: "Can Cleenzo clean shoes, sofas, carpets and curtains?",

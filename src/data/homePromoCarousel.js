@@ -9,7 +9,7 @@ export const PROMO_CAROUSEL_SLIDES = [
     theme: "light",
     offerId: "freedom-rakhi-sale-2026",
     ariaLabel:
-      "Freedom and Rakhi Sale — Flat 40% off plus 10% Cleenzo Credit back. Valid 9th to 30th August. Free pickup and delivery. Book now.",
+      "Quality laundry care with season savings — Flat 40% off plus 10% Cleenzo Credit. Free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram and Vaishali. Book now.",
     startDate: FREEDOM_SALE_START,
     endDate: FREEDOM_SALE_END,
     clickAction: "schedule",
