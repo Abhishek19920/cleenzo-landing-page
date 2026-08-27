@@ -31,7 +31,8 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<AboutPage />} />
-            <Route path="order/:orderNumber" element={<OrderTrackingPage />} />
+            <Route path="order/:accessToken" element={<OrderTrackingPage />} />
+            <Route path="invoice/:accessToken" element={<OrderTrackingPage />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="blog/:slug" element={<BlogPostPage />} />
             <Route

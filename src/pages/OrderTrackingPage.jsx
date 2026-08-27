@@ -1,6 +1,12 @@
-import { FormEvent, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { fetchPublicOrder } from "../api/order";
+import { useEffect, useState } from "react";
+import { Link, useParams, useLocation } from "react-router-dom";
+import {
+  fetchPublicOrder,
+  fetchPublicOrderByToken,
+  isPublicAccessToken,
+  isPublicOrderNumber,
+  publicInvoicePdfUrl,
+} from "../api/order";
 
 function formatMoney(amount) {
   return new Intl.NumberFormat("en-IN", {
@@ -23,19 +29,52 @@ function formatDate(iso) {
   }
 }
 
+function formatDeliveryType(type) {
+  if (!type) return null;
+  return type.replace(/_/g, " ").toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
+}
+
 export default function OrderTrackingPage() {
-  const { orderNumber = "" } = useParams();
+  const { accessToken: routeParam = "" } = useParams();
+  const { pathname } = useLocation();
+  const accessToken = routeParam.trim();
+  const invoiceMode = pathname.startsWith("/invoice/");
+  const tokenLink = isPublicAccessToken(accessToken);
+  const legacyOrderNumber = isPublicOrderNumber(accessToken);
+
   const [phone, setPhone] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(tokenLink);
   const [error, setError] = useState("");
   const [order, setOrder] = useState(null);
+
+  useEffect(() => {
+    if (!tokenLink) return;
+    let cancelled = false;
+    setLoading(true);
+    setError("");
+    fetchPublicOrderByToken(accessToken)
+      .then((data) => {
+        if (!cancelled) setOrder(data);
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setError(err instanceof Error ? err.message : "Could not load order");
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [accessToken, tokenLink]);
 
   async function onSubmit(e) {
     e.preventDefault();
     setError("");
     setOrder(null);
-    if (!orderNumber.trim()) {
-      setError("Order ID is missing from the link.");
+    if (!accessToken) {
+      setError("Order link is missing.");
       return;
     }
     if (!phone.trim()) {
@@ -44,7 +83,7 @@ export default function OrderTrackingPage() {
     }
     setLoading(true);
     try {
-      const data = await fetchPublicOrder(orderNumber, phone);
+      const data = await fetchPublicOrder(accessToken, phone);
       setOrder(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not load order");
@@ -53,21 +92,32 @@ export default function OrderTrackingPage() {
     }
   }
 
+  const pageTitle = invoiceMode ? "Your invoice" : "Order & invoice";
+  const invoiceUrl = tokenLink ? publicInvoicePdfUrl(accessToken) : order?.invoiceDownloadUrl;
+
   return (
     <div className="mx-auto max-w-lg px-4 py-10 sm:py-14">
       <p className="text-sm font-semibold uppercase tracking-wide text-cleenzo-blue">
         Cleenzo
       </p>
-      <h1 className="mt-2 font-display text-3xl text-cleenzo-deep">
-        Order &amp; invoice
-      </h1>
-      <p className="mt-2 text-sm text-gray-600">
-        Order ID:{" "}
-        <span className="font-semibold text-cleenzo-deep">{orderNumber}</span>
-      </p>
+      <h1 className="mt-2 font-display text-3xl text-cleenzo-deep">{pageTitle}</h1>
 
-      {!order ? (
+      {loading ? (
+        <p className="mt-8 text-sm text-gray-600">Loading your order…</p>
+      ) : null}
+
+      {!loading && !order && !tokenLink ? (
         <form onSubmit={onSubmit} className="mt-8 space-y-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p className="text-sm text-gray-600">
+            {legacyOrderNumber ? (
+              <>
+                Order ID:{" "}
+                <span className="font-semibold text-cleenzo-deep">{accessToken}</span>
+              </>
+            ) : (
+              "Confirm the mobile number on this order to view details."
+            )}
+          </p>
           <p className="text-sm text-gray-600">
             For your privacy, confirm the mobile number on this order to view
             details and invoice summary.
@@ -97,11 +147,23 @@ export default function OrderTrackingPage() {
             disabled={loading}
             className="w-full rounded-lg bg-cleenzo-blue px-4 py-2.5 text-sm font-semibold text-white hover:bg-cleenzo-deep disabled:opacity-60"
           >
-            {loading ? "Loading…" : "View order"}
+            View order
           </button>
         </form>
-      ) : (
+      ) : null}
+
+      {!loading && error && tokenLink && !order ? (
+        <div className="mt-8 rounded-2xl border border-red-100 bg-red-50 p-6 text-sm text-red-700" role="alert">
+          {error}
+        </div>
+      ) : null}
+
+      {order ? (
         <div className="mt-8 space-y-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div>
+            <p className="text-sm text-gray-500">Order ID</p>
+            <p className="font-semibold text-cleenzo-deep">{order.orderNumber}</p>
+          </div>
           <div>
             <p className="text-sm text-gray-500">Customer</p>
             <p className="font-semibold text-cleenzo-deep">{order.customerName}</p>
@@ -121,11 +183,34 @@ export default function OrderTrackingPage() {
                 <p className="font-medium">{formatDate(order.deliveryDate)}</p>
               </div>
             ) : null}
+            {order.deliveryType ? (
+              <div>
+                <p className="text-gray-500">Delivery type</p>
+                <p className="font-medium">{formatDeliveryType(order.deliveryType)}</p>
+              </div>
+            ) : null}
             <div>
               <p className="text-gray-500">Payment</p>
               <p className="font-medium">{order.paymentStatus.replace(/_/g, " ")}</p>
             </div>
           </div>
+
+          {order.pickup ? (
+            <div className="rounded-xl bg-gray-50 p-4 text-sm">
+              <p className="font-semibold text-cleenzo-deep">Pickup</p>
+              <p className="mt-1 text-gray-600">
+                {formatDate(order.pickup.pickupDate)} · {order.pickup.pickupTimeSlot}
+              </p>
+              <p className="mt-1 text-gray-600">{order.pickup.addressLine}</p>
+            </div>
+          ) : null}
+
+          {order.customerAddress ? (
+            <div className="text-sm">
+              <p className="text-gray-500">Address</p>
+              <p className="font-medium">{order.customerAddress}</p>
+            </div>
+          ) : null}
 
           {order.lineItems?.length ? (
             <div>
@@ -172,8 +257,21 @@ export default function OrderTrackingPage() {
               </div>
             ) : null}
           </dl>
+
+          {invoiceUrl ? (
+            <div className="border-t border-gray-100 pt-4">
+              <a
+                href={invoiceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-lg border border-cleenzo-blue px-4 py-2.5 text-sm font-semibold text-cleenzo-blue hover:bg-cleenzo-blue/5"
+              >
+                {invoiceMode ? "View / download invoice PDF" : "Download invoice PDF"}
+              </a>
+            </div>
+          ) : null}
         </div>
-      )}
+      ) : null}
 
       <p className="mt-8 text-center text-sm text-gray-500">
         <Link to="/" className="text-cleenzo-blue hover:underline">
