@@ -8,6 +8,7 @@ import AboutPage from "./pages/AboutPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import DryCleanersRajNagarExtension from "./pages/DryCleanersRajNagarExtension";
+import OrderTrackingPage from "./pages/OrderTrackingPage";
 import NotFound from "./pages/NotFound";
 import PageSEO from "./components/PageSEO";
 import TrailingSlashRedirect from "./components/TrailingSlashRedirect";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="order/:orderNumber" element={<OrderTrackingPage />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="blog/:slug" element={<BlogPostPage />} />
             <Route
