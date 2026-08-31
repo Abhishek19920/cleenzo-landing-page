@@ -3,7 +3,7 @@ import { isLocalFullCampaignUi } from "./campaignUiVisibility";
 
 /** Freedom & Rakhi Sale — discount window (IST, inclusive). */
 export const FREEDOM_SALE_START = "2026-08-09";
-export const FREEDOM_SALE_END = "2026-08-30";
+export const FREEDOM_SALE_END = "2026-08-31";
 
 /** Independence Uniform special (IST, inclusive). */
 export const UNIFORM_SALE_START = "2026-08-13";
