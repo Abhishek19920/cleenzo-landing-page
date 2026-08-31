@@ -355,9 +355,9 @@ export const CAROUSEL_BANNERS = [
   {
     id: "offers",
     theme: "brand",
-    badge: "Quality laundry · Season offer till 30th August",
-    title: "FLAT 40% OFF",
-    titleAccent: "+ 10% credit back",
+    badge: "Quality laundry · Ghaziabad & nearby",
+    title: "Premium laundry &",
+    titleAccent: "dry cleaning",
     subtitle:
       "German chemicals, expert finish & free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram & Vaishali.",
     primaryCta: { label: "Book now", action: "schedule" },
@@ -368,9 +368,9 @@ export const CAROUSEL_BANNERS = [
     },
     highlightOffer: {
       icon: "✦",
-      title: "Quality care. Season savings.",
-      price: "FLAT 40% OFF",
-      subline: "+ 10% Cleenzo Credit on next order",
+      title: "Expert fabric care",
+      price: "QC-CHECKED",
+      subline: "German chemicals · steam finish",
     },
     miniOffers: [
       { icon: "✦", text: "QC-checked · professional finish" },
