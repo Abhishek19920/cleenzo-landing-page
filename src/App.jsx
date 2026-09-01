@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import CommercialLaundry from "./pages/CommercialLaundry";
 import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
+import OffersTermsPage from "./pages/OffersTermsPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import DryCleanersRajNagarExtension from "./pages/DryCleanersRajNagarExtension";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="offers-terms" element={<OffersTermsPage />} />
             <Route path="order/:accessToken" element={<OrderTrackingPage />} />
             <Route path="invoice/:accessToken" element={<OrderTrackingPage />} />
             <Route path="blog" element={<BlogPage />} />

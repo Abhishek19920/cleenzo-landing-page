@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function OfferTermsModal({ offer, onClose }) {
   useEffect(() => {
@@ -66,7 +67,13 @@ function OfferTermsModal({ offer, onClose }) {
           ))}
         </div>
 
-        <div className="px-5 py-4 border-t border-slate-100 bg-slate-50">
+        <div className="px-5 py-4 border-t border-slate-100 bg-slate-50 space-y-3">
+          <Link
+            to="/offers-terms"
+            className="block text-center text-xs font-semibold text-cleenzo hover:text-cleenzo-dark underline-offset-2 hover:underline"
+          >
+            View all offer terms &amp; conditions
+          </Link>
           <button
             type="button"
             onClick={onClose}

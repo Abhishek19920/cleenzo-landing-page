@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { openWhatsAppBooking } from "../whatsapp";
@@ -6,6 +7,8 @@ import OfferTermsModal from "../components/offers/OfferTermsModal";
 import { getVisibleHomepageOffers, isOfferRedeemable } from "../data/offers";
 import { trackOfferEvent } from "../utils/offerAnalytics";
 import { isFreedomSaleActive } from "../utils/freedomCampaign";
+import { isFestiveSaleActive } from "../utils/festiveCampaign";
+import { isGaneshChaturthiActive } from "../utils/ganeshChaturthiCampaign";
 
 function OffersSection() {
   const offers = useMemo(() => getVisibleHomepageOffers(), []);
@@ -51,6 +54,9 @@ function OffersSection() {
 
   const featuredId = offers.find((o) => o.featured)?.id;
   const tirangaPage = isFreedomSaleActive();
+  const festiveActive = isFestiveSaleActive();
+  const ganeshActive = isGaneshChaturthiActive();
+  const offersLive = festiveActive || ganeshActive;
 
   return (
     <section
@@ -65,11 +71,25 @@ function OffersSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-cleenzo-deep tracking-tight">
-            Why Cleenzo
+            {offersLive ? "Our offers" : "Why Cleenzo"}
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-2 font-medium">
-            Quality fabric care — with savings while the season offer lasts
+            {ganeshActive
+              ? "Ganesh Chaturthi savings, new customer offers, referral rewards and quality fabric care"
+              : offersLive
+              ? "New customer savings, referral rewards and quality fabric care"
+              : "Quality fabric care — with savings while the season offer lasts"}
           </p>
+          {offersLive ? (
+            <p className="text-sm text-slate-500 mt-3">
+              <Link
+                to="/offers-terms"
+                className="font-semibold text-cleenzo hover:text-cleenzo-dark underline-offset-2 hover:underline"
+              >
+                Read full offer terms &amp; conditions
+              </Link>
+            </p>
+          ) : null}
         </div>
 
         <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible md:snap-none md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5 lg:gap-6">

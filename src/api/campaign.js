@@ -1,8 +1,9 @@
-const API_BASE = (process.env.REACT_APP_CLEENZO_API_URL || "").replace(/\/$/, "");
+import { getCleenzoApiBase } from "./apiBase";
 
 async function websiteGet(path) {
-  if (!API_BASE) return null;
-  const res = await fetch(`${API_BASE}${path}`, {
+  const apiBase = getCleenzoApiBase();
+  if (!apiBase) return null;
+  const res = await fetch(`${apiBase}${path}`, {
     headers: { Accept: "application/json" },
   });
   if (!res.ok) throw new Error(`API ${res.status}`);
@@ -10,8 +11,9 @@ async function websiteGet(path) {
 }
 
 async function websitePost(path, body) {
-  if (!API_BASE) return null;
-  const res = await fetch(`${API_BASE}${path}`, {
+  const apiBase = getCleenzoApiBase();
+  if (!apiBase) return null;
+  const res = await fetch(`${apiBase}${path}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -36,4 +38,4 @@ export async function previewCampaignPricing(lineItems) {
   return websitePost("/public/website/campaign/preview", { lineItems });
 }
 
-export { API_BASE as WEBSITE_API_BASE };
+export { getCleenzoApiBase as WEBSITE_API_BASE } from "./apiBase";

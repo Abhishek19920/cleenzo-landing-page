@@ -7,6 +7,8 @@ import {
   CAROUSEL_TRANSITION_MS,
 } from "../constants";
 import FreedomSaleCarouselBanner from "../components/carousel/FreedomSaleCarouselBanner";
+import FestiveSaleCarouselBanner from "../components/carousel/FestiveSaleCarouselBanner";
+import GaneshChaturthiCarouselBanner from "../components/carousel/GaneshChaturthiCarouselBanner";
 import { getActivePromoCarouselSlides } from "../data/homePromoCarousel";
 import { trackOfferEvent } from "../utils/offerAnalytics";
 import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
@@ -386,6 +388,62 @@ function SlideVisual({ slide, theme, compact = false }) {
   );
 }
 
+function GaneshBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
+  const theme = slide.theme || "light";
+  const t = themes[theme];
+
+  const handleBannerClick = () => {
+    trackOfferEvent("offer_banner_click", { offer_id: slide.offerId || slide.id });
+    if (slide.clickAction === "whatsapp") {
+      onWhatsApp();
+      return;
+    }
+    onSchedule();
+  };
+
+  return (
+    <div
+      className={`carousel-slide-panel w-full ${t.section} relative overflow-hidden`}
+      aria-hidden="false"
+    >
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
+        <GaneshChaturthiCarouselBanner
+          onClick={handleBannerClick}
+          ariaLabel={slide.ariaLabel || slide.imageAlt}
+        />
+      </div>
+    </div>
+  );
+}
+
+function FestiveBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
+  const theme = slide.theme || "light";
+  const t = themes[theme];
+
+  const handleBannerClick = () => {
+    trackOfferEvent("offer_banner_click", { offer_id: slide.offerId || slide.id });
+    if (slide.clickAction === "whatsapp") {
+      onWhatsApp();
+      return;
+    }
+    onSchedule();
+  };
+
+  return (
+    <div
+      className={`carousel-slide-panel w-full ${t.section} relative overflow-hidden`}
+      aria-hidden="false"
+    >
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
+        <FestiveSaleCarouselBanner
+          onClick={handleBannerClick}
+          ariaLabel={slide.ariaLabel || slide.imageAlt}
+        />
+      </div>
+    </div>
+  );
+}
+
 function FreedomBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
   const theme = slide.theme || "light";
   const t = themes[theme];
@@ -664,7 +722,19 @@ function HeaderCarousel() {
         {slides.map((slide, index) => {
           const isActive = index === active;
           const panel =
-            slide.type === "freedom-banner" ? (
+            slide.type === "ganesh-banner" ? (
+              <GaneshBannerSlidePanel
+                slide={slide}
+                onSchedule={openSchedulePickup}
+                onWhatsApp={handleWhatsApp}
+              />
+            ) : slide.type === "festive-banner" ? (
+              <FestiveBannerSlidePanel
+                slide={slide}
+                onSchedule={openSchedulePickup}
+                onWhatsApp={handleWhatsApp}
+              />
+            ) : slide.type === "freedom-banner" ? (
               <FreedomBannerSlidePanel
                 slide={slide}
                 onSchedule={openSchedulePickup}

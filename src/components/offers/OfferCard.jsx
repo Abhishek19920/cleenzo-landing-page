@@ -33,6 +33,14 @@ const variantStyles = {
     secondary: "text-cleenzo",
     cta: "bg-cleenzo-deep hover:bg-cleenzo text-white",
   },
+  festive: {
+    card: "border border-amber-200 bg-gradient-to-b from-amber-50/70 to-white shadow-md ring-1 ring-amber-100",
+    accentBar: "bg-gradient-to-r from-amber-400 via-cleenzo to-cleenzo-deep h-1.5",
+    badge: "bg-amber-500 text-white",
+    discount: "text-cleenzo-deep",
+    secondary: "text-amber-700 font-black",
+    cta: "bg-cleenzo-deep hover:bg-cleenzo text-white",
+  },
   benefit: {
     card: "border border-slate-200 bg-white shadow-sm",
     accentBar: "bg-cleenzo-sky/40 h-0.5",

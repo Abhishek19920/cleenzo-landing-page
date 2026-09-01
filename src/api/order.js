@@ -1,4 +1,4 @@
-const API_BASE = (process.env.REACT_APP_CLEENZO_API_URL || "").replace(/\/$/, "");
+import { getCleenzoApiBase } from "./apiBase";
 
 /** 64-char hex public access token from WhatsApp links. */
 export function isPublicAccessToken(value) {
@@ -15,12 +15,13 @@ export function isPublicOrderNumber(value) {
  * @param {string} accessToken
  */
 export async function fetchPublicOrderByToken(accessToken) {
-  if (!API_BASE) {
+  const apiBase = getCleenzoApiBase();
+  if (!apiBase) {
     throw new Error("Order lookup is not configured");
   }
   const encoded = encodeURIComponent(accessToken.trim());
   const res = await fetch(
-    `${API_BASE}/public/website/orders/access/${encoded}`,
+    `${apiBase}/public/website/orders/access/${encoded}`,
     { headers: { Accept: "application/json" } },
   );
   if (res.status === 404) {
@@ -38,7 +39,8 @@ export async function fetchPublicOrderByToken(accessToken) {
  * @param {string} phone Full mobile or last 4 digits
  */
 export async function fetchPublicOrder(orderNumber, phone) {
-  if (!API_BASE) {
+  const apiBase = getCleenzoApiBase();
+  if (!apiBase) {
     throw new Error("Order lookup is not configured");
   }
   const params = new URLSearchParams({
@@ -46,7 +48,7 @@ export async function fetchPublicOrder(orderNumber, phone) {
   });
   const encoded = encodeURIComponent(orderNumber.trim());
   const res = await fetch(
-    `${API_BASE}/public/website/orders/${encoded}?${params.toString()}`,
+    `${apiBase}/public/website/orders/${encoded}?${params.toString()}`,
     { headers: { Accept: "application/json" } },
   );
   if (res.status === 404) {
@@ -60,6 +62,7 @@ export async function fetchPublicOrder(orderNumber, phone) {
 
 /** Direct URL to download/view the e-invoice PDF for a token-gated order. */
 export function publicInvoicePdfUrl(accessToken) {
+  const apiBase = getCleenzoApiBase();
   const encoded = encodeURIComponent(accessToken.trim());
-  return `${API_BASE}/public/website/orders/access/${encoded}/invoice.pdf`;
+  return `${apiBase}/public/website/orders/access/${encoded}/invoice.pdf`;
 }

@@ -1,9 +1,12 @@
-const API_BASE = (process.env.REACT_APP_CLEENZO_API_URL || "").replace(/\/$/, "");
+import { getCleenzoApiBase } from "./apiBase";
+
+export { getCleenzoApiBase, PRODUCTION_API_BASE } from "./apiBase";
 
 export async function fetchWebsitePricing() {
-  if (!API_BASE) return null;
+  const apiBase = getCleenzoApiBase();
+  if (!apiBase) return null;
 
-  const url = `${API_BASE}/public/website/pricing`;
+  const url = `${apiBase}/public/website/pricing`;
   const res = await fetch(url, {
     headers: { Accept: "application/json" },
   });

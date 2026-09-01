@@ -1,0 +1,193 @@
+.festive-sale-banner {
+  --fs-navy: #002b5b;
+  --fs-amber: #d97706;
+  --fs-gold: #f59e0b;
+  --fs-cream: #fffbeb;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(217, 119, 6, 0.18);
+  border-radius: 1rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(245, 158, 11, 0.12), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 0% 100%, rgba(0, 43, 91, 0.06), transparent 45%),
+    linear-gradient(160deg, #ffffff 0%, var(--fs-cream) 55%, #fef3c7 100%);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+.festive-sale-banner:hover {
+  box-shadow: 0 12px 28px rgba(217, 119, 6, 0.14);
+  transform: translateY(-1px);
+}
+
+.festive-sale-banner:focus-visible {
+  outline: 2px solid var(--fs-navy);
+  outline-offset: 3px;
+}
+
+.festive-sale-banner__accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--fs-navy) 0%, var(--fs-amber) 50%, var(--fs-gold) 100%);
+}
+
+.festive-sale-banner__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .festive-sale-banner__inner {
+    grid-template-columns: 1.2fr 0.9fr 0.8fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.15rem 1rem;
+  }
+}
+
+.festive-sale-banner__eyebrow {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fs-amber);
+  margin-bottom: 0.2rem;
+}
+
+.festive-sale-banner__headline {
+  font-size: clamp(1.2rem, 3.2vw, 1.7rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--fs-navy);
+  letter-spacing: -0.02em;
+}
+
+.festive-sale-banner__headline-em {
+  color: var(--fs-amber);
+}
+
+.festive-sale-banner__tagline,
+.festive-sale-banner__dates {
+  font-size: 0.72rem;
+  color: #475569;
+  margin-top: 0.35rem;
+}
+
+.festive-sale-banner__dates {
+  font-weight: 700;
+  color: var(--fs-navy);
+}
+
+.festive-sale-banner__areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.4rem;
+  margin-top: 0.45rem;
+  padding: 0;
+  list-style: none;
+}
+
+.festive-sale-banner__areas li {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 43, 91, 0.08);
+  border-radius: 999px;
+  padding: 0.15rem 0.45rem;
+}
+
+.festive-sale-banner__offer {
+  text-align: center;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.85rem;
+  background: linear-gradient(145deg, #fff 0%, #fff7ed 100%);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.festive-sale-banner__flat {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #92400e;
+}
+
+.festive-sale-banner__pct {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--fs-navy);
+  margin: 0.1rem 0;
+}
+
+.festive-sale-banner__credit {
+  font-size: 0.78rem;
+  color: #334155;
+  line-height: 1.35;
+}
+
+.festive-sale-banner__credit-sub {
+  display: block;
+  font-size: 0.62rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+
+.festive-sale-banner__audience {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--fs-navy);
+}
+
+.festive-sale-banner__audience-sub {
+  display: block;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 0.1rem;
+}
+
+.festive-sale-banner__right {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .festive-sale-banner__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+}
+
+.festive-sale-banner__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.festive-sale-banner__pillar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.festive-sale-banner__pillar-icon {
+  font-size: 0.75rem;
+}
+
+.festive-sale-banner__cta-hint {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--fs-amber);
+}
