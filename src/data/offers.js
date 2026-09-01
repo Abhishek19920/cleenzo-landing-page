@@ -1,4 +1,4 @@
-import { isOfferActive } from "../utils/offerDates";
+import { isOfferActive, isOfferWithinListingWindow } from "../utils/offerDates";
 import {
   FREEDOM_SALE_END,
   FREEDOM_SALE_START,
@@ -357,9 +357,15 @@ export const HOMEPAGE_OFFERS = [
   },
 ];
 
-/** Cards below carousel — only offers within their own date window. */
+/** Cards below carousel — listed offers (includes upcoming before start). */
 export function getVisibleHomepageOffers(now = new Date()) {
-  return HOMEPAGE_OFFERS.filter((offer) => isOfferRedeemable(offer, now));
+  return HOMEPAGE_OFFERS.filter((offer) => isOfferListed(offer, now));
+}
+
+export function isOfferListed(offer, now = new Date()) {
+  return Boolean(
+    offer.active && isOfferWithinListingWindow(offer.startDate, offer.endDate, now),
+  );
 }
 
 export function isOfferRedeemable(offer, now = new Date()) {

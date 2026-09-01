@@ -8,7 +8,7 @@ import { getVisibleHomepageOffers, isOfferRedeemable } from "../data/offers";
 import { trackOfferEvent } from "../utils/offerAnalytics";
 import { isFreedomSaleActive } from "../utils/freedomCampaign";
 import { isFestiveSaleActive } from "../utils/festiveCampaign";
-import { isGaneshChaturthiActive } from "../utils/ganeshChaturthiCampaign";
+import { isGaneshChaturthiActive, isGaneshChaturthiListed } from "../utils/ganeshChaturthiCampaign";
 
 function OffersSection() {
   const offers = useMemo(() => getVisibleHomepageOffers(), []);
@@ -56,7 +56,8 @@ function OffersSection() {
   const tirangaPage = isFreedomSaleActive();
   const festiveActive = isFestiveSaleActive();
   const ganeshActive = isGaneshChaturthiActive();
-  const offersLive = festiveActive || ganeshActive;
+  const ganeshListed = isGaneshChaturthiListed();
+  const offersLive = festiveActive || ganeshListed;
 
   return (
     <section
@@ -76,6 +77,8 @@ function OffersSection() {
           <p className="text-slate-600 text-base sm:text-lg mt-2 font-medium">
             {ganeshActive
               ? "Ganesh Chaturthi savings, new customer offers, referral rewards and quality fabric care"
+              : ganeshListed
+              ? "Ganesh Chaturthi offer — 3rd to 15th September — plus new customer savings and referral rewards"
               : offersLive
               ? "New customer savings, referral rewards and quality fabric care"
               : "Quality fabric care — with savings while the season offer lasts"}

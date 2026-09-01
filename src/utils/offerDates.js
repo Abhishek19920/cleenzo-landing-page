@@ -31,4 +31,13 @@ export function isOfferActive(startDate, endDate, now = new Date()) {
   return true;
 }
 
+/** Marketing surfaces: show before start, hide after end (Asia/Kolkata). */
+export function isOfferWithinListingWindow(startDate, endDate, now = new Date()) {
+  if (isLocalFullCampaignUi()) return true;
+  if (!startDate && !endDate) return true;
+  const today = getKolkataDateString(now);
+  if (endDate && today > endDate) return false;
+  return true;
+}
+
 export { OFFERS_TIMEZONE };

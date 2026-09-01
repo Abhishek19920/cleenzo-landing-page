@@ -1,4 +1,4 @@
-import { isOfferActive } from "./offerDates";
+import { isOfferActive, isOfferWithinListingWindow } from "./offerDates";
 
 /**
  * Ganesh Chaturthi festival window (IST, inclusive).
@@ -13,4 +13,8 @@ export const GANESH_CHATURTHI_MAX_ORDERS = 500;
 
 export function isGaneshChaturthiActive(now = new Date()) {
   return isOfferActive(GANESH_CHATURTHI_START, GANESH_CHATURTHI_END, now);
+}
+
+export function isGaneshChaturthiListed(now = new Date()) {
+  return isOfferWithinListingWindow(GANESH_CHATURTHI_START, GANESH_CHATURTHI_END, now);
 }

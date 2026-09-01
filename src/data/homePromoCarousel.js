@@ -1,4 +1,4 @@
-import { isOfferActiveByCalendar } from "../utils/offerDates";
+import { isOfferWithinListingWindow } from "../utils/offerDates";
 import { FREEDOM_SALE_END, FREEDOM_SALE_START } from "../utils/freedomCampaign";
 import { OFFER_PROGRAM_START, LIFETIME_OFFER_END } from "../utils/festiveCampaign";
 import {
@@ -43,10 +43,10 @@ export const PROMO_CAROUSEL_SLIDES = [
   },
 ];
 
-/** Calendar dates only (matches cleenzo.co.in — not affected by local dev UI preview). */
+/** Listed slides (includes upcoming before start; excludes after end). */
 export function getActivePromoCarouselSlides(now = new Date()) {
   return PROMO_CAROUSEL_SLIDES.filter((slide) =>
-    isOfferActiveByCalendar(slide.startDate, slide.endDate, now),
+    isOfferWithinListingWindow(slide.startDate, slide.endDate, now),
   );
 }
 
