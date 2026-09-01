@@ -44,7 +44,8 @@ function GaneshChaturthiCarouselBanner({ onClick, ariaLabel }) {
           <p className="festive-sale-banner__credit">
             + <strong>{GANESH_CHATURTHI_CREDIT_PERCENT}% Cleenzo Credit</strong>
             <span className="festive-sale-banner__credit-sub">
-              on orders ₹{GANESH_CHATURTHI_MIN_ORDER_INR}+ · first {GANESH_CHATURTHI_MAX_ORDERS} orders
+              {GANESH_CHATURTHI_CREDIT_PERCENT}% credit on amount you pay after discount ·
+              min gross ₹{GANESH_CHATURTHI_MIN_ORDER_INR} · first {GANESH_CHATURTHI_MAX_ORDERS} orders
             </span>
           </p>
           <span className="festive-sale-banner__audience">

@@ -7,7 +7,6 @@ import {
 } from "../utils/festiveCampaign";
 import {
   MONTHLY_LOYALTY_MIN_GROSS_INR,
-  MONTHLY_LOYALTY_MIN_ORDERS,
   MONTHLY_LOYALTY_PERCENT_OFF,
   MONTHLY_LOYALTY_CREDIT_PERCENT,
 } from "../utils/monthlyLoyaltyCampaign";
@@ -51,8 +50,9 @@ const SECTIONS = [
       `Valid ${GANESH_CHATURTHI_START === "2026-09-03" ? "3" : GANESH_CHATURTHI_START} to ${GANESH_CHATURTHI_END === "2026-09-15" ? "15 September 2026" : GANESH_CHATURTHI_END} (Asia/Kolkata). Limited to the first ${GANESH_CHATURTHI_MAX_ORDERS} eligible orders.`,
       `The offer applies only when the original gross eligible order value is ₹${GANESH_CHATURTHI_MIN_ORDER_INR.toLocaleString("en-IN")} or more, calculated before any discount, coupon, wallet credit or Cleenzo Credit.`,
       "Example: an order originally valued at ₹500 receives 25% off (₹125) and the customer pays ₹375. The customer remains eligible because the original order value is ₹500.",
+      "Example: on that ₹500 order, 10% Cleenzo Credit back is ₹37.50 — calculated on the ₹375 you pay after discount, not on ₹500.",
       "Example: an order originally valued at ₹450 is not eligible for the festival offer.",
-      "The 10% Cleenzo Credit is calculated on the post-discount eligible amount and credited after successful delivery.",
+      `${GANESH_CHATURTHI_CREDIT_PERCENT}% Cleenzo Credit back is calculated on the final payable amount after the promotional discount, not on the original order value. Credit is issued after successful delivery.`,
       "Cannot be combined with another promotional offer. If a new-customer first-3 discount is higher, that discount applies instead.",
     ],
   },
@@ -61,14 +61,24 @@ const SECTIONS = [
     heading: "3. Monthly Loyalty Offer",
     status: "Always on · from 1 September 2026",
     body: [
-      "Customers can unlock a benefit for the following month by meeting either eligibility criterion during the current calendar month.",
-      `Eligibility requires either ${MONTHLY_LOYALTY_MIN_ORDERS} or more successful orders during the month, or a total eligible order value of ₹${MONTHLY_LOYALTY_MIN_GROSS_INR.toLocaleString("en-IN")} or more during the month.`,
+      "Customers unlock a benefit for the following month by reaching the monthly gross order value threshold during the current calendar month.",
+      `Eligibility requires a total eligible gross order value of ₹${MONTHLY_LOYALTY_MIN_GROSS_INR.toLocaleString("en-IN")} or more from successful orders during the month. There is no minimum number of orders.`,
       `Once eligible, the customer receives ${MONTHLY_LOYALTY_PERCENT_OFF}% FLAT OFF plus ${MONTHLY_LOYALTY_CREDIT_PERCENT}% Cleenzo Credit back in the following month, subject to applicable campaign and usage rules.`,
     ],
   },
   {
+    id: "cleenzo-credit-calculation",
+    heading: "4. How Cleenzo Credit Back Is Calculated",
+    body: [
+      "Where an offer includes Cleenzo Credit back (for example Ganesh Chaturthi or Monthly Loyalty), the percentage is applied to the final payable amount after the promotional discount — not on the original order value.",
+      "Example: Original order value ₹500 → 30% off (₹150) → final payable ₹350 → 10% Cleenzo Credit back = ₹35.",
+      "The first-3 new customer offer (30% off) does not include Cleenzo Credit back.",
+      "Credit is added to your Cleenzo Wallet after successful delivery, subject to each offer's terms.",
+    ],
+  },
+  {
     id: "order-value",
-    heading: "4. How Order Value Is Calculated",
+    heading: "5. How Order Value Is Calculated",
     body: [
       "Eligibility is calculated on the original gross eligible order value, before applying any discount, coupon, wallet credit, Cleenzo Credit or promotional benefit.",
       "For example, on an order originally valued at ₹500 with a ₹200 discount where the customer pays ₹300, the amount counted towards monthly loyalty eligibility is ₹500, not ₹300.",
@@ -76,7 +86,7 @@ const SECTIONS = [
   },
   {
     id: "successful-orders",
-    heading: "5. Successful Order Requirement",
+    heading: "6. Successful Order Requirement",
     body: [
       "Only successfully completed orders are considered for eligibility.",
       "Cancelled orders, refunded or fully reversed orders, fraudulent or invalid transactions, and orders that do not meet minimum eligible order requirements may not be counted.",
@@ -84,7 +94,7 @@ const SECTIONS = [
   },
   {
     id: "refer-and-earn",
-    heading: "6. Referral Program – Refer & Earn",
+    heading: "7. Referral Program – Refer & Earn",
     status: "Always on",
     body: [
       `A customer can refer a new customer to Cleenzo. Once the referred customer successfully completes their first eligible order, the referring customer receives ₹${REFERRAL_REWARD_INR} Cleenzo Credit in their Cleenzo Wallet.`,
@@ -95,7 +105,7 @@ const SECTIONS = [
   },
   {
     id: "referral-eligibility",
-    heading: "7. Referral Eligibility",
+    heading: "8. Referral Eligibility",
     body: [
       "The referred person must be a genuinely new Cleenzo customer.",
       "The referred customer must successfully complete their first eligible order.",
@@ -106,7 +116,7 @@ const SECTIONS = [
   },
   {
     id: "definitions",
-    heading: "8. Important Definitions",
+    heading: "9. Important Definitions",
     definitions: [
       {
         term: "Order Count",
@@ -118,13 +128,13 @@ const SECTIONS = [
       },
       {
         term: "Cleenzo Credit",
-        desc: "Promotional credit issued to the customer's Cleenzo Wallet. Cleenzo Credit is not transferable or redeemable for cash.",
+        desc: "Promotional credit issued to the customer's Cleenzo Wallet after eligible offers. Percentage credit (e.g. 10%) is calculated on the final payable amount after discount, not the original order value. Not transferable or redeemable for cash.",
       },
     ],
   },
   {
     id: "offer-eligibility",
-    heading: "9. Offer Eligibility",
+    heading: "10. Offer Eligibility",
     body: [
       "Offers may be subject to minimum order value requirements, service availability, applicable service areas, campaign validity dates and specific service exclusions.",
       "Unless explicitly stated otherwise, offers cannot be combined with another discount or promotional offer.",
@@ -132,7 +142,7 @@ const SECTIONS = [
   },
   {
     id: "final-decision",
-    heading: "10. Final Decision",
+    heading: "11. Final Decision",
     body: [
       "Cleenzo reserves the right to modify, suspend or withdraw any promotional offer or reward program in case of misuse, technical errors, fraudulent activity or operational requirements.",
     ],

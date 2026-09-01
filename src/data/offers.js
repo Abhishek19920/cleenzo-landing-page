@@ -21,7 +21,6 @@ import {
 import {
   MONTHLY_LOYALTY_CREDIT_PERCENT,
   MONTHLY_LOYALTY_MIN_GROSS_INR,
-  MONTHLY_LOYALTY_MIN_ORDERS,
   MONTHLY_LOYALTY_OFFER_END,
   MONTHLY_LOYALTY_PERCENT_OFF,
   MONTHLY_LOYALTY_QUALIFYING_START,
@@ -183,14 +182,14 @@ export const HOMEPAGE_OFFERS = [
     title: "Monthly loyalty unlock",
     subtitle: "Earn next month's savings",
     description:
-      `Complete ${MONTHLY_LOYALTY_MIN_ORDERS} orders or ₹${MONTHLY_LOYALTY_MIN_GROSS_INR.toLocaleString("en-IN")} in gross order value in a month to unlock ${MONTHLY_LOYALTY_PERCENT_OFF}% off plus ${MONTHLY_LOYALTY_CREDIT_PERCENT}% Cleenzo Credit back the following month.`,
+      `Reach ₹${MONTHLY_LOYALTY_MIN_GROSS_INR.toLocaleString("en-IN")} in gross order value in a calendar month to unlock ${MONTHLY_LOYALTY_PERCENT_OFF}% off plus ${MONTHLY_LOYALTY_CREDIT_PERCENT}% Cleenzo Credit back the following month.`,
     audience: "FOR REGULAR CUSTOMERS",
     validityLabel: "Always on · qualify monthly",
     cta: { label: "Book My Pickup", action: "schedule" },
     termsSections: [
       {
         heading: "How to qualify",
-        body: `During any calendar month, complete ${MONTHLY_LOYALTY_MIN_ORDERS} or more successful orders OR reach ₹${MONTHLY_LOYALTY_MIN_GROSS_INR.toLocaleString("en-IN")} in gross eligible order value (before discounts).`,
+        body: `During any calendar month, reach ₹${MONTHLY_LOYALTY_MIN_GROSS_INR.toLocaleString("en-IN")} in gross eligible order value (before discounts) from successful orders. Any number of orders counts — for example one ₹3,000 order or several smaller orders totalling ₹3,000.`,
         todo: false,
       },
       {
