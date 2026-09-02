@@ -20,7 +20,7 @@ function AlphabetFilter({ activeLetter, letterCounts, onSelectLetter, totalCount
         ) : null}
       </div>
       <div
-        className="flex flex-wrap gap-1.5"
+        className="flex flex-wrap gap-1 sm:gap-1.5 max-h-[7.5rem] sm:max-h-none overflow-y-auto sm:overflow-visible pr-1"
         role="group"
         aria-label="Filter price list by first letter"
       >
@@ -28,7 +28,7 @@ function AlphabetFilter({ activeLetter, letterCounts, onSelectLetter, totalCount
           type="button"
           onClick={() => onSelectLetter(null)}
           aria-pressed={!activeLetter}
-          className={`min-w-[2.25rem] h-9 px-2 rounded-lg text-xs font-bold border transition ${
+          className={`min-w-[2rem] sm:min-w-[2.25rem] h-8 sm:h-9 px-1.5 sm:px-2 rounded-lg text-[11px] sm:text-xs font-bold border transition ${
             !activeLetter
               ? "bg-cleenzo border-cleenzo text-white"
               : "bg-white border-cleenzo-sky-light text-slate-600 hover:border-cleenzo/30"
@@ -49,7 +49,7 @@ function AlphabetFilter({ activeLetter, letterCounts, onSelectLetter, totalCount
               aria-pressed={isActive}
               aria-label={`${letter}, ${count} items`}
               title={disabled ? `No items starting with ${letter}` : `${count} items`}
-              className={`min-w-[2.25rem] h-9 rounded-lg text-xs font-bold border transition ${
+              className={`min-w-[2rem] sm:min-w-[2.25rem] h-8 sm:h-9 rounded-lg text-[11px] sm:text-xs font-bold border transition ${
                 disabled
                   ? "bg-slate-50 border-slate-100 text-slate-300 cursor-not-allowed"
                   : isActive
@@ -66,7 +66,7 @@ function AlphabetFilter({ activeLetter, letterCounts, onSelectLetter, totalCount
             type="button"
             onClick={() => onSelectLetter(activeLetter === "#" ? null : "#")}
             aria-pressed={activeLetter === "#"}
-            className={`min-w-[2.25rem] h-9 px-2 rounded-lg text-xs font-bold border transition ${
+            className={`min-w-[2rem] sm:min-w-[2.25rem] h-8 sm:h-9 px-1.5 sm:px-2 rounded-lg text-[11px] sm:text-xs font-bold border transition ${
               activeLetter === "#"
                 ? "bg-cleenzo border-cleenzo text-white"
                 : "bg-white border-cleenzo-sky-light text-slate-700 hover:border-cleenzo/30"

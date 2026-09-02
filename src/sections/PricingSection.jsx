@@ -115,7 +115,7 @@ function PriceSearchBar({ value, onChange, placeholder, resultHint }) {
   );
 }
 
-function PriceTable({ items, unitLabel, emptyMessage, showCategory = false }) {
+function PriceTable({ items, unitLabel, emptyMessage }) {
   if (!items?.length) {
     return (
       <p className="text-slate-500 text-sm py-8 text-center">
@@ -125,65 +125,70 @@ function PriceTable({ items, unitLabel, emptyMessage, showCategory = false }) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-cleenzo-sky-light bg-white shadow-sm">
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[320px] text-left">
-          <thead>
-            <tr className="bg-cleenzo text-white">
-              {showCategory ? (
-                <th className="px-4 sm:px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wide w-28 sm:w-36">
-                  Category
+    <>
+      <ul className="md:hidden space-y-2">
+        {items.map((item, index) => (
+          <li
+            key={`${item.sectionId ?? "item"}-${item.name}-${item.price}-${index}`}
+            className="flex items-start justify-between gap-3 rounded-xl border border-cleenzo-sky-light bg-white px-4 py-3.5 shadow-sm"
+          >
+            <span className="text-sm font-semibold text-slate-800 leading-snug min-w-0">
+              {item.name}
+            </span>
+            <span className="text-sm font-black text-cleenzo shrink-0 text-right">
+              {formatInr(item.price)}
+              <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide">
+                {unitLabel}
+              </span>
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="hidden md:block overflow-hidden rounded-2xl border border-cleenzo-sky-light bg-white shadow-sm">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[320px] text-left">
+            <thead>
+              <tr className="bg-cleenzo text-white">
+                <th className="px-4 sm:px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wide">
+                  Item
                 </th>
-              ) : null}
-              <th className="px-4 sm:px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wide">
-                Item
-              </th>
-              <th className="px-4 sm:px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wide text-right w-32 sm:w-40">
-                Price {unitLabel}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item, index) => (
-              <tr
-                key={`${item.sectionId ?? "item"}-${item.name}-${item.price}-${index}`}
-                className={index % 2 === 0 ? "bg-white" : "bg-cleenzo-pale/30"}
-              >
-                {showCategory ? (
-                  <td className="px-4 sm:px-6 py-3 text-xs sm:text-sm font-bold text-cleenzo-dark whitespace-nowrap">
-                    {item.sectionLabel}
-                  </td>
-                ) : null}
-                <td className="px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-slate-800">
-                  {item.name}
-                </td>
-                <td className="px-4 sm:px-6 py-3 text-sm sm:text-base font-black text-cleenzo text-right">
-                  {formatInr(item.price)}
-                </td>
+                <th className="px-4 sm:px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wide text-right w-32 sm:w-40">
+                  Price {unitLabel}
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {items.map((item, index) => (
+                <tr
+                  key={`${item.sectionId ?? "item"}-${item.name}-${item.price}-${index}`}
+                  className={index % 2 === 0 ? "bg-white" : "bg-cleenzo-pale/30"}
+                >
+                  <td className="px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-slate-800">
+                    {item.name}
+                  </td>
+                  <td className="px-4 sm:px-6 py-3 text-sm sm:text-base font-black text-cleenzo text-right whitespace-nowrap">
+                    {formatInr(item.price)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-function CategoryTabs({
-  pricing,
-  selectedCategory,
-  activeService,
-  isBrowsingAll,
-  onSelectSection,
-}) {
+function CategoryTabs({ pricing, selectedCategory, activeService, onSelectSection }) {
   return (
     <div
-      className="flex flex-wrap gap-2 mb-6"
+      className="flex gap-2 mb-6 overflow-x-auto pb-1 -mx-1 px-1 snap-x snap-mandatory flex-nowrap sm:flex-wrap sm:overflow-visible sm:mx-0 sm:px-0"
       role="tablist"
       aria-label="Garment category"
     >
       {pricing.sectionTabs.map((tab) => {
-        const isCategorySelected = !isBrowsingAll && selectedCategory === tab.id;
+        const isCategorySelected = selectedCategory === tab.id;
         const count = pricing.items[activeService]?.[tab.id]?.length ?? 0;
         return (
           <button
@@ -192,7 +197,7 @@ function CategoryTabs({
             role="tab"
             aria-selected={isCategorySelected}
             onClick={() => onSelectSection(tab.id)}
-            className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold border transition ${
+            className={`inline-flex shrink-0 snap-start items-center gap-2 rounded-full px-4 py-2 text-sm font-bold border transition ${
               isCategorySelected
                 ? "bg-cleenzo border-cleenzo text-white shadow-sm"
                 : "bg-cleenzo-pale/50 border-cleenzo-sky-light text-slate-700 hover:border-cleenzo/30"
@@ -263,18 +268,6 @@ function PricingSection() {
     [pricing.sectionTabs],
   );
 
-  const allSectionItems = useMemo(() => {
-    if (activeService === "kg-wash") return [];
-    const serviceItems = pricing.items[activeService] ?? {};
-    return pricing.sectionTabs.flatMap((tab) =>
-      (serviceItems[tab.id] ?? []).map((item) => ({
-        ...item,
-        sectionId: tab.id,
-        sectionLabel: tab.label,
-      })),
-    );
-  }, [activeService, pricing.items, pricing.sectionTabs]);
-
   const sectionItems = useMemo(() => {
     if (activeService === "kg-wash") return [];
     return (pricing.items[activeService]?.[selectedCategory] ?? []).map((item) => ({
@@ -286,27 +279,26 @@ function PricingSection() {
 
   const isSearching = hasSearchQuery(searchQuery);
   const isLetterFilter = Boolean(activeLetter);
-  const isBrowsingAll = isSearching || isLetterFilter;
+  const isFiltering = isSearching || isLetterFilter;
 
   const letterCounts = useMemo(
-    () => getAvailableLetters(allSectionItems),
-    [allSectionItems],
+    () => getAvailableLetters(sectionItems),
+    [sectionItems],
   );
 
-  const filteredItems = useMemo(() => {
-    if (isBrowsingAll) {
-      return filterPricingItems(allSectionItems, {
+  const filteredItems = useMemo(
+    () =>
+      filterPricingItems(sectionItems, {
         searchQuery,
         letter: activeLetter,
-      });
-    }
-    return sectionItems;
-  }, [allSectionItems, sectionItems, searchQuery, activeLetter, isBrowsingAll]);
+      }),
+    [sectionItems, searchQuery, activeLetter],
+  );
 
   const displayedItems = useMemo(() => {
-    if (isBrowsingAll) return filteredItems;
+    if (isFiltering) return filteredItems;
     return filteredItems.slice(0, visibleCount);
-  }, [filteredItems, isBrowsingAll, visibleCount]);
+  }, [filteredItems, isFiltering, visibleCount]);
 
   const serviceAddons = useMemo(() => {
     if (activeService === "kg-wash") {
@@ -335,7 +327,6 @@ function PricingSection() {
     if (hasSearchQuery(value)) {
       setActiveLetter(null);
     } else if (!activeLetter) {
-      setSelectedCategory("men");
       setVisibleCount(INITIAL_VISIBLE);
     }
   };
@@ -345,17 +336,20 @@ function PricingSection() {
     if (letter) setSearchQuery("");
   };
 
-  const searchHint = isBrowsingAll
+  const activeCategoryLabel =
+    sectionTabById[selectedCategory]?.label ?? selectedCategory;
+
+  const searchHint = isFiltering
     ? filteredItems.length
-      ? `${filteredItems.length} result${filteredItems.length === 1 ? "" : "s"}${
+      ? `${filteredItems.length} result${filteredItems.length === 1 ? "" : "s"} in ${activeCategoryLabel}${
           isLetterFilter ? ` starting with “${activeLetter}”` : ""
-        }${isSearching ? ` matching “${searchQuery.trim()}”` : ""} — all categories`
+        }${isSearching ? ` matching “${searchQuery.trim()}”` : ""}`
       : isLetterFilter
-          ? `No items starting with “${activeLetter}”`
-          : `No results for “${searchQuery.trim()}” across all categories`
+          ? `No items in ${activeCategoryLabel} starting with “${activeLetter}”`
+          : `No results for “${searchQuery.trim()}” in ${activeCategoryLabel}`
     : sectionItems.length > INITIAL_VISIBLE
-      ? `Showing first ${Math.min(visibleCount, sectionItems.length)} of ${sectionItems.length} — search or pick a letter for instant results`
-      : `${sectionItems.length} items in this category`;
+      ? `Showing first ${Math.min(visibleCount, sectionItems.length)} of ${sectionItems.length} in ${activeCategoryLabel} — search or pick a letter to narrow`
+      : `${sectionItems.length} items in ${activeCategoryLabel}`;
 
   return (
     <section id="pricing" className="bg-cleenzo-pale-bg border-t border-cleenzo-sky-light">
@@ -384,12 +378,12 @@ function PricingSection() {
 
         <KgServiceCards pricing={pricing} />
 
-        <div className="grid lg:grid-cols-[240px_1fr] gap-6 lg:gap-8 items-start">
-          <aside className="lg:sticky lg:top-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,240px)_1fr] gap-6 lg:gap-8 items-start">
+          <aside className="min-w-0 lg:sticky lg:top-24">
             <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3 px-1">
               Select service
             </p>
-            <div className="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible">
+            <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory flex-nowrap lg:flex-col lg:pb-0 lg:overflow-visible lg:snap-none lg:flex-wrap">
               {pricing.serviceTabs.map((tab) => {
                 const isActive = activeService === tab.id;
                 return (
@@ -400,7 +394,7 @@ function PricingSection() {
                       setActiveService(tab.id);
                       if (tab.id !== "kg-wash") setSelectedCategory("men");
                     }}
-                    className={`shrink-0 flex items-center gap-3 rounded-2xl px-4 py-3.5 text-left font-bold text-sm transition border ${
+                    className={`shrink-0 snap-start flex items-center gap-3 rounded-2xl px-4 py-3.5 text-left font-bold text-sm transition border min-w-[11.5rem] lg:min-w-0 lg:w-full ${
                       isActive
                         ? "bg-cleenzo border-cleenzo text-white shadow-md"
                         : "bg-white border-cleenzo-sky-light text-slate-700 hover:border-cleenzo/40"
@@ -471,8 +465,9 @@ function PricingSection() {
                       {serviceMeta?.label} · {serviceMeta?.turnaround}
                     </p>
                   </div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-cleenzo">
-                    {sectionItems.length} items listed
+                  <p className="text-xs font-bold uppercase tracking-widest text-cleenzo text-right sm:text-left">
+                    {isFiltering ? filteredItems.length : sectionItems.length} items
+                    {isFiltering ? " shown" : " listed"}
                   </p>
                 </div>
 
@@ -480,7 +475,6 @@ function PricingSection() {
                   pricing={pricing}
                   selectedCategory={selectedCategory}
                   activeService={activeService}
-                  isBrowsingAll={isBrowsingAll}
                   onSelectSection={handleSelectCategory}
                 />
 
@@ -495,23 +489,22 @@ function PricingSection() {
                   activeLetter={activeLetter}
                   letterCounts={letterCounts}
                   onSelectLetter={handleLetterSelect}
-                  totalCount={allSectionItems.length}
+                  totalCount={sectionItems.length}
                 />
 
                 <PriceTable
                   items={displayedItems}
                   unitLabel={unitLabel}
-                  showCategory={isBrowsingAll}
                   emptyMessage={
-                    isBrowsingAll
+                    isFiltering
                       ? isSearching
-                        ? `No items match “${searchQuery.trim()}”. Try another letter or keyword.`
-                        : `No items start with “${activeLetter}”.`
+                        ? `No items match “${searchQuery.trim()}” in ${activeCategoryLabel}. Try another keyword or category.`
+                        : `No items in ${activeCategoryLabel} start with “${activeLetter}”.`
                       : undefined
                   }
                 />
 
-                {!isBrowsingAll ? (
+                {!isFiltering ? (
                   <ShowMoreBar
                     visibleCount={displayedItems.length}
                     totalCount={filteredItems.length}
