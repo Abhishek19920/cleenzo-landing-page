@@ -486,8 +486,8 @@ export const GHAZIABAD_PRICING = {
           "price": 999
         },
         {
-          "name": "Sherwani / Achkan (Men)",
-          "price": 399
+          "name": "Sherwani / Achkan – Men",
+          "price": 419
         },
         {
           "name": "Sherwani / Achkan (Women)",
@@ -526,12 +526,12 @@ export const GHAZIABAD_PRICING = {
           "price": 419
         },
         {
-          "name": "Wedding Sherwani set",
-          "price": 799
+          "name": "Wedding Sherwani Set – Top: Sherwani | Bottom: Pajama",
+          "price": 999
         },
         {
-          "name": "Wedding Sherwani set Designer",
-          "price": 999
+          "name": "Wedding Sherwani Set Normal – Top: Sherwani | Bottom: Pajama",
+          "price": 799
         },
         {
           "name": "Wedding Suit ( 3 pcs )",
@@ -808,11 +808,11 @@ export const GHAZIABAD_PRICING = {
           "price": 249
         },
         {
-          "name": "Wedding Sherwani set",
+          "name": "Wedding Sherwani Top Normal",
           "price": 599
         },
         {
-          "name": "Wedding Sherwani set Designer",
+          "name": "Wedding Sherwani Top: Medium work",
           "price": 799
         },
         {
@@ -1910,7 +1910,7 @@ export const GHAZIABAD_PRICING = {
           "price": 499
         },
         {
-          "name": "Sherwani / Achkan (Men)",
+          "name": "Sherwani / Achkan – Men",
           "price": 199
         },
         {
@@ -1950,12 +1950,12 @@ export const GHAZIABAD_PRICING = {
           "price": 209
         },
         {
-          "name": "Wedding Sherwani set",
-          "price": 399
+          "name": "Wedding Sherwani Set – Top: Sherwani | Bottom: Pajama",
+          "price": 499
         },
         {
-          "name": "Wedding Sherwani set Designer",
-          "price": 499
+          "name": "Wedding Sherwani Set Normal – Top: Sherwani | Bottom: Pajama",
+          "price": 399
         },
         {
           "name": "Wedding Suit ( 3 pcs )",
@@ -2232,11 +2232,11 @@ export const GHAZIABAD_PRICING = {
           "price": 29
         },
         {
-          "name": "Wedding Sherwani set",
+          "name": "Wedding Sherwani Top Normal",
           "price": 299
         },
         {
-          "name": "Wedding Sherwani set Designer",
+          "name": "Wedding Sherwani Top: Medium work",
           "price": 399
         },
         {

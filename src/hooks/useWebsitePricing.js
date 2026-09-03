@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
 
-import { fetchWebsitePricing } from "../api/pricing";
+import { fetchWebsitePricing, getCleenzoApiBase } from "../api/pricing";
 import { GHAZIABAD_PRICING } from "../data/ghaziabadPricing";
 
 /**
- * Live pricing from Cleenzo backend when REACT_APP_CLEENZO_API_URL is set.
- * Falls back to bundled ghaziabadPricing.js for offline builds.
+ * Live pricing from Cleenzo ERP catalog via GET /public/website/pricing.
+ * Falls back to bundled ghaziabadPricing.js when the API is unreachable.
  */
 export function useWebsitePricing() {
+  const apiBase = getCleenzoApiBase();
   const [pricing, setPricing] = useState(GHAZIABAD_PRICING);
-  const [loading, setLoading] = useState(Boolean(process.env.REACT_APP_CLEENZO_API_URL));
+  const [loading, setLoading] = useState(Boolean(apiBase));
   const [source, setSource] = useState("bundled");
 
   useEffect(() => {
     let cancelled = false;
+    const base = getCleenzoApiBase();
 
-    if (!process.env.REACT_APP_CLEENZO_API_URL) {
+    if (!base) {
       setLoading(false);
       return undefined;
     }
 
+    setLoading(true);
     void fetchWebsitePricing()
       .then((data) => {
         if (cancelled || !data) return;
