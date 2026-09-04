@@ -25,7 +25,7 @@ export const PROMO_CAROUSEL_SLIDES = [
     theme: "light",
     offerId: "festive-first3-2026",
     ariaLabel:
-      "New customer offer — 30% off your first 3 orders. Free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram and Vaishali. Book now.",
+      "New customer offer — 30% off your first 3 orders (min ₹500). Free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram and Vaishali. Book now.",
     startDate: OFFER_PROGRAM_START,
     endDate: LIFETIME_OFFER_END,
     clickAction: "schedule",

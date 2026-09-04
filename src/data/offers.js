@@ -132,7 +132,7 @@ export const HOMEPAGE_OFFERS = [
     discount: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF`,
     secondaryBenefit: `On your first ${FESTIVE_FIRST3_MAX_ORDERS} orders`,
     description:
-      "New to Cleenzo? Get 30% off eligible laundry & dry cleaning on each of your first 3 orders — German chemicals, expert finish and free doorstep pickup included.",
+      "New to Cleenzo? Get 30% off laundry wash & iron, wash & fold, premium laundry, dry clean and steam iron on each of your first 3 orders (minimum order ₹500) — German chemicals, expert finish and free doorstep pickup included.",
     audience: "FOR NEW CUSTOMERS",
     validityLabel: "Always on",
     cta: { label: "Book My First Pickup", action: "schedule" },
@@ -148,18 +148,23 @@ export const HOMEPAGE_OFFERS = [
         todo: false,
       },
       {
+        heading: "Minimum order",
+        body: "Order subtotal must be at least ₹500 for the 30% welcome discount to apply. Orders below ₹500 are billed at full price and do not use a first-3 slot.",
+        todo: false,
+      },
+      {
         heading: "How the 3 orders count",
         body: "Each discounted order uses one of your three. A cancelled order does not use one up.",
         todo: false,
       },
       {
         heading: "Eligible services",
-        body: "Eligible laundry and dry cleaning items as determined by Cleenzo catalog rules. Steam-iron-only and uniform services are excluded.",
+        body: "Applies to laundry wash & iron, wash & fold, premium laundry, dry clean, and steam iron / steam press. Police / force uniform services are excluded.",
         todo: false,
       },
       {
         heading: "Discount basis",
-        body: "30% is calculated on the eligible order value before any discount is applied. Cannot be combined with a coupon code or another promotional offer.",
+        body: "30% is calculated on the eligible order value before any discount is applied (minimum ₹500). Cannot be combined with a coupon code or another promotional offer.",
         todo: false,
       },
       {
