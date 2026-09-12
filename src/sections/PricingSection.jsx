@@ -181,13 +181,17 @@ function PriceTable({ items, unitLabel, emptyMessage }) {
 }
 
 function CategoryTabs({ pricing, selectedCategory, activeService, onSelectSection }) {
+  const visibleTabs = pricing.sectionTabs.filter(
+    (tab) => (pricing.items[activeService]?.[tab.id]?.length ?? 0) > 0,
+  );
+
   return (
     <div
       className="flex gap-2 mb-6 overflow-x-auto pb-1 -mx-1 px-1 snap-x snap-mandatory flex-nowrap sm:flex-wrap sm:overflow-visible sm:mx-0 sm:px-0"
       role="tablist"
       aria-label="Garment category"
     >
-      {pricing.sectionTabs.map((tab) => {
+      {visibleTabs.map((tab) => {
         const isCategorySelected = selectedCategory === tab.id;
         const count = pricing.items[activeService]?.[tab.id]?.length ?? 0;
         return (
@@ -313,7 +317,12 @@ function PricingSection() {
     setSearchQuery("");
     setActiveLetter(null);
     setVisibleCount(INITIAL_VISIBLE);
-  }, [activeService]);
+    if (activeService === "kg-wash") return;
+    const firstSection = pricing.sectionTabs.find(
+      (tab) => (pricing.items[activeService]?.[tab.id]?.length ?? 0) > 0,
+    );
+    if (firstSection) setSelectedCategory(firstSection.id);
+  }, [activeService, pricing.items, pricing.sectionTabs]);
 
   const handleSelectCategory = (sectionId) => {
     setSelectedCategory(sectionId);
@@ -392,7 +401,6 @@ function PricingSection() {
                     type="button"
                     onClick={() => {
                       setActiveService(tab.id);
-                      if (tab.id !== "kg-wash") setSelectedCategory("men");
                     }}
                     className={`shrink-0 snap-start flex items-center gap-3 rounded-2xl px-4 py-3.5 text-left font-bold text-sm transition border min-w-[11.5rem] lg:min-w-0 lg:w-full ${
                       isActive
