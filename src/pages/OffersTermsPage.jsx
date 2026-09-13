@@ -44,10 +44,10 @@ const SECTIONS = [
   {
     id: "ganesh-chaturthi",
     heading: "2. Ganesh Chaturthi Festival Offer",
-    status: "3–15 September 2026 · first 500 orders",
+    status: "3–25 September 2026 · first 500 orders",
     body: [
       `Flat ${GANESH_CHATURTHI_PERCENT_OFF}% OFF plus ${GANESH_CHATURTHI_CREDIT_PERCENT}% Cleenzo Credit back on eligible laundry and dry cleaning orders.`,
-      `Valid ${GANESH_CHATURTHI_START === "2026-09-03" ? "3" : GANESH_CHATURTHI_START} to ${GANESH_CHATURTHI_END === "2026-09-15" ? "15 September 2026" : GANESH_CHATURTHI_END} (Asia/Kolkata). Limited to the first ${GANESH_CHATURTHI_MAX_ORDERS} eligible orders.`,
+      `Valid ${GANESH_CHATURTHI_START === "2026-09-03" ? "3" : GANESH_CHATURTHI_START} to ${GANESH_CHATURTHI_END === "2026-09-25" ? "25 September 2026" : GANESH_CHATURTHI_END} (Asia/Kolkata). Limited to the first ${GANESH_CHATURTHI_MAX_ORDERS} eligible orders.`,
       `The offer applies only when the original gross eligible order value is ₹${GANESH_CHATURTHI_MIN_ORDER_INR.toLocaleString("en-IN")} or more, calculated before any discount, coupon, wallet credit or Cleenzo Credit.`,
       "Example: an order originally valued at ₹500 receives 25% off (₹125) and the customer pays ₹375. The customer remains eligible because the original order value is ₹500.",
       "Example: on that ₹500 order, 10% Cleenzo Credit back is ₹37.50 — calculated on the ₹375 you pay after discount, not on ₹500.",

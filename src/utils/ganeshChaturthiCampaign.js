@@ -4,7 +4,7 @@ import { isOfferActive, isOfferWithinListingWindow } from "./offerDates";
  * Ganesh Chaturthi festival window (IST, inclusive).
  */
 export const GANESH_CHATURTHI_START = "2026-09-03";
-export const GANESH_CHATURTHI_END = "2026-09-15";
+export const GANESH_CHATURTHI_END = "2026-09-25";
 
 export const GANESH_CHATURTHI_PERCENT_OFF = 25;
 export const GANESH_CHATURTHI_CREDIT_PERCENT = 10;

@@ -78,7 +78,7 @@ function OffersSection() {
             {ganeshActive
               ? "Ganesh Chaturthi savings, new customer offers, referral rewards and quality fabric care"
               : ganeshListed
-              ? "Ganesh Chaturthi offer — 3rd to 15th September — plus new customer savings and referral rewards"
+              ? "Ganesh Chaturthi offer — 3rd to 25th September — plus new customer savings and referral rewards"
               : offersLive
               ? "New customer savings, referral rewards and quality fabric care"
               : "Quality fabric care — with savings while the season offer lasts"}

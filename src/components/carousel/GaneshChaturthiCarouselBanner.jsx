@@ -26,7 +26,7 @@ function GaneshChaturthiCarouselBanner({ onClick, ariaLabel }) {
             German chemicals · Expert finishing · Free doorstep pickup
           </p>
           <p className="festive-sale-banner__dates">
-            3rd – 15th September · Min order ₹{GANESH_CHATURTHI_MIN_ORDER_INR}
+            3rd – 25th September · Min order ₹{GANESH_CHATURTHI_MIN_ORDER_INR}
           </p>
           <ul className="festive-sale-banner__areas" aria-label="Service areas">
             <li>Raj Nagar Extn</li>

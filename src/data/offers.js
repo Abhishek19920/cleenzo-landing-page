@@ -91,12 +91,12 @@ export const HOMEPAGE_OFFERS = [
     description:
       `Flat ${GANESH_CHATURTHI_PERCENT_OFF}% off eligible laundry & dry cleaning plus ${GANESH_CHATURTHI_CREDIT_PERCENT}% Cleenzo Credit back — when your original order value is ₹${GANESH_CHATURTHI_MIN_ORDER_INR} or more. Limited to the first ${GANESH_CHATURTHI_MAX_ORDERS} eligible orders.`,
     audience: "FOR EVERYONE · New & existing customers",
-    validityLabel: "3rd – 15th September",
+    validityLabel: "3rd – 25th September",
     cta: { label: "Book Festival Pickup", action: "schedule" },
     termsSections: [
       {
         heading: "Campaign period",
-        body: "Valid 3–15 September 2026 (Asia/Kolkata). Limited to the first 500 eligible orders across all customers.",
+        body: "Valid 3–25 September 2026 (Asia/Kolkata). Limited to the first 500 eligible orders across all customers.",
         todo: false,
       },
       {
