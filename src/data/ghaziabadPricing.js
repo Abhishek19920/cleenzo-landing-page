@@ -31,6 +31,20 @@ export const GHAZIABAD_PRICING = {
       "icon": "🎨",
       "unit": "pc",
       "turnaround": "48–72 hrs"
+    },
+    {
+      "id": "toy-cleaning",
+      "label": "Toy Cleaning",
+      "icon": "🧸",
+      "unit": "pc",
+      "turnaround": "24–48 hrs"
+    },
+    {
+      "id": "divine-textile",
+      "label": "Divine Textile Care",
+      "icon": "🙏",
+      "unit": "pc",
+      "turnaround": "Special care · 24–72 hrs"
     }
   ],
   "sectionTabs": [
@@ -50,6 +64,16 @@ export const GHAZIABAD_PRICING = {
       "icon": "🛏️"
     },
     {
+      "id": "bags",
+      "label": "Bags",
+      "icon": "👜"
+    },
+    {
+      "id": "leather-bags",
+      "label": "Leather Bags",
+      "icon": "🧳"
+    },
+    {
       "id": "kids",
       "label": "Kids",
       "icon": "🧒"
@@ -58,6 +82,56 @@ export const GHAZIABAD_PRICING = {
       "id": "luxury",
       "label": "Luxury",
       "icon": "💎"
+    },
+    {
+      "id": "soft-toys",
+      "label": "Soft Toys",
+      "icon": "🧸"
+    },
+    {
+      "id": "teddy-bears",
+      "label": "Teddy Bears",
+      "icon": "🐻"
+    },
+    {
+      "id": "plush-toys",
+      "label": "Plush Toys",
+      "icon": "🦄"
+    },
+    {
+      "id": "dolls",
+      "label": "Dolls",
+      "icon": "🎎"
+    },
+    {
+      "id": "fiber-plastic-toys",
+      "label": "Fiber / Plastic Toys",
+      "icon": "🧩"
+    },
+    {
+      "id": "action-figures",
+      "label": "Action Figures",
+      "icon": "🦸"
+    },
+    {
+      "id": "baby-toys",
+      "label": "Baby Toys",
+      "icon": "🍼"
+    },
+    {
+      "id": "ride-on-toys",
+      "label": "Ride-on / Large Toys",
+      "icon": "🚗"
+    },
+    {
+      "id": "toy-special",
+      "label": "Special",
+      "icon": "✨"
+    },
+    {
+      "id": "divine-textiles",
+      "label": "Divine Textiles",
+      "icon": "🙏"
     }
   ],
   "kgServices": [
@@ -82,23 +156,87 @@ export const GHAZIABAD_PRICING = {
   ],
   "items": {
     "dry-clean": {
-      "household": [
+      "bags": [
+        {
+          "name": "Backpack Large",
+          "price": 499
+        },
+        {
+          "name": "Backpack Medium",
+          "price": 349
+        },
+        {
+          "name": "Backpack Small",
+          "price": 299
+        },
         {
           "name": "Bag",
           "price": 550
         },
         {
-          "name": "Bagpack Large",
+          "name": "Handbag Large",
+          "price": 599
+        },
+        {
+          "name": "Handbag Medium",
           "price": 499
         },
         {
-          "name": "Bagpack Medium",
-          "price": 349
+          "name": "Handbag Small",
+          "price": 399
         },
         {
-          "name": "Bagpack Small",
-          "price": 299
+          "name": "Laptop Bag",
+          "price": 399
         },
+        {
+          "name": "Purse/Clutch",
+          "price": 249
+        },
+        {
+          "name": "Suitcase Cabin",
+          "price": 499
+        },
+        {
+          "name": "Suitcase Large",
+          "price": 699
+        },
+        {
+          "name": "Suitcase Medium",
+          "price": 599
+        },
+        {
+          "name": "Travel/Duffel Large",
+          "price": 499
+        },
+        {
+          "name": "Travel/Duffel Small",
+          "price": 399
+        },
+        {
+          "name": "Women's Shoulder Bag",
+          "price": 599
+        },
+        {
+          "name": "Women's Sling Bag",
+          "price": 399
+        }
+      ],
+      "leather-bags": [
+        {
+          "name": "Leather Bag Large",
+          "price": 849
+        },
+        {
+          "name": "Leather Bag Medium",
+          "price": 599
+        },
+        {
+          "name": "Leather Bag Small",
+          "price": 449
+        }
+      ],
+      "household": [
         {
           "name": "Bath Mat ( Large )",
           "price": 89
@@ -140,8 +278,8 @@ export const GHAZIABAD_PRICING = {
           "price": 119
         },
         {
-          "name": "Blanket Double",
-          "price": 449
+          "name": "Blanket Double/Comforter",
+          "price": 399
         },
         {
           "name": "Blanket Duvet ( Double )",
@@ -152,8 +290,8 @@ export const GHAZIABAD_PRICING = {
           "price": 699
         },
         {
-          "name": "Blanket Single",
-          "price": 349
+          "name": "Blanket Single/ Comforter",
+          "price": 299
         },
         {
           "name": "Curtain - Cotton [Per Panel]",
@@ -210,22 +348,6 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Handgloves",
           "price": 99
-        },
-        {
-          "name": "Laptop Bag",
-          "price": 399
-        },
-        {
-          "name": "Leather Bag ( Large )",
-          "price": 849
-        },
-        {
-          "name": "Leather Bag ( Medium )",
-          "price": 599
-        },
-        {
-          "name": "Leather Bag ( Small )",
-          "price": 449
         },
         {
           "name": "Mosquito Net",
@@ -350,7 +472,7 @@ export const GHAZIABAD_PRICING = {
           "price": 139
         },
         {
-          "name": "Blanket Double",
+          "name": "Blanket Double/Comforter",
           "price": 499
         },
         {
@@ -364,6 +486,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Blouse / Top",
           "price": 299
+        },
+        {
+          "name": "Bridal Lehenga",
+          "price": 1200
         },
         {
           "name": "Choli + Lehenga",
@@ -444,6 +570,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Lehenga / Flared Skirt",
           "price": 699
+        },
+        {
+          "name": "Luxury Bridal Lehenga – Heavy Embroidery / Zari / Sequin (Includes Luxury Packaging)",
+          "price": 1700
         },
         {
           "name": "Overcoat (Men)",
@@ -1086,12 +1216,12 @@ export const GHAZIABAD_PRICING = {
           "price": 249
         },
         {
-          "name": "Kurta + Pants / Salwar / Churidar",
-          "price": 199
+          "name": "Kurta + Pants / Salwar / Churidar Normal work",
+          "price": 299
         },
         {
-          "name": "Kurta + Pants / Salwar / Churidar + Dupatta",
-          "price": 299
+          "name": "Kurta Normal",
+          "price": 199
         },
         {
           "name": "Ladies Suit 2pcs",
@@ -1222,7 +1352,7 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
-          "name": "Salwar Kurta Normal Work - 3pcs",
+          "name": "Salwar Kurta Normal Work - 2pcs",
           "price": 239
         },
         {
@@ -1360,14 +1490,6 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Women Night Robe Satin",
           "price": 159
-        },
-        {
-          "name": "Women's Shoulder Bag",
-          "price": 599
-        },
-        {
-          "name": "Women's Sling Bag",
-          "price": 399
         }
       ],
       "kids": [
@@ -1490,23 +1612,51 @@ export const GHAZIABAD_PRICING = {
       ]
     },
     "steam-iron": {
-      "household": [
+      "bags": [
+        {
+          "name": "Backpack Large",
+          "price": 249
+        },
+        {
+          "name": "Backpack Medium",
+          "price": 174
+        },
+        {
+          "name": "Backpack Small",
+          "price": 149
+        },
         {
           "name": "Bag",
           "price": 274
         },
         {
-          "name": "Bagpack Large",
-          "price": 249
+          "name": "Laptop Bag",
+          "price": 199
         },
         {
-          "name": "Bagpack Medium",
-          "price": 174
+          "name": "Women's Shoulder Bag",
+          "price": 299
         },
         {
-          "name": "Bagpack Small",
-          "price": 149
+          "name": "Women's Sling Bag",
+          "price": 199
+        }
+      ],
+      "leather-bags": [
+        {
+          "name": "Leather Bag Large",
+          "price": 424
         },
+        {
+          "name": "Leather Bag Medium",
+          "price": 299
+        },
+        {
+          "name": "Leather Bag Small",
+          "price": 224
+        }
+      ],
+      "household": [
         {
           "name": "Bath Mat ( Large )",
           "price": 44
@@ -1548,7 +1698,7 @@ export const GHAZIABAD_PRICING = {
           "price": 59
         },
         {
-          "name": "Blanket Double",
+          "name": "Blanket Double/Comforter",
           "price": 224
         },
         {
@@ -1560,7 +1710,7 @@ export const GHAZIABAD_PRICING = {
           "price": 49
         },
         {
-          "name": "Blanket Single",
+          "name": "Blanket Single/ Comforter",
           "price": 174
         },
         {
@@ -1626,22 +1776,6 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Handgloves",
           "price": 49
-        },
-        {
-          "name": "Laptop Bag",
-          "price": 199
-        },
-        {
-          "name": "Leather Bag ( Large )",
-          "price": 424
-        },
-        {
-          "name": "Leather Bag ( Medium )",
-          "price": 299
-        },
-        {
-          "name": "Leather Bag ( Small )",
-          "price": 224
         },
         {
           "name": "Mossquito Net",
@@ -1746,14 +1880,6 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Travel pillow without beads",
           "price": 149
-        },
-        {
-          "name": "Women's Shoulder Bag",
-          "price": 299
-        },
-        {
-          "name": "Women's Sling Bag",
-          "price": 199
         }
       ],
       "luxury": [
@@ -1774,7 +1900,7 @@ export const GHAZIABAD_PRICING = {
           "price": 69
         },
         {
-          "name": "Blanket Double",
+          "name": "Blanket Double/Comforter",
           "price": 249
         },
         {
@@ -2654,7 +2780,7 @@ export const GHAZIABAD_PRICING = {
           "price": 149
         },
         {
-          "name": "Salwar Kurta Normal Work - 3pcs",
+          "name": "Salwar Kurta Normal Work - 2pcs",
           "price": 119
         },
         {
@@ -2997,6 +3123,214 @@ export const GHAZIABAD_PRICING = {
           "price": 169
         }
       ]
+    },
+    "toy-cleaning": {
+      "soft-toys": [
+        {
+          "name": "Extra Large Soft Toy (37–48\")",
+          "price": 299
+        },
+        {
+          "name": "Jumbo Soft Toy (48\"+)",
+          "price": 399
+        },
+        {
+          "name": "Large Soft Toy (25–36\")",
+          "price": 199
+        },
+        {
+          "name": "Medium Soft Toy (13–24\")",
+          "price": 129
+        },
+        {
+          "name": "Small Soft Toy (up to 12\")",
+          "price": 79
+        }
+      ],
+      "teddy-bears": [
+        {
+          "name": "Extra Large Teddy",
+          "price": 299
+        },
+        {
+          "name": "Large Teddy",
+          "price": 199
+        },
+        {
+          "name": "Medium Teddy",
+          "price": 129
+        },
+        {
+          "name": "Small Teddy",
+          "price": 79
+        }
+      ],
+      "plush-toys": [
+        {
+          "name": "Large Plush / Stuffed Animal",
+          "price": 199
+        },
+        {
+          "name": "Medium Plush / Stuffed Animal",
+          "price": 129
+        },
+        {
+          "name": "Small Plush / Stuffed Animal",
+          "price": 79
+        }
+      ],
+      "dolls": [
+        {
+          "name": "Large Doll",
+          "price": 199
+        },
+        {
+          "name": "Medium Doll",
+          "price": 149
+        },
+        {
+          "name": "Small Stuffed Doll",
+          "price": 99
+        }
+      ],
+      "fiber-plastic-toys": [
+        {
+          "name": "Character Toy — Spider-Man, Batman etc. (₹79–₹99)",
+          "price": 89
+        },
+        {
+          "name": "Large Character Toy",
+          "price": 149
+        },
+        {
+          "name": "Large Toy",
+          "price": 119
+        },
+        {
+          "name": "Medium Toy",
+          "price": 79
+        },
+        {
+          "name": "Small Toy",
+          "price": 49
+        }
+      ],
+      "action-figures": [
+        {
+          "name": "Large Action Figure",
+          "price": 119
+        },
+        {
+          "name": "Medium Action Figure",
+          "price": 79
+        },
+        {
+          "name": "Small Action Figure",
+          "price": 49
+        }
+      ],
+      "baby-toys": [
+        {
+          "name": "Large Baby Toy",
+          "price": 119
+        },
+        {
+          "name": "Medium Baby Toy",
+          "price": 79
+        },
+        {
+          "name": "Small Baby Toy",
+          "price": 49
+        }
+      ],
+      "ride-on-toys": [
+        {
+          "name": "Large Ride-on Toy",
+          "price": 249
+        },
+        {
+          "name": "Small Ride-on Toy",
+          "price": 149
+        }
+      ],
+      "toy-special": [
+        {
+          "name": "Electronic / Battery Toy",
+          "price": 99
+        },
+        {
+          "name": "Heavily Soiled Toy (surcharge)",
+          "price": 50
+        },
+        {
+          "name": "Musical / Sound Toy",
+          "price": 99
+        },
+        {
+          "name": "Very Delicate / Special Handling (On Inspection)",
+          "price": 0
+        }
+      ]
+    },
+    "divine-textile": {
+      "divine-textiles": [
+        {
+          "name": "2-Piece Vastra Set",
+          "price": 99
+        },
+        {
+          "name": "3–4 Piece Vastra Set",
+          "price": 149
+        },
+        {
+          "name": "Decorative / Jhanki Cloth",
+          "price": 149
+        },
+        {
+          "name": "Heavy / Designer Poshak Set",
+          "price": 199
+        },
+        {
+          "name": "Large Idol Vastra",
+          "price": 99
+        },
+        {
+          "name": "Large Poshak Set",
+          "price": 149
+        },
+        {
+          "name": "Mandir Cloth (₹59–₹99)",
+          "price": 79
+        },
+        {
+          "name": "Mata Rani Chunni – Designer / Embroidered",
+          "price": 99
+        },
+        {
+          "name": "Mata Rani Chunni – Regular",
+          "price": 79
+        },
+        {
+          "name": "Medium Idol Vastra",
+          "price": 79
+        },
+        {
+          "name": "Medium Poshak Set",
+          "price": 99
+        },
+        {
+          "name": "Single Decorative Vastra",
+          "price": 59
+        },
+        {
+          "name": "Small Idol Vastra",
+          "price": 59
+        },
+        {
+          "name": "Small Poshak Set",
+          "price": 79
+        }
+      ]
     }
   },
   "addons": {
@@ -3065,6 +3399,8 @@ export const GHAZIABAD_PRICING = {
         "price": 30
       }
     ],
-    "dyeing": []
+    "dyeing": [],
+    "toy-cleaning": [],
+    "divine-textile": []
   }
 };
