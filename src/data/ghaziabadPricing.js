@@ -565,7 +565,7 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Ladies Suit 3 Pc",
-          "price": 499
+          "price": 449
         },
         {
           "name": "Lehenga / Flared Skirt",
@@ -1225,11 +1225,11 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Ladies Suit 2pcs",
-          "price": 299
+          "price": 399
         },
         {
           "name": "Ladies Suit 3pcs",
-          "price": 399
+          "price": 449
         },
         {
           "name": "Lehenga / Flared Skirt",
@@ -1985,7 +1985,7 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Ladies Suit 3 Pc",
-          "price": 249
+          "price": 224
         },
         {
           "name": "Lehenga",
@@ -2649,11 +2649,11 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Ladies Suit 2pcs",
-          "price": 149
+          "price": 199
         },
         {
           "name": "Ladies Suit 3pcs",
-          "price": 199
+          "price": 224
         },
         {
           "name": "Lehenga / Flared Skirt",
