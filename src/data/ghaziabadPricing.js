@@ -456,27 +456,27 @@ export const GHAZIABAD_PRICING = {
       ],
       "luxury": [
         {
-          "name": "Bed Cover Double / King",
+          "name": "Bed Cover Double / King Premium",
           "price": 399
         },
         {
-          "name": "Bed Cover Single",
+          "name": "Bed Cover Single Premium",
           "price": 279
         },
         {
-          "name": "Bed Sheet Double / King",
+          "name": "Bed Sheet Double / King Premium",
           "price": 229
         },
         {
-          "name": "Bed Sheet Single",
+          "name": "Bed Sheet Single Premium",
           "price": 139
         },
         {
-          "name": "Blanket Double/Comforter",
+          "name": "Blanket Double / Comforter Premium",
           "price": 499
         },
         {
-          "name": "Blanket Single",
+          "name": "Blanket Single Premium",
           "price": 399
         },
         {
@@ -508,19 +508,19 @@ export const GHAZIABAD_PRICING = {
           "price": 499
         },
         {
-          "name": "Curtain - With Lining [Per Panel]",
+          "name": "Curtain - With Lining [Per Panel] Premium",
           "price": 399
         },
         {
-          "name": "Curtain - Without Lining [Per Panel]",
+          "name": "Curtain - Without Lining [Per Panel] Premium",
           "price": 269
         },
         {
-          "name": "Cushion Cover Big",
+          "name": "Cushion Cover Big Premium",
           "price": 139
         },
         {
-          "name": "Cushion Cover Small",
+          "name": "Cushion Cover Small Premium",
           "price": 79
         },
         {
@@ -588,19 +588,19 @@ export const GHAZIABAD_PRICING = {
           "price": 129
         },
         {
-          "name": "Quilt Cover ( Double )",
+          "name": "Quilt Cover ( Double ) Premium",
           "price": 399
         },
         {
-          "name": "Quilt Cover ( Single )",
+          "name": "Quilt Cover ( Single ) Premium",
           "price": 279
         },
         {
-          "name": "Quilt Double",
+          "name": "Quilt Double Premium",
           "price": 599
         },
         {
-          "name": "Quilt Single",
+          "name": "Quilt Single Premium",
           "price": 499
         },
         {
@@ -1754,7 +1754,7 @@ export const GHAZIABAD_PRICING = {
           "price": 34
         },
         {
-          "name": "Cushion Cover Small - Preimium",
+          "name": "Cushion Cover Small - Premium",
           "price": 64
         },
         {
@@ -1884,27 +1884,27 @@ export const GHAZIABAD_PRICING = {
       ],
       "luxury": [
         {
-          "name": "Bed Cover Double / King",
+          "name": "Bed Cover Double / King Premium",
           "price": 199
         },
         {
-          "name": "Bed Cover Single",
+          "name": "Bed Cover Single Premium",
           "price": 139
         },
         {
-          "name": "Bed Sheet Double / King",
+          "name": "Bed Sheet Double / King Premium",
           "price": 114
         },
         {
-          "name": "Bed Sheet Single",
+          "name": "Bed Sheet Single Premium",
           "price": 69
         },
         {
-          "name": "Blanket Double/Comforter",
+          "name": "Blanket Double / Comforter Premium",
           "price": 249
         },
         {
-          "name": "Blanket Single",
+          "name": "Blanket Single Premium",
           "price": 199
         },
         {
@@ -1932,19 +1932,19 @@ export const GHAZIABAD_PRICING = {
           "price": 249
         },
         {
-          "name": "Curtain - With Lining [Per Panel]",
+          "name": "Curtain - With Lining [Per Panel] Premium",
           "price": 199
         },
         {
-          "name": "Curtain - Without Lining [Per Panel]",
+          "name": "Curtain - Without Lining [Per Panel] Premium",
           "price": 134
         },
         {
-          "name": "Cushion Cover Big",
+          "name": "Cushion Cover Big Premium",
           "price": 69
         },
         {
-          "name": "Cushion Cover Small",
+          "name": "Cushion Cover Small Premium",
           "price": 39
         },
         {
@@ -2008,19 +2008,19 @@ export const GHAZIABAD_PRICING = {
           "price": 64
         },
         {
-          "name": "Quilt Cover ( Double )",
+          "name": "Quilt Cover ( Double ) Premium",
           "price": 199
         },
         {
-          "name": "Quilt Cover ( Single )",
+          "name": "Quilt Cover ( Single ) Premium",
           "price": 139
         },
         {
-          "name": "Quilt Double",
+          "name": "Quilt Double Premium",
           "price": 299
         },
         {
-          "name": "Quilt Single",
+          "name": "Quilt Single Premium",
           "price": 249
         },
         {
