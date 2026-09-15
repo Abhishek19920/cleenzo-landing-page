@@ -1,8 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import PlaceOrderCTA from "../components/PlaceOrderCTA";
 import AlphabetFilter from "../components/pricing/AlphabetFilter";
 import { PRICING_SECTION } from "../constants";
+import {
+  PRICING_DEEP_LINK_IDS,
+  resolvePricingDeepLink,
+  scrollToPricingDeepLinkId,
+} from "../utils/pricingDeepLinks";
 import {
   filterPricingItems,
   getAvailableLetters,
@@ -10,6 +15,9 @@ import {
   matchesPricingSearch,
 } from "../utils/pricingSearch";
 import { useWebsitePricing } from "../hooks/useWebsitePricing";
+
+/** Sticky navbar clearance for hash targets (fixed header). */
+const PRICING_SCROLL_MARGIN_CLASS = "scroll-mt-28";
 
 function formatInr(amount) {
   return `₹${amount.toLocaleString("en-IN")}`;
@@ -261,6 +269,8 @@ function PricingSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeLetter, setActiveLetter] = useState(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
+  /** Category requested by hash — wins over “first section” reset on service change. */
+  const pendingCategoryFromHashRef = useRef(null);
 
   const serviceMeta = useMemo(
     () => pricing.serviceTabs.find((tab) => tab.id === activeService),
@@ -318,11 +328,66 @@ function PricingSection() {
     setActiveLetter(null);
     setVisibleCount(INITIAL_VISIBLE);
     if (activeService === "kg-wash") return;
+
+    if (pendingCategoryFromHashRef.current) {
+      const categoryFromHash = pendingCategoryFromHashRef.current;
+      pendingCategoryFromHashRef.current = null;
+      setSelectedCategory(categoryFromHash);
+      return;
+    }
+
     const firstSection = pricing.sectionTabs.find(
       (tab) => (pricing.items[activeService]?.[tab.id]?.length ?? 0) > 0,
     );
     if (firstSection) setSelectedCategory(firstSection.id);
   }, [activeService, pricing.items, pricing.sectionTabs]);
+
+  // Direct / refresh / in-page hash navigation for pricing deep links.
+  useEffect(() => {
+    const applyHash = ({ behavior } = {}) => {
+      const link = resolvePricingDeepLink(window.location.hash);
+      if (!link) return;
+
+      if (link.category) {
+        pendingCategoryFromHashRef.current = link.category;
+      }
+      if (link.service) {
+        setActiveService(link.service);
+      }
+      if (link.category) {
+        setSelectedCategory(link.category);
+      }
+
+      const scrollBehavior = behavior ?? "auto";
+      // Wait a frame (and briefly after) so tab state can paint before scroll.
+      window.requestAnimationFrame(() => {
+        scrollToPricingDeepLinkId(link.scrollId, { behavior: scrollBehavior });
+        window.setTimeout(() => {
+          scrollToPricingDeepLinkId(link.scrollId, { behavior: scrollBehavior });
+        }, 80);
+        window.setTimeout(() => {
+          scrollToPricingDeepLinkId(link.scrollId, { behavior: "auto" });
+        }, 320);
+      });
+    };
+
+    applyHash({ behavior: "auto" });
+
+    const onHashChange = () => applyHash({ behavior: "smooth" });
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  // Re-scroll after catalog finishes loading (layout can shift).
+  useEffect(() => {
+    if (loading) return undefined;
+    const link = resolvePricingDeepLink(window.location.hash);
+    if (!link) return undefined;
+    const timer = window.setTimeout(() => {
+      scrollToPricingDeepLinkId(link.scrollId, { behavior: "auto" });
+    }, 50);
+    return () => window.clearTimeout(timer);
+  }, [loading, activeService, selectedCategory, pricing]);
 
   const handleSelectCategory = (sectionId) => {
     setSelectedCategory(sectionId);
@@ -361,7 +426,10 @@ function PricingSection() {
       : `${sectionItems.length} items in ${activeCategoryLabel}`;
 
   return (
-    <section id="pricing" className="bg-cleenzo-pale-bg border-t border-cleenzo-sky-light">
+    <section
+      id="pricing"
+      className={`bg-cleenzo-pale-bg border-t border-cleenzo-sky-light ${PRICING_SCROLL_MARGIN_CLASS}`}
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
         {loading ? (
           <p className="text-center text-sm text-slate-500 mb-6">Loading latest prices…</p>
@@ -386,6 +454,16 @@ function PricingSection() {
         </div>
 
         <KgServiceCards pricing={pricing} />
+
+        {/*
+          Always-mounted static anchors for shareable hashes.
+          IDs are fixed strings (mens / womens / household / toy-cleaning).
+        */}
+        <div className="relative" aria-hidden="true">
+          {PRICING_DEEP_LINK_IDS.filter((id) => id !== "pricing").map((id) => (
+            <div key={id} id={id} className={`block h-0 ${PRICING_SCROLL_MARGIN_CLASS}`} />
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,240px)_1fr] gap-6 lg:gap-8 items-start">
           <aside className="min-w-0 lg:sticky lg:top-24">

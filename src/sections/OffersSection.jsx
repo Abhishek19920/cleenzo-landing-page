@@ -63,7 +63,7 @@ function OffersSection() {
     <section
       ref={sectionRef}
       id="offers"
-      className={`border-y text-slate-900 overflow-hidden ${
+      className={`scroll-mt-28 border-y text-slate-900 overflow-hidden ${
         tirangaPage
           ? "home-tiranga-offers border-[#138808]/10 bg-transparent"
           : "bg-cleenzo-pale-bg border-cleenzo-sky-light/60"

@@ -17,7 +17,7 @@ function ContactSection() {
   }, []);
 
   return (
-    <section id="contact" className="bg-cleenzo-pale-bg border-y border-cleenzo-sky-light">
+    <section id="contact" className="scroll-mt-28 bg-cleenzo-pale-bg border-y border-cleenzo-sky-light">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <div className="text-center mb-10">
           <p className="text-cleenzo font-bold text-sm uppercase tracking-widest mb-2">
