@@ -1140,8 +1140,16 @@ export const GHAZIABAD_PRICING = {
           "price": 59
         },
         {
+          "name": "Belt Premium",
+          "price": 79
+        },
+        {
           "name": "Blouse",
           "price": 99
+        },
+        {
+          "name": "Blouse Premium",
+          "price": 129
         },
         {
           "name": "Blouse Designer",
@@ -1160,36 +1168,72 @@ export const GHAZIABAD_PRICING = {
           "price": 399
         },
         {
+          "name": "Boot Premium",
+          "price": 519
+        },
+        {
           "name": "Cap ( Casual / Woolen )",
           "price": 99
+        },
+        {
+          "name": "Cap ( Casual / Woolen ) Premium",
+          "price": 129
         },
         {
           "name": "Caps Woolen",
           "price": 129
         },
         {
+          "name": "Caps Woolen Premium",
+          "price": 169
+        },
+        {
           "name": "Chadar",
           "price": 199
+        },
+        {
+          "name": "Chadar Premium",
+          "price": 259
         },
         {
           "name": "Chadar Muga and Pator",
           "price": 239
         },
         {
+          "name": "Chadar Muga and Pator Premium",
+          "price": 309
+        },
+        {
           "name": "Choli",
           "price": 299
+        },
+        {
+          "name": "Choli Premium",
+          "price": 389
         },
         {
           "name": "Choli + Lehenga + Dupatta",
           "price": 699
         },
         {
+          "name": "Choli + Lehenga + Dupatta Premium",
+          "price": 909
+        },
+        {
           "name": "Coat - Long",
           "price": 229
         },
         {
+          "name": "Coat - Long Premium",
+          "price": 299
+        },
+        {
           "name": "Coat - Short",
           "price": 179
+        },
+        {
+          "name": "Coat - Short Premium",
+          "price": 229
         },
         {
           "name": "Designer Choli + Lehenga + Duppatta",
@@ -1212,8 +1256,16 @@ export const GHAZIABAD_PRICING = {
           "price": 149
         },
         {
+          "name": "Dress Premium",
+          "price": 199
+        },
+        {
           "name": "Dress ( Cotton )",
           "price": 219
+        },
+        {
+          "name": "Dress ( Cotton ) Premium",
+          "price": 289
         },
         {
           "name": "Dress ( Heavy )",
@@ -1224,20 +1276,40 @@ export const GHAZIABAD_PRICING = {
           "price": 189
         },
         {
+          "name": "Dress / Frock / Jumpsuit Long Premium",
+          "price": 249
+        },
+        {
           "name": "Dress / Frock / Jumpsuit Short",
           "price": 149
+        },
+        {
+          "name": "Dress / Frock / Jumpsuit Short Premium",
+          "price": 199
         },
         {
           "name": "Dress Indo western",
           "price": 699
         },
         {
+          "name": "Dress Indo western Premium",
+          "price": 909
+        },
+        {
           "name": "Dungaree Long",
           "price": 239
         },
         {
+          "name": "Dungaree Long Premium",
+          "price": 309
+        },
+        {
           "name": "Dungaree Short",
           "price": 169
+        },
+        {
+          "name": "Dungaree Short Premium",
+          "price": 219
         },
         {
           "name": "Dupatta",
@@ -1248,8 +1320,16 @@ export const GHAZIABAD_PRICING = {
           "price": 149
         },
         {
+          "name": "Dupatta Premium",
+          "price": 129
+        },
+        {
           "name": "Formal And Semi Formal Trouser",
           "price": 159
+        },
+        {
+          "name": "Formal And Semi Formal Trouser Premium",
+          "price": 209
         },
         {
           "name": "Formal Gown Long Heavy work",
@@ -1280,12 +1360,20 @@ export const GHAZIABAD_PRICING = {
           "price": 699
         },
         {
+          "name": "Ghagra 3pc( n ) Premium",
+          "price": 909
+        },
+        {
           "name": "Ghagra Heavy 3pcs( d )",
           "price": 899
         },
         {
-          "name": "Gloves Leather",
+          "name": "Gloves ( Leather )",
           "price": 369
+        },
+        {
+          "name": "Gloves ( Leather ) Premium",
+          "price": 479
         },
         {
           "name": "Gloves Woolen",
@@ -1298,6 +1386,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Hats",
           "price": 99
+        },
+        {
+          "name": "Hats Premium",
+          "price": 129
         },
         {
           "name": "Innerwear / Undergarments",
@@ -1320,8 +1412,16 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
+          "name": "Jacket Normal Long Premium",
+          "price": 389
+        },
+        {
           "name": "Jacket Normal Short",
           "price": 199
+        },
+        {
+          "name": "Jacket Normal Short Premium",
+          "price": 259
         },
         {
           "name": "Jacket Puffer Long",
@@ -1348,32 +1448,64 @@ export const GHAZIABAD_PRICING = {
           "price": 149
         },
         {
+          "name": "Jeans Premium",
+          "price": 199
+        },
+        {
           "name": "Jeggings",
           "price": 129
+        },
+        {
+          "name": "Jeggings Premium",
+          "price": 169
         },
         {
           "name": "Kameez / Kurta",
           "price": 119
         },
         {
+          "name": "Kameez / Kurta Premium",
+          "price": 159
+        },
+        {
           "name": "Kameez / Kurti Cotton",
           "price": 139
+        },
+        {
+          "name": "Kameez / Kurti Cotton Premium",
+          "price": 179
         },
         {
           "name": "Kesa Pator Chaddar",
           "price": 109
         },
         {
+          "name": "Kesa Pator Chaddar Premium",
+          "price": 139
+        },
+        {
           "name": "Kesa Pator Mekhela",
           "price": 299
+        },
+        {
+          "name": "Kesa Pator Mekhela Premium",
+          "price": 389
         },
         {
           "name": "Kesa Pator Mekhela Chaddar 3pcs",
           "price": 399
         },
         {
+          "name": "Kesa Pator Mekhela Chaddar 3pcs Premium",
+          "price": 519
+        },
+        {
           "name": "Khasi Dhara Munga",
           "price": 359
+        },
+        {
+          "name": "Khasi Dhara Munga Premium",
+          "price": 469
         },
         {
           "name": "Khasi Jainsem Heavy",
@@ -1388,15 +1520,31 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
+          "name": "Kurta + Pants / Salwar / Churidar Normal work Premium",
+          "price": 389
+        },
+        {
           "name": "Kurta Normal",
           "price": 199
         },
         {
+          "name": "Kurta Normal Premium",
+          "price": 259
+        },
+        {
           "name": "Ladies Suit 2pcs",
-          "price": 399
+          "price": 299
+        },
+        {
+          "name": "Ladies Suit 2pcs Premium",
+          "price": 389
         },
         {
           "name": "Ladies Suit 3pcs",
+          "price": 349
+        },
+        {
+          "name": "Ladies Suit 3pcs Premium",
           "price": 449
         },
         {
@@ -1404,8 +1552,16 @@ export const GHAZIABAD_PRICING = {
           "price": 359
         },
         {
+          "name": "Lehenga / Flared Skirt Premium",
+          "price": 469
+        },
+        {
           "name": "Lehenga / Ghagra",
           "price": 399
+        },
+        {
+          "name": "Lehenga / Ghagra Premium",
+          "price": 519
         },
         {
           "name": "Lehenga Designer",
@@ -1436,60 +1592,120 @@ export const GHAZIABAD_PRICING = {
           "price": 399
         },
         {
+          "name": "Mekhela Chaddar 3pcs Premium",
+          "price": 519
+        },
+        {
           "name": "Mekhela Muga and Pator",
           "price": 199
+        },
+        {
+          "name": "Mekhela Muga and Pator Premium",
+          "price": 259
         },
         {
           "name": "Mekhela Normal",
           "price": 179
         },
         {
+          "name": "Mekhela Normal Premium",
+          "price": 229
+        },
+        {
           "name": "Muffler Pashmina",
           "price": 219
+        },
+        {
+          "name": "Muffler Pashmina Premium",
+          "price": 289
         },
         {
           "name": "Muffler Woolen",
           "price": 149
         },
         {
+          "name": "Muffler Woolen Premium",
+          "price": 199
+        },
+        {
           "name": "Muga Chaddar",
           "price": 109
+        },
+        {
+          "name": "Muga Chaddar Premium",
+          "price": 139
         },
         {
           "name": "Muga Mekhela",
           "price": 299
         },
         {
+          "name": "Muga Mekhela Premium",
+          "price": 389
+        },
+        {
           "name": "Muga Mekhela Chaddar 3pcs",
           "price": 399
+        },
+        {
+          "name": "Muga Mekhela Chaddar 3pcs Premium",
+          "price": 519
         },
         {
           "name": "Night Dress",
           "price": 95
         },
         {
+          "name": "Night Dress Premium",
+          "price": 129
+        },
+        {
           "name": "Palazo Pant",
           "price": 139
+        },
+        {
+          "name": "Palazo Pant Premium",
+          "price": 179
         },
         {
           "name": "Parka Coat Long",
           "price": 329
         },
         {
+          "name": "Parka Coat Long Premium",
+          "price": 429
+        },
+        {
           "name": "Parka Coat Short",
           "price": 279
+        },
+        {
+          "name": "Parka Coat Short Premium",
+          "price": 359
         },
         {
           "name": "Pator Chaddar",
           "price": 109
         },
         {
+          "name": "Pator Chaddar Premium",
+          "price": 139
+        },
+        {
           "name": "Pator Mekhela",
           "price": 299
         },
         {
+          "name": "Pator Mekhela Premium",
+          "price": 389
+        },
+        {
           "name": "Pator Mekhela Chaddar 3pcs",
           "price": 399
+        },
+        {
+          "name": "Pator Mekhela Chaddar 3pcs Premium",
+          "price": 519
         },
         {
           "name": "Peticoat Cotton",
@@ -1512,16 +1728,32 @@ export const GHAZIABAD_PRICING = {
           "price": 199
         },
         {
+          "name": "Purse Premium",
+          "price": 259
+        },
+        {
           "name": "Pyjama / Pants / Salwar / Churidar / Palazo Pants",
           "price": 99
+        },
+        {
+          "name": "Pyjama / Pants / Salwar / Churidar / Palazo Pants Premium",
+          "price": 129
         },
         {
           "name": "Salwar / Churidar 3pcs",
           "price": 299
         },
         {
+          "name": "Salwar / Churidar 3pcs Premium",
+          "price": 389
+        },
+        {
           "name": "Salwar Kurta Normal Work - 2pcs",
           "price": 239
+        },
+        {
+          "name": "Salwar Kurta Normal Work - 2pcs Premium",
+          "price": 309
         },
         {
           "name": "Salwar Kurta Pashmina and Other Heavy Work - 3pcs",
@@ -1530,6 +1762,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Saree ( Cotton / Synthetic / Light )",
           "price": 199
+        },
+        {
+          "name": "Saree ( Cotton / Synthetic / Light ) Premium",
+          "price": 259
         },
         {
           "name": "Saree ( Embroidered / Heavy )",
@@ -1548,8 +1784,16 @@ export const GHAZIABAD_PRICING = {
           "price": 179
         },
         {
+          "name": "Saree Plain Premium",
+          "price": 229
+        },
+        {
           "name": "Shawl Pashmina",
           "price": 699
+        },
+        {
+          "name": "Shawl Pashmina Premium",
+          "price": 909
         },
         {
           "name": "Shawl Shahtoosh",
@@ -1560,32 +1804,64 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
+          "name": "Shawl Woolen Premium",
+          "price": 389
+        },
+        {
           "name": "Shirt",
           "price": 109
+        },
+        {
+          "name": "Shirt Premium",
+          "price": 139
         },
         {
           "name": "Shorts",
           "price": 59
         },
         {
+          "name": "Shorts Premium",
+          "price": 79
+        },
+        {
           "name": "Shorts / Capri",
           "price": 59
+        },
+        {
+          "name": "Shorts / Capri Premium",
+          "price": 79
         },
         {
           "name": "Shrug / Waist Coat",
           "price": 119
         },
         {
+          "name": "Shrug / Waist Coat Premium",
+          "price": 159
+        },
+        {
           "name": "Skirt",
           "price": 129
+        },
+        {
+          "name": "Skirt Premium",
+          "price": 169
         },
         {
           "name": "Skirt - Pencil / Pleated / Other",
           "price": 119
         },
         {
+          "name": "Skirt - Pencil / Pleated / Other Premium",
+          "price": 159
+        },
+        {
           "name": "Skirt Long",
           "price": 155
+        },
+        {
+          "name": "Skirt Long Premium",
+          "price": 199
         },
         {
           "name": "Socks Pair",
@@ -1604,60 +1880,120 @@ export const GHAZIABAD_PRICING = {
           "price": 69
         },
         {
+          "name": "Stole / Scarf Premium",
+          "price": 89
+        },
+        {
           "name": "Sweater / Cardigan - Full Sleeve",
           "price": 199
+        },
+        {
+          "name": "Sweater / Cardigan - Full Sleeve Premium",
+          "price": 259
         },
         {
           "name": "Sweater / Cardigan - Sleeveless",
           "price": 169
         },
         {
+          "name": "Sweater / Cardigan - Sleeveless Premium",
+          "price": 219
+        },
+        {
           "name": "Sweatshirt / Jumper",
           "price": 119
+        },
+        {
+          "name": "Sweatshirt / Jumper Premium",
+          "price": 159
         },
         {
           "name": "Swim suit bikini set",
           "price": 119
         },
         {
+          "name": "Swim suit bikini set Premium",
+          "price": 159
+        },
+        {
           "name": "Swim suit solid body suit",
           "price": 179
         },
         {
-          "name": "T - shirt",
+          "name": "Swim suit solid body suit Premium",
+          "price": 229
+        },
+        {
+          "name": "T - Shirt",
           "price": 89
+        },
+        {
+          "name": "T - Shirt Premium",
+          "price": 119
         },
         {
           "name": "Thermals Set",
           "price": 169
         },
         {
+          "name": "Thermals Set Premium",
+          "price": 219
+        },
+        {
           "name": "Thermals Single",
           "price": 107
+        },
+        {
+          "name": "Thermals Single Premium",
+          "price": 139
         },
         {
           "name": "Top",
           "price": 78
         },
         {
-          "name": "Track suit",
+          "name": "Top Premium",
+          "price": 99
+        },
+        {
+          "name": "Track Suit",
           "price": 199
+        },
+        {
+          "name": "Track Suit Premium",
+          "price": 259
         },
         {
           "name": "Western Formal Suit - 2 pcs ( Shirt, Coat, Pant )",
           "price": 249
         },
         {
+          "name": "Western Formal Suit - 2 pcs ( Shirt, Coat, Pant ) Premium",
+          "price": 329
+        },
+        {
           "name": "Wind Cheater / Rain Coat",
           "price": 109
+        },
+        {
+          "name": "Wind Cheater / Rain Coat Premium",
+          "price": 139
         },
         {
           "name": "Women Night Robe Cotton",
           "price": 119
         },
         {
+          "name": "Women Night Robe Cotton Premium",
+          "price": 159
+        },
+        {
           "name": "Women Night Robe Satin",
           "price": 159
+        },
+        {
+          "name": "Women Night Robe Satin Premium",
+          "price": 209
         }
       ],
       "kids": [
@@ -2728,8 +3064,16 @@ export const GHAZIABAD_PRICING = {
           "price": 29
         },
         {
+          "name": "Belt Premium",
+          "price": 39
+        },
+        {
           "name": "Blouse",
           "price": 49
+        },
+        {
+          "name": "Blouse Premium",
+          "price": 64
         },
         {
           "name": "Blouse Designer",
@@ -2741,47 +3085,79 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Blouse Normal",
-          "price": 34
+          "price": 49
         },
         {
           "name": "Boot",
           "price": 199
         },
         {
+          "name": "Boot Premium",
+          "price": 259
+        },
+        {
           "name": "Cap ( Casual / Woolen )",
           "price": 49
+        },
+        {
+          "name": "Cap ( Casual / Woolen ) Premium",
+          "price": 64
         },
         {
           "name": "Caps Woolen",
           "price": 64
         },
         {
+          "name": "Caps Woolen Premium",
+          "price": 84
+        },
+        {
           "name": "Chadar",
           "price": 99
+        },
+        {
+          "name": "Chadar Premium",
+          "price": 129
         },
         {
           "name": "Chadar Muga and Pator",
           "price": 119
         },
         {
+          "name": "Chadar Muga and Pator Premium",
+          "price": 154
+        },
+        {
           "name": "Choli",
           "price": 149
+        },
+        {
+          "name": "Choli Premium",
+          "price": 194
         },
         {
           "name": "Choli + Lehenga + Dupatta",
           "price": 349
         },
         {
-          "name": "Choli + lehenga + duppatta( n )",
-          "price": 449
+          "name": "Choli + Lehenga + Dupatta Premium",
+          "price": 454
         },
         {
           "name": "Coat - Long",
           "price": 114
         },
         {
+          "name": "Coat - Long Premium",
+          "price": 149
+        },
+        {
           "name": "Coat - Short",
           "price": 89
+        },
+        {
+          "name": "Coat - Short Premium",
+          "price": 114
         },
         {
           "name": "Designer Choli + Lehenga + Duppatta",
@@ -2804,32 +3180,60 @@ export const GHAZIABAD_PRICING = {
           "price": 74
         },
         {
+          "name": "Dress Premium",
+          "price": 99
+        },
+        {
           "name": "Dress ( Cotton )",
           "price": 109
         },
         {
+          "name": "Dress ( Cotton ) Premium",
+          "price": 144
+        },
+        {
           "name": "Dress ( Heavy )",
-          "price": 229
+          "price": 224
         },
         {
           "name": "Dress / Frock / Jumpsuit Long",
           "price": 94
         },
         {
+          "name": "Dress / Frock / Jumpsuit Long Premium",
+          "price": 124
+        },
+        {
           "name": "Dress / Frock / Jumpsuit Short",
-          "price": 79
+          "price": 74
+        },
+        {
+          "name": "Dress / Frock / Jumpsuit Short Premium",
+          "price": 99
         },
         {
           "name": "Dress Indo western",
           "price": 349
         },
         {
+          "name": "Dress Indo western Premium",
+          "price": 454
+        },
+        {
           "name": "Dungaree Long",
           "price": 119
         },
         {
+          "name": "Dungaree Long Premium",
+          "price": 154
+        },
+        {
           "name": "Dungaree Short",
           "price": 84
+        },
+        {
+          "name": "Dungaree Short Premium",
+          "price": 109
         },
         {
           "name": "Dupatta",
@@ -2840,8 +3244,16 @@ export const GHAZIABAD_PRICING = {
           "price": 74
         },
         {
+          "name": "Dupatta Premium",
+          "price": 64
+        },
+        {
           "name": "Formal And Semi Formal Trouser",
-          "price": 29
+          "price": 79
+        },
+        {
+          "name": "Formal And Semi Formal Trouser Premium",
+          "price": 104
         },
         {
           "name": "Formal Gown Long Heavy work",
@@ -2872,28 +3284,40 @@ export const GHAZIABAD_PRICING = {
           "price": 349
         },
         {
+          "name": "Ghagra 3pc( n ) Premium",
+          "price": 454
+        },
+        {
           "name": "Ghagra Heavy 3pcs( d )",
           "price": 449
         },
         {
-          "name": "Gloves Leather",
-          "price": 59
+          "name": "Gloves ( Leather )",
+          "price": 184
+        },
+        {
+          "name": "Gloves ( Leather ) Premium",
+          "price": 239
         },
         {
           "name": "Gloves Woolen",
-          "price": 29
+          "price": 34
         },
         {
           "name": "Handkerchief",
-          "price": 19
+          "price": 14
         },
         {
           "name": "Hats",
           "price": 49
         },
         {
+          "name": "Hats Premium",
+          "price": 64
+        },
+        {
           "name": "Innerwear / Undergarments",
-          "price": 29
+          "price": 24
         },
         {
           "name": "Jacket - Faux fur Long",
@@ -2912,8 +3336,16 @@ export const GHAZIABAD_PRICING = {
           "price": 149
         },
         {
+          "name": "Jacket Normal Long Premium",
+          "price": 194
+        },
+        {
           "name": "Jacket Normal Short",
           "price": 99
+        },
+        {
+          "name": "Jacket Normal Short Premium",
+          "price": 129
         },
         {
           "name": "Jacket Puffer Long",
@@ -2937,35 +3369,67 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Jeans",
-          "price": 79
+          "price": 74
+        },
+        {
+          "name": "Jeans Premium",
+          "price": 99
         },
         {
           "name": "Jeggings",
-          "price": 69
+          "price": 64
+        },
+        {
+          "name": "Jeggings Premium",
+          "price": 84
         },
         {
           "name": "Kameez / Kurta",
           "price": 59
         },
         {
+          "name": "Kameez / Kurta Premium",
+          "price": 79
+        },
+        {
           "name": "Kameez / Kurti Cotton",
           "price": 69
         },
         {
+          "name": "Kameez / Kurti Cotton Premium",
+          "price": 89
+        },
+        {
           "name": "Kesa Pator Chaddar",
-          "price": 59
+          "price": 54
+        },
+        {
+          "name": "Kesa Pator Chaddar Premium",
+          "price": 69
         },
         {
           "name": "Kesa Pator Mekhela",
           "price": 149
         },
         {
+          "name": "Kesa Pator Mekhela Premium",
+          "price": 194
+        },
+        {
           "name": "Kesa Pator Mekhela Chaddar 3pcs",
           "price": 199
         },
         {
+          "name": "Kesa Pator Mekhela Chaddar 3pcs Premium",
+          "price": 259
+        },
+        {
           "name": "Khasi Dhara Munga",
           "price": 179
+        },
+        {
+          "name": "Khasi Dhara Munga Premium",
+          "price": 234
         },
         {
           "name": "Khasi Jainsem Heavy",
@@ -2976,19 +3440,35 @@ export const GHAZIABAD_PRICING = {
           "price": 124
         },
         {
-          "name": "Kurta + paints / salwar / churidar",
-          "price": 99
-        },
-        {
-          "name": "Kurta + paints / salwar / churidar + dupatta",
+          "name": "Kurta + Pants / Salwar / Churidar Normal work",
           "price": 149
         },
         {
+          "name": "Kurta + Pants / Salwar / Churidar Normal work Premium",
+          "price": 194
+        },
+        {
+          "name": "Kurta Normal",
+          "price": 99
+        },
+        {
+          "name": "Kurta Normal Premium",
+          "price": 129
+        },
+        {
           "name": "Ladies Suit 2pcs",
-          "price": 199
+          "price": 149
+        },
+        {
+          "name": "Ladies Suit 2pcs Premium",
+          "price": 194
         },
         {
           "name": "Ladies Suit 3pcs",
+          "price": 174
+        },
+        {
+          "name": "Ladies Suit 3pcs Premium",
           "price": 224
         },
         {
@@ -2996,8 +3476,16 @@ export const GHAZIABAD_PRICING = {
           "price": 179
         },
         {
+          "name": "Lehenga / Flared Skirt Premium",
+          "price": 234
+        },
+        {
           "name": "Lehenga / Ghagra",
           "price": 199
+        },
+        {
+          "name": "Lehenga / Ghagra Premium",
+          "price": 259
         },
         {
           "name": "Lehenga Designer",
@@ -3028,64 +3516,120 @@ export const GHAZIABAD_PRICING = {
           "price": 199
         },
         {
+          "name": "Mekhela Chaddar 3pcs Premium",
+          "price": 259
+        },
+        {
           "name": "Mekhela Muga and Pator",
           "price": 99
+        },
+        {
+          "name": "Mekhela Muga and Pator Premium",
+          "price": 129
         },
         {
           "name": "Mekhela Normal",
           "price": 89
         },
         {
+          "name": "Mekhela Normal Premium",
+          "price": 114
+        },
+        {
           "name": "Muffler Pashmina",
           "price": 109
+        },
+        {
+          "name": "Muffler Pashmina Premium",
+          "price": 144
         },
         {
           "name": "Muffler Woolen",
           "price": 74
         },
         {
+          "name": "Muffler Woolen Premium",
+          "price": 99
+        },
+        {
           "name": "Muga Chaddar",
           "price": 54
+        },
+        {
+          "name": "Muga Chaddar Premium",
+          "price": 69
         },
         {
           "name": "Muga Mekhela",
           "price": 149
         },
         {
+          "name": "Muga Mekhela Premium",
+          "price": 194
+        },
+        {
           "name": "Muga Mekhela Chaddar 3pcs",
           "price": 199
+        },
+        {
+          "name": "Muga Mekhela Chaddar 3pcs Premium",
+          "price": 259
         },
         {
           "name": "Night Dress",
           "price": 47
         },
         {
-          "name": "Over coat",
-          "price": 149
+          "name": "Night Dress Premium",
+          "price": 64
         },
         {
           "name": "Palazo Pant",
           "price": 69
         },
         {
+          "name": "Palazo Pant Premium",
+          "price": 89
+        },
+        {
           "name": "Parka Coat Long",
           "price": 164
+        },
+        {
+          "name": "Parka Coat Long Premium",
+          "price": 214
         },
         {
           "name": "Parka Coat Short",
           "price": 139
         },
         {
+          "name": "Parka Coat Short Premium",
+          "price": 179
+        },
+        {
           "name": "Pator Chaddar",
           "price": 54
+        },
+        {
+          "name": "Pator Chaddar Premium",
+          "price": 69
         },
         {
           "name": "Pator Mekhela",
           "price": 149
         },
         {
+          "name": "Pator Mekhela Premium",
+          "price": 194
+        },
+        {
           "name": "Pator Mekhela Chaddar 3pcs",
           "price": 199
+        },
+        {
+          "name": "Pator Mekhela Chaddar 3pcs Premium",
+          "price": 259
         },
         {
           "name": "Peticoat Cotton",
@@ -3108,16 +3652,32 @@ export const GHAZIABAD_PRICING = {
           "price": 99
         },
         {
+          "name": "Purse Premium",
+          "price": 129
+        },
+        {
           "name": "Pyjama / Pants / Salwar / Churidar / Palazo Pants",
           "price": 49
+        },
+        {
+          "name": "Pyjama / Pants / Salwar / Churidar / Palazo Pants Premium",
+          "price": 64
         },
         {
           "name": "Salwar / Churidar 3pcs",
           "price": 149
         },
         {
+          "name": "Salwar / Churidar 3pcs Premium",
+          "price": 194
+        },
+        {
           "name": "Salwar Kurta Normal Work - 2pcs",
           "price": 119
+        },
+        {
+          "name": "Salwar Kurta Normal Work - 2pcs Premium",
+          "price": 154
         },
         {
           "name": "Salwar Kurta Pashmina and Other Heavy Work - 3pcs",
@@ -3128,8 +3688,12 @@ export const GHAZIABAD_PRICING = {
           "price": 99
         },
         {
+          "name": "Saree ( Cotton / Synthetic / Light ) Premium",
+          "price": 129
+        },
+        {
           "name": "Saree ( Embroidered / Heavy )",
-          "price": 175
+          "price": 174
         },
         {
           "name": "Saree ( Silk / Chiffon / Georgette / Heavy )",
@@ -3144,8 +3708,16 @@ export const GHAZIABAD_PRICING = {
           "price": 89
         },
         {
+          "name": "Saree Plain Premium",
+          "price": 114
+        },
+        {
           "name": "Shawl Pashmina",
           "price": 349
+        },
+        {
+          "name": "Shawl Pashmina Premium",
+          "price": 454
         },
         {
           "name": "Shawl Shahtoosh",
@@ -3156,36 +3728,68 @@ export const GHAZIABAD_PRICING = {
           "price": 149
         },
         {
+          "name": "Shawl Woolen Premium",
+          "price": 194
+        },
+        {
           "name": "Shirt",
-          "price": 44
+          "price": 54
+        },
+        {
+          "name": "Shirt Premium",
+          "price": 69
         },
         {
           "name": "Shorts",
           "price": 29
         },
         {
+          "name": "Shorts Premium",
+          "price": 39
+        },
+        {
           "name": "Shorts / Capri",
           "price": 29
+        },
+        {
+          "name": "Shorts / Capri Premium",
+          "price": 39
         },
         {
           "name": "Shrug / Waist Coat",
           "price": 59
         },
         {
+          "name": "Shrug / Waist Coat Premium",
+          "price": 79
+        },
+        {
           "name": "Skirt",
           "price": 64
+        },
+        {
+          "name": "Skirt Premium",
+          "price": 84
         },
         {
           "name": "Skirt - Pencil / Pleated / Other",
           "price": 59
         },
         {
+          "name": "Skirt - Pencil / Pleated / Other Premium",
+          "price": 79
+        },
+        {
           "name": "Skirt Long",
           "price": 77
         },
         {
+          "name": "Skirt Long Premium",
+          "price": 99
+        },
+        {
           "name": "Socks Pair",
-          "price": 19
+          "price": 14
         },
         {
           "name": "Specialty Clothing",
@@ -3193,67 +3797,127 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Stocking ( Pair ) - Regular",
-          "price": 35
+          "price": 34
         },
         {
           "name": "Stole / Scarf",
-          "price": 35
+          "price": 34
+        },
+        {
+          "name": "Stole / Scarf Premium",
+          "price": 44
         },
         {
           "name": "Sweater / Cardigan - Full Sleeve",
           "price": 99
         },
         {
+          "name": "Sweater / Cardigan - Full Sleeve Premium",
+          "price": 129
+        },
+        {
           "name": "Sweater / Cardigan - Sleeveless",
           "price": 84
+        },
+        {
+          "name": "Sweater / Cardigan - Sleeveless Premium",
+          "price": 109
         },
         {
           "name": "Sweatshirt / Jumper",
           "price": 59
         },
         {
+          "name": "Sweatshirt / Jumper Premium",
+          "price": 79
+        },
+        {
           "name": "Swim suit bikini set",
           "price": 59
+        },
+        {
+          "name": "Swim suit bikini set Premium",
+          "price": 79
         },
         {
           "name": "Swim suit solid body suit",
           "price": 89
         },
         {
-          "name": "T - shirt",
+          "name": "Swim suit solid body suit Premium",
+          "price": 114
+        },
+        {
+          "name": "T - Shirt",
           "price": 44
+        },
+        {
+          "name": "T - Shirt Premium",
+          "price": 59
         },
         {
           "name": "Thermals Set",
           "price": 84
         },
         {
+          "name": "Thermals Set Premium",
+          "price": 109
+        },
+        {
           "name": "Thermals Single",
           "price": 53
         },
         {
-          "name": "Top",
-          "price": 38
+          "name": "Thermals Single Premium",
+          "price": 69
         },
         {
-          "name": "Track suit",
+          "name": "Top",
+          "price": 39
+        },
+        {
+          "name": "Top Premium",
+          "price": 49
+        },
+        {
+          "name": "Track Suit",
           "price": 99
+        },
+        {
+          "name": "Track Suit Premium",
+          "price": 129
         },
         {
           "name": "Western Formal Suit - 2 pcs ( Shirt, Coat, Pant )",
           "price": 124
         },
         {
+          "name": "Western Formal Suit - 2 pcs ( Shirt, Coat, Pant ) Premium",
+          "price": 164
+        },
+        {
           "name": "Wind Cheater / Rain Coat",
           "price": 54
+        },
+        {
+          "name": "Wind Cheater / Rain Coat Premium",
+          "price": 69
         },
         {
           "name": "Women Night Robe Cotton",
           "price": 59
         },
         {
+          "name": "Women Night Robe Cotton Premium",
+          "price": 79
+        },
+        {
           "name": "Women Night Robe Satin",
           "price": 79
+        },
+        {
+          "name": "Women Night Robe Satin Premium",
+          "price": 104
         }
       ],
       "kids": [
