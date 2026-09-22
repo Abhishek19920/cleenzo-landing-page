@@ -9,6 +9,7 @@ import OffersTermsPage from "./pages/OffersTermsPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import DryCleanersRajNagarExtension from "./pages/DryCleanersRajNagarExtension";
+import BestDryCleanersGhaziabad from "./pages/BestDryCleanersGhaziabad";
 import OrderTrackingPage from "./pages/OrderTrackingPage";
 import NotFound from "./pages/NotFound";
 import PageSEO from "./components/PageSEO";
@@ -19,6 +20,7 @@ import { AppDownloadProvider } from "./context/AppDownloadContext";
 import { SERVICE_PAGE_PATHS } from "./data/servicePages";
 import { URL_REDIRECTS } from "./data/urlRedirects";
 import { DRY_CLEANERS_RNE_PATH } from "./data/dryCleanersRajNagarExtension";
+import { BEST_DRY_CLEANERS_GHAZIABAD_PATH } from "./data/bestDryCleanersGhaziabad";
 
 function App() {
   const { pathname } = useLocation();
@@ -40,6 +42,10 @@ function App() {
             <Route
               path={DRY_CLEANERS_RNE_PATH.slice(1)}
               element={<DryCleanersRajNagarExtension />}
+            />
+            <Route
+              path={BEST_DRY_CLEANERS_GHAZIABAD_PATH.slice(1)}
+              element={<BestDryCleanersGhaziabad />}
             />
             {SERVICE_PAGE_PATHS.map((path) => (
               <Route key={path} path={path.slice(1)} element={<ServicePage />} />

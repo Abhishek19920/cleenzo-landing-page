@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PHONE_DISPLAY, PHONE_TEL, STORE_ADDRESS } from "../constants";
 import { SEO_FAQ, SERVICE_AREAS } from "../seo";
 import { openWhatsAppBooking } from "../whatsapp";
@@ -51,6 +52,15 @@ function SeoContentSection() {
             </a>
             , schedule a pickup on our website, or download the Cleenzo app to track express laundry
             delivery in real time.
+          </p>
+
+          <p>
+            New to Ghaziabad or comparing dry cleaners before you book? See why Cleenzo is a
+            trusted choice on our{" "}
+            <Link to="/best-dry-cleaners-in-ghaziabad" className="text-cleenzo font-semibold hover:underline">
+              Best Dry Cleaners in Ghaziabad
+            </Link>{" "}
+            page.
           </p>
         </div>
 

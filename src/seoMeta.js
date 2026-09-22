@@ -23,6 +23,11 @@ import {
   DRY_CLEANERS_RNE_PATH,
   DRY_CLEANERS_RNE_SEO,
 } from "./data/dryCleanersRajNagarExtension";
+import {
+  BEST_DRY_CLEANERS_GHAZIABAD_CONTENT,
+  BEST_DRY_CLEANERS_GHAZIABAD_PATH,
+  BEST_DRY_CLEANERS_GHAZIABAD_SEO,
+} from "./data/bestDryCleanersGhaziabad";
 import { getServicePageByPath } from "./data/servicePages";
 
 export function upsertMeta(name, content, property = false) {
@@ -253,6 +258,37 @@ export function getMetaForPathname(pathname) {
             { name: "Home", url: canonicalUrl("/") },
             { name: "Dry Cleaning", url: canonicalUrl("/dry-cleaning-ghaziabad") },
             { name: "Dry Cleaners Raj Nagar Extension", url },
+          ]),
+        },
+      ],
+    };
+  }
+
+  if (normalizedPath === BEST_DRY_CLEANERS_GHAZIABAD_PATH) {
+    const url = canonicalUrl(BEST_DRY_CLEANERS_GHAZIABAD_PATH);
+    const ogImage = `${SITE_URL}${BEST_DRY_CLEANERS_GHAZIABAD_SEO.ogImage}`;
+    return {
+      ...BEST_DRY_CLEANERS_GHAZIABAD_SEO,
+      url,
+      image: ogImage,
+      jsonLd: [
+        { id: "local", data: getLocalBusinessJsonLd() },
+        {
+          id: "service",
+          data: getServicePageJsonLd({
+            h1: BEST_DRY_CLEANERS_GHAZIABAD_CONTENT.h1,
+            seo: { description: BEST_DRY_CLEANERS_GHAZIABAD_SEO.description },
+            path: BEST_DRY_CLEANERS_GHAZIABAD_PATH,
+            serviceType: "Dry Cleaning Service",
+          }),
+        },
+        { id: "faq", data: getPageFaqJsonLd(BEST_DRY_CLEANERS_GHAZIABAD_CONTENT.faqs) },
+        {
+          id: "breadcrumb",
+          data: getBreadcrumbJsonLd([
+            { name: "Home", url: canonicalUrl("/") },
+            { name: "Dry Cleaning", url: canonicalUrl("/dry-cleaning-ghaziabad") },
+            { name: "Best Dry Cleaners in Ghaziabad", url },
           ]),
         },
       ],
