@@ -38,8 +38,8 @@ export const DRY_CLEANERS_RNE_CONTENT = {
     },
     {
       icon: "⚡",
-      title: "24 hour dry cleaning options",
-      desc: "Express turnaround when you need garments back quickly — without skipping inspection or quality checks.",
+      title: "24-hour delivery, no extra charge",
+      desc: "Every order delivered within 24 hours — at no additional charge, without skipping inspection or quality checks.",
     },
     {
       icon: "✨",
@@ -169,7 +169,7 @@ export const DRY_CLEANERS_RNE_CONTENT = {
     {
       question: "Is 24 hour dry cleaning available?",
       answer:
-        "Express and 24 hour dry cleaning options are available depending on garment type and current load. Message us on WhatsApp with your items and we will confirm turnaround.",
+        "Yes — Cleenzo delivers dry cleaning and laundry orders within 24 hours at no extra charge. Message us on WhatsApp with your items and we will confirm your pickup slot.",
     },
     {
       question: "What is the difference between laundry and dry cleaning?",

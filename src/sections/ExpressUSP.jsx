@@ -12,7 +12,7 @@ function ExpressUSP() {
           {USP.headline}
         </h2>
         <p className="text-base md:text-lg font-medium max-w-2xl mx-auto text-cleenzo-pale">
-          {USP.description} Fast laundry service with free pickup & express doorstep delivery.
+          {USP.description} Laundry • Dry Cleaning • Sofa Cleaning • Carpet Cleaning.
         </p>
       </div>
       <PlaceOrderCTA title="Need express laundry today?" variant="dark" className="!bg-cleenzo-dark/40" />

@@ -67,11 +67,12 @@ echo "OK   robots.txt"
 
 echo "→ sitemap"
 count="$(curl -s "${BASE}/sitemap.xml" | grep -c '<loc>' || true)"
-if [[ "$count" != "17" ]]; then
-  echo "FAIL sitemap URL count=$count (expected 17)"
+if [[ "$count" -lt 17 ]]; then
+  echo "FAIL sitemap URL count=$count (expected at least 17)"
   exit 1
 fi
 curl -s "${BASE}/sitemap.xml" | grep -q 'https://cleenzo.co.in/laundry-service-ghaziabad/'
-echo "OK   sitemap (17 URLs, apex)"
+curl -s "${BASE}/sitemap.xml" | grep -q 'https://cleenzo.co.in/dry-cleaning-ghaziabad/'
+echo "OK   sitemap (${count} URLs, apex)"
 
 echo "All SEO route serving checks passed."

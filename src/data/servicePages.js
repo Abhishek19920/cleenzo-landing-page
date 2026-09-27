@@ -18,11 +18,11 @@ export const SERVICE_PAGES = {
     h1: "Laundry Service in Ghaziabad",
     badge: "Raj Nagar Extension laundry · Free pickup",
     subtitle:
-      "Looking for laundry service near me in Raj Nagar Extension? Cleenzo offers wash & fold from ₹99/kg, free pickup laundry and express delivery across Ghaziabad.",
+      "Looking for laundry service near me in Raj Nagar Extension? Cleenzo offers wash & fold from ₹99/kg, free pickup, 24-hour delivery at no extra charge, and 30% off your first 3 orders.",
     seo: {
-      title: "Laundry Service in Ghaziabad | Pickup & Delivery | Cleenzo",
+      title: "Laundry Service in Ghaziabad | 30% OFF First 3 Orders | Cleenzo",
       description:
-        "Need laundry service near me in Raj Nagar Extension? Cleenzo — wash & fold from ₹99/kg, free pickup laundry, express delivery. Serving Ghaziabad, Wave City, Crossings Republik & Noida Extension. Book on WhatsApp.",
+        "30% OFF first 3 laundry orders for new customers. Free pickup and 24-hour delivery at no extra charge. Wash & fold from ₹99/kg in Raj Nagar Extension. Book WhatsApp.",
       keywords:
         "laundry service near me, best laundry service, raj nagar extension laundry, free pickup laundry, laundry service ghaziabad, wash and fold raj nagar, cleenzo laundry",
     },
@@ -48,8 +48,8 @@ export const SERVICE_PAGES = {
           },
           {
             icon: "⚡",
-            title: "Express turnaround",
-            desc: "Wash & fold typically in 24 hours. Fast laundry without hidden “express only” lanes.",
+            title: "24-hour delivery",
+            desc: "Delivered within 24 hours at no extra charge — not a paid express upgrade.",
           },
           {
             icon: "✨",
@@ -104,7 +104,7 @@ export const SERVICE_PAGES = {
       {
         question: "How fast is laundry delivery?",
         answer:
-          "Wash & fold is typically ready in 24 hours. Wash & iron and premium laundry usually return in 24–48 hours.",
+          "Laundry orders are delivered within 24 hours at no extra charge. Share your deadline when you book and we will confirm your pickup slot.",
       },
       {
         question: "Is Cleenzo the best laundry service in Ghaziabad?",

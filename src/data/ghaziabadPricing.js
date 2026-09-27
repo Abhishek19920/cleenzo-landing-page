@@ -294,23 +294,83 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
-          "name": "Curtain - Cotton [Per Panel]",
-          "price": 229
-        },
-        {
-          "name": "Curtain - Embroidery Work [Per Panel]",
+          "name": "Curtain - Cotton (Regular Cotton) [6–8 ft]",
           "price": 269
         },
         {
-          "name": "Curtain - Lace [Per Panel]",
-          "price": 289
+          "name": "Curtain - Cotton (Regular Cotton) [8–10 ft]",
+          "price": 299
         },
         {
-          "name": "Curtain - With Lining [Per Panel]",
+          "name": "Curtain - Cotton (Regular Cotton) [Above 10 ft]",
           "price": 349
         },
         {
-          "name": "Curtain - Without Lining [Per Panel]",
+          "name": "Curtain - Cotton (Regular Cotton) [Up to 6 ft]",
+          "price": 229
+        },
+        {
+          "name": "Curtain - Embroidery Work (Designer) [6–8 ft]",
+          "price": 299
+        },
+        {
+          "name": "Curtain - Embroidery Work (Designer) [8–10 ft]",
+          "price": 349
+        },
+        {
+          "name": "Curtain - Embroidery Work (Designer) [Above 10 ft]",
+          "price": 399
+        },
+        {
+          "name": "Curtain - Embroidery Work (Designer) [Up to 6 ft]",
+          "price": 269
+        },
+        {
+          "name": "Curtain - Lace (Lace Design) [6–8 ft]",
+          "price": 319
+        },
+        {
+          "name": "Curtain - Lace (Lace Design) [8–10 ft]",
+          "price": 369
+        },
+        {
+          "name": "Curtain - Lace (Lace Design) [Above 10 ft]",
+          "price": 419
+        },
+        {
+          "name": "Curtain - Lace (Lace Design) [Up to 6 ft]",
+          "price": 289
+        },
+        {
+          "name": "Curtain - With Lining (Inner Lining) [6–8 ft]",
+          "price": 399
+        },
+        {
+          "name": "Curtain - With Lining (Inner Lining) [8–10 ft]",
+          "price": 449
+        },
+        {
+          "name": "Curtain - With Lining (Inner Lining) [Above 10 ft]",
+          "price": 499
+        },
+        {
+          "name": "Curtain - With Lining (Inner Lining) [Up to 6 ft]",
+          "price": 349
+        },
+        {
+          "name": "Curtain - Without Lining (Regular) [6–8 ft]",
+          "price": 279
+        },
+        {
+          "name": "Curtain - Without Lining (Regular) [8–10 ft]",
+          "price": 319
+        },
+        {
+          "name": "Curtain - Without Lining (Regular) [Above 10 ft]",
+          "price": 369
+        },
+        {
+          "name": "Curtain - Without Lining (Regular) [Up to 6 ft]",
           "price": 239
         },
         {
@@ -984,6 +1044,14 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Shoes Sports Premium",
           "price": 449
+        },
+        {
+          "name": "Slipper / Chappal",
+          "price": 99
+        },
+        {
+          "name": "Slipper / Chappal Premium",
+          "price": 149
         },
         {
           "name": "Shorts",
@@ -2908,6 +2976,14 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Shoes Sports Premium",
           "price": 224
+        },
+        {
+          "name": "Slipper / Chappal",
+          "price": 49
+        },
+        {
+          "name": "Slipper / Chappal Premium",
+          "price": 74
         },
         {
           "name": "Shorts",

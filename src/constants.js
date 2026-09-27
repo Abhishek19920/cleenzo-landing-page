@@ -57,10 +57,10 @@ export const SOCIAL_LINKS = [
 ];
 
 export const USP = {
-  badge: "Our promise",
-  headline: "Every delivery is express",
+  badge: "India's Fastest Growing Cleaning Brand",
+  headline: "Delivered Within 24 Hours — No Extra Charge",
   description:
-    "No slow lanes or extra charges — fast turnaround and doorstep delivery on every Cleenzo order.",
+    "Powered by high-quality technology and expert care at every step.",
   cta: "Need express laundry today?",
 };
 

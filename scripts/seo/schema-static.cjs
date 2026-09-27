@@ -10,6 +10,7 @@ function localBusinessBlock() {
     "@type": ["LocalBusiness", "DryCleaningOrLaundry"],
     "@id": site.localBusinessId,
     name: site.siteName,
+    slogan: "India's Fastest Growing Cleaning Brand",
     url: `${site.siteUrl}/`,
     telephone: site.phoneTel,
     image: [`${site.siteUrl}${site.defaultOgImagePath}`],
@@ -70,10 +71,39 @@ function webPageBlock(route, url) {
   };
 }
 
+/**
+ * Minimal Home > Page breadcrumb for non-JS crawlers.
+ * Runtime (src/seo.js) still renders the full, path-aware breadcrumb
+ * for JS-executing crawlers — this is only a fallback, kept in sync
+ * by using the same route.h1 label already shown on the page.
+ */
+function breadcrumbBlock(route, url) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${site.siteUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: route.h1 || route.title,
+        item: url,
+      },
+    ],
+  };
+}
+
 function buildJsonLdScripts(route, pageUrl) {
-  const blocks = [webPageBlock(route, pageUrl)];
+  const blocks = [webPageBlock(route, pageUrl), localBusinessBlock()];
   if (route.path === "/") {
-    blocks.unshift(localBusinessBlock(), webSiteBlock());
+    blocks.push(webSiteBlock());
+  } else {
+    blocks.push(breadcrumbBlock(route, pageUrl));
   }
   return blocks
     .map(

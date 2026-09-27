@@ -106,7 +106,12 @@ export const SEO_FAQ = [
   {
     question: "How quickly can Cleenzo dry clean a suit?",
     answer:
-      "Turnaround depends on garment type and load. Express and 24-hour dry cleaning options are often available — share your deadline when you book on WhatsApp or via Book Pickup.",
+      "Cleenzo delivers within 24 hours at no extra charge on most laundry and dry cleaning orders — share your deadline when you book on WhatsApp or via Book Pickup and we will confirm your slot.",
+  },
+  {
+    question: "Is there an extra charge for 24-hour delivery?",
+    answer:
+      "No. 24-hour delivery is included at no extra charge — it is not a paid express upgrade.",
   },
   {
     question: "Which areas do you serve?",
@@ -145,7 +150,7 @@ export function getLocalBusinessJsonLd() {
     priceRange: "₹₹",
     currenciesAccepted: "INR",
     paymentAccepted: "Cash, UPI, Card",
-    slogan: "Premium laundry and dry cleaning with free doorstep pickup",
+    slogan: "India's Fastest Growing Cleaning Brand",
     knowsAbout: [
       "Laundry service in Raj Nagar Extension",
       "Dry cleaning in Ghaziabad",

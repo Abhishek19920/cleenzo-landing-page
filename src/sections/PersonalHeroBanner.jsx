@@ -138,7 +138,7 @@ function PersonalHeroBanner() {
             <p className="personal-hero-promise-desc">
               {tiranga
                 ? usp.description
-                : `${USP.description} Fast laundry service with free pickup & express doorstep delivery.`}
+                : `${USP.description} Laundry • Dry Cleaning • Sofa Cleaning • Carpet Cleaning.`}
             </p>
           </div>
           <button
