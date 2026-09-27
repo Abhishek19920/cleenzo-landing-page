@@ -303,7 +303,7 @@ export function getCommercialJsonLd() {
 }
 
 export function getServicePageJsonLd(page) {
-  return {
+  const data = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: page.h1,
@@ -316,6 +316,23 @@ export function getServicePageJsonLd(page) {
     })),
     serviceType: page.serviceType,
   };
+
+  if (page.offerHighlight) {
+    data.offers = {
+      "@type": "Offer",
+      name: page.offerHighlight.lead,
+      description: page.offerHighlight.points.join(" "),
+      url: canonicalUrl(page.path),
+      availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+      eligibleRegion: SERVICE_AREAS.map((name) => ({
+        "@type": "Place",
+        name,
+      })),
+    };
+  }
+
+  return data;
 }
 
 export function getPageFaqJsonLd(faqs) {

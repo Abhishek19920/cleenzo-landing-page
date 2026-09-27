@@ -20,6 +20,9 @@ export const FESTIVE_FIRST3_MAX_ORDERS = 3;
 /** Percent off for a new customer's first three orders. */
 export const FESTIVE_FIRST3_PERCENT_OFF = 30;
 
+/** Minimum eligible order subtotal (₹) for the first-3 discount. */
+export const FESTIVE_FIRST3_MIN_ORDER_INR = 500;
+
 /** Cleenzo Credit paid to the referrer once their invitee's first order lands. */
 export const REFERRAL_REWARD_INR = 100;
 

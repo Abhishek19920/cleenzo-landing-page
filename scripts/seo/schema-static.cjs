@@ -98,12 +98,44 @@ function breadcrumbBlock(route, url) {
   };
 }
 
+function dryCleaningOfferBlock(url) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Dry Cleaning in Ghaziabad",
+    serviceType: "Dry Cleaning",
+    url,
+    provider: { "@id": site.localBusinessId },
+    areaServed: [
+      "Raj Nagar Extension",
+      "AVS City Square",
+      "Sidharth Vihar",
+      "Kanawani",
+      "Ahinsa Khand",
+      "Indirapuram",
+      "Vaishali",
+    ].map((name) => ({ "@type": "Place", name })),
+    offers: {
+      "@type": "Offer",
+      name: "Get 30% OFF on each of your first 3 eligible orders at Cleenzo.",
+      description:
+        "For new customers. Applies on each of the first 3 eligible orders, not only the first bill. Minimum order value ₹500. Dry cleaning is included, along with laundry wash & iron, wash & fold, premium laundry and steam iron. Free doorstep pickup and delivery in Raj Nagar Extension and nearby Ghaziabad areas.",
+      url,
+      availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+    },
+  };
+}
+
 function buildJsonLdScripts(route, pageUrl) {
   const blocks = [webPageBlock(route, pageUrl), localBusinessBlock()];
   if (route.path === "/") {
     blocks.push(webSiteBlock());
   } else {
     blocks.push(breadcrumbBlock(route, pageUrl));
+  }
+  if (route.path === "/dry-cleaning-ghaziabad") {
+    blocks.push(dryCleaningOfferBlock(pageUrl));
   }
   return blocks
     .map(

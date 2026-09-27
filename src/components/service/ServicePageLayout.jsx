@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PlaceOrderCTA from "../PlaceOrderCTA";
 import GoogleReviewsSection from "../GoogleReviewsSection";
+import { useSchedulePickup } from "../../context/SchedulePickupContext";
 import { SERVICE_AREAS } from "../../data/servicePages";
 import { canonicalPath, normalizePathKey } from "../../seo/routes";
 import { openWhatsAppBooking } from "../../whatsapp";
@@ -26,6 +27,7 @@ const RELATED_SERVICES = [
   { path: "/laundry-service-ghaziabad", label: "Laundry", icon: "🧺", desc: "Wash & fold · Wash & iron" },
   { path: "/dry-cleaning-ghaziabad", label: "Dry cleaning", icon: "🧥", desc: "Suits, silk & woollens" },
   { path: "/dry-cleaners-raj-nagar-extension", label: "Dry cleaners RNE", icon: "📍", desc: "Raj Nagar Extension hub" },
+  { path: "/best-dry-cleaners-in-ghaziabad", label: "Why Cleenzo", icon: "⭐", desc: "30% off first 3 orders" },
   { path: "/shoe-cleaning", label: "Shoe cleaning", icon: "👟", desc: "Sneakers & leather care" },
   { path: "/sofa-cleaning", label: "Sofa cleaning", icon: "🛋️", desc: "Fabric & upholstery" },
   { path: "/carpet-cleaning", label: "Carpet cleaning", icon: "🧶", desc: "Rugs & room carpets" },
@@ -35,6 +37,57 @@ const RELATED_SERVICES = [
 
 function displayTitle(page) {
   return page.h1.split("|")[0].trim();
+}
+
+function SchedulePickupButton({ className, label = "Book pickup" }) {
+  const { openSchedulePickup } = useSchedulePickup();
+  return (
+    <button type="button" className={className} onClick={openSchedulePickup}>
+      {label}
+    </button>
+  );
+}
+
+function OfferHighlight({ highlight }) {
+  if (!highlight) return null;
+
+  return (
+    <section className="service-offer-band" aria-labelledby="service-offer-heading">
+      <div className="service-offer-card">
+        <SectionEyebrow>{highlight.eyebrow}</SectionEyebrow>
+        <h2 id="service-offer-heading" className="font-black text-cleenzo-deep">
+          {highlight.title}
+        </h2>
+        <p className="service-offer-lead">{highlight.lead}</p>
+        <ul className="service-offer-points">
+          {highlight.points.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+        <div className="service-offer-actions">
+          <SchedulePickupButton
+            className="inline-flex items-center justify-center bg-cleenzo hover:bg-cleenzo-dark text-white font-bold text-sm px-6 py-3 rounded-full transition shadow-md"
+            label="Book pickup"
+          />
+          <button type="button" className="service-page-btn-whatsapp" onClick={openWhatsAppBooking}>
+            WhatsApp booking
+          </button>
+          <Link
+            to="/#offers"
+            className="inline-flex items-center justify-center bg-white text-cleenzo-deep font-bold text-sm px-6 py-3 rounded-full border border-cleenzo-sky-light hover:border-cleenzo transition"
+          >
+            Current offers
+          </Link>
+          <Link
+            to="/offers-terms/"
+            className="inline-flex items-center justify-center bg-white text-cleenzo-deep font-bold text-sm px-6 py-3 rounded-full border border-cleenzo-sky-light hover:border-cleenzo transition"
+          >
+            Offer terms
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function ServiceBreadcrumb({ title }) {
@@ -94,7 +147,7 @@ function ServiceHero({ page }) {
             <p className="service-page-subtitle">{page.subtitle}</p>
 
             <div className="service-page-pills">
-              {HERO_PILLS.map((pill) => (
+              {(page.heroPills || HERO_PILLS).map((pill) => (
                 <span key={pill.label} className="service-page-pill">
                   <span aria-hidden="true">{pill.icon}</span>
                   {pill.label}
@@ -106,7 +159,8 @@ function ServiceHero({ page }) {
               <button type="button" className="service-page-btn-whatsapp" onClick={openWhatsAppBooking}>
                 Book on WhatsApp
               </button>
-              <Link to="/#pricing" className="service-page-btn-primary">
+              <SchedulePickupButton className="service-page-btn-primary" label="Book pickup" />
+              <Link to="/#pricing" className="service-page-btn-secondary">
                 View pricing
               </Link>
             </div>
@@ -254,6 +308,15 @@ function ContentBlock({ section }) {
         >
           {section.cta}
         </button>
+      ) : null}
+      {section.links?.length ? (
+        <ul className="service-inline-links">
+          {section.links.map((link) => (
+            <li key={link.to}>
+              <Link to={link.to}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
       ) : null}
     </article>
   );
@@ -409,6 +472,8 @@ function ServicePageLayout({ page }) {
       <div className="bg-cleenzo-pale-bg border-b border-cleenzo-sky-light py-4 px-4">
         <ServiceHubLinks currentPath={currentPath} />
       </div>
+
+      <OfferHighlight highlight={page.offerHighlight} />
 
       <ServiceGallery
         images={page.galleryImages}
