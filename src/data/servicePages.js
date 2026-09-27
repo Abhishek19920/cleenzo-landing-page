@@ -29,7 +29,7 @@ export const SERVICE_PAGES = {
     serviceType: "Laundry Service",
     heroImage: "/images/banners/laundry-service-raj-nagar-ghaziabad.jpg",
     heroImageAlt:
-      "Best laundry service near me at Cleenzo Raj Nagar Extension Ghaziabad with free pickup",
+      "Cleenzo laundry pickup and delivery service in Raj Nagar Extension, Ghaziabad",
     sections: [
       {
         title: "Raj Nagar Extension laundry you can book from home",
@@ -147,26 +147,26 @@ export const SERVICE_PAGES = {
   "/dry-cleaning-ghaziabad": {
     path: "/dry-cleaning-ghaziabad",
     h1: "Dry Cleaning in Ghaziabad",
-    badge: "Premium dry cleaning · Express options",
+    badge: "30% OFF first 3 orders · 24-hour delivery",
     subtitle:
-      "Searching dry clean near me or dry cleaners near me in Ghaziabad? Cleenzo offers premium dry cleaning, free pickup and 24 hour dry cleaning options from Raj Nagar Extension.",
+      "Dry clean offers near you in Ghaziabad: 30% off your first 3 orders for new customers, free pickup, and 24-hour delivery at no extra charge from Raj Nagar Extension.",
     seo: {
-      title: "Dry Cleaning in Ghaziabad | Pickup & Delivery | Cleenzo",
+      title: "Dry Cleaning Offers in Ghaziabad | 30% OFF First 3 Orders | Cleenzo",
       description:
-        "Dry clean near me in Ghaziabad? Cleenzo — suits, sarees, blazers & wedding wear. Free pickup, 24 hour dry cleaning options, premium finish. Raj Nagar Extension · Wave City · Crossings Republik. Book WhatsApp.",
+        "30% OFF first 3 dry cleaning orders for new customers. Free pickup and 24-hour delivery at no extra charge in Ghaziabad. Suits, sarees, blazers. Book WhatsApp.",
       keywords:
-        "dry clean near me, dry cleaners near me, dry cleaning ghaziabad, 24 hour dry cleaning, best dry cleaners, dry cleaners raj nagar extension, free pickup dry cleaning",
+        "dry clean offers near me, dry cleaning offers ghaziabad, 30% off dry cleaning, dry clean near me, dry cleaners near me, dry cleaning ghaziabad, 24 hour dry cleaning, free pickup dry cleaning, dry cleaners raj nagar extension",
     },
     serviceType: "Dry Cleaning",
     heroImage: "/images/banners/dry-cleaning-service-ghaziabad.jpg",
     heroImageAlt:
-      "Best dry cleaning service Ghaziabad Cleenzo dry clean near me Raj Nagar Extension",
+      "Cleenzo dry cleaning service pickup in Raj Nagar Extension, Ghaziabad",
     sections: [
       {
         title: "Dry clean near me — premium care in Ghaziabad",
         body: [
-          `When you search dry clean near me or dry cleaners near me, you want inspection, stain treatment and on-time return — not guesswork. Cleenzo provides dry cleaning Ghaziabad families trust from our hub in Raj Nagar Extension.`,
-          `Book free pickup across Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta and Kavi Nagar. Ask about 24 hour dry cleaning when you need garments back fast.`,
+          `When you search dry clean offers near me or dry cleaners near me, you want a real offer, inspection, stain treatment and on-time return. New customers get 30% off their first 3 eligible dry cleaning orders. Cleenzo is the Ghaziabad dry cleaner families trust from Raj Nagar Extension.`,
+          `Book free pickup across Ghaziabad, Noida Extension, Wave City, Crossings Republik, Govindpuram, Morta and Kavi Nagar. Every order is delivered within 24 hours at no extra charge — not a paid express upgrade.`,
         ],
       },
       {
@@ -185,7 +185,7 @@ export const SERVICE_PAGES = {
           {
             icon: "⚡",
             title: "24 hour dry cleaning",
-            desc: "Express slots when available — without skipping quality checks.",
+            desc: "Delivered within 24 hours at no extra charge — without skipping quality checks.",
           },
           {
             icon: "✅",
@@ -218,7 +218,12 @@ export const SERVICE_PAGES = {
       {
         question: "Is 24 hour dry cleaning available?",
         answer:
-          "Express and 24 hour dry cleaning options depend on garment type and load. Confirm on WhatsApp when you book.",
+          "Yes. Cleenzo delivers dry cleaning within 24 hours at no extra charge. Share your deadline when you book on WhatsApp and we will confirm your pickup slot.",
+      },
+      {
+        question: "Do you have a dry cleaning offer for new customers?",
+        answer:
+          "Yes. New customers get 30% off each of their first 3 eligible orders (minimum order ₹500). It is always on — see the offer terms for full eligibility.",
       },
       {
         question: "What fabrics need dry cleaning?",
@@ -238,7 +243,7 @@ export const SERVICE_PAGES = {
       {
         question: "How long does dry cleaning Ghaziabad usually take?",
         answer:
-          "Most orders return within 24–48 hours. Specialty wedding wear may need longer — we confirm at pickup.",
+          "Orders are delivered within 24 hours at no extra charge. Specialty wedding wear may need longer — we confirm at pickup.",
       },
       {
         question: "Can I book laundry and dry cleaning together?",
