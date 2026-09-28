@@ -156,6 +156,852 @@ export const GHAZIABAD_PRICING = {
   ],
   "items": {
     "dry-clean": {
+      "kids": [
+        {
+          "name": "Bag/Kids school bag",
+          "price": 199
+        },
+        {
+          "name": "Blanket Baby / Kids",
+          "price": 199
+        },
+        {
+          "name": "Blouse",
+          "price": 69
+        },
+        {
+          "name": "Blouse / Top",
+          "price": 69
+        },
+        {
+          "name": "Choli + Lehenga + Dupatta",
+          "price": 399
+        },
+        {
+          "name": "Coat",
+          "price": 179
+        },
+        {
+          "name": "Combo - Shirt and Pant ( 2 pcs set )",
+          "price": 79
+        },
+        {
+          "name": "Cotton Frock",
+          "price": 149
+        },
+        {
+          "name": "Designer Frock",
+          "price": 299
+        },
+        {
+          "name": "Dress",
+          "price": 119
+        },
+        {
+          "name": "Dress ( Heavy )",
+          "price": 249
+        },
+        {
+          "name": "Dungaree ( Short / Long )",
+          "price": 149
+        },
+        {
+          "name": "Ethnic Kurta set - 2pcs",
+          "price": 199
+        },
+        {
+          "name": "Ethnic wear ( Normal / Heavy work )",
+          "price": 299
+        },
+        {
+          "name": "Frock",
+          "price": 119
+        },
+        {
+          "name": "Jacket",
+          "price": 149
+        },
+        {
+          "name": "Jeans",
+          "price": 65
+        },
+        {
+          "name": "Kurta + Pants / Salwar / Churidar + Dupatta",
+          "price": 299
+        },
+        {
+          "name": "Pyjama",
+          "price": 99
+        },
+        {
+          "name": "School Bag/Kids",
+          "price": 199
+        },
+        {
+          "name": "Shirt",
+          "price": 69
+        },
+        {
+          "name": "Shorts",
+          "price": 49
+        },
+        {
+          "name": "Skirt",
+          "price": 89
+        },
+        {
+          "name": "Suit 2 Pc",
+          "price": 239
+        },
+        {
+          "name": "Suit 3 Pc",
+          "price": 299
+        },
+        {
+          "name": "Sweater ( Full Sleeves )",
+          "price": 129
+        },
+        {
+          "name": "Sweater ( Sleeveless )",
+          "price": 109
+        },
+        {
+          "name": "T - Shirt",
+          "price": 69
+        },
+        {
+          "name": "Tights and Leggings",
+          "price": 35
+        },
+        {
+          "name": "Track suit / Night suit ( 2 pcs set )",
+          "price": 169
+        },
+        {
+          "name": "Undergarment",
+          "price": 30
+        },
+        {
+          "name": "Waist Coat",
+          "price": 65
+        }
+      ],
+      "household": [
+        {
+          "name": "Bath Mat ( Large )",
+          "price": 89
+        },
+        {
+          "name": "Bath Mat ( Small )",
+          "price": 49
+        },
+        {
+          "name": "Bath Robe ( Big )",
+          "price": 89
+        },
+        {
+          "name": "Bath Robe ( Medium )",
+          "price": 69
+        },
+        {
+          "name": "Bath Robe ( Small )",
+          "price": 59
+        },
+        {
+          "name": "Bath Towel",
+          "price": 59
+        },
+        {
+          "name": "Bed Cover Double",
+          "price": 349
+        },
+        {
+          "name": "Bed Cover Single",
+          "price": 249
+        },
+        {
+          "name": "Bed Sheet Double",
+          "price": 199
+        },
+        {
+          "name": "Bed Sheet Single",
+          "price": 119
+        },
+        {
+          "name": "Blanket Double / Heavy",
+          "price": 499
+        },
+        {
+          "name": "Blanket Double / Premium Comforter",
+          "price": 499
+        },
+        {
+          "name": "Blanket Double / Woolen",
+          "price": 399
+        },
+        {
+          "name": "Blanket Double/Comforter",
+          "price": 399
+        },
+        {
+          "name": "Blanket Duvet ( Double )",
+          "price": 899
+        },
+        {
+          "name": "Blanket Duvet ( Single )",
+          "price": 699
+        },
+        {
+          "name": "Blanket Electric / Heated",
+          "price": 499
+        },
+        {
+          "name": "Blanket Single/ Comforter",
+          "price": 299
+        },
+        {
+          "name": "Curtain - Cotton [Per Panel]",
+          "price": 229
+        },
+        {
+          "name": "Curtain - Embroidery Work [Per Panel]",
+          "price": 269
+        },
+        {
+          "name": "Curtain - Lace [Per Panel]",
+          "price": 289
+        },
+        {
+          "name": "Curtain - With Lining [Per Panel]",
+          "price": 349
+        },
+        {
+          "name": "Curtain - Without Lining [Per Panel]",
+          "price": 239
+        },
+        {
+          "name": "Cushion",
+          "price": 109
+        },
+        {
+          "name": "Cushion Cover Embroidery ( Small / Medium / Large size )",
+          "price": 169
+        },
+        {
+          "name": "Cushion Cover Normal ( Large )",
+          "price": 119
+        },
+        {
+          "name": "Cushion Cover Normal ( Medium )",
+          "price": 89
+        },
+        {
+          "name": "Cushion Cover Normal ( Small )",
+          "price": 69
+        },
+        {
+          "name": "Face Towel",
+          "price": 39
+        },
+        {
+          "name": "Foot Mat ( 1ft * 2ft )",
+          "price": 59
+        },
+        {
+          "name": "Gamosa",
+          "price": 54
+        },
+        {
+          "name": "Hand Towel",
+          "price": 49
+        },
+        {
+          "name": "Handgloves",
+          "price": 99
+        },
+        {
+          "name": "Mosquito Net",
+          "price": 299
+        },
+        {
+          "name": "Oven Gloves ( Set )",
+          "price": 129
+        },
+        {
+          "name": "Pillow Cover - Cotton / Terry Cotton",
+          "price": 49
+        },
+        {
+          "name": "Pillow Cover - Embroidery",
+          "price": 99
+        },
+        {
+          "name": "Pillow Cover 2 pcs Set",
+          "price": 65
+        },
+        {
+          "name": "Pram",
+          "price": 399
+        },
+        {
+          "name": "Quilt ( Double )",
+          "price": 374
+        },
+        {
+          "name": "Quilt ( Single )",
+          "price": 389
+        },
+        {
+          "name": "Quilt Cover ( Double )",
+          "price": 499
+        },
+        {
+          "name": "Quilt Cover ( Single )",
+          "price": 249
+        },
+        {
+          "name": "Razai",
+          "price": 479
+        },
+        {
+          "name": "Sofa Back Cover",
+          "price": 99
+        },
+        {
+          "name": "Sofa cover - Embroidery work ( Single )",
+          "price": 479
+        },
+        {
+          "name": "Sofa cover - Lace/Sheet premium",
+          "price": 149
+        },
+        {
+          "name": "Sofa cover - Normal/Sheet",
+          "price": 99
+        },
+        {
+          "name": "Sofa Cover (Normal) - 3Sheet",
+          "price": 199
+        },
+        {
+          "name": "Sofa Cushion Cover",
+          "price": 49
+        },
+        {
+          "name": "Stuff Toy Big",
+          "price": 299
+        },
+        {
+          "name": "Stuff Toy Medium",
+          "price": 199
+        },
+        {
+          "name": "Stuff Toy Small",
+          "price": 119
+        },
+        {
+          "name": "Suit Case Big",
+          "price": 499
+        },
+        {
+          "name": "Suit Case Medium",
+          "price": 399
+        },
+        {
+          "name": "Suit Case Small",
+          "price": 249
+        },
+        {
+          "name": "Table Cloth Big",
+          "price": 149
+        },
+        {
+          "name": "Table Cloth Small",
+          "price": 89
+        },
+        {
+          "name": "Table Runner - Fancy",
+          "price": 179
+        },
+        {
+          "name": "Table Runner Embroidery",
+          "price": 229
+        },
+        {
+          "name": "Travel pillow with beads",
+          "price": 349
+        },
+        {
+          "name": "Travel pillow without beads",
+          "price": 299
+        }
+      ],
+      "men": [
+        {
+          "name": "Belt",
+          "price": 59
+        },
+        {
+          "name": "Belt Premium",
+          "price": 79
+        },
+        {
+          "name": "Blazer / Coat - Long",
+          "price": 399
+        },
+        {
+          "name": "Blazer / Coat - Long Premium",
+          "price": 519
+        },
+        {
+          "name": "Blazer / Coat - Short",
+          "price": 299
+        },
+        {
+          "name": "Blazer / Coat - Short Premium",
+          "price": 389
+        },
+        {
+          "name": "Boots leather",
+          "price": 599
+        },
+        {
+          "name": "Boots Leather Premium",
+          "price": 779
+        },
+        {
+          "name": "Cap ( Casual / Woolen )",
+          "price": 99
+        },
+        {
+          "name": "Cap ( Casual / Woolen ) Premium",
+          "price": 129
+        },
+        {
+          "name": "Combo - Shirt and Pant",
+          "price": 149
+        },
+        {
+          "name": "Combo - Shirt and Pant Premium",
+          "price": 199
+        },
+        {
+          "name": "Dhoti / Lungi ( Silk )",
+          "price": 119
+        },
+        {
+          "name": "Dhoti / Lungi ( Silk ) Premium",
+          "price": 159
+        },
+        {
+          "name": "Dhoti Heavy",
+          "price": 169
+        },
+        {
+          "name": "Dhoti Normal",
+          "price": 109
+        },
+        {
+          "name": "Formal and Casual Trousers / Pants",
+          "price": 109
+        },
+        {
+          "name": "Formal and Casual Trousers / Pants Premium",
+          "price": 139
+        },
+        {
+          "name": "Gloves ( Leather )",
+          "price": 369
+        },
+        {
+          "name": "Gloves ( Leather ) Premium",
+          "price": 479
+        },
+        {
+          "name": "Gloves ( Woolen )",
+          "price": 69
+        },
+        {
+          "name": "Handkerchief",
+          "price": 29
+        },
+        {
+          "name": "Hats",
+          "price": 129
+        },
+        {
+          "name": "Hats Premium",
+          "price": 169
+        },
+        {
+          "name": "Indo Western",
+          "price": 696
+        },
+        {
+          "name": "Indo Western Premium",
+          "price": 899
+        },
+        {
+          "name": "Jacket - Faux fur Long",
+          "price": 899
+        },
+        {
+          "name": "Jacket - Faux fur Short",
+          "price": 799
+        },
+        {
+          "name": "Jacket Leather",
+          "price": 799
+        },
+        {
+          "name": "Jacket Normal Long",
+          "price": 249
+        },
+        {
+          "name": "Jacket Normal Long Premium",
+          "price": 329
+        },
+        {
+          "name": "Jacket Normal Short",
+          "price": 299
+        },
+        {
+          "name": "Jacket Normal Short Premium",
+          "price": 389
+        },
+        {
+          "name": "Jacket Puffer Long",
+          "price": 399
+        },
+        {
+          "name": "Jacket Puffer Short",
+          "price": 299
+        },
+        {
+          "name": "Jacket Rexine",
+          "price": 299
+        },
+        {
+          "name": "Jeans",
+          "price": 139
+        },
+        {
+          "name": "Jeans Premium",
+          "price": 179
+        },
+        {
+          "name": "Joggers",
+          "price": 179
+        },
+        {
+          "name": "Kurta ( Cotton )",
+          "price": 159
+        },
+        {
+          "name": "Kurta ( Cotton ) Premium",
+          "price": 209
+        },
+        {
+          "name": "Kurta ( Silk )",
+          "price": 199
+        },
+        {
+          "name": "Kurta ( Silk ) Premium",
+          "price": 259
+        },
+        {
+          "name": "Kurta Heavy",
+          "price": 229
+        },
+        {
+          "name": "Kurta Payjama ( Heavy )",
+          "price": 349
+        },
+        {
+          "name": "Kurta Payjama ( Light )",
+          "price": 199
+        },
+        {
+          "name": "Kurta Payjama ( Light ) Premium",
+          "price": 259
+        },
+        {
+          "name": "Muffler ( Woolen / Pashmina )",
+          "price": 219
+        },
+        {
+          "name": "Muffler ( Woolen / Pashmina ) Premium",
+          "price": 289
+        },
+        {
+          "name": "Pagdi",
+          "price": 155
+        },
+        {
+          "name": "Pagdi Premium",
+          "price": 199
+        },
+        {
+          "name": "Parka Coat < Fur Inside > Long",
+          "price": 299
+        },
+        {
+          "name": "Parka Coat < Fur Inside > Short",
+          "price": 249
+        },
+        {
+          "name": "Pocket Square",
+          "price": 29
+        },
+        {
+          "name": "Pocket Square Premium",
+          "price": 39
+        },
+        {
+          "name": "Pyjama",
+          "price": 99
+        },
+        {
+          "name": "Pyjama Premium",
+          "price": 129
+        },
+        {
+          "name": "Safari Shirt & Pant",
+          "price": 249
+        },
+        {
+          "name": "Safari Shirt & Pant Premium",
+          "price": 329
+        },
+        {
+          "name": "Sando baniyan",
+          "price": 37
+        },
+        {
+          "name": "Shawl - Pashmina",
+          "price": 699
+        },
+        {
+          "name": "Shawl - Pashmina Premium",
+          "price": 909
+        },
+        {
+          "name": "Shawl - Toosh",
+          "price": 999
+        },
+        {
+          "name": "Shawl / Lohi",
+          "price": 199
+        },
+        {
+          "name": "Shawl / Lohi Premium",
+          "price": 259
+        },
+        {
+          "name": "Shawl / Naga",
+          "price": 299
+        },
+        {
+          "name": "Shawl / Naga Premium",
+          "price": 389
+        },
+        {
+          "name": "Sherwani",
+          "price": 399
+        },
+        {
+          "name": "Sherwani Premium",
+          "price": 519
+        },
+        {
+          "name": "Shirt",
+          "price": 109
+        },
+        {
+          "name": "Shirt & Dhoti ( Silk )",
+          "price": 179
+        },
+        {
+          "name": "Shirt & Dhoti ( Silk ) Premium",
+          "price": 229
+        },
+        {
+          "name": "Shirt Premium",
+          "price": 139
+        },
+        {
+          "name": "Shoes Leather / Suede / Nubuck",
+          "price": 549
+        },
+        {
+          "name": "Shoes Leather / Suede / Nubuck Premium",
+          "price": 719
+        },
+        {
+          "name": "Shoes Sports",
+          "price": 349
+        },
+        {
+          "name": "Shoes Sports Premium",
+          "price": 449
+        },
+        {
+          "name": "Shorts",
+          "price": 69
+        },
+        {
+          "name": "Slipper / Chappal",
+          "price": 99
+        },
+        {
+          "name": "Slipper / Chappal Premium",
+          "price": 149
+        },
+        {
+          "name": "Socks Pair",
+          "price": 49
+        },
+        {
+          "name": "Suit 2 Pc",
+          "price": 359
+        },
+        {
+          "name": "Suit 2 Pc Premium",
+          "price": 469
+        },
+        {
+          "name": "Suit 3 Pc",
+          "price": 449
+        },
+        {
+          "name": "Suit 3 Pc Premium",
+          "price": 589
+        },
+        {
+          "name": "Sweater / Cardigan - Full Sleeve",
+          "price": 199
+        },
+        {
+          "name": "Sweater / Cardigan - Full Sleeve Premium",
+          "price": 259
+        },
+        {
+          "name": "Sweater / Cardigan - Sleeveless",
+          "price": 169
+        },
+        {
+          "name": "Sweater / Cardigan - Sleeveless Premium",
+          "price": 219
+        },
+        {
+          "name": "Sweatshirt / Jumper",
+          "price": 199
+        },
+        {
+          "name": "Sweatshirt / Jumper Premium",
+          "price": 259
+        },
+        {
+          "name": "Swimming Trunks",
+          "price": 50
+        },
+        {
+          "name": "T - Shirt",
+          "price": 109
+        },
+        {
+          "name": "T - Shirt Premium",
+          "price": 139
+        },
+        {
+          "name": "Thermal",
+          "price": 99
+        },
+        {
+          "name": "Tie",
+          "price": 69
+        },
+        {
+          "name": "Tie Premium",
+          "price": 89
+        },
+        {
+          "name": "Track Pant",
+          "price": 95
+        },
+        {
+          "name": "Track Suit",
+          "price": 179
+        },
+        {
+          "name": "Track Suit Premium",
+          "price": 229
+        },
+        {
+          "name": "Trousers",
+          "price": 129
+        },
+        {
+          "name": "Trousers Premium",
+          "price": 169
+        },
+        {
+          "name": "Turban",
+          "price": 149
+        },
+        {
+          "name": "Turban Premium",
+          "price": 199
+        },
+        {
+          "name": "Vest",
+          "price": 129
+        },
+        {
+          "name": "Waist Coat",
+          "price": 149
+        },
+        {
+          "name": "Waist Coat Premium",
+          "price": 199
+        },
+        {
+          "name": "Wallet",
+          "price": 249
+        },
+        {
+          "name": "Wallet Premium",
+          "price": 329
+        },
+        {
+          "name": "Wedding Sherwani Top Normal",
+          "price": 599
+        },
+        {
+          "name": "Wedding Sherwani Top: Medium work",
+          "price": 799
+        },
+        {
+          "name": "Wedding Suit ( 3 pcs )",
+          "price": 899
+        },
+        {
+          "name": "Wedding Suit Designer ( 3 pcs )",
+          "price": 1199
+        },
+        {
+          "name": "Wedding Tuxedo ( 3 pcs )",
+          "price": 799
+        },
+        {
+          "name": "Wedding Tuxedo Designer ( 3 pcs )",
+          "price": 999
+        },
+        {
+          "name": "Wind Cheater / Rain Jacket",
+          "price": 107
+        }
+      ],
       "bags": [
         {
           "name": "Backpack Large",
@@ -234,284 +1080,6 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Leather Bag Small",
           "price": 449
-        }
-      ],
-      "household": [
-        {
-          "name": "Bath Mat ( Large )",
-          "price": 89
-        },
-        {
-          "name": "Bath Mat ( Small )",
-          "price": 49
-        },
-        {
-          "name": "Bath Robe ( Big )",
-          "price": 89
-        },
-        {
-          "name": "Bath Robe ( Medium )",
-          "price": 69
-        },
-        {
-          "name": "Bath Robe ( Small )",
-          "price": 59
-        },
-        {
-          "name": "Bath Towel",
-          "price": 59
-        },
-        {
-          "name": "Bed Cover Double",
-          "price": 349
-        },
-        {
-          "name": "Bed Cover Single",
-          "price": 249
-        },
-        {
-          "name": "Bed Sheet Double",
-          "price": 199
-        },
-        {
-          "name": "Bed Sheet Single",
-          "price": 119
-        },
-        {
-          "name": "Blanket Double/Comforter",
-          "price": 399
-        },
-        {
-          "name": "Blanket Duvet ( Double )",
-          "price": 899
-        },
-        {
-          "name": "Blanket Duvet ( Single )",
-          "price": 699
-        },
-        {
-          "name": "Blanket Single/ Comforter",
-          "price": 299
-        },
-        {
-          "name": "Curtain - Cotton (Regular Cotton) [6–8 ft]",
-          "price": 269
-        },
-        {
-          "name": "Curtain - Cotton (Regular Cotton) [8–10 ft]",
-          "price": 299
-        },
-        {
-          "name": "Curtain - Cotton (Regular Cotton) [Above 10 ft]",
-          "price": 349
-        },
-        {
-          "name": "Curtain - Cotton (Regular Cotton) [Up to 6 ft]",
-          "price": 229
-        },
-        {
-          "name": "Curtain - Embroidery Work (Designer) [6–8 ft]",
-          "price": 299
-        },
-        {
-          "name": "Curtain - Embroidery Work (Designer) [8–10 ft]",
-          "price": 349
-        },
-        {
-          "name": "Curtain - Embroidery Work (Designer) [Above 10 ft]",
-          "price": 399
-        },
-        {
-          "name": "Curtain - Embroidery Work (Designer) [Up to 6 ft]",
-          "price": 269
-        },
-        {
-          "name": "Curtain - Lace (Lace Design) [6–8 ft]",
-          "price": 319
-        },
-        {
-          "name": "Curtain - Lace (Lace Design) [8–10 ft]",
-          "price": 369
-        },
-        {
-          "name": "Curtain - Lace (Lace Design) [Above 10 ft]",
-          "price": 419
-        },
-        {
-          "name": "Curtain - Lace (Lace Design) [Up to 6 ft]",
-          "price": 289
-        },
-        {
-          "name": "Curtain - With Lining (Inner Lining) [6–8 ft]",
-          "price": 399
-        },
-        {
-          "name": "Curtain - With Lining (Inner Lining) [8–10 ft]",
-          "price": 449
-        },
-        {
-          "name": "Curtain - With Lining (Inner Lining) [Above 10 ft]",
-          "price": 499
-        },
-        {
-          "name": "Curtain - With Lining (Inner Lining) [Up to 6 ft]",
-          "price": 349
-        },
-        {
-          "name": "Curtain - Without Lining (Regular) [6–8 ft]",
-          "price": 279
-        },
-        {
-          "name": "Curtain - Without Lining (Regular) [8–10 ft]",
-          "price": 319
-        },
-        {
-          "name": "Curtain - Without Lining (Regular) [Above 10 ft]",
-          "price": 369
-        },
-        {
-          "name": "Curtain - Without Lining (Regular) [Up to 6 ft]",
-          "price": 239
-        },
-        {
-          "name": "Cushion Cover Embroidery ( Small / Medium / Large size )",
-          "price": 169
-        },
-        {
-          "name": "Cushion Cover Normal ( Large )",
-          "price": 119
-        },
-        {
-          "name": "Cushion Cover Normal ( Medium )",
-          "price": 89
-        },
-        {
-          "name": "Cushion Cover Normal ( Small )",
-          "price": 69
-        },
-        {
-          "name": "Face Towel",
-          "price": 39
-        },
-        {
-          "name": "Foot Mat ( 1ft * 2ft )",
-          "price": 59
-        },
-        {
-          "name": "Gamosa",
-          "price": 54
-        },
-        {
-          "name": "Hand Towel",
-          "price": 49
-        },
-        {
-          "name": "Handgloves",
-          "price": 99
-        },
-        {
-          "name": "Mosquito Net",
-          "price": 299
-        },
-        {
-          "name": "Oven Gloves ( Set )",
-          "price": 129
-        },
-        {
-          "name": "Pillow Cover - Cotton / Terry Cotton",
-          "price": 49
-        },
-        {
-          "name": "Pillow Cover - Embroidery",
-          "price": 99
-        },
-        {
-          "name": "Pillow Cover 2 pcs Set",
-          "price": 65
-        },
-        {
-          "name": "Pram",
-          "price": 399
-        },
-        {
-          "name": "Quilt ( Double )",
-          "price": 549
-        },
-        {
-          "name": "Quilt ( Single )",
-          "price": 449
-        },
-        {
-          "name": "Quilt Cover ( Double )",
-          "price": 349
-        },
-        {
-          "name": "Quilt Cover ( Single )",
-          "price": 249
-        },
-        {
-          "name": "Razai",
-          "price": 479
-        },
-        {
-          "name": "Sofa cover - Embroidery work ( Single )",
-          "price": 479
-        },
-        {
-          "name": "Sofa cover - Lace ( Single )",
-          "price": 399
-        },
-        {
-          "name": "Sofa cover - Normal ( Single )",
-          "price": 349
-        },
-        {
-          "name": "Stuff Toy Big",
-          "price": 299
-        },
-        {
-          "name": "Stuff Toy Medium",
-          "price": 199
-        },
-        {
-          "name": "Stuff Toy Small",
-          "price": 119
-        },
-        {
-          "name": "Suit Case Big",
-          "price": 499
-        },
-        {
-          "name": "Suit Case Medium",
-          "price": 399
-        },
-        {
-          "name": "Suit Case Small",
-          "price": 249
-        },
-        {
-          "name": "Table Cloth Big",
-          "price": 149
-        },
-        {
-          "name": "Table Cloth Small",
-          "price": 89
-        },
-        {
-          "name": "Table Runner - Fancy",
-          "price": 179
-        },
-        {
-          "name": "Table Runner Embroidery",
-          "price": 229
-        },
-        {
-          "name": "Travel pillow with beads",
-          "price": 349
-        },
-        {
-          "name": "Travel pillow without beads",
-          "price": 299
         }
       ],
       "luxury": [
@@ -668,24 +1236,12 @@ export const GHAZIABAD_PRICING = {
           "price": 599
         },
         {
-          "name": "Shawl - Pashmina",
-          "price": 899
-        },
-        {
           "name": "Shawl - Toosh",
           "price": 999
         },
         {
-          "name": "Sherwani / Achkan – Men",
-          "price": 419
-        },
-        {
           "name": "Sherwani / Achkan (Women)",
           "price": 1199
-        },
-        {
-          "name": "Shirt (Men)",
-          "price": 139
         },
         {
           "name": "Shirt (Women)",
@@ -700,16 +1256,8 @@ export const GHAZIABAD_PRICING = {
           "price": 1099
         },
         {
-          "name": "Sweater / Cardigan - Full Sleeve (Men)",
-          "price": 249
-        },
-        {
           "name": "Sweater / Cardigan - Full Sleeve (Women)",
           "price": 479
-        },
-        {
-          "name": "Sweater / Cardigan - Sleeveless (Men)",
-          "price": 199
         },
         {
           "name": "Sweater / Cardigan - Sleeveless (Women)",
@@ -740,468 +1288,6 @@ export const GHAZIABAD_PRICING = {
           "price": 899
         }
       ],
-      "men": [
-        {
-          "name": "Belt",
-          "price": 59
-        },
-        {
-          "name": "Belt Premium",
-          "price": 79
-        },
-        {
-          "name": "Blazer / Coat - Long",
-          "price": 399
-        },
-        {
-          "name": "Blazer / Coat - Long Premium",
-          "price": 519
-        },
-        {
-          "name": "Blazer / Coat - Short",
-          "price": 299
-        },
-        {
-          "name": "Blazer / Coat - Short Premium",
-          "price": 389
-        },
-        {
-          "name": "Boots Leather",
-          "price": 599
-        },
-        {
-          "name": "Boots Leather Premium",
-          "price": 779
-        },
-        {
-          "name": "Cap ( Casual / Woolen )",
-          "price": 99
-        },
-        {
-          "name": "Cap ( Casual / Woolen ) Premium",
-          "price": 129
-        },
-        {
-          "name": "Combo - Shirt and Pant",
-          "price": 149
-        },
-        {
-          "name": "Combo - Shirt and Pant Premium",
-          "price": 199
-        },
-        {
-          "name": "Dhoti / Lungi ( Silk )",
-          "price": 119
-        },
-        {
-          "name": "Dhoti / Lungi ( Silk ) Premium",
-          "price": 159
-        },
-        {
-          "name": "Dhoti Heavy",
-          "price": 169
-        },
-        {
-          "name": "Dhoti Normal",
-          "price": 109
-        },
-        {
-          "name": "Formal and Casual Trousers / Pants",
-          "price": 109
-        },
-        {
-          "name": "Formal and Casual Trousers / Pants Premium",
-          "price": 139
-        },
-        {
-          "name": "Gloves ( Leather )",
-          "price": 369
-        },
-        {
-          "name": "Gloves ( Leather ) Premium",
-          "price": 479
-        },
-        {
-          "name": "Gloves ( Woolen )",
-          "price": 69
-        },
-        {
-          "name": "Handkerchief",
-          "price": 29
-        },
-        {
-          "name": "Hats",
-          "price": 129
-        },
-        {
-          "name": "Hats Premium",
-          "price": 169
-        },
-        {
-          "name": "Indo Western",
-          "price": 696
-        },
-        {
-          "name": "Indo Western Premium",
-          "price": 899
-        },
-        {
-          "name": "Jacket - Faux Fur Long",
-          "price": 899
-        },
-        {
-          "name": "Jacket - Faux Fur Short",
-          "price": 799
-        },
-        {
-          "name": "Jacket Leather",
-          "price": 799
-        },
-        {
-          "name": "Jacket Normal Long",
-          "price": 249
-        },
-        {
-          "name": "Jacket Normal Long Premium",
-          "price": 329
-        },
-        {
-          "name": "Jacket Normal Short",
-          "price": 299
-        },
-        {
-          "name": "Jacket Normal Short Premium",
-          "price": 389
-        },
-        {
-          "name": "Jacket Puffer Long",
-          "price": 399
-        },
-        {
-          "name": "Jacket Puffer Short",
-          "price": 299
-        },
-        {
-          "name": "Jacket Rexine",
-          "price": 299
-        },
-        {
-          "name": "Jeans",
-          "price": 139
-        },
-        {
-          "name": "Jeans Premium",
-          "price": 179
-        },
-        {
-          "name": "Joggers",
-          "price": 179
-        },
-        {
-          "name": "Kurta ( Cotton )",
-          "price": 159
-        },
-        {
-          "name": "Kurta ( Cotton ) Premium",
-          "price": 209
-        },
-        {
-          "name": "Kurta ( Silk )",
-          "price": 199
-        },
-        {
-          "name": "Kurta ( Silk ) Premium",
-          "price": 259
-        },
-        {
-          "name": "Kurta Heavy",
-          "price": 229
-        },
-        {
-          "name": "Kurta Payjama ( Heavy )",
-          "price": 349
-        },
-        {
-          "name": "Kurta Payjama ( Light )",
-          "price": 199
-        },
-        {
-          "name": "Kurta Payjama ( Light ) Premium",
-          "price": 259
-        },
-        {
-          "name": "Muffler ( Woolen / Pashmina )",
-          "price": 219
-        },
-        {
-          "name": "Muffler ( Woolen / Pashmina ) Premium",
-          "price": 289
-        },
-        {
-          "name": "Pagdi",
-          "price": 155
-        },
-        {
-          "name": "Pagdi Premium",
-          "price": 199
-        },
-        {
-          "name": "Parka Coat < Fur Inside > Long",
-          "price": 299
-        },
-        {
-          "name": "Parka Coat < Fur Inside > Short",
-          "price": 249
-        },
-        {
-          "name": "Pocket Square",
-          "price": 29
-        },
-        {
-          "name": "Pocket Square Premium",
-          "price": 39
-        },
-        {
-          "name": "Pyjama",
-          "price": 99
-        },
-        {
-          "name": "Pyjama Premium",
-          "price": 129
-        },
-        {
-          "name": "Safari Shirt & Pant",
-          "price": 249
-        },
-        {
-          "name": "Safari Shirt & Pant Premium",
-          "price": 329
-        },
-        {
-          "name": "Shawl - Pashmina",
-          "price": 699
-        },
-        {
-          "name": "Shawl - Pashmina Premium",
-          "price": 909
-        },
-        {
-          "name": "Shawl - Toosh",
-          "price": 999
-        },
-        {
-          "name": "Shawl / Lohi",
-          "price": 199
-        },
-        {
-          "name": "Shawl / Lohi Premium",
-          "price": 259
-        },
-        {
-          "name": "Shawl / Naga",
-          "price": 299
-        },
-        {
-          "name": "Shawl / Naga Premium",
-          "price": 389
-        },
-        {
-          "name": "Sherwani",
-          "price": 399
-        },
-        {
-          "name": "Sherwani Premium",
-          "price": 519
-        },
-        {
-          "name": "Shirt",
-          "price": 109
-        },
-        {
-          "name": "Shirt Premium",
-          "price": 139
-        },
-        {
-          "name": "Shirt & Dhoti ( Silk )",
-          "price": 179
-        },
-        {
-          "name": "Shirt & Dhoti ( Silk ) Premium",
-          "price": 229
-        },
-        {
-          "name": "Shoes Leather / Suede / Nubuck",
-          "price": 549
-        },
-        {
-          "name": "Shoes Leather / Suede / Nubuck Premium",
-          "price": 719
-        },
-        {
-          "name": "Shoes Sports",
-          "price": 349
-        },
-        {
-          "name": "Shoes Sports Premium",
-          "price": 449
-        },
-        {
-          "name": "Slipper / Chappal",
-          "price": 99
-        },
-        {
-          "name": "Slipper / Chappal Premium",
-          "price": 149
-        },
-        {
-          "name": "Shorts",
-          "price": 69
-        },
-        {
-          "name": "Socks Pair",
-          "price": 49
-        },
-        {
-          "name": "Suit 2 Pc",
-          "price": 359
-        },
-        {
-          "name": "Suit 2 Pc Premium",
-          "price": 469
-        },
-        {
-          "name": "Suit 3 Pc",
-          "price": 449
-        },
-        {
-          "name": "Suit 3 Pc Premium",
-          "price": 589
-        },
-        {
-          "name": "Sweater / Cardigan - Full Sleeve",
-          "price": 199
-        },
-        {
-          "name": "Sweater / Cardigan - Full Sleeve Premium",
-          "price": 259
-        },
-        {
-          "name": "Sweater / Cardigan - Sleeveless",
-          "price": 169
-        },
-        {
-          "name": "Sweater / Cardigan - Sleeveless Premium",
-          "price": 219
-        },
-        {
-          "name": "Sweatshirt / Jumper",
-          "price": 199
-        },
-        {
-          "name": "Sweatshirt / Jumper Premium",
-          "price": 259
-        },
-        {
-          "name": "Swimming Trunks",
-          "price": 50
-        },
-        {
-          "name": "T - Shirt",
-          "price": 109
-        },
-        {
-          "name": "T - Shirt Premium",
-          "price": 139
-        },
-        {
-          "name": "Thermal",
-          "price": 99
-        },
-        {
-          "name": "Tie",
-          "price": 69
-        },
-        {
-          "name": "Tie Premium",
-          "price": 89
-        },
-        {
-          "name": "Track Pant",
-          "price": 95
-        },
-        {
-          "name": "Track Suit",
-          "price": 179
-        },
-        {
-          "name": "Track Suit Premium",
-          "price": 229
-        },
-        {
-          "name": "Trousers",
-          "price": 129
-        },
-        {
-          "name": "Trousers Premium",
-          "price": 169
-        },
-        {
-          "name": "Turban",
-          "price": 149
-        },
-        {
-          "name": "Turban Premium",
-          "price": 199
-        },
-        {
-          "name": "Vest",
-          "price": 129
-        },
-        {
-          "name": "Waist Coat",
-          "price": 149
-        },
-        {
-          "name": "Waist Coat Premium",
-          "price": 199
-        },
-        {
-          "name": "Wallet",
-          "price": 249
-        },
-        {
-          "name": "Wallet Premium",
-          "price": 329
-        },
-        {
-          "name": "Wedding Sherwani Top Normal",
-          "price": 599
-        },
-        {
-          "name": "Wedding Sherwani Top: Medium Work",
-          "price": 799
-        },
-        {
-          "name": "Wedding Suit ( 3 pcs )",
-          "price": 899
-        },
-        {
-          "name": "Wedding Suit Designer ( 3 pcs )",
-          "price": 1199
-        },
-        {
-          "name": "Wedding Tuxedo ( 3 pcs )",
-          "price": 799
-        },
-        {
-          "name": "Wedding Tuxedo Designer ( 3 pcs )",
-          "price": 999
-        },
-        {
-          "name": "Wind Cheater / Rain Jacket",
-          "price": 107
-        }
-      ],
       "women": [
         {
           "name": "Belt",
@@ -1213,11 +1299,7 @@ export const GHAZIABAD_PRICING = {
         },
         {
           "name": "Blouse",
-          "price": 99
-        },
-        {
-          "name": "Blouse Premium",
-          "price": 129
+          "price": 79
         },
         {
           "name": "Blouse Designer",
@@ -1230,6 +1312,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Blouse Normal",
           "price": 99
+        },
+        {
+          "name": "Blouse Premium",
+          "price": 129
         },
         {
           "name": "Boot",
@@ -1260,10 +1346,6 @@ export const GHAZIABAD_PRICING = {
           "price": 199
         },
         {
-          "name": "Chadar Premium",
-          "price": 259
-        },
-        {
           "name": "Chadar Muga and Pator",
           "price": 239
         },
@@ -1272,12 +1354,12 @@ export const GHAZIABAD_PRICING = {
           "price": 309
         },
         {
-          "name": "Choli",
-          "price": 299
+          "name": "Chadar Premium",
+          "price": 259
         },
         {
-          "name": "Choli Premium",
-          "price": 389
+          "name": "Choli",
+          "price": 299
         },
         {
           "name": "Choli + Lehenga + Dupatta",
@@ -1286,6 +1368,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Choli + Lehenga + Dupatta Premium",
           "price": 909
+        },
+        {
+          "name": "Choli Premium",
+          "price": 389
         },
         {
           "name": "Coat - Long",
@@ -1324,10 +1410,6 @@ export const GHAZIABAD_PRICING = {
           "price": 149
         },
         {
-          "name": "Dress Premium",
-          "price": 199
-        },
-        {
           "name": "Dress ( Cotton )",
           "price": 219
         },
@@ -1362,6 +1444,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Dress Indo western Premium",
           "price": 909
+        },
+        {
+          "name": "Dress Premium",
+          "price": 199
         },
         {
           "name": "Dungaree Long",
@@ -1556,16 +1642,16 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
-          "name": "Kesa Pator Mekhela Premium",
-          "price": 389
-        },
-        {
           "name": "Kesa Pator Mekhela Chaddar 3pcs",
           "price": 399
         },
         {
           "name": "Kesa Pator Mekhela Chaddar 3pcs Premium",
           "price": 519
+        },
+        {
+          "name": "Kesa Pator Mekhela Premium",
+          "price": 389
         },
         {
           "name": "Khasi Dhara Munga",
@@ -1708,16 +1794,16 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
-          "name": "Muga Mekhela Premium",
-          "price": 389
-        },
-        {
           "name": "Muga Mekhela Chaddar 3pcs",
           "price": 399
         },
         {
           "name": "Muga Mekhela Chaddar 3pcs Premium",
           "price": 519
+        },
+        {
+          "name": "Muga Mekhela Premium",
+          "price": 389
         },
         {
           "name": "Night Dress",
@@ -1764,16 +1850,16 @@ export const GHAZIABAD_PRICING = {
           "price": 299
         },
         {
-          "name": "Pator Mekhela Premium",
-          "price": 389
-        },
-        {
           "name": "Pator Mekhela Chaddar 3pcs",
           "price": 399
         },
         {
           "name": "Pator Mekhela Chaddar 3pcs Premium",
           "price": 519
+        },
+        {
+          "name": "Pator Mekhela Premium",
+          "price": 389
         },
         {
           "name": "Peticoat Cotton",
@@ -1840,7 +1926,7 @@ export const GHAZIABAD_PRICING = {
           "price": 349
         },
         {
-          "name": "Saree ( Silk / Chiffon / Georgette / Heavy )",
+          "name": "Saree ( Silk / Chiffon / Georgette )",
           "price": 299
         },
         {
@@ -1888,15 +1974,15 @@ export const GHAZIABAD_PRICING = {
           "price": 59
         },
         {
-          "name": "Shorts Premium",
-          "price": 79
-        },
-        {
           "name": "Shorts / Capri",
           "price": 59
         },
         {
           "name": "Shorts / Capri Premium",
+          "price": 79
+        },
+        {
+          "name": "Shorts Premium",
           "price": 79
         },
         {
@@ -1910,10 +1996,6 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Skirt",
           "price": 129
-        },
-        {
-          "name": "Skirt Premium",
-          "price": 169
         },
         {
           "name": "Skirt - Pencil / Pleated / Other",
@@ -1930,6 +2012,10 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Skirt Long Premium",
           "price": 199
+        },
+        {
+          "name": "Skirt Premium",
+          "price": 169
         },
         {
           "name": "Socks Pair",
@@ -1992,7 +2078,7 @@ export const GHAZIABAD_PRICING = {
           "price": 229
         },
         {
-          "name": "T - Shirt",
+          "name": "T - shirt",
           "price": 89
         },
         {
@@ -2024,7 +2110,7 @@ export const GHAZIABAD_PRICING = {
           "price": 99
         },
         {
-          "name": "Track Suit",
+          "name": "Track suit",
           "price": 199
         },
         {
@@ -2063,615 +2149,9 @@ export const GHAZIABAD_PRICING = {
           "name": "Women Night Robe Satin Premium",
           "price": 209
         }
-      ],
-      "kids": [
-        {
-          "name": "Blouse",
-          "price": 69
-        },
-        {
-          "name": "Blouse / Top",
-          "price": 69
-        },
-        {
-          "name": "Choli + Lehenga + Dupatta",
-          "price": 399
-        },
-        {
-          "name": "Coat",
-          "price": 179
-        },
-        {
-          "name": "Combo - Shirt and Pant ( 2 pcs set )",
-          "price": 79
-        },
-        {
-          "name": "Cotton Frock",
-          "price": 149
-        },
-        {
-          "name": "Designer Frock",
-          "price": 299
-        },
-        {
-          "name": "Dress",
-          "price": 119
-        },
-        {
-          "name": "Dress ( Heavy )",
-          "price": 249
-        },
-        {
-          "name": "Dungaree ( Short / Long )",
-          "price": 149
-        },
-        {
-          "name": "Ethnic Kurta set - 2pcs",
-          "price": 199
-        },
-        {
-          "name": "Ethnic wear ( Normal / Heavy work )",
-          "price": 299
-        },
-        {
-          "name": "Frock",
-          "price": 119
-        },
-        {
-          "name": "Jacket",
-          "price": 149
-        },
-        {
-          "name": "Jeans",
-          "price": 65
-        },
-        {
-          "name": "Kurta + Pants / Salwar / Churidar + Dupatta",
-          "price": 299
-        },
-        {
-          "name": "Pyjama",
-          "price": 45
-        },
-        {
-          "name": "Shirt",
-          "price": 69
-        },
-        {
-          "name": "Shorts",
-          "price": 49
-        },
-        {
-          "name": "Skirt",
-          "price": 89
-        },
-        {
-          "name": "Suit 2 Pc",
-          "price": 239
-        },
-        {
-          "name": "Suit 3 Pc",
-          "price": 299
-        },
-        {
-          "name": "Sweater ( Full Sleeves )",
-          "price": 129
-        },
-        {
-          "name": "Sweater ( Sleeveless )",
-          "price": 109
-        },
-        {
-          "name": "T - Shirt",
-          "price": 69
-        },
-        {
-          "name": "Tights and Leggings",
-          "price": 35
-        },
-        {
-          "name": "Track suit / Night suit ( 2 pcs set )",
-          "price": 169
-        },
-        {
-          "name": "Undergarment",
-          "price": 30
-        },
-        {
-          "name": "Waist Coat",
-          "price": 65
-        }
       ]
     },
     "steam-iron": {
-      "bags": [
-        {
-          "name": "Backpack Large",
-          "price": 249
-        },
-        {
-          "name": "Backpack Medium",
-          "price": 174
-        },
-        {
-          "name": "Backpack Small",
-          "price": 149
-        },
-        {
-          "name": "Bag",
-          "price": 274
-        },
-        {
-          "name": "Laptop Bag",
-          "price": 199
-        },
-        {
-          "name": "Women's Shoulder Bag",
-          "price": 299
-        },
-        {
-          "name": "Women's Sling Bag",
-          "price": 199
-        }
-      ],
-      "leather-bags": [
-        {
-          "name": "Leather Bag Large",
-          "price": 424
-        },
-        {
-          "name": "Leather Bag Medium",
-          "price": 299
-        },
-        {
-          "name": "Leather Bag Small",
-          "price": 224
-        }
-      ],
-      "household": [
-        {
-          "name": "Bath Mat ( Large )",
-          "price": 44
-        },
-        {
-          "name": "Bath Mat ( Small )",
-          "price": 24
-        },
-        {
-          "name": "Bath Robe ( Big )",
-          "price": 44
-        },
-        {
-          "name": "Bath Robe ( Medium )",
-          "price": 34
-        },
-        {
-          "name": "Bath Robe ( Small )",
-          "price": 29
-        },
-        {
-          "name": "Bath Towel",
-          "price": 29
-        },
-        {
-          "name": "Bed Cover Double",
-          "price": 175
-        },
-        {
-          "name": "Bed Cover Single",
-          "price": 125
-        },
-        {
-          "name": "Bed Sheet Double",
-          "price": 99
-        },
-        {
-          "name": "Bed Sheet Single",
-          "price": 59
-        },
-        {
-          "name": "Blanket Double/Comforter",
-          "price": 224
-        },
-        {
-          "name": "Blanket Duvet ( Double )",
-          "price": 449
-        },
-        {
-          "name": "Blanket Duvet ( Single )",
-          "price": 49
-        },
-        {
-          "name": "Blanket Single/ Comforter",
-          "price": 174
-        },
-        {
-          "name": "Curtain - Cotton [Per Panel]",
-          "price": 114
-        },
-        {
-          "name": "Curtain - Embroidery Work [Per Panel]",
-          "price": 134
-        },
-        {
-          "name": "Curtain - Lace [Per Panel]",
-          "price": 144
-        },
-        {
-          "name": "Curtain - With Lining [Per Panel]",
-          "price": 174
-        },
-        {
-          "name": "Curtain - Without Lining [Per Panel]",
-          "price": 119
-        },
-        {
-          "name": "Cushion Cover Embroidery ( Small / Medium / Large size )",
-          "price": 84
-        },
-        {
-          "name": "Cushion Cover Normal ( Large )",
-          "price": 59
-        },
-        {
-          "name": "Cushion Cover Normal ( Medium )",
-          "price": 44
-        },
-        {
-          "name": "Cushion Cover Normal ( Small )",
-          "price": 34
-        },
-        {
-          "name": "Cushion Cover Small",
-          "price": 34
-        },
-        {
-          "name": "Cushion Cover Small - Premium",
-          "price": 64
-        },
-        {
-          "name": "Face Towel",
-          "price": 19
-        },
-        {
-          "name": "Foot Mat ( 1ft * 2ft )",
-          "price": 29
-        },
-        {
-          "name": "Gamosa",
-          "price": 26
-        },
-        {
-          "name": "Hand Towel",
-          "price": 24
-        },
-        {
-          "name": "Handgloves",
-          "price": 49
-        },
-        {
-          "name": "Mossquito Net",
-          "price": 149
-        },
-        {
-          "name": "Oven Gloves ( Set )",
-          "price": 64
-        },
-        {
-          "name": "Pillow Cover - Cotton / Terry Cotton",
-          "price": 34
-        },
-        {
-          "name": "Pillow Cover - Embroidery",
-          "price": 49
-        },
-        {
-          "name": "Pillow Cover 2 pcs Set",
-          "price": 32
-        },
-        {
-          "name": "Pram",
-          "price": 199
-        },
-        {
-          "name": "Quilt ( Double )",
-          "price": 274
-        },
-        {
-          "name": "Quilt ( Single )",
-          "price": 224
-        },
-        {
-          "name": "Quilt Cover ( Double )",
-          "price": 175
-        },
-        {
-          "name": "Quilt Cover ( Single )",
-          "price": 125
-        },
-        {
-          "name": "Razai",
-          "price": 239
-        },
-        {
-          "name": "Sofa cover - Embroidery work ( Single )",
-          "price": 239
-        },
-        {
-          "name": "Sofa cover - Lace ( Single )",
-          "price": 199
-        },
-        {
-          "name": "Sofa cover - Normal ( Single )",
-          "price": 174
-        },
-        {
-          "name": "Stuff Toy Big",
-          "price": 149
-        },
-        {
-          "name": "Stuff Toy Medium",
-          "price": 99
-        },
-        {
-          "name": "Stuff Toy Small",
-          "price": 59
-        },
-        {
-          "name": "Suit Case Big",
-          "price": 249
-        },
-        {
-          "name": "Suit Case Medium",
-          "price": 199
-        },
-        {
-          "name": "Suit Case Small",
-          "price": 124
-        },
-        {
-          "name": "Table Cloth Big",
-          "price": 75
-        },
-        {
-          "name": "Table Cloth Small",
-          "price": 45
-        },
-        {
-          "name": "Table Runner - Fancy",
-          "price": 89
-        },
-        {
-          "name": "Table Runner Embroidery",
-          "price": 114
-        },
-        {
-          "name": "Travel pillow with beads",
-          "price": 174
-        },
-        {
-          "name": "Travel pillow without beads",
-          "price": 149
-        }
-      ],
-      "luxury": [
-        {
-          "name": "Bed Cover Double / King Premium",
-          "price": 199
-        },
-        {
-          "name": "Bed Cover Single Premium",
-          "price": 139
-        },
-        {
-          "name": "Bed Sheet Double / King Premium",
-          "price": 114
-        },
-        {
-          "name": "Bed Sheet Single Premium",
-          "price": 69
-        },
-        {
-          "name": "Blanket Double / Comforter Premium",
-          "price": 249
-        },
-        {
-          "name": "Blanket Single Premium",
-          "price": 199
-        },
-        {
-          "name": "Blouse",
-          "price": 99
-        },
-        {
-          "name": "Blouse / Top",
-          "price": 149
-        },
-        {
-          "name": "Choli + Lehenga",
-          "price": 399
-        },
-        {
-          "name": "Choli + Lehenga + Dupatta",
-          "price": 499
-        },
-        {
-          "name": "Coat",
-          "price": 324
-        },
-        {
-          "name": "Coat - Short",
-          "price": 249
-        },
-        {
-          "name": "Curtain - With Lining [Per Panel] Premium",
-          "price": 199
-        },
-        {
-          "name": "Curtain - Without Lining [Per Panel] Premium",
-          "price": 134
-        },
-        {
-          "name": "Cushion Cover Big Premium",
-          "price": 69
-        },
-        {
-          "name": "Cushion Cover Small Premium",
-          "price": 39
-        },
-        {
-          "name": "Dress",
-          "price": 299
-        },
-        {
-          "name": "Dupatta",
-          "price": 94
-        },
-        {
-          "name": "Dupatta Designer",
-          "price": 124
-        },
-        {
-          "name": "Jacket - Short ( including leather )",
-          "price": 449
-        },
-        {
-          "name": "Kameez / Kurta (Men)",
-          "price": 99
-        },
-        {
-          "name": "Kameez / Kurta (Women)",
-          "price": 174
-        },
-        {
-          "name": "Kurta + Pants / Salwar / Churidar",
-          "price": 212
-        },
-        {
-          "name": "Kurta + Pants / Salwar / Churidar + Dupatta",
-          "price": 299
-        },
-        {
-          "name": "Ladies Suit 2 Pc",
-          "price": 199
-        },
-        {
-          "name": "Ladies Suit 3 Pc",
-          "price": 224
-        },
-        {
-          "name": "Lehenga",
-          "price": 349
-        },
-        {
-          "name": "Lehenga / Flared Skirt",
-          "price": 349
-        },
-        {
-          "name": "Overcoat (Men)",
-          "price": 224
-        },
-        {
-          "name": "Overcoat (Women)",
-          "price": 269
-        },
-        {
-          "name": "Pyjama / Pants / Salwar / Churidar",
-          "price": 64
-        },
-        {
-          "name": "Quilt Cover ( Double ) Premium",
-          "price": 199
-        },
-        {
-          "name": "Quilt Cover ( Single ) Premium",
-          "price": 139
-        },
-        {
-          "name": "Quilt Double Premium",
-          "price": 299
-        },
-        {
-          "name": "Quilt Single Premium",
-          "price": 249
-        },
-        {
-          "name": "Saree ( Embroidered / Heavy )",
-          "price": 299
-        },
-        {
-          "name": "Shawl - Pashmina",
-          "price": 449
-        },
-        {
-          "name": "Shawl - Toosh",
-          "price": 499
-        },
-        {
-          "name": "Sherwani / Achkan – Men",
-          "price": 199
-        },
-        {
-          "name": "Sherwani / Achkan (Women)",
-          "price": 599
-        },
-        {
-          "name": "Shirt (Men)",
-          "price": 69
-        },
-        {
-          "name": "Shirt (Women)",
-          "price": 89
-        },
-        {
-          "name": "Suit 2 Pc",
-          "price": 449
-        },
-        {
-          "name": "Suit 3 Pc",
-          "price": 549
-        },
-        {
-          "name": "Sweater / Cardigan - Full Sleeve (Men)",
-          "price": 124
-        },
-        {
-          "name": "Sweater / Cardigan - Full Sleeve (Women)",
-          "price": 239
-        },
-        {
-          "name": "Sweater / Cardigan - Sleeveless (Men)",
-          "price": 99
-        },
-        {
-          "name": "Sweater / Cardigan - Sleeveless (Women)",
-          "price": 209
-        },
-        {
-          "name": "Wedding Sherwani Set – Top: Sherwani | Bottom: Pajama",
-          "price": 499
-        },
-        {
-          "name": "Wedding Sherwani Set Normal – Top: Sherwani | Bottom: Pajama",
-          "price": 399
-        },
-        {
-          "name": "Wedding Suit ( 3 pcs )",
-          "price": 449
-        },
-        {
-          "name": "Wedding Suit Designer ( 3 pcs )",
-          "price": 599
-        },
-        {
-          "name": "Wedding Tuxedo ( 3 pcs )",
-          "price": 399
-        },
-        {
-          "name": "Wedding Tuxedo Designer ( 3 pcs )",
-          "price": 449
-        }
-      ],
       "men": [
         {
           "name": "Belt",
@@ -2682,1436 +2162,534 @@ export const GHAZIABAD_PRICING = {
           "price": 39
         },
         {
-          "name": "Blazer / Coat - Long",
-          "price": 199
-        },
-        {
-          "name": "Blazer / Coat - Long Premium",
-          "price": 259
-        },
-        {
-          "name": "Blazer / Coat - Short",
+          "name": "Blazer / Coat Long",
           "price": 149
         },
         {
-          "name": "Blazer / Coat - Short Premium",
-          "price": 194
+          "name": "Blazer / Coat Long Premium",
+          "price": 199
         },
         {
-          "name": "Boots Leather",
-          "price": 299
+          "name": "Blazer / Coat Short",
+          "price": 119
         },
         {
-          "name": "Boots Leather Premium",
-          "price": 389
+          "name": "Blazer / Coat Short Premium",
+          "price": 159
         },
         {
-          "name": "Cap ( Casual / Woolen )",
-          "price": 49
+          "name": "Cardigan Full",
+          "price": 79
         },
         {
-          "name": "Cap ( Casual / Woolen ) Premium",
-          "price": 64
-        },
-        {
-          "name": "Combo - Shirt and Pant",
-          "price": 74
-        },
-        {
-          "name": "Combo - Shirt and Pant Premium",
+          "name": "Cardigan Full Premium",
           "price": 99
         },
         {
-          "name": "Dhoti / Lungi ( Silk )",
-          "price": 59
+          "name": "Cardigan Sleeveless",
+          "price": 69
         },
         {
-          "name": "Dhoti / Lungi ( Silk ) Premium",
-          "price": 79
+          "name": "Cardigan Sleeveless Premium",
+          "price": 89
+        },
+        {
+          "name": "Combo Shirt + Pant",
+          "price": 69
+        },
+        {
+          "name": "Dhoti / Lungi",
+          "price": 39
         },
         {
           "name": "Dhoti Heavy",
-          "price": 84
+          "price": 59
         },
         {
-          "name": "Dhoti Normal",
-          "price": 54
+          "name": "Faux Fur Jacket Long",
+          "price": 219
         },
         {
-          "name": "Formal and Casual Trousers / Pants",
-          "price": 54
-        },
-        {
-          "name": "Formal and Casual Trousers / Pants Premium",
-          "price": 69
-        },
-        {
-          "name": "Gloves ( Leather )",
-          "price": 184
-        },
-        {
-          "name": "Gloves ( Leather ) Premium",
-          "price": 239
-        },
-        {
-          "name": "Gloves ( Woolen )",
-          "price": 34
-        },
-        {
-          "name": "Handkerchief",
-          "price": 14
-        },
-        {
-          "name": "Hats",
-          "price": 64
-        },
-        {
-          "name": "Hats Premium",
-          "price": 84
-        },
-        {
-          "name": "Indo Western",
-          "price": 348
-        },
-        {
-          "name": "Indo Western Premium",
-          "price": 449
-        },
-        {
-          "name": "Jacket - Faux Fur Long",
-          "price": 449
-        },
-        {
-          "name": "Jacket - Faux Fur Short",
-          "price": 399
-        },
-        {
-          "name": "Jacket Leather",
-          "price": 399
-        },
-        {
-          "name": "Jacket Normal Long",
-          "price": 124
-        },
-        {
-          "name": "Jacket Normal Long Premium",
-          "price": 164
-        },
-        {
-          "name": "Jacket Normal Short",
-          "price": 149
-        },
-        {
-          "name": "Jacket Normal Short Premium",
-          "price": 194
-        },
-        {
-          "name": "Jacket Puffer Long",
-          "price": 199
-        },
-        {
-          "name": "Jacket Puffer Short",
-          "price": 149
-        },
-        {
-          "name": "Jacket Rexine",
-          "price": 149
-        },
-        {
-          "name": "Jeans",
-          "price": 69
-        },
-        {
-          "name": "Jeans Premium",
-          "price": 89
-        },
-        {
-          "name": "Joggers",
-          "price": 89
-        },
-        {
-          "name": "Kurta ( Cotton )",
-          "price": 79
-        },
-        {
-          "name": "Kurta ( Cotton ) Premium",
-          "price": 104
-        },
-        {
-          "name": "Kurta ( Silk )",
-          "price": 99
-        },
-        {
-          "name": "Kurta ( Silk ) Premium",
-          "price": 129
-        },
-        {
-          "name": "Kurta Heavy",
-          "price": 114
-        },
-        {
-          "name": "Kurta Payjama ( Heavy )",
-          "price": 174
-        },
-        {
-          "name": "Kurta Payjama ( Light )",
-          "price": 99
-        },
-        {
-          "name": "Kurta Payjama ( Light ) Premium",
-          "price": 129
-        },
-        {
-          "name": "Muffler ( Woolen / Pashmina )",
-          "price": 109
-        },
-        {
-          "name": "Muffler ( Woolen / Pashmina ) Premium",
-          "price": 144
-        },
-        {
-          "name": "Pagdi",
-          "price": 77
-        },
-        {
-          "name": "Pagdi Premium",
-          "price": 99
-        },
-        {
-          "name": "Parka Coat < Fur Inside > Long",
-          "price": 149
-        },
-        {
-          "name": "Parka Coat < Fur Inside > Short",
-          "price": 124
-        },
-        {
-          "name": "Pocket Square",
-          "price": 14
-        },
-        {
-          "name": "Pocket Square Premium",
-          "price": 19
-        },
-        {
-          "name": "Pyjama",
-          "price": 49
-        },
-        {
-          "name": "Pyjama Premium",
-          "price": 64
-        },
-        {
-          "name": "Safari Shirt & Pant",
-          "price": 124
-        },
-        {
-          "name": "Safari Shirt & Pant Premium",
-          "price": 164
-        },
-        {
-          "name": "Shawl - Pashmina",
-          "price": 349
-        },
-        {
-          "name": "Shawl - Pashmina Premium",
-          "price": 454
-        },
-        {
-          "name": "Shawl - Toosh",
-          "price": 499
-        },
-        {
-          "name": "Shawl / Lohi",
-          "price": 99
-        },
-        {
-          "name": "Shawl / Lohi Premium",
-          "price": 129
-        },
-        {
-          "name": "Shawl / Naga",
-          "price": 149
-        },
-        {
-          "name": "Shawl / Naga Premium",
-          "price": 194
-        },
-        {
-          "name": "Sherwani",
-          "price": 199
-        },
-        {
-          "name": "Sherwani Premium",
-          "price": 259
-        },
-        {
-          "name": "Shirt",
-          "price": 54
-        },
-        {
-          "name": "Shirt Premium",
-          "price": 69
-        },
-        {
-          "name": "Shirt & Dhoti ( Silk )",
-          "price": 89
-        },
-        {
-          "name": "Shirt & Dhoti ( Silk ) Premium",
-          "price": 114
-        },
-        {
-          "name": "Shoes Leather / Suede / Nubuck",
-          "price": 274
-        },
-        {
-          "name": "Shoes Leather / Suede / Nubuck Premium",
-          "price": 359
-        },
-        {
-          "name": "Shoes Sports",
-          "price": 174
-        },
-        {
-          "name": "Shoes Sports Premium",
-          "price": 224
-        },
-        {
-          "name": "Slipper / Chappal",
-          "price": 49
-        },
-        {
-          "name": "Slipper / Chappal Premium",
-          "price": 74
-        },
-        {
-          "name": "Shorts",
-          "price": 34
-        },
-        {
-          "name": "Socks Pair",
-          "price": 24
-        },
-        {
-          "name": "Suit 2 Pc",
+          "name": "Faux Fur Jacket Short",
           "price": 179
         },
         {
-          "name": "Suit 2 Pc Premium",
-          "price": 234
+          "name": "Handkerchief",
+          "price": 10
         },
         {
-          "name": "Suit 3 Pc",
-          "price": 224
+          "name": "Indo Western",
+          "price": 249
         },
         {
-          "name": "Suit 3 Pc Premium",
-          "price": 294
+          "name": "Indo Western Premium",
+          "price": 299
         },
         {
-          "name": "Sweater / Cardigan - Full Sleeve",
+          "name": "Jacket Normal Long",
+          "price": 119
+        },
+        {
+          "name": "Jacket Normal Long Premium",
+          "price": 159
+        },
+        {
+          "name": "Jacket Normal Short",
           "price": 99
         },
         {
-          "name": "Sweater / Cardigan - Full Sleeve Premium",
+          "name": "Jacket Normal Short Premium",
           "price": 129
         },
         {
-          "name": "Sweater / Cardigan - Sleeveless",
-          "price": 84
+          "name": "Jeans",
+          "price": 59
         },
         {
-          "name": "Sweater / Cardigan - Sleeveless Premium",
-          "price": 109
-        },
-        {
-          "name": "Sweatshirt / Jumper",
-          "price": 99
-        },
-        {
-          "name": "Sweatshirt / Jumper Premium",
-          "price": 129
-        },
-        {
-          "name": "Swimming Trunks",
-          "price": 25
-        },
-        {
-          "name": "T - Shirt",
-          "price": 54
-        },
-        {
-          "name": "T - Shirt Premium",
+          "name": "Jeans Premium",
           "price": 69
         },
         {
-          "name": "Thermal",
+          "name": "Kurta",
+          "price": 59
+        },
+        {
+          "name": "Kurta Premium",
+          "price": 79
+        },
+        {
+          "name": "Leather Jacket",
+          "price": 249
+        },
+        {
+          "name": "Muffler Pashmina",
+          "price": 89
+        },
+        {
+          "name": "Muffler Woolen",
+          "price": 59
+        },
+        {
+          "name": "Overcoat",
+          "price": 149
+        },
+        {
+          "name": "Parka Coat Long",
+          "price": 149
+        },
+        {
+          "name": "Parka Coat Short",
+          "price": 119
+        },
+        {
+          "name": "Pocket Square",
+          "price": 10
+        },
+        {
+          "name": "Puffer Jacket Long",
+          "price": 169
+        },
+        {
+          "name": "Puffer Jacket Short",
+          "price": 129
+        },
+        {
+          "name": "Pyjama",
+          "price": 39
+        },
+        {
+          "name": "Pyjama Premium",
+          "price": 49
+        },
+        {
+          "name": "Rexine Jacket",
+          "price": 129
+        },
+        {
+          "name": "Shawl Pashmina",
+          "price": 249
+        },
+        {
+          "name": "Shawl Pashmina Premium",
+          "price": 299
+        },
+        {
+          "name": "Shawl Toosh",
+          "price": 349
+        },
+        {
+          "name": "Shawl Woolen",
+          "price": 119
+        },
+        {
+          "name": "Sherwani",
+          "price": 179
+        },
+        {
+          "name": "Sherwani Premium",
+          "price": 229
+        },
+        {
+          "name": "Shirt",
+          "price": 39
+        },
+        {
+          "name": "Shirt Premium",
+          "price": 49
+        },
+        {
+          "name": "Shorts",
+          "price": 29
+        },
+        {
+          "name": "Suit 2pc",
+          "price": 89
+        },
+        {
+          "name": "Suit 3pc",
+          "price": 119
+        },
+        {
+          "name": "Sweater Full",
+          "price": 79
+        },
+        {
+          "name": "Sweater Full Premium",
+          "price": 99
+        },
+        {
+          "name": "Sweater Sleeveless",
+          "price": 69
+        },
+        {
+          "name": "Sweater Sleeveless Premium",
+          "price": 89
+        },
+        {
+          "name": "Sweatshirt / Jumper",
+          "price": 69
+        },
+        {
+          "name": "Sweatshirt / Jumper Premium",
+          "price": 89
+        },
+        {
+          "name": "T-Shirt",
+          "price": 39
+        },
+        {
+          "name": "T-Shirt Premium",
           "price": 49
         },
         {
           "name": "Tie",
-          "price": 34
+          "price": 29
         },
         {
           "name": "Tie Premium",
-          "price": 44
+          "price": 39
         },
         {
           "name": "Track Pant",
-          "price": 47
+          "price": 39
         },
         {
           "name": "Track Suit",
-          "price": 89
+          "price": 69
         },
         {
-          "name": "Track Suit Premium",
-          "price": 114
+          "name": "Trousers / Pants",
+          "price": 49
         },
         {
-          "name": "Trousers",
-          "price": 64
-        },
-        {
-          "name": "Trousers Premium",
-          "price": 84
-        },
-        {
-          "name": "Turban",
-          "price": 74
-        },
-        {
-          "name": "Turban Premium",
-          "price": 99
-        },
-        {
-          "name": "Vest",
-          "price": 64
+          "name": "Trousers / Pants Premium",
+          "price": 59
         },
         {
           "name": "Waist Coat",
-          "price": 74
+          "price": 59
         },
         {
           "name": "Waist Coat Premium",
-          "price": 99
-        },
-        {
-          "name": "Wallet",
-          "price": 124
-        },
-        {
-          "name": "Wallet Premium",
-          "price": 164
-        },
-        {
-          "name": "Wedding Sherwani Top Normal",
-          "price": 299
-        },
-        {
-          "name": "Wedding Sherwani Top: Medium Work",
-          "price": 399
-        },
-        {
-          "name": "Wedding Suit ( 3 pcs )",
-          "price": 449
-        },
-        {
-          "name": "Wedding Suit Designer ( 3 pcs )",
-          "price": 599
-        },
-        {
-          "name": "Wedding Tuxedo ( 3 pcs )",
-          "price": 399
-        },
-        {
-          "name": "Wedding Tuxedo Designer ( 3 pcs )",
-          "price": 499
+          "price": 79
         },
         {
           "name": "Wind Cheater / Rain Jacket",
-          "price": 53
+          "price": 49
         }
       ],
       "women": [
         {
-          "name": "Belt",
+          "name": "Blouse",
           "price": 29
         },
         {
-          "name": "Belt Premium",
-          "price": 39
-        },
-        {
-          "name": "Blouse",
+          "name": "Blouse Heavy Work",
           "price": 49
         },
         {
           "name": "Blouse Premium",
-          "price": 64
+          "price": 39
         },
         {
-          "name": "Blouse Designer",
-          "price": 79
-        },
-        {
-          "name": "Blouse Heavy Work",
-          "price": 64
-        },
-        {
-          "name": "Blouse Normal",
+          "name": "Dress / Frock",
           "price": 49
         },
         {
-          "name": "Boot",
-          "price": 199
-        },
-        {
-          "name": "Boot Premium",
-          "price": 259
-        },
-        {
-          "name": "Cap ( Casual / Woolen )",
-          "price": 49
-        },
-        {
-          "name": "Cap ( Casual / Woolen ) Premium",
-          "price": 64
-        },
-        {
-          "name": "Caps Woolen",
-          "price": 64
-        },
-        {
-          "name": "Caps Woolen Premium",
-          "price": 84
-        },
-        {
-          "name": "Chadar",
+          "name": "Dress / Frock Heavy",
           "price": 99
         },
         {
-          "name": "Chadar Premium",
-          "price": 129
-        },
-        {
-          "name": "Chadar Muga and Pator",
-          "price": 119
-        },
-        {
-          "name": "Chadar Muga and Pator Premium",
-          "price": 154
-        },
-        {
-          "name": "Choli",
-          "price": 149
-        },
-        {
-          "name": "Choli Premium",
-          "price": 194
-        },
-        {
-          "name": "Choli + Lehenga + Dupatta",
-          "price": 349
-        },
-        {
-          "name": "Choli + Lehenga + Dupatta Premium",
-          "price": 454
-        },
-        {
-          "name": "Coat - Long",
-          "price": 114
-        },
-        {
-          "name": "Coat - Long Premium",
-          "price": 149
-        },
-        {
-          "name": "Coat - Short",
-          "price": 89
-        },
-        {
-          "name": "Coat - Short Premium",
-          "price": 114
-        },
-        {
-          "name": "Designer Choli + Lehenga + Duppatta",
-          "price": 749
-        },
-        {
-          "name": "Designer Kurta",
-          "price": 149
-        },
-        {
-          "name": "Designer Lehenga / ghagra",
-          "price": 199
-        },
-        {
-          "name": "Dhara",
-          "price": 179
-        },
-        {
-          "name": "Dress",
-          "price": 74
-        },
-        {
-          "name": "Dress Premium",
-          "price": 99
-        },
-        {
-          "name": "Dress ( Cotton )",
-          "price": 109
-        },
-        {
-          "name": "Dress ( Cotton ) Premium",
-          "price": 144
-        },
-        {
-          "name": "Dress ( Heavy )",
-          "price": 224
-        },
-        {
-          "name": "Dress / Frock / Jumpsuit Long",
-          "price": 94
-        },
-        {
-          "name": "Dress / Frock / Jumpsuit Long Premium",
-          "price": 124
-        },
-        {
-          "name": "Dress / Frock / Jumpsuit Short",
-          "price": 74
-        },
-        {
-          "name": "Dress / Frock / Jumpsuit Short Premium",
-          "price": 99
-        },
-        {
-          "name": "Dress Indo western",
-          "price": 349
-        },
-        {
-          "name": "Dress Indo western Premium",
-          "price": 454
-        },
-        {
-          "name": "Dungaree Long",
-          "price": 119
-        },
-        {
-          "name": "Dungaree Long Premium",
-          "price": 154
-        },
-        {
-          "name": "Dungaree Short",
-          "price": 84
-        },
-        {
-          "name": "Dungaree Short Premium",
-          "price": 109
+          "name": "Dress / Frock Premium",
+          "price": 69
         },
         {
           "name": "Dupatta",
-          "price": 49
+          "price": 39
         },
         {
-          "name": "Dupatta Heavy Work",
-          "price": 74
-        },
-        {
-          "name": "Dupatta Premium",
-          "price": 64
-        },
-        {
-          "name": "Formal And Semi Formal Trouser",
-          "price": 79
-        },
-        {
-          "name": "Formal And Semi Formal Trouser Premium",
-          "price": 104
-        },
-        {
-          "name": "Formal Gown Long Heavy work",
-          "price": 179
-        },
-        {
-          "name": "Formal Gown Long Normal",
-          "price": 119
-        },
-        {
-          "name": "Formal Gown Short Heavy Work",
-          "price": 149
-        },
-        {
-          "name": "Formal Gown Short Normal",
-          "price": 89
-        },
-        {
-          "name": "Garo Dakmanda Heavy",
-          "price": 137
-        },
-        {
-          "name": "Garo Dakmanda Normal",
-          "price": 95
-        },
-        {
-          "name": "Ghagra 3pc( n )",
-          "price": 349
-        },
-        {
-          "name": "Ghagra 3pc( n ) Premium",
-          "price": 454
-        },
-        {
-          "name": "Ghagra Heavy 3pcs( d )",
-          "price": 449
-        },
-        {
-          "name": "Gloves ( Leather )",
-          "price": 184
-        },
-        {
-          "name": "Gloves ( Leather ) Premium",
-          "price": 239
-        },
-        {
-          "name": "Gloves Woolen",
-          "price": 34
-        },
-        {
-          "name": "Handkerchief",
-          "price": 14
-        },
-        {
-          "name": "Hats",
-          "price": 49
-        },
-        {
-          "name": "Hats Premium",
-          "price": 64
-        },
-        {
-          "name": "Innerwear / Undergarments",
-          "price": 24
-        },
-        {
-          "name": "Jacket - Faux fur Long",
-          "price": 199
-        },
-        {
-          "name": "Jacket - Faux fur Short",
-          "price": 149
-        },
-        {
-          "name": "Jacket Leather",
-          "price": 399
-        },
-        {
-          "name": "Jacket Normal Long",
-          "price": 149
-        },
-        {
-          "name": "Jacket Normal Long Premium",
-          "price": 194
-        },
-        {
-          "name": "Jacket Normal Short",
-          "price": 99
-        },
-        {
-          "name": "Jacket Normal Short Premium",
-          "price": 129
-        },
-        {
-          "name": "Jacket Puffer Long",
-          "price": 199
-        },
-        {
-          "name": "Jacket Puffer Short",
-          "price": 149
-        },
-        {
-          "name": "Jacket Rexine",
-          "price": 119
-        },
-        {
-          "name": "Jainkyrshah",
-          "price": 89
-        },
-        {
-          "name": "Jainsem",
-          "price": 179
-        },
-        {
-          "name": "Jeans",
-          "price": 74
-        },
-        {
-          "name": "Jeans Premium",
-          "price": 99
-        },
-        {
-          "name": "Jeggings",
-          "price": 64
-        },
-        {
-          "name": "Jeggings Premium",
-          "price": 84
-        },
-        {
-          "name": "Kameez / Kurta",
+          "name": "Dupatta Heavy",
           "price": 59
         },
         {
-          "name": "Kameez / Kurta Premium",
-          "price": 79
-        },
-        {
-          "name": "Kameez / Kurti Cotton",
-          "price": 69
-        },
-        {
-          "name": "Kameez / Kurti Cotton Premium",
-          "price": 89
-        },
-        {
-          "name": "Kesa Pator Chaddar",
-          "price": 54
-        },
-        {
-          "name": "Kesa Pator Chaddar Premium",
-          "price": 69
-        },
-        {
-          "name": "Kesa Pator Mekhela",
-          "price": 149
-        },
-        {
-          "name": "Kesa Pator Mekhela Premium",
-          "price": 194
-        },
-        {
-          "name": "Kesa Pator Mekhela Chaddar 3pcs",
-          "price": 199
-        },
-        {
-          "name": "Kesa Pator Mekhela Chaddar 3pcs Premium",
-          "price": 259
-        },
-        {
-          "name": "Khasi Dhara Munga",
-          "price": 179
-        },
-        {
-          "name": "Khasi Dhara Munga Premium",
-          "price": 234
-        },
-        {
-          "name": "Khasi Jainsem Heavy",
-          "price": 149
-        },
-        {
-          "name": "Khasi Jainsem Light",
-          "price": 124
-        },
-        {
-          "name": "Kurta + Pants / Salwar / Churidar Normal work",
-          "price": 149
-        },
-        {
-          "name": "Kurta + Pants / Salwar / Churidar Normal work Premium",
-          "price": 194
-        },
-        {
-          "name": "Kurta Normal",
-          "price": 99
-        },
-        {
-          "name": "Kurta Normal Premium",
+          "name": "Gown Heavy",
           "price": 129
         },
         {
-          "name": "Ladies Suit 2pcs",
-          "price": 149
+          "name": "Gown Long",
+          "price": 89
         },
         {
-          "name": "Ladies Suit 2pcs Premium",
-          "price": 194
+          "name": "Kurti / Kameez",
+          "price": 49
         },
         {
-          "name": "Ladies Suit 3pcs",
-          "price": 174
+          "name": "Kurti / Kameez Premium",
+          "price": 59
         },
         {
-          "name": "Ladies Suit 3pcs Premium",
-          "price": 224
+          "name": "Ladies Suit 2pc",
+          "price": 99
         },
         {
-          "name": "Lehenga / Flared Skirt",
-          "price": 179
+          "name": "Ladies Suit 2pc Premium",
+          "price": 129
         },
         {
-          "name": "Lehenga / Flared Skirt Premium",
-          "price": 234
+          "name": "Ladies Suit 3pc",
+          "price": 129
+        },
+        {
+          "name": "Ladies Suit 3pc Premium",
+          "price": 159
         },
         {
           "name": "Lehenga / Ghagra",
+          "price": 149
+        },
+        {
+          "name": "Lehenga / Ghagra Designer",
+          "price": 299
+        },
+        {
+          "name": "Lehenga / Ghagra Heavy",
           "price": 199
         },
         {
           "name": "Lehenga / Ghagra Premium",
-          "price": 259
-        },
-        {
-          "name": "Lehenga Designer",
-          "price": 359
-        },
-        {
-          "name": "Lehenga Heavy Work",
-          "price": 239
-        },
-        {
-          "name": "Lehenga Medium Work",
-          "price": 209
-        },
-        {
-          "name": "Lehenga Normal Work",
-          "price": 179
-        },
-        {
-          "name": "Manipuri / Mizo / Naga ( Wrap around Skirt ) Heavy",
-          "price": 179
-        },
-        {
-          "name": "Manipuri / Mizo / Naga ( Wrap around Skirt ) Normal",
-          "price": 119
-        },
-        {
-          "name": "Mekhela Chaddar 3pcs",
           "price": 199
         },
         {
-          "name": "Mekhela Chaddar 3pcs Premium",
-          "price": 259
+          "name": "Saree Cotton / Synthetic",
+          "price": 79
         },
         {
-          "name": "Mekhela Muga and Pator",
+          "name": "Saree Cotton / Synthetic Premium",
           "price": 99
-        },
-        {
-          "name": "Mekhela Muga and Pator Premium",
-          "price": 129
-        },
-        {
-          "name": "Mekhela Normal",
-          "price": 89
-        },
-        {
-          "name": "Mekhela Normal Premium",
-          "price": 114
-        },
-        {
-          "name": "Muffler Pashmina",
-          "price": 109
-        },
-        {
-          "name": "Muffler Pashmina Premium",
-          "price": 144
-        },
-        {
-          "name": "Muffler Woolen",
-          "price": 74
-        },
-        {
-          "name": "Muffler Woolen Premium",
-          "price": 99
-        },
-        {
-          "name": "Muga Chaddar",
-          "price": 54
-        },
-        {
-          "name": "Muga Chaddar Premium",
-          "price": 69
-        },
-        {
-          "name": "Muga Mekhela",
-          "price": 149
-        },
-        {
-          "name": "Muga Mekhela Premium",
-          "price": 194
-        },
-        {
-          "name": "Muga Mekhela Chaddar 3pcs",
-          "price": 199
-        },
-        {
-          "name": "Muga Mekhela Chaddar 3pcs Premium",
-          "price": 259
-        },
-        {
-          "name": "Night Dress",
-          "price": 47
-        },
-        {
-          "name": "Night Dress Premium",
-          "price": 64
-        },
-        {
-          "name": "Palazo Pant",
-          "price": 69
-        },
-        {
-          "name": "Palazo Pant Premium",
-          "price": 89
-        },
-        {
-          "name": "Parka Coat Long",
-          "price": 164
-        },
-        {
-          "name": "Parka Coat Long Premium",
-          "price": 214
-        },
-        {
-          "name": "Parka Coat Short",
-          "price": 139
-        },
-        {
-          "name": "Parka Coat Short Premium",
-          "price": 179
-        },
-        {
-          "name": "Pator Chaddar",
-          "price": 54
-        },
-        {
-          "name": "Pator Chaddar Premium",
-          "price": 69
-        },
-        {
-          "name": "Pator Mekhela",
-          "price": 149
-        },
-        {
-          "name": "Pator Mekhela Premium",
-          "price": 194
-        },
-        {
-          "name": "Pator Mekhela Chaddar 3pcs",
-          "price": 199
-        },
-        {
-          "name": "Pator Mekhela Chaddar 3pcs Premium",
-          "price": 259
-        },
-        {
-          "name": "Peticoat Cotton",
-          "price": 39
-        },
-        {
-          "name": "Peticoat Woolen",
-          "price": 59
-        },
-        {
-          "name": "Plazzo / Sharara Heavy Work",
-          "price": 59
-        },
-        {
-          "name": "Plazzo / Sharara Normal",
-          "price": 47
-        },
-        {
-          "name": "Purse",
-          "price": 99
-        },
-        {
-          "name": "Purse Premium",
-          "price": 129
-        },
-        {
-          "name": "Pyjama / Pants / Salwar / Churidar / Palazo Pants",
-          "price": 49
-        },
-        {
-          "name": "Pyjama / Pants / Salwar / Churidar / Palazo Pants Premium",
-          "price": 64
-        },
-        {
-          "name": "Salwar / Churidar 3pcs",
-          "price": 149
-        },
-        {
-          "name": "Salwar / Churidar 3pcs Premium",
-          "price": 194
-        },
-        {
-          "name": "Salwar Kurta Normal Work - 2pcs",
-          "price": 119
-        },
-        {
-          "name": "Salwar Kurta Normal Work - 2pcs Premium",
-          "price": 154
-        },
-        {
-          "name": "Salwar Kurta Pashmina and Other Heavy Work - 3pcs",
-          "price": 179
-        },
-        {
-          "name": "Saree ( Cotton / Synthetic / Light )",
-          "price": 99
-        },
-        {
-          "name": "Saree ( Cotton / Synthetic / Light ) Premium",
-          "price": 129
-        },
-        {
-          "name": "Saree ( Embroidered / Heavy )",
-          "price": 174
-        },
-        {
-          "name": "Saree ( Silk / Chiffon / Georgette / Heavy )",
-          "price": 149
         },
         {
           "name": "Saree Designer",
-          "price": 274
+          "price": 229
         },
         {
-          "name": "Saree Plain",
-          "price": 89
-        },
-        {
-          "name": "Saree Plain Premium",
-          "price": 114
-        },
-        {
-          "name": "Shawl Pashmina",
-          "price": 349
-        },
-        {
-          "name": "Shawl Pashmina Premium",
-          "price": 454
-        },
-        {
-          "name": "Shawl Shahtoosh",
-          "price": 449
-        },
-        {
-          "name": "Shawl Woolen",
+          "name": "Saree Heavy",
           "price": 149
         },
         {
-          "name": "Shawl Woolen Premium",
-          "price": 194
-        },
-        {
-          "name": "Shirt",
-          "price": 54
-        },
-        {
-          "name": "Shirt Premium",
+          "name": "Saree Plain",
           "price": 69
         },
         {
-          "name": "Shorts",
-          "price": 29
-        },
-        {
-          "name": "Shorts Premium",
-          "price": 39
-        },
-        {
-          "name": "Shorts / Capri",
-          "price": 29
-        },
-        {
-          "name": "Shorts / Capri Premium",
-          "price": 39
-        },
-        {
-          "name": "Shrug / Waist Coat",
-          "price": 59
-        },
-        {
-          "name": "Shrug / Waist Coat Premium",
-          "price": 79
-        },
-        {
-          "name": "Skirt",
-          "price": 64
-        },
-        {
-          "name": "Skirt Premium",
-          "price": 84
-        },
-        {
-          "name": "Skirt - Pencil / Pleated / Other",
-          "price": 59
-        },
-        {
-          "name": "Skirt - Pencil / Pleated / Other Premium",
-          "price": 79
-        },
-        {
-          "name": "Skirt Long",
-          "price": 77
-        },
-        {
-          "name": "Skirt Long Premium",
-          "price": 99
-        },
-        {
-          "name": "Socks Pair",
-          "price": 14
-        },
-        {
-          "name": "Specialty Clothing",
-          "price": 299
-        },
-        {
-          "name": "Stocking ( Pair ) - Regular",
-          "price": 34
-        },
-        {
-          "name": "Stole / Scarf",
-          "price": 34
-        },
-        {
-          "name": "Stole / Scarf Premium",
-          "price": 44
-        },
-        {
-          "name": "Sweater / Cardigan - Full Sleeve",
-          "price": 99
-        },
-        {
-          "name": "Sweater / Cardigan - Full Sleeve Premium",
-          "price": 129
-        },
-        {
-          "name": "Sweater / Cardigan - Sleeveless",
-          "price": 84
-        },
-        {
-          "name": "Sweater / Cardigan - Sleeveless Premium",
-          "price": 109
-        },
-        {
-          "name": "Sweatshirt / Jumper",
-          "price": 59
-        },
-        {
-          "name": "Sweatshirt / Jumper Premium",
-          "price": 79
-        },
-        {
-          "name": "Swim suit bikini set",
-          "price": 59
-        },
-        {
-          "name": "Swim suit bikini set Premium",
-          "price": 79
-        },
-        {
-          "name": "Swim suit solid body suit",
+          "name": "Saree Plain Premium",
           "price": 89
         },
         {
-          "name": "Swim suit solid body suit Premium",
-          "price": 114
+          "name": "Saree Silk / Chiffon / Georgette",
+          "price": 119
         },
         {
-          "name": "T - Shirt",
-          "price": 44
-        },
-        {
-          "name": "T - Shirt Premium",
-          "price": 59
-        },
-        {
-          "name": "Thermals Set",
-          "price": 84
-        },
-        {
-          "name": "Thermals Set Premium",
-          "price": 109
-        },
-        {
-          "name": "Thermals Single",
-          "price": 53
-        },
-        {
-          "name": "Thermals Single Premium",
-          "price": 69
-        },
-        {
-          "name": "Top",
-          "price": 39
-        },
-        {
-          "name": "Top Premium",
+          "name": "Skirt",
           "price": 49
         },
         {
-          "name": "Track Suit",
-          "price": 99
-        },
-        {
-          "name": "Track Suit Premium",
-          "price": 129
-        },
-        {
-          "name": "Western Formal Suit - 2 pcs ( Shirt, Coat, Pant )",
-          "price": 124
-        },
-        {
-          "name": "Western Formal Suit - 2 pcs ( Shirt, Coat, Pant ) Premium",
-          "price": 164
-        },
-        {
-          "name": "Wind Cheater / Rain Coat",
-          "price": 54
-        },
-        {
-          "name": "Wind Cheater / Rain Coat Premium",
-          "price": 69
-        },
-        {
-          "name": "Women Night Robe Cotton",
+          "name": "Skirt Long",
           "price": 59
         },
         {
-          "name": "Women Night Robe Cotton Premium",
-          "price": 79
+          "name": "Top",
+          "price": 29
         },
         {
-          "name": "Women Night Robe Satin",
-          "price": 79
-        },
-        {
-          "name": "Women Night Robe Satin Premium",
-          "price": 104
+          "name": "Top Premium",
+          "price": 39
         }
       ],
       "kids": [
         {
-          "name": "Blouse",
-          "price": 19
-        },
-        {
-          "name": "Blouse / Top",
-          "price": 35
-        },
-        {
-          "name": "Choli + Lehenga + Dupatta",
-          "price": 199
-        },
-        {
-          "name": "Coat",
-          "price": 89
-        },
-        {
-          "name": "Combo - Shirt and Pant ( 2 pcs set )",
+          "name": "Kids Dress / Frock",
           "price": 39
         },
         {
-          "name": "Cotton Frock",
-          "price": 74
-        },
-        {
-          "name": "Designer Frock",
-          "price": 149
-        },
-        {
-          "name": "Dress",
+          "name": "Kids Jacket",
           "price": 59
         },
         {
-          "name": "Dress ( Heavy )",
-          "price": 125
+          "name": "Kids Jeans",
+          "price": 29
         },
         {
-          "name": "Dungaree ( Short / Long )",
-          "price": 74
+          "name": "Kids Kurta",
+          "price": 39
         },
         {
-          "name": "Ethnic Kurta set - 2pcs",
-          "price": 99
+          "name": "Kids Pyjama",
+          "price": 29
         },
         {
-          "name": "Ethnic wear ( Normal / Heavy work )",
-          "price": 149
-        },
-        {
-          "name": "Frock",
-          "price": 59
-        },
-        {
-          "name": "Jacket",
-          "price": 75
-        },
-        {
-          "name": "Jeans",
-          "price": 32
-        },
-        {
-          "name": "Kurta + Pants / Salwar / Churidar + Dupatta",
-          "price": 149
-        },
-        {
-          "name": "Pyjama",
-          "price": 22
-        },
-        {
-          "name": "Shirt",
-          "price": 27
-        },
-        {
-          "name": "Shorts",
+          "name": "Kids Shirt",
           "price": 25
         },
         {
-          "name": "Skirt",
-          "price": 45
-        },
-        {
-          "name": "Suit 2 Pc",
-          "price": 119
-        },
-        {
-          "name": "Suit 3 Pc",
-          "price": 149
-        },
-        {
-          "name": "Sweater ( Full Sleeves )",
-          "price": 65
-        },
-        {
-          "name": "Sweater ( Sleeveless )",
-          "price": 55
-        },
-        {
-          "name": "T - Shirt",
-          "price": 34
-        },
-        {
-          "name": "Tights and Leggings",
-          "price": 17
-        },
-        {
-          "name": "Track suit / Night suit ( 2 pcs set )",
-          "price": 84
-        },
-        {
-          "name": "Undergarment",
+          "name": "Kids Shorts",
           "price": 19
         },
         {
-          "name": "Waist Coat",
-          "price": 32
+          "name": "Kids Sweater",
+          "price": 49
+        },
+        {
+          "name": "Kids T-Shirt",
+          "price": 25
+        }
+      ],
+      "household": [
+        {
+          "name": "Bath Mat Large",
+          "price": 29
+        },
+        {
+          "name": "Bath Mat Small",
+          "price": 19
+        },
+        {
+          "name": "Bath Towel",
+          "price": 19
+        },
+        {
+          "name": "Bed Cover Double",
+          "price": 119
+        },
+        {
+          "name": "Bed Cover Single",
+          "price": 89
+        },
+        {
+          "name": "Bed Sheet Double",
+          "price": 79
+        },
+        {
+          "name": "Bed Sheet Single",
+          "price": 49
+        },
+        {
+          "name": "Blanket Double / Comforter",
+          "price": 159
+        },
+        {
+          "name": "Blanket Single / Comforter",
+          "price": 119
+        },
+        {
+          "name": "Curtain",
+          "price": 79
+        },
+        {
+          "name": "Curtain Embroidery",
+          "price": 99
+        },
+        {
+          "name": "Curtain With Lining",
+          "price": 119
+        },
+        {
+          "name": "Cushion Cover",
+          "price": 29
+        },
+        {
+          "name": "Cushion Cover Embroidery",
+          "price": 49
+        },
+        {
+          "name": "Face Towel",
+          "price": 10
+        },
+        {
+          "name": "Hand Towel",
+          "price": 15
+        },
+        {
+          "name": "Pillow Cover",
+          "price": 19
+        },
+        {
+          "name": "Pillow Cover Embroidery",
+          "price": 29
+        },
+        {
+          "name": "Quilt Cover Double",
+          "price": 119
+        },
+        {
+          "name": "Quilt Cover Single",
+          "price": 89
+        },
+        {
+          "name": "Quilt Double",
+          "price": 179
+        },
+        {
+          "name": "Quilt Single",
+          "price": 149
+        },
+        {
+          "name": "Sofa Cover Embroidery",
+          "price": 79
+        },
+        {
+          "name": "Sofa Sheet / Sofa Cover",
+          "price": 39
+        },
+        {
+          "name": "Table Cloth Big",
+          "price": 49
+        },
+        {
+          "name": "Table Cloth Small",
+          "price": 29
+        },
+        {
+          "name": "Table Runner",
+          "price": 49
         }
       ]
     },
