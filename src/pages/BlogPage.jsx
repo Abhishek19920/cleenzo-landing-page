@@ -17,7 +17,7 @@ function BlogPage() {
   return (
     <div className="blog-page">
       <header className="blog-hero">
-        <div className="blog-hero-inner">
+        <div className="blog-shell blog-hero-inner">
           <p className="blog-eyebrow">Cleenzo blog</p>
           <h1>Fabric care, stain removal &amp; how we work</h1>
           <p>
@@ -27,7 +27,7 @@ function BlogPage() {
         </div>
       </header>
 
-      <div className="blog-container">
+      <div className="blog-shell">
         <div className="blog-grid">
           {posts.map((post) => (
             <Link key={post.slug} to={post.path} className="blog-card">

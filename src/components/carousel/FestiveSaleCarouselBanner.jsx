@@ -41,9 +41,9 @@ function FestiveSaleCarouselBanner({ onClick, ariaLabel }) {
           <p className="festive-sale-banner__flat">New here?</p>
           <p className="festive-sale-banner__pct">{FESTIVE_FIRST3_PERCENT_OFF}% OFF</p>
           <p className="festive-sale-banner__credit">
-            on your first <strong>{FESTIVE_FIRST3_MAX_ORDERS} orders</strong>
+            + 10% Cleenzo Credit
             <span className="festive-sale-banner__credit-sub">
-              eligible laundry &amp; dry cleaning
+              on your first <strong>{FESTIVE_FIRST3_MAX_ORDERS} orders</strong>
             </span>
           </p>
           <span className="festive-sale-banner__audience">

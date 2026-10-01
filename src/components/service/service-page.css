@@ -254,6 +254,17 @@
   background: var(--cleenzo);
 }
 
+.service-offer-usp {
+  margin: 1.1rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  background: rgba(14, 116, 144, 0.08);
+  color: var(--cleenzo-deep);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .service-offer-actions {
   display: flex;
   flex-wrap: wrap;

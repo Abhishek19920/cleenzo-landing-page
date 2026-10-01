@@ -85,7 +85,11 @@ function Hero() {
             <p className="dcrne-subtitle">{content.subtitle}</p>
 
             <p className="dcrne-hero-meta" style={{ marginTop: "1rem" }}>
-              <strong>{offer.title}</strong> · {offer.subtitle}
+              <strong>{offer.title}</strong>
+              <br />
+              {offer.subtitle}
+              <br />
+              {offer.usp}
               <br />
               <span style={{ opacity: 0.75 }}>{offer.note}</span>
             </p>

@@ -74,12 +74,14 @@ export const PERSONAL_HERO = {
 
 /** Highlight neighbourhoods near Raj Nagar Extension — free pickup & delivery. */
 export const NEARBY_SERVICE_AREAS = [
+  "Raj Nagar",
   "Raj Nagar Extension",
-  "Sidharth Vihar",
-  "Kanawani",
-  "Ahinsa Khand",
+  "Kavi Nagar",
   "Indirapuram",
+  "Vasundhara",
   "Vaishali",
+  "Crossing Republik",
+  "Noida Extension",
 ];
 
 /**
@@ -281,7 +283,7 @@ export const PRICING_SECTION = {
   subtext:
     "Per-piece dry clean & steam press, plus affordable laundry by the kilo — clear rates with free pickup across Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and nearby localities.",
   disclaimer:
-    "Prices shown are indicative for Ghaziabad and nearby service areas. Rates may vary for specialty garments, express service or seasonal offers. Contact us for bulk or commercial quotes.",
+    "Prices shown are indicative for Ghaziabad and nearby service areas. Rates may vary for specialty garments or seasonal promotional offers. Contact us for bulk or commercial quotes.",
 };
 
 export const OFFERS = {

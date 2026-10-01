@@ -101,17 +101,17 @@ export const SEO_FAQ = [
   {
     question: "Do you provide pickup and delivery?",
     answer:
-      "Yes. Free pickup is available in our service areas. Free delivery applies on orders above ₹480 — confirm details when you book.",
+      "Yes. Free Pickup and Doorstep Delivery are core Cleenzo USPs in our service areas. Free delivery on return applies on orders above ₹480 — confirm details when you book.",
   },
   {
     question: "How quickly can Cleenzo dry clean a suit?",
     answer:
-      "Cleenzo delivers within 24 hours at no extra charge on most laundry and dry cleaning orders — share your deadline when you book on WhatsApp or via Book Pickup and we will confirm your slot.",
+      "24-Hour Dry Cleaning is part of Cleenzo’s standard service. Share your deadline when you book on WhatsApp or via Book Pickup and we will confirm your slot.",
   },
   {
-    question: "Is there an extra charge for 24-hour delivery?",
+    question: "Are Free Pickup and 24-Hour Dry Cleaning promotional offers?",
     answer:
-      "No. 24-hour delivery is included at no extra charge — it is not a paid express upgrade.",
+      "No. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are core service benefits. The promotional offer is 30% OFF on each of your first 3 eligible orders.",
   },
   {
     question: "Which areas do you serve?",
@@ -330,6 +330,16 @@ export function getServicePageJsonLd(page) {
         name,
       })),
     };
+  }
+
+  if (page.offerHighlight?.usp) {
+    data.additionalProperty = [
+      {
+        "@type": "PropertyValue",
+        name: "Cleenzo USP",
+        value: page.offerHighlight.usp,
+      },
+    ];
   }
 
   return data;

@@ -6,7 +6,7 @@ export const DRY_CLEANERS_RNE_SEO = {
   siteName: "Cleenzo",
   title: "Best Dry Cleaners in Raj Nagar Extension | Cleenzo",
   description:
-    "Looking for the best dry cleaners in Raj Nagar Extension? Cleenzo offers premium dry cleaning, express 24-hour delivery, free pickup & delivery and professional garment care.",
+    "Professional dry cleaning in Raj Nagar Extension. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery from AVS City Square.",
   keywords:
     "dry cleaners raj nagar extension, dry clean near me, best dry cleaners, premium dry cleaning, dry cleaning service, 24 hour dry cleaning, laundry service near me, dry cleaning ghaziabad, Cleenzo dry clean",
   locale: "en_IN",
@@ -19,7 +19,7 @@ export const DRY_CLEANERS_RNE_CONTENT = {
   h1: "Best Dry Cleaners in Raj Nagar Extension",
   badge: "Premium dry cleaning · AVS City Square",
   subtitle:
-    "Cleenzo is your neighbourhood dry cleaning service in Raj Nagar Extension — premium garment care, free doorstep pickup and express 24-hour delivery across Ghaziabad.",
+    "Professional dry cleaning in Raj Nagar Extension. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery from AVS City Square.",
   heroImage: {
     src: "/images/banners/dry-cleaning-raj-nagar-extension.jpg",
     alt: "Premium dry cleaning service at Cleenzo dry cleaners Raj Nagar Extension Ghaziabad",
@@ -38,8 +38,8 @@ export const DRY_CLEANERS_RNE_CONTENT = {
     },
     {
       icon: "⚡",
-      title: "24-hour delivery, no extra charge",
-      desc: "Every order delivered within 24 hours — at no additional charge, without skipping inspection or quality checks.",
+      title: "24-Hour Dry Cleaning",
+      desc: "Professional dry cleaning returned within 24 hours as standard Cleenzo service — not a promotional offer or paid upgrade.",
     },
     {
       icon: "✨",
@@ -53,8 +53,8 @@ export const DRY_CLEANERS_RNE_CONTENT = {
     },
     {
       icon: "🛵",
-      title: "Free pickup & delivery",
-      desc: "Doorstep collection and return across Raj Nagar Extension, Vaishali, Indirapuram and nearby Ghaziabad localities.",
+      title: "Free Pickup",
+      desc: "Doorstep collection and Doorstep Delivery across Raj Nagar Extension, Vaishali, Indirapuram and nearby Ghaziabad — core Cleenzo USPs, not a discount.",
     },
     {
       icon: "🏷️",
@@ -169,7 +169,7 @@ export const DRY_CLEANERS_RNE_CONTENT = {
     {
       question: "Is 24 hour dry cleaning available?",
       answer:
-        "Yes — Cleenzo delivers dry cleaning and laundry orders within 24 hours at no extra charge. Message us on WhatsApp with your items and we will confirm your pickup slot.",
+        "Yes. 24-Hour Dry Cleaning is a core Cleenzo USP — standard service, not a promotional offer. Message us on WhatsApp with your items and we will confirm your pickup slot.",
     },
     {
       question: "What is the difference between laundry and dry cleaning?",
@@ -198,7 +198,7 @@ export const DRY_CLEANERS_RNE_CONTENT = {
     {
       question: "Is Cleenzo only dry cleaning or also laundry?",
       answer:
-        "Both. We are dry cleaners and a full laundry service near me option — wash & fold, wash & iron, premium laundry by kg, plus shoe, sofa and carpet care.",
+        "Both. We are dry cleaners and a full laundry service — wash & fold, wash & iron, premium laundry by kg, plus shoe, sofa and carpet care.",
     },
     {
       question: "How are garments tracked?",

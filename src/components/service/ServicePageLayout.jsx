@@ -64,6 +64,7 @@ function OfferHighlight({ highlight }) {
             <li key={point}>{point}</li>
           ))}
         </ul>
+        {highlight.usp ? <p className="service-offer-usp">{highlight.usp}</p> : null}
         <div className="service-offer-actions">
           <SchedulePickupButton
             className="inline-flex items-center justify-center bg-cleenzo hover:bg-cleenzo-dark text-white font-bold text-sm px-6 py-3 rounded-full transition shadow-md"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { checkPincodeServiceability } from "../../api/campaign";
 import { useSchedulePickup } from "../../context/SchedulePickupContext";
 import { isFreedomSaleActive } from "../../utils/freedomCampaign";
+import { PHONE_DISPLAY, PHONE_TEL } from "../../constants";
 
 function NoidaExtensionLaunchBanner({ noida }) {
   const { openSchedulePickup } = useSchedulePickup();
@@ -91,12 +92,23 @@ function PincodeServiceabilityCheck() {
         {checking ? "Checking…" : "CHECK AVAILABILITY"}
       </button>
       {result ? (
-        <p
-          className={`sm:col-span-2 text-sm font-medium ${result.serviceable ? "text-[#138808]" : "text-amber-700"}`}
-          role="status"
-        >
-          {result.message}
-        </p>
+        <div className="sm:col-span-2 space-y-1">
+          <p
+            className={`text-sm font-medium ${result.serviceable ? "text-[#138808]" : "text-amber-700"}`}
+            role="status"
+          >
+            {result.message}
+          </p>
+          {!result.serviceable ? (
+            <p className="text-sm text-slate-600">
+              Try once with our store number — call{" "}
+              <a className="font-bold text-cleenzo" href={`tel:${PHONE_TEL}`}>
+                {PHONE_DISPLAY}
+              </a>
+              . If the store can serve your area, they will take the booking.
+            </p>
+          ) : null}
+        </div>
       ) : null}
     </form>
   );

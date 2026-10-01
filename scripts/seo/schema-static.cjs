@@ -102,8 +102,10 @@ function dryCleaningOfferBlock(url) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Dry Cleaning in Ghaziabad",
+    name: "Professional Dry Cleaning",
     serviceType: "Dry Cleaning",
+    description:
+      "Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.",
     url,
     provider: { "@id": site.localBusinessId },
     areaServed: [
@@ -117,9 +119,9 @@ function dryCleaningOfferBlock(url) {
     ].map((name) => ({ "@type": "Place", name })),
     offers: {
       "@type": "Offer",
-      name: "Get 30% OFF on each of your first 3 eligible orders at Cleenzo.",
+      name: "Get 30% OFF on each of your first 3 eligible orders.",
       description:
-        "For new customers. Applies on each of the first 3 eligible orders, not only the first bill. Minimum order value ₹500. Dry cleaning is included, along with laundry wash & iron, wash & fold, premium laundry and steam iron. Free doorstep pickup and delivery in Raj Nagar Extension and nearby Ghaziabad areas.",
+        "Promotional offer for new customers. Applies on each of the first 3 eligible orders, not only the first bill. Minimum order value ₹500. Dry cleaning is included, along with laundry wash & iron, wash & fold, premium laundry and steam iron.",
       url,
       availability: "https://schema.org/InStock",
       priceCurrency: "INR",

@@ -17,8 +17,11 @@ export const FESTIVE_SALE_END = LIFETIME_OFFER_END;
 /** Discounted orders a new customer may place under the program. */
 export const FESTIVE_FIRST3_MAX_ORDERS = 3;
 
-/** Percent off for a new customer's first three orders. */
-export const FESTIVE_FIRST3_PERCENT_OFF = 30;
+/** Percent off (immediate) for a new customer's first three orders. */
+export const FESTIVE_FIRST3_PERCENT_OFF = 20;
+
+/** Cleenzo Credit cashback % on the post-discount amount (Welcome offer). */
+export const FESTIVE_FIRST3_CREDIT_PERCENT = 10;
 
 /** Minimum eligible order subtotal (₹) for the first-3 discount. */
 export const FESTIVE_FIRST3_MIN_ORDER_INR = 500;
