@@ -18,10 +18,20 @@ export const FESTIVE_SALE_END = LIFETIME_OFFER_END;
 export const FESTIVE_FIRST3_MAX_ORDERS = 3;
 
 /** Percent off (immediate) for a new customer's first three orders. */
-export const FESTIVE_FIRST3_PERCENT_OFF = 20;
+export const FESTIVE_FIRST3_PERCENT_OFF = 30;
 
-/** Cleenzo Credit cashback % on the post-discount amount (Welcome offer). */
-export const FESTIVE_FIRST3_CREDIT_PERCENT = 10;
+/** ₹ ceiling on the first-3 30% discount. */
+export const FESTIVE_FIRST3_MAX_DISCOUNT_INR = 700;
+
+/**
+ * Alternate the customer can choose on those first 3 orders, and the standing
+ * offer after 3 completed orders. No ₹ cap.
+ */
+export const REPEAT_OFFER_PERCENT_OFF = 20;
+export const REPEAT_OFFER_CREDIT_PERCENT = 10;
+
+/** @deprecated The 30% path does not pay credit. Kept so older imports still resolve. */
+export const FESTIVE_FIRST3_CREDIT_PERCENT = 0;
 
 /** Minimum eligible order subtotal (₹) for the first-3 discount. */
 export const FESTIVE_FIRST3_MIN_ORDER_INR = 500;

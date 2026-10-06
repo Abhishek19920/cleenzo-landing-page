@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import {
+  FESTIVE_FIRST3_MAX_DISCOUNT_INR,
   FESTIVE_FIRST3_MAX_ORDERS,
   FESTIVE_FIRST3_PERCENT_OFF,
-  FESTIVE_FIRST3_CREDIT_PERCENT,
+  REPEAT_OFFER_CREDIT_PERCENT,
+  REPEAT_OFFER_PERCENT_OFF,
   OFFER_PROGRAM_START,
   REFERRAL_REWARD_INR,
 } from "../utils/festiveCampaign";
@@ -35,8 +37,9 @@ const SECTIONS = [
     heading: `1. First ${FESTIVE_FIRST3_MAX_ORDERS} Orders Offer`,
     status: "Always on · from 1 September 2026",
     body: [
-      `New customers can avail ${FESTIVE_FIRST3_PERCENT_OFF}% OFF immediately plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit cashback on their first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders, subject to the terms below.`,
-      "The discount is applied to the eligible order value before the discount is applied. There is no ₹ discount cap on this offer.",
+      `New customers can avail ${FESTIVE_FIRST3_PERCENT_OFF}% OFF on their first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders, up to ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} per order.`,
+      `On any of those first ${FESTIVE_FIRST3_MAX_ORDERS} orders the customer may instead choose ${REPEAT_OFFER_PERCENT_OFF}% OFF plus ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit back to the wallet. That choice has no ₹ cap.`,
+      `After ${FESTIVE_FIRST3_MAX_ORDERS} completed orders, repeat customers receive ${REPEAT_OFFER_PERCENT_OFF}% OFF plus ${REPEAT_OFFER_CREDIT_PERCENT}% wallet credit, with no ₹ cap.`,
       `A customer is treated as new if they have no previously completed Cleenzo order before ${OFFER_PROGRAM_START === "2026-09-01" ? "1 September 2026" : OFFER_PROGRAM_START}, checked against the mobile number on the account.`,
       "This is an ongoing offer with no expiry. Unused first-order slots remain available until all three are used.",
       "A cancelled order does not consume one of the three uses.",
@@ -71,9 +74,9 @@ const SECTIONS = [
     id: "cleenzo-credit-calculation",
     heading: "4. How Cleenzo Credit Back Is Calculated",
     body: [
-      "Where an offer includes Cleenzo Credit back (Welcome first-3, Ganesh Chaturthi, or Monthly Loyalty), the percentage is applied to the final payable amount after the promotional discount — not on the original order value.",
-      `Example: Original order value ₹500 → ${FESTIVE_FIRST3_PERCENT_OFF}% off (₹100) → final payable ₹400 → ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit back = ₹40.`,
-      `The first-3 new customer offer is ${FESTIVE_FIRST3_PERCENT_OFF}% immediate off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit back, with no ₹ discount cap.`,
+      "Where an offer includes Cleenzo Credit back (the 20% + credit choice, Ganesh Chaturthi, or Monthly Loyalty), the percentage is applied to the amount after the promotional discount — not on the original order value.",
+      `Example of the capped first-3 offer: original order value ₹3,000 → ${FESTIVE_FIRST3_PERCENT_OFF}% would be ₹900, limited to ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR}.`,
+      `Example of the no-cap choice: original order value ₹4,000 → ${REPEAT_OFFER_PERCENT_OFF}% off (₹800) → payable ₹3,200 → ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit back = ₹320.`,
       "Credit is added to your Cleenzo Wallet after successful delivery, subject to each offer's terms.",
     ],
   },

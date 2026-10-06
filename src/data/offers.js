@@ -13,9 +13,11 @@ import {
 } from "../utils/ganeshChaturthiCampaign";
 import {
   OFFER_PROGRAM_START,
+  FESTIVE_FIRST3_MAX_DISCOUNT_INR,
   FESTIVE_FIRST3_MAX_ORDERS,
   FESTIVE_FIRST3_PERCENT_OFF,
-  FESTIVE_FIRST3_CREDIT_PERCENT,
+  REPEAT_OFFER_CREDIT_PERCENT,
+  REPEAT_OFFER_PERCENT_OFF,
   LIFETIME_OFFER_END,
   REFERRAL_REWARD_INR,
 } from "../utils/festiveCampaign";
@@ -130,10 +132,10 @@ export const HOMEPAGE_OFFERS = [
     variant: "festive",
     featured: false,
     badge: "NEW CUSTOMER OFFER",
-    discount: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF + ${FESTIVE_FIRST3_CREDIT_PERCENT}% credit`,
-    secondaryBenefit: `On your first ${FESTIVE_FIRST3_MAX_ORDERS} orders`,
+    discount: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF`,
+    secondaryBenefit: `Max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} · first ${FESTIVE_FIRST3_MAX_ORDERS} orders`,
     description:
-      `New to Cleenzo? Get ${FESTIVE_FIRST3_PERCENT_OFF}% off immediately plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit cashback on laundry wash & iron, wash & fold, premium laundry, dry clean and steam iron on each of your first 3 orders (minimum order ₹500) — no ₹ discount cap.`,
+      `New to Cleenzo? Get ${FESTIVE_FIRST3_PERCENT_OFF}% off on your first ${FESTIVE_FIRST3_MAX_ORDERS} orders (minimum ₹500), capped at ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR}. You can choose ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit instead — that option has no ₹ cap. After 3 orders, repeat customers get ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% wallet credit.`,
     audience: "FOR NEW CUSTOMERS",
     validityLabel: "Always on",
     cta: { label: "Book My First Pickup", action: "schedule" },
@@ -165,7 +167,7 @@ export const HOMEPAGE_OFFERS = [
       },
       {
         heading: "Discount + cashback",
-        body: `${FESTIVE_FIRST3_PERCENT_OFF}% off is applied immediately on the eligible order value (minimum ₹500). ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit is credited on the amount after that discount. There is no ₹ discount cap. Cannot be combined with a coupon code or another promotional offer.`,
+        body: `${FESTIVE_FIRST3_PERCENT_OFF}% off is applied immediately on the eligible order value (minimum ₹500), up to ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} per order. On any of those first ${FESTIVE_FIRST3_MAX_ORDERS} orders you may instead choose ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit on the amount after that discount, with no ₹ cap. After 3 completed orders the ${REPEAT_OFFER_PERCENT_OFF}% + ${REPEAT_OFFER_CREDIT_PERCENT}% credit offer applies. Cannot be combined with a coupon code or another promotional offer.`,
         todo: false,
       },
       {

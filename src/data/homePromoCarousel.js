@@ -25,7 +25,7 @@ export const PROMO_CAROUSEL_SLIDES = [
     theme: "light",
     offerId: "festive-first3-2026",
     ariaLabel:
-      "New customer offer — 20% off immediately + 10% Cleenzo Credit on your first 3 orders (min ₹500, no ₹ discount cap). Free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram and Vaishali. Book now.",
+      "New customer offer — 30% off on your first 3 orders, capped at ₹700 (min ₹500). Or choose 20% off + 10% wallet credit with no cap. After 3 orders, repeat customers get 20% off + 10% credit. Free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram and Vaishali. Book now.",
     startDate: OFFER_PROGRAM_START,
     endDate: LIFETIME_OFFER_END,
     clickAction: "schedule",
