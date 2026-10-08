@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import CleenzoLogo from "../components/CleenzoLogo";
-import { useAppDownload } from "../context/AppDownloadContext";
+import { useSchedulePickup } from "../context/SchedulePickupContext";
 import { canonicalPath } from "../seo/routes";
 
 const links = [
@@ -26,7 +26,7 @@ const serviceLinks = [
 ];
 
 function Navbar() {
-  const { openAppDownload } = useAppDownload();
+  const { openSchedulePickup } = useSchedulePickup();
   const location = useLocation();
   const menuRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
@@ -67,6 +67,11 @@ function Navbar() {
   }, [servicesOpen]);
 
   const closeMobile = () => setMobileOpen(false);
+
+  const bookNow = () => {
+    closeMobile();
+    openSchedulePickup();
+  };
 
   return (
     <nav
@@ -159,20 +164,20 @@ function Navbar() {
 
           <button
             type="button"
-            onClick={openAppDownload}
+            onClick={bookNow}
             className="bg-cleenzo text-white font-bold px-4 py-1.5 rounded-full text-sm hover:bg-cleenzo-dark transition"
           >
-            Get the app
+            Book now
           </button>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
           <button
             type="button"
-            onClick={openAppDownload}
+            onClick={bookNow}
             className="bg-cleenzo text-white font-bold px-3 py-1.5 rounded-full text-xs hover:bg-cleenzo-dark"
           >
-            Get app
+            Book now
           </button>
           <button
             type="button"
