@@ -1,3 +1,4 @@
+import MilestoneStrip from "../sections/MilestoneStrip";
 import PersonalHeroBanner from "../sections/PersonalHeroBanner";
 import LocalTrustSection from "../sections/LocalTrustSection";
 import HeaderCarousel from "../sections/HeaderCarousel";
@@ -24,6 +25,7 @@ function Home() {
 
   const firstPageSections = (
     <>
+      <MilestoneStrip />
       <PersonalHeroBanner />
       <LocalTrustSection />
       <HeaderCarousel />
