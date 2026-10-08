@@ -25,7 +25,7 @@ function formatStat(n) {
 
 function LocalTrustSection() {
   const { openSchedulePickup } = useSchedulePickup();
-  const { total, thisMonth, returning, newCustomers, eyebrow, headline, subline } =
+  const { total, returning, newCustomers, eyebrow, headlineAfter, subline } =
     MONTHLY_GROWTH_STATS;
   const [live, setLive] = useState(null);
 
@@ -37,7 +37,6 @@ function LocalTrustSection() {
         const month = payload.last30Days;
         setLive({
           totalOrders: Number(payload.ordersCompleted ?? 0),
-          orders: Number(month?.ordersCompleted ?? 0),
           returning: Number(month?.returningCustomers ?? 0),
           newCustomers: Number(month?.newCustomers ?? 0),
         });
@@ -49,7 +48,6 @@ function LocalTrustSection() {
   }, []);
 
   const totalOrdersValue = live ? live.totalOrders : total.value;
-  const monthOrdersValue = live ? live.orders : thisMonth.value;
   const returningValue = live ? live.returning : returning.value;
   const newValue = live ? live.newCustomers : newCustomers.value;
 
@@ -126,27 +124,20 @@ function LocalTrustSection() {
             <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-sky-200/90">
               {eyebrow}
             </p>
-            <h3 className="mt-2 text-xl sm:text-2xl font-black leading-tight">{headline}</h3>
-            <p className="mt-2 text-sm text-sky-100/85 leading-relaxed max-w-md">{subline}</p>
+            <h3 className="mt-3 text-3xl sm:text-4xl font-black leading-[1.1] tracking-tight">
+              {formatStat(totalOrdersValue)}+ {headlineAfter}
+            </h3>
+            <p className="mt-3 text-sm text-sky-100 leading-relaxed max-w-md">{subline}</p>
 
-            <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-4">
                 <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none">
-                  {formatStat(totalOrdersValue)}
+                  {formatStat(totalOrdersValue)}+
                 </p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wide text-sky-100">
                   {total.label}
                 </p>
-                <p className="mt-1 text-[11px] text-sky-100/70 leading-snug">{total.detail}</p>
-              </div>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-4">
-                <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none">
-                  {formatStat(monthOrdersValue)}
-                </p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-wide text-sky-100">
-                  {thisMonth.label}
-                </p>
-                <p className="mt-1 text-[11px] text-sky-100/70 leading-snug">{thisMonth.detail}</p>
+                <p className="mt-1 text-[11px] text-sky-100/80 leading-snug">{total.detail}</p>
               </div>
               <div className="rounded-2xl bg-emerald-400/15 border border-emerald-300/25 p-4">
                 <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none text-emerald-200">
@@ -172,8 +163,8 @@ function LocalTrustSection() {
               </div>
             </div>
 
-            <p className="mt-5 text-[11px] text-sky-100/60">
-              Total orders are lifetime billed jobs · this month is the last 30 days.
+            <p className="mt-5 text-[11px] text-sky-100/70">
+              Live billed orders from the Cleenzo store in Raj Nagar Extension.
             </p>
           </div>
         </div>

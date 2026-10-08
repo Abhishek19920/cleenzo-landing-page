@@ -85,50 +85,45 @@ export const NEARBY_SERVICE_AREAS = [
 ];
 
 /**
- * Copy for the last-30-days growth panel. Counts come from the public
- * milestone API (`last30Days`); these values are a last-known fallback only.
+ * Marketing growth panel. The order count comes from the public milestone API.
  */
 export const MONTHLY_GROWTH_STATS = {
-  eyebrow: "This month at Cleenzo",
-  headline: "Growing with Ghaziabad families",
+  eyebrow: "Cleenzo Raj Nagar Extension",
+  headlineBefore: "",
+  headlineAfter: "orders in just 60 days",
   subline:
-    "Real demand across Raj Nagar Extension and nearby societies — quality care people come back for.",
+    "Ghaziabad families already trust Cleenzo for laundry, dry clean and doorstep care — and they keep coming back.",
   total: {
     value: 500,
-    label: "Total orders",
-    detail: "All billed laundry & dry clean jobs",
-  },
-  thisMonth: {
-    value: 183,
-    label: "Orders this month",
-    detail: "Jobs completed in the last 30 days",
+    label: "Orders in 60 days",
+    detail: "Billed laundry & dry clean jobs since we opened",
   },
   returning: {
-    value: 56,
-    label: "Returning customers",
-    detail: "Families who booked Cleenzo again",
+    value: 45,
+    label: "Returning families",
+    detail: "Customers who booked Cleenzo again",
   },
   newCustomers: {
-    value: 148,
-    label: "New customers",
-    detail: "First-time pickups this month",
+    value: 85,
+    label: "New families",
+    detail: "First-time pickups in Raj Nagar Extension",
   },
 };
 
 export const LOCAL_TRUST_STATS = [
   {
-    value: "500",
-    label: "Total orders",
-    detail: "All billed laundry & dry clean jobs",
+    value: "500+",
+    label: "Orders in 60 days",
+    detail: "Laundry & dry clean jobs since we opened in Raj Nagar Extension",
   },
   {
     value: "148",
-    label: "New customers",
-    detail: "First-time families who chose Cleenzo this month",
+    label: "New families",
+    detail: "First-time customers who chose Cleenzo",
   },
   {
     value: "56",
-    label: "Returning customers",
+    label: "Returning families",
     detail: "Repeat bookings — quality that earns trust",
   },
   {

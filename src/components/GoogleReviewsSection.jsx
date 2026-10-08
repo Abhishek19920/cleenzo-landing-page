@@ -117,13 +117,13 @@ function GoogleReviewsSection({ compact = false }) {
 
   const trustStats = LOCAL_TRUST_STATS.map((stat) => {
     if (!monthStats) return stat;
-    if (stat.label === "Total orders") {
-      return { ...stat, value: formatTrustValue(monthStats.totalOrders) };
+    if (stat.label === "Orders in 60 days") {
+      return { ...stat, value: `${formatTrustValue(monthStats.totalOrders)}+` };
     }
-    if (stat.label === "New customers") {
+    if (stat.label === "New families") {
       return { ...stat, value: formatTrustValue(monthStats.newCustomers) };
     }
-    if (stat.label === "Returning customers") {
+    if (stat.label === "Returning families") {
       return { ...stat, value: formatTrustValue(monthStats.returning) };
     }
     return stat;
