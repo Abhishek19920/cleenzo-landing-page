@@ -33,7 +33,6 @@ function LocalTrustSection() {
     let cancelled = false;
     void fetchStoreMilestone()
       .then((payload) => {
-        const month = payload?.last30Days;
         if (cancelled || !payload) return;
         const month = payload.last30Days;
         setLive({
