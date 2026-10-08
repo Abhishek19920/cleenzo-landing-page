@@ -101,11 +101,13 @@ function GoogleReviewsSection({ compact = false }) {
     void fetchStoreMilestone()
       .then((payload) => {
         const month = payload?.last30Days;
-        if (cancelled || !month) return;
+        if (cancelled || !payload) return;
+        const month = payload.last30Days;
         setMonthStats({
-          orders: Number(month.ordersCompleted ?? 0),
-          returning: Number(month.returningCustomers ?? 0),
-          newCustomers: Number(month.newCustomers ?? 0),
+          totalOrders: Number(payload.ordersCompleted ?? 0),
+          orders: Number(month?.ordersCompleted ?? 0),
+          returning: Number(month?.returningCustomers ?? 0),
+          newCustomers: Number(month?.newCustomers ?? 0),
         });
       })
       .catch(() => {});
@@ -116,8 +118,8 @@ function GoogleReviewsSection({ compact = false }) {
 
   const trustStats = LOCAL_TRUST_STATS.map((stat) => {
     if (!monthStats) return stat;
-    if (stat.label === "Orders this month") {
-      return { ...stat, value: formatTrustValue(monthStats.orders) };
+    if (stat.label === "Total orders") {
+      return { ...stat, value: formatTrustValue(monthStats.totalOrders) };
     }
     if (stat.label === "New customers") {
       return { ...stat, value: formatTrustValue(monthStats.newCustomers) };
@@ -188,7 +190,7 @@ function GoogleReviewsSection({ compact = false }) {
           >
             Happy customers choose Cleenzo in Raj Nagar Extension
           </h2>
-          <p className="text-white/72 leading-relaxed mb-5">
+          <p className="text-sky-100 leading-relaxed mb-5">
             Families around AVS City Square, Raj Nagar Extension and nearby Ghaziabad societies
             rely on Cleenzo for laundry, dry cleaning, steam iron and doorstep garment care.
           </p>

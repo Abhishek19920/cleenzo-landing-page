@@ -94,9 +94,14 @@ export const MONTHLY_GROWTH_STATS = {
   subline:
     "Real demand across Raj Nagar Extension and nearby societies — quality care people come back for.",
   total: {
-    value: 319,
+    value: 500,
+    label: "Total orders",
+    detail: "All billed laundry & dry clean jobs",
+  },
+  thisMonth: {
+    value: 183,
     label: "Orders this month",
-    detail: "Laundry & dry clean jobs completed in the last 30 days",
+    detail: "Jobs completed in the last 30 days",
   },
   returning: {
     value: 56,
@@ -112,9 +117,9 @@ export const MONTHLY_GROWTH_STATS = {
 
 export const LOCAL_TRUST_STATS = [
   {
-    value: "319",
-    label: "Orders this month",
-    detail: "Active laundry & dry clean demand near Raj Nagar Extension",
+    value: "500",
+    label: "Total orders",
+    detail: "All billed laundry & dry clean jobs",
   },
   {
     value: "148",
