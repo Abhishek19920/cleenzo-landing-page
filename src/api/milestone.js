@@ -6,12 +6,24 @@ const LIVE_STORE_SLUG = "shine-works";
 
 function milestoneApiBases() {
   const local = getPublicApiBase();
-  const bases = [];
-  if (local) bases.push(local);
-  if (PRODUCTION_API_BASE && !bases.includes(PRODUCTION_API_BASE)) {
-    bases.push(PRODUCTION_API_BASE);
+  const bases = [PRODUCTION_API_BASE];
+  if (local && local !== PRODUCTION_API_BASE) bases.push(local);
+  return bases.filter(Boolean);
+}
+
+async function fetchJson(url) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 4000);
+  try {
+    const res = await fetch(url, {
+      headers: { Accept: "application/json" },
+      signal: ctrl.signal,
+    });
+    if (!res.ok) throw new Error(`API ${res.status}`);
+    return res.json();
+  } finally {
+    clearTimeout(timer);
   }
-  return bases;
 }
 
 function milestoneSlug() {
@@ -26,14 +38,7 @@ export async function fetchStoreMilestone() {
   let lastError = null;
   for (const apiBase of milestoneApiBases()) {
     try {
-      const res = await fetch(`${apiBase}/public/website/milestone${query}`, {
-        headers: { Accept: "application/json" },
-      });
-      if (!res.ok) {
-        lastError = new Error(`API ${res.status}`);
-        continue;
-      }
-      return res.json();
+      return await fetchJson(`${apiBase}/public/website/milestone${query}`);
     } catch (err) {
       lastError = err;
     }

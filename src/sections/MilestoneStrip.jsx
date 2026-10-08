@@ -68,6 +68,23 @@ function MilestoneStrip() {
       className="milestone-strip"
       aria-labelledby="milestone-strip-title"
     >
+      <div className="milestone-strip-wash" aria-hidden="true">
+        <div className="milestone-strip-wave" />
+        <img
+          className="milestone-strip-towels"
+          src={`${process.env.PUBLIC_URL || ""}/images/milestone-wash-bg.jpg`}
+          alt=""
+        />
+        <svg className="milestone-strip-bubbles" viewBox="0 0 1440 280" preserveAspectRatio="xMidYMid slice">
+          <circle cx="70" cy="210" r="18" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="2" />
+          <circle cx="92" cy="198" r="5" fill="rgba(255,255,255,0.55)" />
+          <circle cx="210" cy="48" r="11" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" />
+          <circle cx="1180" cy="42" r="16" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="2" />
+          <circle cx="1260" cy="88" r="8" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="1.5" />
+          <circle cx="1340" cy="36" r="6" fill="rgba(255,255,255,0.45)" />
+          <circle cx="980" cy="70" r="22" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+        </svg>
+      </div>
       <div className="milestone-strip-inner">
         <div className="milestone-strip-copy">
           <div>
