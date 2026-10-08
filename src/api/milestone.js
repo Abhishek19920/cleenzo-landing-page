@@ -32,17 +32,27 @@ function milestoneSlug() {
   return slug;
 }
 
+let inflightMilestone = null;
+
 export async function fetchStoreMilestone() {
-  const params = new URLSearchParams({ organizationSlug: milestoneSlug() });
-  const query = `?${params.toString()}`;
-  let lastError = null;
-  for (const apiBase of milestoneApiBases()) {
-    try {
-      return await fetchJson(`${apiBase}/public/website/milestone${query}`);
-    } catch (err) {
-      lastError = err;
+  if (inflightMilestone) return inflightMilestone;
+  inflightMilestone = (async () => {
+    const params = new URLSearchParams({ organizationSlug: milestoneSlug() });
+    const query = `?${params.toString()}`;
+    let lastError = null;
+    for (const apiBase of milestoneApiBases()) {
+      try {
+        return await fetchJson(`${apiBase}/public/website/milestone${query}`);
+      } catch (err) {
+        lastError = err;
+      }
     }
-  }
-  if (lastError) throw lastError;
-  return null;
+    if (lastError) throw lastError;
+    return null;
+  })().finally(() => {
+    setTimeout(() => {
+      inflightMilestone = null;
+    }, 4000);
+  });
+  return inflightMilestone;
 }

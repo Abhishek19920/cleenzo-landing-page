@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   MONTHLY_GROWTH_STATS,
   NEARBY_SERVICE_AREAS,
@@ -5,6 +6,7 @@ import {
   PHONE_TEL,
   STORE_ADDRESS,
 } from "../constants";
+import { fetchStoreMilestone } from "../api/milestone";
 import { GOOGLE_REVIEWS_URL } from "../data/googleReviews";
 import { useSchedulePickup } from "../context/SchedulePickupContext";
 
@@ -25,6 +27,29 @@ function LocalTrustSection() {
   const { openSchedulePickup } = useSchedulePickup();
   const { total, returning, newCustomers, eyebrow, headline, subline } =
     MONTHLY_GROWTH_STATS;
+  const [live, setLive] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    void fetchStoreMilestone()
+      .then((payload) => {
+        const month = payload?.last30Days;
+        if (cancelled || !month) return;
+        setLive({
+          orders: Number(month.ordersCompleted ?? 0),
+          returning: Number(month.returningCustomers ?? 0),
+          newCustomers: Number(month.newCustomers ?? 0),
+        });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const ordersValue = live ? live.orders : total.value;
+  const returningValue = live ? live.returning : returning.value;
+  const newValue = live ? live.newCustomers : newCustomers.value;
 
   return (
     <section
@@ -105,7 +130,7 @@ function LocalTrustSection() {
             <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-4 sm:col-span-1">
                 <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none">
-                  {formatStat(total.value)}
+                  {formatStat(ordersValue)}
                 </p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wide text-sky-100">
                   {total.label}
@@ -114,7 +139,7 @@ function LocalTrustSection() {
               </div>
               <div className="rounded-2xl bg-emerald-400/15 border border-emerald-300/25 p-4">
                 <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none text-emerald-200">
-                  {formatStat(returning.value)}
+                  {formatStat(returningValue)}
                 </p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wide text-emerald-100">
                   Returning
@@ -125,7 +150,7 @@ function LocalTrustSection() {
               </div>
               <div className="rounded-2xl bg-amber-400/15 border border-amber-300/25 p-4">
                 <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none text-amber-100">
-                  {formatStat(newCustomers.value)}
+                  {formatStat(newValue)}
                 </p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wide text-amber-100">
                   New

@@ -6,6 +6,7 @@ import {
   GOOGLE_REVIEWS_URL,
   getReviewSliderItems,
 } from "../data/googleReviews";
+import { fetchStoreMilestone } from "../api/milestone";
 import { LOCAL_TRUST_STATS, STORE_ADDRESS } from "../constants";
 
 const AUTOPLAY_MS = 5500;
@@ -84,11 +85,48 @@ function ReviewSlide({ review }) {
   );
 }
 
+function formatTrustValue(n) {
+  return Number(n).toLocaleString("en-IN");
+}
+
 function GoogleReviewsSection({ compact = false }) {
   const slides = getReviewSliderItems();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [monthStats, setMonthStats] = useState(null);
   const touchStartX = useRef(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    void fetchStoreMilestone()
+      .then((payload) => {
+        const month = payload?.last30Days;
+        if (cancelled || !month) return;
+        setMonthStats({
+          orders: Number(month.ordersCompleted ?? 0),
+          returning: Number(month.returningCustomers ?? 0),
+          newCustomers: Number(month.newCustomers ?? 0),
+        });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const trustStats = LOCAL_TRUST_STATS.map((stat) => {
+    if (!monthStats) return stat;
+    if (stat.label === "Orders this month") {
+      return { ...stat, value: formatTrustValue(monthStats.orders) };
+    }
+    if (stat.label === "New customers") {
+      return { ...stat, value: formatTrustValue(monthStats.newCustomers) };
+    }
+    if (stat.label === "Returning customers") {
+      return { ...stat, value: formatTrustValue(monthStats.returning) };
+    }
+    return stat;
+  });
 
   const goTo = useCallback(
     (index) => {
@@ -162,7 +200,7 @@ function GoogleReviewsSection({ compact = false }) {
         </div>
 
         <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-10">
-          {LOCAL_TRUST_STATS.map((stat) => (
+          {trustStats.map((stat) => (
             <li
               key={stat.label}
               className="rounded-2xl border border-white/15 bg-white/10 p-4 text-center backdrop-blur-md"

@@ -85,8 +85,8 @@ export const NEARBY_SERVICE_AREAS = [
 ];
 
 /**
- * Last 30 days growth snapshot — marketing surface (orders / customer records).
- * Update when you refresh monthly figures.
+ * Copy for the last-30-days growth panel. Counts come from the public
+ * milestone API (`last30Days`); these values are a last-known fallback only.
  */
 export const MONTHLY_GROWTH_STATS = {
   eyebrow: "This month at Cleenzo",
