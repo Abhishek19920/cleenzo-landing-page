@@ -1,5 +1,4 @@
 import { WHY_CLEENZO, WHY_CLEENZO_USP } from "../constants";
-import PlaceOrderCTA from "../components/PlaceOrderCTA";
 
 function WhyChoose() {
   return (
@@ -38,8 +37,6 @@ function WhyChoose() {
           ))}
         </ul>
       </div>
-
-      <PlaceOrderCTA variant="white" />
     </section>
   );
 }

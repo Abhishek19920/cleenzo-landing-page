@@ -34,7 +34,7 @@ function Footer() {
   const { openAppDownload } = useAppDownload();
 
   return (
-    <footer className="bg-black text-white py-12 px-6 pb-28 md:pb-12">
+    <footer className="bg-black text-white py-12 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
           <Link to="/" className="inline-block mb-3">

@@ -1,5 +1,4 @@
 import { CORE_SERVICES, FABRIC_SERVICES } from "../constants";
-import PlaceOrderCTA from "../components/PlaceOrderCTA";
 import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 
 const TIRANGA_ACCENTS = [
@@ -141,8 +140,6 @@ function ServicesPreview() {
           </div>
         </div>
       </div>
-
-      <PlaceOrderCTA title="Book laundry or dry cleaning today" variant={tiranga ? "cream" : "cream"} />
     </section>
   );
 }

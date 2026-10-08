@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import PlaceOrderCTA from "../components/PlaceOrderCTA";
 import AlphabetFilter from "../components/pricing/AlphabetFilter";
 import { PRICING_SECTION } from "../constants";
 import {
@@ -613,8 +612,6 @@ function PricingSection() {
           {PRICING_SECTION.disclaimer}
         </p>
       </div>
-
-      <PlaceOrderCTA title="Ready to book? Schedule a free pickup" variant="white" />
     </section>
   );
 }

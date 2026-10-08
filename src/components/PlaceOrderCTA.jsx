@@ -8,34 +8,37 @@ const variants = {
   white: "bg-white text-slate-800 border-t border-slate-200",
 };
 
-function PlaceOrderCTA({ title = "To place your order", variant = "light", className = "" }) {
+function PlaceOrderCTA({ title = "Ready to book a free pickup?", variant = "light", className = "" }) {
   const { openSchedulePickup } = useSchedulePickup();
+  const isDark = variant === "dark";
 
   return (
     <div className={`py-8 px-4 ${variants[variant] || variants.light} ${className}`}>
-      {title && (
+      {title ? (
         <p
-          className={`text-center italic font-medium mb-5 text-lg ${
-            variant === "dark" ? "text-white" : "text-slate-800"
+          className={`text-center font-medium mb-5 text-lg ${
+            isDark ? "text-white" : "text-slate-800"
           }`}
         >
           {title}
         </p>
-      )}
-      <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-xl mx-auto">
-        <button
-          type="button"
-          onClick={() => openWhatsAppBooking()}
-          className="flex-1 bg-[#25D366] hover:bg-[#1fb855] text-white font-bold py-4 px-6 rounded-full transition shadow-md"
-        >
-          Chat on WhatsApp
-        </button>
+      ) : null}
+      <div className="flex flex-col items-center gap-3 max-w-md mx-auto">
         <button
           type="button"
           onClick={openSchedulePickup}
-          className="flex-1 bg-cleenzo hover:bg-cleenzo-dark text-white font-bold py-4 px-6 rounded-full transition shadow-md"
+          className="w-full bg-cleenzo hover:bg-cleenzo-dark text-white font-bold py-4 px-6 rounded-full transition shadow-md"
         >
           Schedule free pickup
+        </button>
+        <button
+          type="button"
+          onClick={() => openWhatsAppBooking()}
+          className={`text-sm font-semibold underline-offset-2 hover:underline ${
+            isDark ? "text-cleenzo-sky" : "text-[#128C7E]"
+          }`}
+        >
+          Prefer WhatsApp? Message us
         </button>
       </div>
     </div>

@@ -14,7 +14,6 @@ import OrderTrackingPage from "./pages/OrderTrackingPage";
 import NotFound from "./pages/NotFound";
 import PageSEO from "./components/PageSEO";
 import TrailingSlashRedirect from "./components/TrailingSlashRedirect";
-import StickyCTA from "./sections/StickyCTA";
 import { SchedulePickupProvider } from "./context/SchedulePickupContext";
 import { AppDownloadProvider } from "./context/AppDownloadContext";
 import { SERVICE_PAGE_PATHS } from "./data/servicePages";
@@ -59,7 +58,6 @@ function App() {
             <Route index element={<CommercialLaundry />} />
           </Route>
         </Routes>
-        {pathname === "/" && <StickyCTA />}
       </SchedulePickupProvider>
     </AppDownloadProvider>
   );

@@ -1,5 +1,4 @@
 import { DRY_CLEAN_PROCESS } from "../constants";
-import PlaceOrderCTA from "../components/PlaceOrderCTA";
 import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 
 function OurProcess() {
@@ -90,8 +89,6 @@ function OurProcess() {
           ))}
         </div>
       </div>
-
-      <PlaceOrderCTA title="Need express laundry today?" variant="cream" />
     </section>
   );
 }

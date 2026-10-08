@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { PHONE_DISPLAY, PHONE_TEL, STORE_ADDRESS } from "../constants";
 import { SEO_FAQ, SERVICE_AREAS } from "../seo";
-import { openWhatsAppBooking } from "../whatsapp";
 
 function SeoContentSection() {
   return (
@@ -106,16 +105,6 @@ function SeoContentSection() {
               </div>
             ))}
           </dl>
-        </div>
-
-        <div className="mt-10 text-center">
-          <button
-            type="button"
-            onClick={() => openWhatsAppBooking()}
-            className="inline-flex bg-[#25D366] hover:bg-[#1fb855] text-white font-bold px-8 py-4 rounded-full transition shadow-md"
-          >
-            Book laundry pickup on WhatsApp — {PHONE_DISPLAY}
-          </button>
         </div>
       </div>
     </section>

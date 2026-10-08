@@ -1,6 +1,5 @@
 import { APP_COMING_SOON } from "../constants";
 import AppStoreButtons from "./AppStoreButtons";
-import PlaceOrderCTA from "../components/PlaceOrderCTA";
 import { useAppDownload } from "../context/AppDownloadContext";
 
 function DownloadApp() {
@@ -47,8 +46,6 @@ function DownloadApp() {
           </button>
         </div>
       </div>
-
-      <PlaceOrderCTA title="To place your order" variant="dark" className="!bg-cleenzo-dark/40" />
     </section>
   );
 }
