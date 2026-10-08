@@ -21,6 +21,7 @@
 }
 
 :root {
+  --site-nav-height: 5.5rem;
   --cleenzo-blue: #0a3d91;
   --cleenzo-blue-dark: #072d6b;
   --cleenzo-blue-light: #1565c0;
@@ -30,6 +31,16 @@
   --cleenzo-sky-light: #dbeafe;
   --cleenzo-pale: #eef4fc;
   --cleenzo-pale-bg: #f8fbff;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --site-nav-height: 5.75rem;
+  }
+}
+
+.site-nav-spacer {
+  height: var(--site-nav-height);
 }
 
 * {
