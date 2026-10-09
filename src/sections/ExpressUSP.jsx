@@ -15,7 +15,7 @@ function ExpressUSP() {
           {USP.description} Laundry • Dry Cleaning • Sofa Cleaning • Carpet Cleaning.
         </p>
       </div>
-      <PlaceOrderCTA title="Need express laundry today?" variant="dark" className="!bg-cleenzo-dark/40" />
+      <PlaceOrderCTA title="Ready to book a free pickup?" variant="dark" className="!bg-cleenzo-dark/40" />
     </section>
   );
 }

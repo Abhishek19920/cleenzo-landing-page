@@ -61,6 +61,7 @@ function MilestoneStrip() {
 
   const ready = Boolean(data) && inView;
   const progress = useCountUpProgress(ready, 2100);
+  const showCounts = Boolean(data) && progress > 0;
 
   return (
     <section
@@ -123,12 +124,14 @@ function MilestoneStrip() {
                 <span
                   className="milestone-strip-value"
                   aria-label={
-                    stat.money
-                      ? `${stat.label} ${fullSavings}`
-                      : `${stat.label} ${formatCount(target)}`
+                    showCounts
+                      ? stat.money
+                        ? `${stat.label} ${fullSavings}`
+                        : `${stat.label} ${formatCount(target)}`
+                      : `${stat.label} loading`
                   }
                 >
-                  {data ? display : "—"}
+                  {showCounts ? display : <span className="milestone-strip-skeleton" />}
                 </span>
                 <span className="milestone-strip-label">{stat.label}</span>
               </div>

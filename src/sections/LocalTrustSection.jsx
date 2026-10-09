@@ -10,23 +10,13 @@ import { fetchStoreMilestone } from "../api/milestone";
 import { GOOGLE_REVIEWS_URL } from "../data/googleReviews";
 import { useSchedulePickup } from "../context/SchedulePickupContext";
 
-const LOCAL_KEYWORDS = [
-  "Laundry Sidharth Vihar",
-  "Dry clean Indirapuram",
-  "Pickup Kanawani",
-  "Laundry Ahinsa Khand",
-  "Dry clean Vaishali",
-  "Free pickup Raj Nagar Extension",
-];
-
 function formatStat(n) {
   return n.toLocaleString("en-IN");
 }
 
 function LocalTrustSection() {
   const { openSchedulePickup } = useSchedulePickup();
-  const { total, returning, newCustomers, eyebrow, headlineAfter, subline } =
-    MONTHLY_GROWTH_STATS;
+  const { returning, newCustomers, eyebrow, headline, subline } = MONTHLY_GROWTH_STATS;
   const [live, setLive] = useState(null);
 
   useEffect(() => {
@@ -36,7 +26,6 @@ function LocalTrustSection() {
         if (cancelled || !payload) return;
         const month = payload.last30Days;
         setLive({
-          totalOrders: Number(payload.ordersCompleted ?? 0),
           returning: Number(month?.returningCustomers ?? 0),
           newCustomers: Number(month?.newCustomers ?? 0),
         });
@@ -47,7 +36,6 @@ function LocalTrustSection() {
     };
   }, []);
 
-  const totalOrdersValue = live ? live.totalOrders : total.value;
   const returningValue = live ? live.returning : returning.value;
   const newValue = live ? live.newCustomers : newCustomers.value;
 
@@ -56,7 +44,7 @@ function LocalTrustSection() {
       className="bg-white border-b border-slate-200"
       aria-labelledby="local-trust-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-14 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-14">
         <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 lg:gap-12 items-center">
           <div>
             <p className="text-cleenzo font-bold text-xs uppercase tracking-[0.22em] mb-3">
@@ -90,7 +78,7 @@ function LocalTrustSection() {
               ))}
             </ul>
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
               <button
                 type="button"
                 onClick={openSchedulePickup}
@@ -104,18 +92,20 @@ function LocalTrustSection() {
               >
                 Call {PHONE_DISPLAY}
               </a>
+            </div>
+            <p className="mt-3 text-sm text-slate-500">
+              Prefer to read first?{" "}
               <a
                 href={GOOGLE_REVIEWS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-6 py-3 text-sm font-bold text-slate-700 hover:border-cleenzo/30 transition"
+                className="font-semibold text-cleenzo underline-offset-2 hover:underline"
               >
                 Google reviews
               </a>
-            </div>
+            </p>
           </div>
 
-          {/* Marketing growth panel */}
           <div className="relative overflow-hidden rounded-3xl border border-cleenzo/15 bg-gradient-to-br from-cleenzo-deep via-[#003d82] to-[#0b1f3a] p-6 sm:p-8 text-white shadow-xl">
             <div
               className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl"
@@ -125,26 +115,17 @@ function LocalTrustSection() {
               {eyebrow}
             </p>
             <h3 className="mt-3 text-3xl sm:text-4xl font-black leading-[1.1] tracking-tight">
-              {formatStat(totalOrdersValue)}+ {headlineAfter}
+              {headline}
             </h3>
             <p className="mt-3 text-sm text-sky-100 leading-relaxed max-w-md">{subline}</p>
 
-            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-4">
-                <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none">
-                  {formatStat(totalOrdersValue)}+
-                </p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-wide text-sky-100">
-                  {total.label}
-                </p>
-                <p className="mt-1 text-[11px] text-sky-100/80 leading-snug">{total.detail}</p>
-              </div>
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="rounded-2xl bg-emerald-400/15 border border-emerald-300/25 p-4">
                 <p className="text-3xl sm:text-4xl font-black tabular-nums leading-none text-emerald-200">
                   {formatStat(returningValue)}
                 </p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wide text-emerald-100">
-                  Returning
+                  {returning.label}
                 </p>
                 <p className="mt-1 text-[11px] text-emerald-100/70 leading-snug">
                   {returning.detail}
@@ -155,29 +136,14 @@ function LocalTrustSection() {
                   {formatStat(newValue)}
                 </p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wide text-amber-100">
-                  New
+                  {newCustomers.label}
                 </p>
                 <p className="mt-1 text-[11px] text-amber-100/70 leading-snug">
                   {newCustomers.detail}
                 </p>
               </div>
             </div>
-
-            <p className="mt-5 text-[11px] text-sky-100/70">
-              Live billed orders from the Cleenzo store in Raj Nagar Extension.
-            </p>
           </div>
-        </div>
-
-        <div className="flex flex-wrap gap-2" aria-label="Popular Cleenzo searches">
-          {LOCAL_KEYWORDS.map((keyword) => (
-            <span
-              key={keyword}
-              className="rounded-full border border-cleenzo-sky-light bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700"
-            >
-              {keyword}
-            </span>
-          ))}
         </div>
       </div>
     </section>

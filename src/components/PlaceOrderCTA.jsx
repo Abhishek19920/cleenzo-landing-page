@@ -29,7 +29,7 @@ function PlaceOrderCTA({ title = "Ready to book a free pickup?", variant = "ligh
           onClick={openSchedulePickup}
           className="w-full bg-cleenzo hover:bg-cleenzo-dark text-white font-bold py-4 px-6 rounded-full transition shadow-md"
         >
-          Schedule free pickup
+          Book free pickup
         </button>
         <button
           type="button"

@@ -1,7 +1,6 @@
 import { useSchedulePickup } from "../context/SchedulePickupContext";
-import { useAppDownload } from "../context/AppDownloadContext";
 import { useCarouselStrip } from "../context/CarouselStripContext";
-import { PERSONAL_HERO, USP } from "../constants";
+import { PERSONAL_HERO, PHONE_DISPLAY, PHONE_TEL, USP } from "../constants";
 import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
 import personalHeroImage from "../assets/image/personal-hero-banner.jpg";
 import "./personal-hero.css";
@@ -45,7 +44,6 @@ const STRIP = [
 
 function PersonalHeroBanner() {
   const { openSchedulePickup } = useSchedulePickup();
-  const { openAppDownload } = useAppDownload();
   const { stripTone, homeTiranga } = useCarouselStrip();
   const tiranga = homeTiranga || isHomeTirangaThemeActive();
   const hero = tiranga ? TIRANGA_HERO : PERSONAL_HERO;
@@ -96,16 +94,16 @@ function PersonalHeroBanner() {
 
           <div className="personal-hero-ctas">
             <button type="button" className="personal-hero-btn-primary" onClick={openSchedulePickup}>
-              Schedule free pickup
+              Book free pickup
             </button>
             {tiranga ? (
               <button type="button" className="personal-hero-btn-secondary" onClick={scrollToOffers}>
                 View offers
               </button>
             ) : (
-              <button type="button" className="personal-hero-btn-secondary" onClick={openAppDownload}>
-                Get the Cleenzo app
-              </button>
+              <a href={`tel:${PHONE_TEL}`} className="personal-hero-btn-secondary">
+                Call {PHONE_DISPLAY}
+              </a>
             )}
           </div>
 
@@ -141,13 +139,6 @@ function PersonalHeroBanner() {
                 : `${USP.description} Laundry • Dry Cleaning • Sofa Cleaning • Carpet Cleaning.`}
             </p>
           </div>
-          <button
-            type="button"
-            className="personal-hero-promise-cta"
-            onClick={openSchedulePickup}
-          >
-            {usp.cta}
-          </button>
         </div>
       </div>
 

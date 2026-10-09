@@ -61,7 +61,7 @@ export const USP = {
   headline: "Delivered Within 24 Hours — No Extra Charge",
   description:
     "Powered by high-quality technology and expert care at every step.",
-  cta: "Need express laundry today?",
+  cta: "Book free pickup",
 };
 
 export const PERSONAL_HERO = {
@@ -88,25 +88,19 @@ export const NEARBY_SERVICE_AREAS = [
  * Marketing growth panel. The order count comes from the public milestone API.
  */
 export const MONTHLY_GROWTH_STATS = {
-  eyebrow: "Cleenzo Raj Nagar Extension",
-  headlineBefore: "",
-  headlineAfter: "orders in just 60 days",
+  eyebrow: "Why families stay",
+  headline: "They keep coming back",
   subline:
-    "Ghaziabad families already trust Cleenzo for laundry, dry clean and doorstep care — and they keep coming back.",
-  total: {
-    value: 500,
-    label: "Orders in 60 days",
-    detail: "Billed laundry & dry clean jobs since we opened",
-  },
+    "Live from Raj Nagar Extension — people who booked Cleenzo again versus first-time pickups in the last 30 days.",
   returning: {
     value: 45,
     label: "Returning families",
-    detail: "Customers who booked Cleenzo again",
+    detail: "Booked Cleenzo again in the last 30 days",
   },
   newCustomers: {
     value: 85,
     label: "New families",
-    detail: "First-time pickups in Raj Nagar Extension",
+    detail: "First-time pickups in the last 30 days",
   },
 };
 
@@ -206,7 +200,7 @@ export const APP_PROMO_HEADLINE = {
 };
 
 export const APP_PROMO_STEPS = [
-  { icon: "📅", label: "Schedule free pickup" },
+  { icon: "📅", label: "Book free pickup" },
   { icon: "📍", label: "Track your order" },
   { icon: "💳", label: "Pay online easily" },
 ];
@@ -362,7 +356,7 @@ export const CAROUSEL_BANNERS = [
     titleAccent: "dry cleaning",
     subtitle:
       "German chemicals, expert finish & free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram & Vaishali.",
-    primaryCta: { label: "Book now", action: "schedule" },
+    primaryCta: { label: "Book free pickup", action: "schedule" },
     secondaryCta: {
       label: "View price list",
       action: "link",
@@ -388,7 +382,7 @@ export const CAROUSEL_BANNERS = [
     titleAccent: "express",
     subtitle:
       "No slow lanes or extra charges — fast turnaround with free pickup & doorstep delivery on every Cleenzo order.",
-    primaryCta: { label: "Schedule free pickup", action: "schedule" },
+    primaryCta: { label: "Book free pickup", action: "schedule" },
     secondaryCta: { label: "Book on WhatsApp", action: "whatsapp" },
     expressFeatures: [
       { icon: "🛵", label: "Free pickup", desc: "Doorstep collection" },
