@@ -141,8 +141,8 @@
   padding: 0.9rem 1.35rem;
   border: none;
   border-radius: 999px;
-  background: var(--ph-white);
-  color: var(--ph-navy);
+  background: var(--cta-book);
+  color: #fff;
   font-weight: 800;
   font-size: clamp(0.78rem, 2vw, 0.9rem);
   cursor: pointer;
@@ -157,8 +157,9 @@
 }
 
 .personal-hero-btn-primary:hover {
+  background: var(--cta-book-hover);
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 28px rgba(194, 65, 12, 0.35);
 }
 
 .personal-hero-btn-secondary {
@@ -168,10 +169,10 @@
   gap: 0.45rem;
   width: 100%;
   padding: 0.9rem 1.35rem;
-  border: 2px solid rgba(255, 255, 255, 0.55);
+  border: 2px solid var(--cta-call-border);
   border-radius: 999px;
-  background: transparent;
-  color: var(--ph-white);
+  background: var(--cta-call-bg);
+  color: var(--cta-call-text);
   font-weight: 800;
   font-size: clamp(0.78rem, 2vw, 0.9rem);
   text-decoration: none;
@@ -186,7 +187,8 @@
 }
 
 .personal-hero-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffe8cc;
+  border-color: #fb923c;
   transform: translateY(-1px);
 }
 

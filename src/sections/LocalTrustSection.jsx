@@ -82,13 +82,13 @@ function LocalTrustSection() {
               <button
                 type="button"
                 onClick={openSchedulePickup}
-                className="inline-flex items-center justify-center rounded-full bg-cleenzo px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-cleenzo-dark transition"
+                className="site-cta-book inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold shadow-sm transition"
               >
                 Book free pickup
               </button>
               <a
                 href={`tel:${PHONE_TEL}`}
-                className="inline-flex items-center justify-center rounded-full border border-cleenzo/25 bg-white px-6 py-3 text-sm font-bold text-cleenzo hover:border-cleenzo transition"
+                className="site-cta-call inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition"
               >
                 Call {PHONE_DISPLAY}
               </a>

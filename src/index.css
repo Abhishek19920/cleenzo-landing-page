@@ -31,6 +31,31 @@
   --cleenzo-sky-light: #dbeafe;
   --cleenzo-pale: #eef4fc;
   --cleenzo-pale-bg: #f8fbff;
+  --cta-book: #e85d04;
+  --cta-book-hover: #c2410c;
+  --cta-call-bg: #fff4e5;
+  --cta-call-text: #9a3412;
+  --cta-call-border: #fdba74;
+}
+
+.site-cta-book {
+  background: var(--cta-book);
+  color: #fff;
+}
+
+.site-cta-book:hover {
+  background: var(--cta-book-hover);
+}
+
+.site-cta-call {
+  background: var(--cta-call-bg);
+  color: var(--cta-call-text);
+  border: 2px solid var(--cta-call-border);
+}
+
+.site-cta-call:hover {
+  background: #ffe8cc;
+  border-color: #fb923c;
 }
 
 @media (min-width: 640px) {
