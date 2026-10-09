@@ -165,7 +165,7 @@ function Navbar() {
           <button
             type="button"
             onClick={bookNow}
-            className="bg-cleenzo text-white font-bold px-4 py-1.5 rounded-full text-sm hover:bg-cleenzo-dark transition"
+            className="site-cta-book font-bold px-4 py-1.5 rounded-full text-sm transition"
           >
             Book now
           </button>
@@ -175,7 +175,7 @@ function Navbar() {
           <button
             type="button"
             onClick={bookNow}
-            className="bg-cleenzo text-white font-bold px-3 py-1.5 rounded-full text-xs hover:bg-cleenzo-dark"
+            className="site-cta-book font-bold px-3 py-1.5 rounded-full text-xs transition"
           >
             Book now
           </button>
