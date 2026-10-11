@@ -187,10 +187,22 @@ function PriceTable({ items, unitLabel, emptyMessage }) {
   );
 }
 
+const ALL_CATEGORY_ID = "all";
+
+function countServiceItems(pricing, serviceId) {
+  const sections = pricing.items[serviceId] ?? {};
+  return Object.values(sections).reduce((sum, rows) => sum + rows.length, 0);
+}
+
 function CategoryTabs({ pricing, selectedCategory, activeService, onSelectSection }) {
   const visibleTabs = pricing.sectionTabs.filter(
     (tab) => (pricing.items[activeService]?.[tab.id]?.length ?? 0) > 0,
   );
+  const allCount = countServiceItems(pricing, activeService);
+  const tabs =
+    allCount > 0
+      ? [{ id: ALL_CATEGORY_ID, label: "All", icon: "✨", count: allCount }, ...visibleTabs]
+      : visibleTabs;
 
   return (
     <div
@@ -198,9 +210,10 @@ function CategoryTabs({ pricing, selectedCategory, activeService, onSelectSectio
       role="tablist"
       aria-label="Garment category"
     >
-      {visibleTabs.map((tab) => {
+      {tabs.map((tab) => {
         const isCategorySelected = selectedCategory === tab.id;
-        const count = pricing.items[activeService]?.[tab.id]?.length ?? 0;
+        const count =
+          tab.count ?? pricing.items[activeService]?.[tab.id]?.length ?? 0;
         return (
           <button
             key={tab.id}
@@ -264,7 +277,7 @@ function ShowMoreBar({ visibleCount, totalCount, onShowMore, onShowAll }) {
 function PricingSection() {
   const { pricing, loading } = useWebsitePricing();
   const [activeService, setActiveService] = useState("dry-clean");
-  const [selectedCategory, setSelectedCategory] = useState("men");
+  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORY_ID);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeLetter, setActiveLetter] = useState(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
@@ -283,7 +296,17 @@ function PricingSection() {
 
   const sectionItems = useMemo(() => {
     if (activeService === "kg-wash") return [];
-    return (pricing.items[activeService]?.[selectedCategory] ?? []).map((item) => ({
+    const sections = pricing.items[activeService] ?? {};
+    if (selectedCategory === ALL_CATEGORY_ID) {
+      return Object.entries(sections).flatMap(([sectionId, rows]) =>
+        rows.map((item) => ({
+          ...item,
+          sectionId,
+          sectionLabel: sectionTabById[sectionId]?.label ?? sectionId,
+        })),
+      );
+    }
+    return (sections[selectedCategory] ?? []).map((item) => ({
       ...item,
       sectionId: selectedCategory,
       sectionLabel: sectionTabById[selectedCategory]?.label ?? selectedCategory,
@@ -335,11 +358,8 @@ function PricingSection() {
       return;
     }
 
-    const firstSection = pricing.sectionTabs.find(
-      (tab) => (pricing.items[activeService]?.[tab.id]?.length ?? 0) > 0,
-    );
-    if (firstSection) setSelectedCategory(firstSection.id);
-  }, [activeService, pricing.items, pricing.sectionTabs]);
+    setSelectedCategory(ALL_CATEGORY_ID);
+  }, [activeService]);
 
   // Direct / refresh / in-page hash navigation for pricing deep links.
   useEffect(() => {
@@ -410,7 +430,9 @@ function PricingSection() {
   };
 
   const activeCategoryLabel =
-    sectionTabById[selectedCategory]?.label ?? selectedCategory;
+    selectedCategory === ALL_CATEGORY_ID
+      ? "All"
+      : (sectionTabById[selectedCategory]?.label ?? selectedCategory);
 
   const searchHint = isFiltering
     ? filteredItems.length
