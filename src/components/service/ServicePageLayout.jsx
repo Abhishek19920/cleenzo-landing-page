@@ -363,6 +363,46 @@ function ServiceAreas({ serviceType }) {
   );
 }
 
+function ServiceRates({ rates }) {
+  return (
+    <section className="bg-white py-14 md:py-16 border-b border-cleenzo-sky-light">
+      <div className="max-w-5xl mx-auto px-4 md:px-8">
+        <SectionEyebrow>Rates</SectionEyebrow>
+        <h2 className="text-2xl md:text-3xl font-black text-cleenzo-deep mb-3">{rates.title}</h2>
+        {rates.note ? (
+          <p className="text-slate-600 mb-8 max-w-2xl leading-relaxed">{rates.note}</p>
+        ) : null}
+        <div className="overflow-x-auto rounded-2xl border border-cleenzo-sky-light">
+          <table className="w-full text-left min-w-[36rem]">
+            <thead className="bg-cleenzo-pale/60 text-xs font-bold uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-4 py-3">SKU</th>
+                <th className="px-4 py-3">Size</th>
+                <th className="px-4 py-3">Area</th>
+                <th className="px-4 py-3">Unit</th>
+                <th className="px-4 py-3 text-right">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rates.rows.map((row) => (
+                <tr key={row.sku} className="border-t border-cleenzo-sky-light">
+                  <td className="px-4 py-3 text-sm font-bold text-slate-500">{row.sku}</td>
+                  <td className="px-4 py-3 text-sm font-semibold text-slate-800">{row.name}</td>
+                  <td className="px-4 py-3 text-sm text-slate-600">{row.size}</td>
+                  <td className="px-4 py-3 text-sm text-slate-600">{row.unit}</td>
+                  <td className="px-4 py-3 text-sm font-black text-cleenzo text-right whitespace-nowrap">
+                    ₹{row.price.toLocaleString("en-IN")}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ServicePricingBand() {
   return (
     <section className="py-12 md:py-14 px-4 bg-cleenzo-pale-bg">
@@ -482,6 +522,8 @@ function ServicePageLayout({ page }) {
       />
 
       <ServiceContent sections={page.sections} />
+
+      {page.rates?.rows?.length ? <ServiceRates rates={page.rates} /> : null}
 
       {page.showAreas ? <ServiceAreas serviceType={page.serviceType} /> : null}
 

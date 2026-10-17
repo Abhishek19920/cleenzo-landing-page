@@ -45,6 +45,13 @@ export const GHAZIABAD_PRICING = {
       "icon": "🙏",
       "unit": "pc",
       "turnaround": "Special care · 24–72 hrs"
+    },
+    {
+      "id": "carpet-cleaning",
+      "label": "Carpet Cleaning",
+      "icon": "🧽",
+      "unit": "pc",
+      "turnaround": "Home service"
     }
   ],
   "sectionTabs": [
@@ -132,6 +139,11 @@ export const GHAZIABAD_PRICING = {
       "id": "divine-textiles",
       "label": "Divine Textiles",
       "icon": "🙏"
+    },
+    {
+      "id": "carpet",
+      "label": "Carpet",
+      "icon": "🧽"
     }
   ],
   "kgServices": [
@@ -2985,6 +2997,34 @@ export const GHAZIABAD_PRICING = {
           "price": 79
         }
       ]
+    },
+    "carpet-cleaning": {
+      "carpet": [
+        {
+          "name": "Carpet Cleaning – Small (15–30 sq. ft.)",
+          "price": 399
+        },
+        {
+          "name": "Carpet Cleaning – Medium (31–60 sq. ft.)",
+          "price": 549
+        },
+        {
+          "name": "Carpet Cleaning – Large (61–100 sq. ft.)",
+          "price": 799
+        },
+        {
+          "name": "Carpet Cleaning – Extra Large (101–150 sq. ft.)",
+          "price": 999
+        },
+        {
+          "name": "Carpet Cleaning – Oversized (151–250 sq. ft.)",
+          "price": 1299
+        },
+        {
+          "name": "Carpet Cleaning – Custom Size (above 250 sq. ft., per sq. ft.)",
+          "price": 8
+        }
+      ]
     }
   },
   "addons": {
@@ -3055,6 +3095,7 @@ export const GHAZIABAD_PRICING = {
     ],
     "dyeing": [],
     "toy-cleaning": [],
-    "divine-textile": []
+    "divine-textile": [],
+    "carpet-cleaning": []
   }
 };

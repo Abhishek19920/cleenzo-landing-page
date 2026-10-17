@@ -27,6 +27,11 @@ export const PRICING_DEEP_LINKS = Object.freeze({
     scrollId: "toy-cleaning",
     service: "toy-cleaning",
   }),
+  "carpet-cleaning": Object.freeze({
+    scrollId: "carpet-cleaning",
+    service: "carpet-cleaning",
+    category: "carpet",
+  }),
 });
 
 export const PRICING_DEEP_LINK_IDS = Object.freeze(

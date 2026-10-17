@@ -591,6 +591,18 @@ export const SERVICE_PAGES = {
     ],
     showAreas: true,
     showPricing: false,
+    rates: {
+      title: "Carpet cleaning rates",
+      note: "Small through oversized carpets are priced per piece. Custom size, above 250 sq. ft., is ₹8 per square foot.",
+      rows: [
+        { sku: "CAR-001", name: "Small", size: "15–30 sq. ft.", unit: "Per piece", price: 399 },
+        { sku: "CAR-002", name: "Medium", size: "31–60 sq. ft.", unit: "Per piece", price: 549 },
+        { sku: "CAR-003", name: "Large", size: "61–100 sq. ft.", unit: "Per piece", price: 799 },
+        { sku: "CAR-004", name: "Extra Large", size: "101–150 sq. ft.", unit: "Per piece", price: 999 },
+        { sku: "CAR-005", name: "Oversized", size: "151–250 sq. ft.", unit: "Per piece", price: 1299 },
+        { sku: "CAR-006", name: "Custom Size", size: "Above 250 sq. ft.", unit: "Per sq. ft.", price: 8 },
+      ],
+    },
     faqs: [
       {
         question: "Do you clean carpets at home?",
