@@ -52,6 +52,13 @@ export const GHAZIABAD_PRICING = {
       "icon": "🧽",
       "unit": "pc",
       "turnaround": "Home service"
+    },
+    {
+      "id": "sofa-cleaning",
+      "label": "Sofa Cleaning",
+      "icon": "🛋️",
+      "unit": "pc",
+      "turnaround": "Home service"
     }
   ],
   "sectionTabs": [
@@ -144,6 +151,11 @@ export const GHAZIABAD_PRICING = {
       "id": "carpet",
       "label": "Carpet",
       "icon": "🧽"
+    },
+    {
+      "id": "sofa",
+      "label": "Sofa",
+      "icon": "🛋️"
     }
   ],
   "kgServices": [
@@ -3025,6 +3037,22 @@ export const GHAZIABAD_PRICING = {
           "price": 8
         }
       ]
+    },
+    "sofa-cleaning": {
+      "sofa": [
+        {
+          "name": "Sofa Seat Cleaning (per seat)",
+          "price": 270
+        },
+        {
+          "name": "Sofa Cushion Cleaning (per cushion)",
+          "price": 40
+        },
+        {
+          "name": "Center Table Cleaning (per table)",
+          "price": 150
+        }
+      ]
     }
   },
   "addons": {
@@ -3096,6 +3124,7 @@ export const GHAZIABAD_PRICING = {
     "dyeing": [],
     "toy-cleaning": [],
     "divine-textile": [],
-    "carpet-cleaning": []
+    "carpet-cleaning": [],
+    "sofa-cleaning": []
   }
 };

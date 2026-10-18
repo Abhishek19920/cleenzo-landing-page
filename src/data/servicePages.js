@@ -490,6 +490,15 @@ export const SERVICE_PAGES = {
     ],
     showAreas: true,
     showPricing: false,
+    rates: {
+      title: "Sofa cleaning rates",
+      note: "Seats and cushions are priced separately. A center table is charged per table.",
+      rows: [
+        { sku: "SOF-001", name: "Sofa Seat Cleaning", size: "One seat", unit: "Per seat", price: 270 },
+        { sku: "SOF-002", name: "Sofa Cushion Cleaning", size: "One cushion", unit: "Per cushion", price: 40 },
+        { sku: "SOF-003", name: "Center Table Cleaning", size: "One table", unit: "Per table", price: 150 },
+      ],
+    },
     faqs: [
       {
         question: "Do you clean sofas at home in Raj Nagar Extension?",
