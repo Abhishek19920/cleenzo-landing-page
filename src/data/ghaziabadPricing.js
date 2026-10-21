@@ -2172,6 +2172,18 @@ export const GHAZIABAD_PRICING = {
         {
           "name": "Women Night Robe Satin Premium",
           "price": 209
+        },
+        {
+          "name": "Women’s Heels – Standard Cleaning",
+          "price": 199
+        },
+        {
+          "name": "Women’s Heels – Premium / Designer",
+          "price": 239
+        },
+        {
+          "name": "Women’s Heels – Delicate / Embellished",
+          "price": 299
         }
       ]
     },
