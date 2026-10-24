@@ -2,7 +2,10 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PlaceOrderCTA from "../PlaceOrderCTA";
 import GoogleReviewsSection from "../GoogleReviewsSection";
-import { useSchedulePickup } from "../../context/SchedulePickupContext";
+import {
+  isHomeVisitServicePath,
+  useSchedulePickup,
+} from "../../context/SchedulePickupContext";
 import { SERVICE_AREAS } from "../../data/servicePages";
 import { canonicalPath, normalizePathKey } from "../../seo/routes";
 import { openWhatsAppBooking } from "../../whatsapp";
@@ -11,6 +14,12 @@ import "./service-page.css";
 const HERO_PILLS = [
   { icon: "🛵", label: "Free pickup" },
   { icon: "⚡", label: "Express delivery" },
+  { icon: "✅", label: "Quality assured" },
+];
+
+const HOME_VISIT_HERO_PILLS = [
+  { icon: "🏠", label: "At your home" },
+  { icon: "🧹", label: "On-site deep clean" },
   { icon: "✅", label: "Quality assured" },
 ];
 
@@ -39,16 +48,21 @@ function displayTitle(page) {
   return page.h1.split("|")[0].trim();
 }
 
-function SchedulePickupButton({ className, label = "Book pickup" }) {
-  const { openSchedulePickup } = useSchedulePickup();
+function ServiceBookingButton({ className, path }) {
+  const homeVisit = isHomeVisitServicePath(path);
+  const { openForPath } = useSchedulePickup();
   return (
-    <button type="button" className={className} onClick={openSchedulePickup}>
-      {label}
+    <button
+      type="button"
+      className={className}
+      onClick={() => openForPath(path)}
+    >
+      {homeVisit ? "Book home visit" : "Book pickup"}
     </button>
   );
 }
 
-function OfferHighlight({ highlight }) {
+function OfferHighlight({ highlight, path }) {
   if (!highlight) return null;
 
   return (
@@ -66,9 +80,9 @@ function OfferHighlight({ highlight }) {
         </ul>
         {highlight.usp ? <p className="service-offer-usp">{highlight.usp}</p> : null}
         <div className="service-offer-actions">
-          <SchedulePickupButton
+          <ServiceBookingButton
             className="inline-flex items-center justify-center bg-cleenzo hover:bg-cleenzo-dark text-white font-bold text-sm px-6 py-3 rounded-full transition shadow-md"
-            label="Book pickup"
+            path={path}
           />
           <button type="button" className="service-page-btn-whatsapp" onClick={openWhatsAppBooking}>
             WhatsApp booking
@@ -135,6 +149,8 @@ function ServiceHubLinks({ currentPath }) {
 function ServiceHero({ page }) {
   const title = displayTitle(page);
   const imageAlt = page.heroImageAlt || title;
+  const homeVisit = isHomeVisitServicePath(page.path);
+  const pills = page.heroPills || (homeVisit ? HOME_VISIT_HERO_PILLS : HERO_PILLS);
 
   return (
     <section className="service-page-hero">
@@ -148,7 +164,7 @@ function ServiceHero({ page }) {
             <p className="service-page-subtitle">{page.subtitle}</p>
 
             <div className="service-page-pills">
-              {(page.heroPills || HERO_PILLS).map((pill) => (
+              {pills.map((pill) => (
                 <span key={pill.label} className="service-page-pill">
                   <span aria-hidden="true">{pill.icon}</span>
                   {pill.label}
@@ -160,7 +176,7 @@ function ServiceHero({ page }) {
               <button type="button" className="service-page-btn-whatsapp" onClick={openWhatsAppBooking}>
                 Book on WhatsApp
               </button>
-              <SchedulePickupButton className="service-page-btn-primary" label="Book pickup" />
+              <ServiceBookingButton className="service-page-btn-primary" path={page.path} />
               <Link to="/#pricing" className="service-page-btn-secondary">
                 View pricing
               </Link>
@@ -514,7 +530,7 @@ function ServicePageLayout({ page }) {
         <ServiceHubLinks currentPath={currentPath} />
       </div>
 
-      <OfferHighlight highlight={page.offerHighlight} />
+      <OfferHighlight highlight={page.offerHighlight} path={page.path} />
 
       <ServiceGallery
         images={page.galleryImages}

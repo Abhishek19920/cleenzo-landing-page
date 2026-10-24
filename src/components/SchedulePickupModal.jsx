@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import CleenzoLogo from "./CleenzoLogo";
 import CampaignBookingSummary from "./campaign/CampaignBookingSummary";
-import { confirmWebsitePickup, fetchPickupSlots, requestManualWebsitePickup } from "../api/booking";
+import {
+  confirmWebsiteHomeVisit,
+  confirmWebsitePickup,
+  fetchPickupSlots,
+  requestManualWebsitePickup,
+} from "../api/booking";
 import { checkPincodeServiceability } from "../api/campaign";
 import ManualStoreBookingPopup from "./ManualStoreBookingPopup";
 
@@ -14,20 +19,29 @@ const STEPS = [
 
 const CITIES = ["Ghaziabad", "Noida", "Greater Noida"];
 
-const SERVICES = [
+/** Doorstep garment collection — sofa/carpet/curtains use HOME_VISIT instead. */
+const PICKUP_SERVICES = [
   "Dry Cleaning",
   "Wash & Fold",
   "Wash & Iron",
   "Premium Laundry",
   "Steam Iron",
   "Shoe Cleaning",
-  "Sofa & Curtains",
 ];
 
-const BENEFITS = [
+const HOME_VISIT_SERVICES = ["Sofa Cleaning", "Carpet Cleaning", "Curtain Cleaning"];
+
+const PICKUP_BENEFITS = [
   "Free pickup from your doorstep",
   "24-hour express option available",
   "Pay only after service — no advance",
+  "Live WhatsApp updates at every step",
+];
+
+const HOME_VISIT_BENEFITS = [
+  "Technician visits your home",
+  "Sofa, carpet & curtain cleaning on-site",
+  "Quote confirmed after inspection",
   "Live WhatsApp updates at every step",
 ];
 
@@ -49,9 +63,20 @@ function nationalPhone(value) {
   return digits.slice(-10);
 }
 
-function SchedulePickupModal({ onClose }) {
+/**
+ * @param {{ onClose: () => void, variant?: 'pickup' | 'home-visit', initialServices?: string[] }} props
+ */
+function SchedulePickupModal({ onClose, variant = "pickup", initialServices = [] }) {
+  const isHomeVisit = variant === "home-visit";
+  const servicesCatalog = isHomeVisit ? HOME_VISIT_SERVICES : PICKUP_SERVICES;
+  const benefits = isHomeVisit ? HOME_VISIT_BENEFITS : PICKUP_BENEFITS;
   const [step, setStep] = useState(1);
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState(() => ({
+    ...emptyForm,
+    services: Array.isArray(initialServices)
+      ? initialServices.filter((s) => servicesCatalog.includes(s))
+      : [],
+  }));
   const [error, setError] = useState("");
   const [slots, setSlots] = useState(null);
   const [slotsError, setSlotsError] = useState("");
@@ -164,7 +189,7 @@ function SchedulePickupModal({ onClose }) {
     setSubmitting(true);
     setError("");
     try {
-      const result = await confirmWebsitePickup({
+      const payload = {
         fullName: form.fullName.trim(),
         phone: nationalPhone(form.phone),
         city: form.city,
@@ -175,7 +200,10 @@ function SchedulePickupModal({ onClose }) {
         services: form.services,
         notes: form.notes.trim() || undefined,
         clientRequestId: requestId.current,
-      });
+      };
+      const result = isHomeVisit
+        ? await confirmWebsiteHomeVisit(payload)
+        : await confirmWebsitePickup(payload);
       setConfirmation(result);
     } catch (err) {
       const text = err.message || "We could not complete the booking. Please try again.";
@@ -241,13 +269,15 @@ function SchedulePickupModal({ onClose }) {
               </button>
             </div>
             <h2 id="pickup-modal-title" className="mt-8 text-3xl font-black leading-tight lg:mt-16 lg:text-4xl">
-              Book Your Free Pickup.
+              {isHomeVisit ? "Book a Home Visit." : "Book Your Free Pickup."}
             </h2>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/85">
-              Takes 2 minutes. We’ll confirm within 30 minutes. Free pickup, free delivery.
+              {isHomeVisit
+                ? "Takes 2 minutes. We’ll schedule a technician visit for sofa, carpet, or curtain cleaning."
+                : "Takes 2 minutes. We’ll confirm within 30 minutes. Free pickup, free delivery."}
             </p>
             <ul className="mt-6 hidden space-y-3 text-sm lg:block">
-              {BENEFITS.map((benefit) => (
+              {benefits.map((benefit) => (
                 <li key={benefit} className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/15 text-xs">
                     ✓
@@ -261,7 +291,7 @@ function SchedulePickupModal({ onClose }) {
 
         <section className="flex min-h-0 flex-1 flex-col bg-cleenzo-pale-bg">
           <div className="flex items-center justify-between px-5 py-4 text-sm text-slate-500 sm:px-10">
-            <span>Free pickup · No payment now</span>
+            <span>{isHomeVisit ? "Home visit · No payment now" : "Free pickup · No payment now"}</span>
             <button
               type="button"
               onClick={onClose}
@@ -311,14 +341,24 @@ function SchedulePickupModal({ onClose }) {
 
             <div className="mx-auto mt-8 max-w-xl">
               {confirmation ? (
-                <Confirmation confirmation={confirmation} form={form} onClose={onClose} />
+                <Confirmation
+                  confirmation={confirmation}
+                  form={form}
+                  onClose={onClose}
+                  isHomeVisit={isHomeVisit}
+                />
               ) : (
                 <>
                   {step === 1 ? (
-                    <DetailsStep form={form} setField={setField} />
+                    <DetailsStep form={form} setField={setField} isHomeVisit={isHomeVisit} />
                   ) : null}
                   {step === 2 ? (
-                    <ServicesStep form={form} toggleService={toggleService} />
+                    <ServicesStep
+                      form={form}
+                      toggleService={toggleService}
+                      services={servicesCatalog}
+                      isHomeVisit={isHomeVisit}
+                    />
                   ) : null}
                   {step === 3 ? (
                     <ScheduleStep
@@ -327,9 +367,12 @@ function SchedulePickupModal({ onClose }) {
                       days={slots?.days || []}
                       selectedDay={selectedDay}
                       slotsError={slotsError}
+                      isHomeVisit={isHomeVisit}
                     />
                   ) : null}
-                  {step === 4 ? <ConfirmStep form={form} setField={setField} /> : null}
+                  {step === 4 ? (
+                    <ConfirmStep form={form} setField={setField} isHomeVisit={isHomeVisit} />
+                  ) : null}
 
                   {error ? (
                     <p className="mt-4 text-sm font-medium text-red-600" role="alert">
@@ -407,12 +450,14 @@ function Field({ id, label, children }) {
 const inputClass =
   "w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-cleenzo/30";
 
-function DetailsStep({ form, setField }) {
+function DetailsStep({ form, setField, isHomeVisit }) {
   return (
     <div>
       <h3 className="text-3xl font-black text-slate-900">Your Details</h3>
       <p className="mt-2 text-sm text-slate-500">
-        We’ll use this to schedule your pickup and send updates.
+        {isHomeVisit
+          ? "We’ll use this to schedule your home visit and send updates."
+          : "We’ll use this to schedule your pickup and send updates."}
       </p>
       <div className="mt-6 space-y-4">
         <Field id="pickup-name" label="Full Name *">
@@ -479,15 +524,17 @@ function DetailsStep({ form, setField }) {
   );
 }
 
-function ServicesStep({ form, toggleService }) {
+function ServicesStep({ form, toggleService, services, isHomeVisit }) {
   return (
     <div>
       <h3 className="text-3xl font-black text-slate-900">Services</h3>
       <p className="mt-2 text-sm text-slate-500">
-        Tell us what you want collected. Pricing is confirmed after inspection.
+        {isHomeVisit
+          ? "Choose the at-home services you need. Final quote after site inspection."
+          : "Tell us what you want collected. Pricing is confirmed after inspection."}
       </p>
       <div className="mt-6 grid gap-3">
-        {SERVICES.map((service) => {
+        {services.map((service) => {
           const selected = form.services.includes(service);
           return (
             <button
@@ -510,11 +557,13 @@ function ServicesStep({ form, toggleService }) {
   );
 }
 
-function ScheduleStep({ form, setField, days, selectedDay, slotsError }) {
+function ScheduleStep({ form, setField, days, selectedDay, slotsError, isHomeVisit }) {
   return (
     <div>
       <h3 className="text-3xl font-black text-slate-900">Schedule</h3>
-      <p className="mt-2 text-sm text-slate-500">Pick a doorstep collection slot.</p>
+      <p className="mt-2 text-sm text-slate-500">
+        {isHomeVisit ? "Pick a home visit time slot." : "Pick a doorstep collection slot."}
+      </p>
       {slotsError ? (
         <p className="mt-4 text-sm font-medium text-red-600">{slotsError}</p>
       ) : null}
@@ -563,14 +612,16 @@ function ScheduleStep({ form, setField, days, selectedDay, slotsError }) {
   );
 }
 
-function ConfirmStep({ form, setField }) {
+function ConfirmStep({ form, setField, isHomeVisit }) {
   return (
     <div>
       <h3 className="text-3xl font-black text-slate-900">Confirm</h3>
       <p className="mt-2 text-sm text-slate-500">
-        We’ll create your pickup with these details.
+        {isHomeVisit
+          ? "We’ll create your home visit with these details."
+          : "We’ll create your pickup with these details."}
       </p>
-      <CampaignBookingSummary />
+      {isHomeVisit ? null : <CampaignBookingSummary />}
       <dl className="mt-6 space-y-3 rounded-2xl bg-white p-5 text-sm">
         <Row label="Name" value={form.fullName} />
         <Row label="WhatsApp" value={form.phone} />
@@ -578,16 +629,23 @@ function ConfirmStep({ form, setField }) {
         <Row label="Address" value={form.addressLine} />
         <Row label="Pincode" value={form.pincode} />
         <Row label="Services" value={form.services.join(", ")} />
-        <Row label="Pickup" value={`${formatDay(form.pickupDate)} · ${form.pickupTimeSlot}`} />
+        <Row
+          label={isHomeVisit ? "Visit" : "Pickup"}
+          value={`${formatDay(form.pickupDate)} · ${form.pickupTimeSlot}`}
+        />
       </dl>
       <div className="mt-4">
-        <Field id="pickup-notes" label="Pickup notes">
+        <Field id="pickup-notes" label={isHomeVisit ? "Visit notes" : "Pickup notes"}>
           <textarea
             id="pickup-notes"
             value={form.notes}
             onChange={(e) => setField("notes", e.target.value)}
             rows={3}
-            placeholder="Gate code, landmark, or what to collect"
+            placeholder={
+              isHomeVisit
+                ? "Gate code, sofa type, stains to check…"
+                : "Gate code, landmark, or what to collect"
+            }
             className={`${inputClass} resize-none`}
           />
         </Field>
@@ -596,12 +654,15 @@ function ConfirmStep({ form, setField }) {
   );
 }
 
-function Confirmation({ confirmation, form, onClose }) {
+function Confirmation({ confirmation, form, onClose, isHomeVisit }) {
   return (
     <div>
-      <h3 className="text-3xl font-black text-slate-900">Pickup booked</h3>
+      <h3 className="text-3xl font-black text-slate-900">
+        {isHomeVisit ? "Home visit booked" : "Pickup booked"}
+      </h3>
       <p className="mt-2 text-sm text-slate-500">
-        Booking {confirmation.pickupNumber} is in the Cleenzo pickup queue.
+        Booking {confirmation.pickupNumber} is in the Cleenzo{" "}
+        {isHomeVisit ? "home visit" : "pickup"} queue.
       </p>
       <dl className="mt-6 space-y-3 rounded-2xl bg-white p-5 text-sm">
         <Row label="Booking ID" value={confirmation.pickupNumber} />
@@ -611,7 +672,7 @@ function Confirmation({ confirmation, form, onClose }) {
         <Row label="City" value={confirmation.city || form.city} />
         <Row label="Pincode" value={confirmation.pincode || form.pincode} />
         <Row
-          label="Pickup"
+          label={isHomeVisit ? "Visit" : "Pickup"}
           value={`${confirmation.pickupDate || form.pickupDate} · ${confirmation.pickupTimeSlot || form.pickupTimeSlot}`}
         />
       </dl>

@@ -59,6 +59,26 @@ export async function confirmWebsitePickup(body) {
   return res.json();
 }
 
+/** At-home sofa / carpet / curtain visit (not laundry pickup). */
+export async function confirmWebsiteHomeVisit(body) {
+  const apiBase = bookingApiBase();
+  if (!apiBase) throw new Error("Booking is unavailable right now.");
+  const slug = organizationSlug();
+  const res = await fetch(`${apiBase}/public/website/home-visits`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...body,
+      ...(slug ? { organizationSlug: slug } : {}),
+    }),
+  });
+  if (!res.ok) throw new Error(await readError(res));
+  return res.json();
+}
+
 export async function requestManualWebsitePickup(body) {
   const apiBase = bookingApiBase();
   if (!apiBase) throw new Error("Booking is unavailable right now.");
