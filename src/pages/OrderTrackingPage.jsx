@@ -197,9 +197,13 @@ export default function OrderTrackingPage() {
 
           {order.pickup ? (
             <div className="rounded-xl bg-gray-50 p-4 text-sm">
-              <p className="font-semibold text-cleenzo-deep">Pickup</p>
+              <p className="font-semibold text-cleenzo-deep">
+                {order.pickup.jobType === "HOME_VISIT" ? "Sofa cleaning" : "Pickup"}
+              </p>
               <p className="mt-1 text-gray-600">
-                {formatDate(order.pickup.pickupDate)} · {order.pickup.pickupTimeSlot}
+                {order.pickup.jobType === "HOME_VISIT"
+                  ? `Scheduled on ${formatDate(order.pickup.pickupDate)} between ${order.pickup.pickupTimeSlot}`
+                  : `${formatDate(order.pickup.pickupDate)} · ${order.pickup.pickupTimeSlot}`}
               </p>
               <p className="mt-1 text-gray-600">{order.pickup.addressLine}</p>
             </div>
@@ -247,7 +251,9 @@ export default function OrderTrackingPage() {
               </div>
             ) : null}
             <div className="flex justify-between border-t border-gray-100 pt-2 text-base font-semibold">
-              <dt>Total</dt>
+              <dt>
+                {order.paymentStatus === "PAID" ? "Total" : "Estimated total"}
+              </dt>
               <dd>{formatMoney(order.totalAmount)}</dd>
             </div>
             {Number(order.paidAmount) > 0 ? (
