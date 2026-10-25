@@ -74,8 +74,8 @@ function OfferCard({
 
   return (
     <article
-      className={`relative flex flex-col rounded-2xl overflow-hidden h-full ${styles.card} ${
-        featured ? "lg:scale-[1.02] lg:shadow-lg" : ""
+      className={`relative flex w-full flex-col rounded-2xl overflow-hidden h-full ${styles.card} ${
+        featured ? "lg:shadow-lg" : ""
       }`}
     >
       <div className={styles.accentBar} aria-hidden="true" />
@@ -127,7 +127,7 @@ function OfferCard({
           {offer.validityLabel}
         </p>
 
-        <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="mt-auto pt-5 flex flex-col sm:flex-row sm:items-center gap-3">
           <button
             type="button"
             onClick={handleCta}

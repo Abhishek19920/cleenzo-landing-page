@@ -95,11 +95,11 @@ function OffersSection() {
           ) : null}
         </div>
 
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible md:snap-none md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5 lg:gap-6">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible md:snap-none md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5 lg:gap-6 md:items-stretch">
           {offers.map((offer) => (
             <div
               key={offer.id}
-              className={`min-w-[min(100%,340px)] sm:min-w-[300px] md:min-w-0 snap-center flex ${
+              className={`min-w-[min(100%,340px)] sm:min-w-[300px] md:min-w-0 snap-center flex h-auto md:h-full ${
                 offer.id === featuredId ? "lg:row-span-1" : ""
               }`}
             >

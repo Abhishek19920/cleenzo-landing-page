@@ -403,10 +403,10 @@ function GaneshBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full ${t.section} relative overflow-hidden`}
+      className={`carousel-slide-panel flex h-full w-full ${t.section} relative overflow-hidden`}
       aria-hidden="false"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
+      <div className="relative z-10 flex w-full flex-1 items-center max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
         <GaneshChaturthiCarouselBanner
           onClick={handleBannerClick}
           ariaLabel={slide.ariaLabel || slide.imageAlt}
@@ -431,10 +431,10 @@ function FestiveBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full ${t.section} relative overflow-hidden`}
+      className={`carousel-slide-panel flex h-full w-full ${t.section} relative overflow-hidden`}
       aria-hidden="false"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
+      <div className="relative z-10 flex w-full flex-1 items-center max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
         <FestiveSaleCarouselBanner
           onClick={handleBannerClick}
           ariaLabel={slide.ariaLabel || slide.imageAlt}
@@ -460,12 +460,12 @@ function FreedomBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full ${
+      className={`carousel-slide-panel flex h-full w-full ${
         blendPage ? "bg-transparent" : t.section
       } relative overflow-hidden`}
       aria-hidden="false"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
+      <div className="relative z-10 flex w-full flex-1 items-center max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
         <FreedomSaleCarouselBanner
           onClick={handleBannerClick}
           ariaLabel={slide.ariaLabel || slide.imageAlt}
@@ -491,7 +491,7 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full ${
+      className={`carousel-slide-panel flex h-full w-full ${
         blendPage ? "bg-transparent" : t.section
       } relative overflow-hidden`}
       aria-hidden="false"
@@ -503,13 +503,13 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
           className="group w-full block rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 bg-white shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-cleenzo focus-visible:ring-offset-2"
           aria-label={slide.imageAlt || "View offer and book"}
         >
-          <span className="block w-full aspect-[7/3] max-h-[min(42vw,300px)] sm:max-h-[min(36vw,320px)] md:max-h-none bg-cleenzo-pale/30">
+          <span className="block w-full aspect-[7/3] max-h-[min(42vw,300px)] sm:max-h-[min(36vw,320px)] md:max-h-[380px] bg-cleenzo-pale/30 overflow-hidden">
             <img
               src={slide.imageSrc}
               alt={slide.imageAlt || ""}
               width={1400}
               height={600}
-              className="w-full h-full object-contain object-center md:object-cover md:object-center transition group-hover:opacity-[0.98]"
+              className="w-full h-full object-cover object-center transition group-hover:opacity-[0.98]"
               decoding="async"
               fetchPriority={slide.id === "freedom-rakhi-sale-2026" ? "high" : "auto"}
             />
@@ -528,7 +528,7 @@ function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
 
   return (
     <div
-      className={`carousel-slide-panel w-full ${sectionClass} relative overflow-hidden`}
+      className={`carousel-slide-panel flex h-full w-full ${sectionClass} relative overflow-hidden`}
       aria-hidden="false"
     >
       {theme === "tiranga" ? (
@@ -552,8 +552,8 @@ function SlidePanel({ slide, onSchedule, onWhatsApp, onApp }) {
         </>
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-6 pb-12 sm:pt-8 sm:pb-14 md:pt-10 md:pb-14">
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 lg:gap-14 md:items-center">
+      <div className="relative z-10 flex w-full flex-1 items-center max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-6 pb-12 sm:pt-8 sm:pb-14 md:pt-10 md:pb-14">
+        <div className="flex w-full flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 lg:gap-14 md:items-center">
           {/* Text — always first on mobile */}
           <div className="text-left order-1">
             <p
@@ -718,7 +718,11 @@ function HeaderCarousel() {
         setTouchPaused(false);
       }}
     >
-      <div className="relative w-full overflow-hidden">
+      {/*
+        Stack every slide in one grid cell so the section height stays equal to
+        the tallest slide (promo / express / services no longer jump on change).
+      */}
+      <div className="relative w-full overflow-hidden grid">
         {slides.map((slide, index) => {
           const isActive = index === active;
           const panel =
@@ -758,10 +762,10 @@ function HeaderCarousel() {
           return (
             <div
               key={slide.id}
-              className={`w-full transition-[transform,opacity] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              className={`col-start-1 row-start-1 flex h-full w-full transition-[transform,opacity] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                 isActive
-                  ? "relative z-[1] opacity-100"
-                  : "absolute inset-x-0 top-0 z-0 pointer-events-none opacity-0"
+                  ? "z-[1] opacity-100"
+                  : "z-0 pointer-events-none opacity-0"
               }`}
               style={{
                 transitionDuration: `${CAROUSEL_TRANSITION_MS}ms`,

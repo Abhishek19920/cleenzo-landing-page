@@ -5,6 +5,7 @@
   --fs-cream: #f7fafc;
   display: block;
   width: 100%;
+  height: 100%;
   text-align: left;
   border: 1px solid rgba(10, 77, 140, 0.12);
   border-radius: 1rem;
