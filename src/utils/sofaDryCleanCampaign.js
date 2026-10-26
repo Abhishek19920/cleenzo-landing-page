@@ -2,7 +2,7 @@ import { isOfferActive, isOfferWithinListingWindow, OFFERS_TIMEZONE } from "./of
 
 /**
  * Sofa sheet + dry clean promo (IST, inclusive).
- * Creative: /images/offers/sofa-dryclean-promo-oct2026.jpg
+ * Shown as a content banner in the homepage carousel.
  */
 export const SOFA_DRYCLEAN_PROMO_START = "2026-10-25";
 export const SOFA_DRYCLEAN_PROMO_END = "2026-11-30";

@@ -23,14 +23,9 @@ import {
 export const PROMO_CAROUSEL_SLIDES = [
   {
     id: "sofa-dryclean-promo-oct2026",
-    type: "image",
+    type: "sofa-banner",
     theme: "light",
     offerId: "sofa-dryclean-promo-oct2026",
-    imageSrc: "/images/offers/sofa-dryclean-promo-oct2026.jpg",
-    imageAlt:
-      "Cleenzo sofa cleaning 10% off sofa sheet cleaning and dry clean 30% off first 3 orders",
-    /** Square creative — show full artwork instead of landscape crop. */
-    imageFit: "contain",
     ariaLabel: `Sofa sheet cleaning ${SOFA_SHEET_PERCENT_OFF}% off — ₹${SOFA_SHEET_LIST_INR} cut to ₹${SOFA_SHEET_SALE_INR} per sheet. Dry clean flat ${FESTIVE_FIRST3_PERCENT_OFF}% off on your first ${FESTIVE_FIRST3_MAX_ORDERS} orders, max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR}. Blanket dry clean also eligible. Book now.`,
     startDate: SOFA_DRYCLEAN_PROMO_START,
     endDate: SOFA_DRYCLEAN_PROMO_END,

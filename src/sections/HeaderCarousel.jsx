@@ -9,6 +9,7 @@ import {
 import FreedomSaleCarouselBanner from "../components/carousel/FreedomSaleCarouselBanner";
 import FestiveSaleCarouselBanner from "../components/carousel/FestiveSaleCarouselBanner";
 import GaneshChaturthiCarouselBanner from "../components/carousel/GaneshChaturthiCarouselBanner";
+import SofaOfferCarouselBanner from "../components/carousel/SofaOfferCarouselBanner";
 import { getActivePromoCarouselSlides } from "../data/homePromoCarousel";
 import { trackOfferEvent } from "../utils/offerAnalytics";
 import { isHomeTirangaThemeActive } from "../utils/freedomCampaign";
@@ -475,6 +476,34 @@ function FreedomBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
   );
 }
 
+function SofaBannerSlidePanel({ slide, onSchedule, onWhatsApp }) {
+  const theme = slide.theme || "light";
+  const t = themes[theme];
+
+  const handleBannerClick = () => {
+    trackOfferEvent("offer_banner_click", { offer_id: slide.offerId || slide.id });
+    if (slide.clickAction === "whatsapp") {
+      onWhatsApp();
+      return;
+    }
+    onSchedule();
+  };
+
+  return (
+    <div
+      className={`carousel-slide-panel flex h-full w-full ${t.section} relative overflow-hidden`}
+      aria-hidden="false"
+    >
+      <div className="relative z-10 flex w-full flex-1 items-center max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-3 sm:pt-4 pb-11 sm:pb-12">
+        <SofaOfferCarouselBanner
+          onClick={handleBannerClick}
+          ariaLabel={slide.ariaLabel || slide.imageAlt}
+        />
+      </div>
+    </div>
+  );
+}
+
 function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
   const theme = slide.theme || "light";
   const t = themes[theme];
@@ -748,6 +777,12 @@ function HeaderCarousel() {
               />
             ) : slide.type === "freedom-banner" ? (
               <FreedomBannerSlidePanel
+                slide={slide}
+                onSchedule={openSchedulePickup}
+                onWhatsApp={handleWhatsApp}
+              />
+            ) : slide.type === "sofa-banner" ? (
+              <SofaBannerSlidePanel
                 slide={slide}
                 onSchedule={openSchedulePickup}
                 onWhatsApp={handleWhatsApp}

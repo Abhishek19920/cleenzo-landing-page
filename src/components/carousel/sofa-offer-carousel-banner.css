@@ -1,0 +1,198 @@
+.sofa-offer-banner {
+  --so-navy: #002b5b;
+  --so-blue: #0a3d91;
+  --so-sky: #7ec8e3;
+  --so-orange: #e85d04;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(10, 61, 145, 0.12);
+  border-radius: 1rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 80% at 100% 0%, rgba(126, 200, 227, 0.22), transparent 55%),
+    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(10, 61, 145, 0.06), transparent 50%),
+    linear-gradient(165deg, #ffffff 0%, #f4f9ff 48%, #eef6fc 100%);
+  box-shadow: 0 8px 24px rgba(0, 43, 91, 0.07);
+  cursor: pointer;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.sofa-offer-banner:hover {
+  box-shadow: 0 12px 28px rgba(0, 43, 91, 0.12);
+  transform: translateY(-1px);
+}
+
+.sofa-offer-banner:focus-visible {
+  outline: 2px solid var(--so-blue);
+  outline-offset: 3px;
+}
+
+.sofa-offer-banner__accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--so-blue) 0%, var(--so-sky) 55%, var(--so-orange) 100%);
+}
+
+.sofa-offer-banner__inner {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.85rem 0.9rem 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .sofa-offer-banner__inner {
+    grid-template-columns: 1.05fr 1.35fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1.15rem 1.05rem;
+  }
+}
+
+.sofa-offer-banner__eyebrow {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--so-blue);
+  margin-bottom: 0.25rem;
+}
+
+.sofa-offer-banner__headline {
+  font-size: clamp(1.2rem, 3vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--so-navy);
+}
+
+.sofa-offer-banner__headline-em {
+  display: block;
+  color: var(--so-orange);
+}
+
+.sofa-offer-banner__tagline,
+.sofa-offer-banner__dates {
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  color: #475569;
+}
+
+.sofa-offer-banner__dates {
+  font-weight: 700;
+  color: var(--so-navy);
+}
+
+.sofa-offer-banner__areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.35rem;
+  margin-top: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sofa-offer-banner__areas li {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(10, 61, 145, 0.1);
+  border-radius: 999px;
+  padding: 0.15rem 0.45rem;
+}
+
+.sofa-offer-banner__deals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.sofa-offer-banner__deal {
+  border-radius: 0.85rem;
+  padding: 0.65rem 0.6rem 0.7rem;
+  background: #fff;
+  border: 1px solid rgba(10, 61, 145, 0.1);
+  text-align: center;
+}
+
+.sofa-offer-banner__deal--accent {
+  background: linear-gradient(160deg, #fff 0%, #fff6ee 100%);
+  border-color: rgba(232, 93, 4, 0.22);
+}
+
+.sofa-offer-banner__deal-kicker {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.sofa-offer-banner__deal-pct {
+  margin-top: 0.15rem;
+  font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--so-navy);
+}
+
+.sofa-offer-banner__deal--accent .sofa-offer-banner__deal-pct {
+  color: var(--so-orange);
+}
+
+.sofa-offer-banner__price {
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--so-navy);
+}
+
+.sofa-offer-banner__was {
+  margin-right: 0.25rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.sofa-offer-banner__deal-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #64748b;
+}
+
+.sofa-offer-banner__side {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sofa-offer-banner__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.45rem;
+  }
+}
+
+.sofa-offer-banner__book {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--so-orange);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.45rem 0.8rem;
+}
+
+.sofa-offer-banner__points {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #475569;
+}
