@@ -187,24 +187,29 @@ export const BEST_DRY_CLEANERS_GHAZIABAD_CONTENT = {
       desc: "Local page for our home neighbourhood",
     },
     {
+      to: "/laundry-dry-cleaning-indirapuram",
+      label: "Indirapuram pickup",
+      desc: "Laundry & dry cleaning doorstep service",
+    },
+    {
+      to: "/laundry-dry-cleaning-vaishali",
+      label: "Vaishali pickup",
+      desc: "Laundry & dry cleaning doorstep service",
+    },
+    {
+      to: "/laundry-dry-cleaning-noida-extension",
+      label: "Noida Extension pickup",
+      desc: "Greater Noida West doorstep service",
+    },
+    {
       to: "/laundry-service-ghaziabad",
       label: "Laundry service in Ghaziabad",
       desc: "Wash & fold and wash & iron",
     },
     {
-      to: "/shoe-cleaning",
-      label: "Shoe cleaning",
-      desc: "Sneakers, leather & whitening",
-    },
-    {
       to: "/sofa-cleaning",
       label: "Sofa cleaning",
       desc: "At-home upholstery care",
-    },
-    {
-      to: "/carpet-cleaning",
-      label: "Carpet cleaning",
-      desc: "Deep shampoo & extraction",
     },
   ],
 };

@@ -147,10 +147,31 @@ function main() {
     fs.writeFileSync(path.join(routeDir, "index.html"), html, "utf8");
   }
 
+  // Real 404 document for Node/nginx — noindex, never reuse homepage canonical
+  const notFoundRoute = {
+    path: "/404",
+    title: "Page not found | Cleenzo",
+    description:
+      "The page you are looking for does not exist. Visit Cleenzo for laundry and dry cleaning in Raj Nagar, Ghaziabad.",
+    h1: "Page not found",
+    intro:
+      "This link does not exist or may have moved. Return to the Cleenzo homepage for laundry and dry cleaning in Ghaziabad.",
+  };
+  let notFoundHtml = applyRouteMeta(baseHtml, notFoundRoute);
+  notFoundHtml = notFoundHtml.replace(
+    /(<meta\s+name="robots"\s+content=")[^"]*(")/,
+    '$1noindex, follow$2',
+  );
+  notFoundHtml = notFoundHtml.replace(
+    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
+    `$1${SITE_URL}/$2`,
+  );
+  fs.writeFileSync(path.join(BUILD_DIR, "404.html"), notFoundHtml, "utf8");
+
   generateSitemap(BUILD_DIR, ROUTES);
   const sitemapXml = fs.readFileSync(path.join(BUILD_DIR, "sitemap.xml"), "utf8");
   fs.writeFileSync(path.join(__dirname, "..", "public", "sitemap.xml"), sitemapXml, "utf8");
-  console.log(`Generated static HTML for ${ROUTES.length} routes.`);
+  console.log(`Generated static HTML for ${ROUTES.length} routes + 404.html.`);
 }
 
 main();

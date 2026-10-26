@@ -3,10 +3,10 @@
  *
  * - Serves prerendered build/<route>/index.html for canonical trailing-slash URLs
  * - 301: /path → /path/ for prerender routes
+ * - 301: www host → apex https://cleenzo.co.in
  * - Serves build/static/* and other files as-is
- * - Falls back to /index.html for unknown paths (React client router / 404 UI)
- *
- * Do NOT use `serve -s` — SPA mode returns root index.html for all deep URLs.
+ * - SPA fallback ONLY for /order/* and /invoice/* (token tracking)
+ * - Unknown paths → real HTTP 404 with build/404.html (no soft-404 homepage shell)
  */
 const http = require("http");
 const fs = require("fs");
@@ -15,6 +15,8 @@ const path = require("path");
 const BUILD_DIR = path.join(__dirname, "..", "build");
 const PORT = Number(process.env.PORT || process.env.WEBSITE_PORT || 3003);
 const HOST = process.env.HOST || "0.0.0.0";
+const APEX_HOST = "cleenzo.co.in";
+const SITE_ORIGIN = `https://${APEX_HOST}`;
 
 const { routes } = require("../src/seo/routes.json");
 
@@ -23,6 +25,30 @@ const PRERENDER_PATHS = new Set(
     .filter((r) => r.indexable !== false && r.path !== "/")
     .map((r) => r.path.replace(/\/$/, "") || r.path),
 );
+
+const SPA_PREFIXES = ["/order/", "/invoice/"];
+
+/** Path → absolute path on apex (trailing slash for pages). */
+const LEGACY_REDIRECTS = {
+  "/laundry-service-raj-nagar-extension": "/laundry-service-ghaziabad/",
+  "/laundry-service-raj-nagar-extension/": "/laundry-service-ghaziabad/",
+  "/shoe-cleaning-ghaziabad": "/shoe-cleaning/",
+  "/shoe-cleaning-ghaziabad/": "/shoe-cleaning/",
+  "/commercial-laundry-ghaziabad": "/commercial-laundry/",
+  "/commercial-laundry-ghaziabad/": "/commercial-laundry/",
+  "/indirapuram": "/laundry-dry-cleaning-indirapuram/",
+  "/indirapuram/": "/laundry-dry-cleaning-indirapuram/",
+  "/vaishali": "/laundry-dry-cleaning-vaishali/",
+  "/vaishali/": "/laundry-dry-cleaning-vaishali/",
+  "/noida-extension": "/laundry-dry-cleaning-noida-extension/",
+  "/noida-extension/": "/laundry-dry-cleaning-noida-extension/",
+  "/greater-noida-west": "/laundry-dry-cleaning-noida-extension/",
+  "/greater-noida-west/": "/laundry-dry-cleaning-noida-extension/",
+  "/steam-ironing": "/laundry-service-ghaziabad/",
+  "/steam-ironing/": "/laundry-service-ghaziabad/",
+  "/pricing": "/#pricing",
+  "/pricing/": "/#pricing",
+};
 
 const CONTENT_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -43,6 +69,18 @@ const CONTENT_TYPES = {
   ".map": "application/json",
 };
 
+function normalizeHost(hostHeader) {
+  return String(hostHeader || "")
+    .split(":")[0]
+    .toLowerCase();
+}
+
+function isSpaPath(pathname) {
+  return SPA_PREFIXES.some(
+    (prefix) => pathname === prefix.slice(0, -1) || pathname.startsWith(prefix),
+  );
+}
+
 function prerenderIndexPath(pathname) {
   const normalized =
     pathname.endsWith("/") && pathname.length > 1
@@ -55,20 +93,29 @@ function prerenderIndexPath(pathname) {
 
 function resolveStaticFile(pathname) {
   if (pathname === "/" || pathname === "") {
-    return path.join(BUILD_DIR, "index.html");
+    return { file: path.join(BUILD_DIR, "index.html"), status: 200 };
   }
 
   const prerender = prerenderIndexPath(pathname);
-  if (prerender) return prerender;
+  if (prerender) return { file: prerender, status: 200 };
 
   const relative = pathname.replace(/^\//, "").replace(/\/$/, "");
   const direct = path.join(BUILD_DIR, relative);
-  if (fs.existsSync(direct) && fs.statSync(direct).isFile()) return direct;
+  if (fs.existsSync(direct) && fs.statSync(direct).isFile()) {
+    return { file: direct, status: 200 };
+  }
 
-  const nestedIndex = path.join(BUILD_DIR, relative, "index.html");
-  if (fs.existsSync(nestedIndex)) return nestedIndex;
+  // SPA client routes (order tracking) — allow root shell
+  if (isSpaPath(pathname)) {
+    return { file: path.join(BUILD_DIR, "index.html"), status: 200 };
+  }
 
-  return path.join(BUILD_DIR, "index.html");
+  // Real 404 — never serve homepage meta as a soft-404
+  const notFound = path.join(BUILD_DIR, "404.html");
+  if (fs.existsSync(notFound)) {
+    return { file: notFound, status: 404 };
+  }
+  return { file: null, status: 404 };
 }
 
 function shouldRedirectToTrailingSlash(pathname) {
@@ -86,13 +133,23 @@ function sendFile(res, filePath, statusCode = 200) {
   const ext = path.extname(filePath).toLowerCase();
   res.statusCode = statusCode;
   res.setHeader("Content-Type", CONTENT_TYPES[ext] || "application/octet-stream");
-  res.setHeader("Cache-Control", ext === ".html" ? "no-cache" : "public, max-age=31536000, immutable");
+  res.setHeader(
+    "Cache-Control",
+    ext === ".html" ? "no-cache" : "public, max-age=31536000, immutable",
+  );
   fs.createReadStream(filePath).pipe(res);
+}
+
+function redirect(res, location) {
+  res.statusCode = 301;
+  res.setHeader("Location", location);
+  res.end();
 }
 
 const server = http.createServer((req, res) => {
   try {
     const host = req.headers.host || `127.0.0.1:${PORT}`;
+    const hostname = normalizeHost(host);
     const url = new URL(req.url || "/", `http://${host}`);
     const pathname = decodeURIComponent(url.pathname);
 
@@ -102,39 +159,42 @@ const server = http.createServer((req, res) => {
       return;
     }
 
-    if (shouldRedirectToTrailingSlash(pathname)) {
-      res.statusCode = 301;
-      // Prefer apex host even if request arrived via www / local proxy
-      const locHost = String(host).toLowerCase().startsWith("www.")
-        ? "cleenzo.co.in"
-        : host.replace(/:\d+$/, "") === "127.0.0.1" || host.startsWith("localhost")
-          ? host
-          : host.replace(/^www\./i, "");
-      const proto =
-        req.headers["x-forwarded-proto"] === "http" ? "https" : "https";
-      const absolute =
-        locHost.includes("cleenzo.co.in")
-          ? `${proto}://cleenzo.co.in${pathname}/${url.search}`
-          : `${pathname}/${url.search}`;
-      res.setHeader("Location", absolute);
-      res.end();
+    // www → apex (canonical host)
+    if (hostname === `www.${APEX_HOST}`) {
+      redirect(res, `${SITE_ORIGIN}${pathname}${url.search}`);
       return;
     }
 
-    const filePath = resolveStaticFile(pathname);
-    if (!fs.existsSync(filePath)) {
+    if (Object.prototype.hasOwnProperty.call(LEGACY_REDIRECTS, pathname)) {
+      redirect(res, `${SITE_ORIGIN}${LEGACY_REDIRECTS[pathname]}${url.search}`);
+      return;
+    }
+
+    if (shouldRedirectToTrailingSlash(pathname)) {
+      const absolute =
+        hostname === APEX_HOST || hostname.endsWith(`.${APEX_HOST}`)
+          ? `${SITE_ORIGIN}${pathname}/${url.search}`
+          : `${pathname}/${url.search}`;
+      redirect(res, absolute);
+      return;
+    }
+
+    const { file: filePath, status } = resolveStaticFile(pathname);
+
+    if (!filePath || !fs.existsSync(filePath)) {
       res.statusCode = 404;
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
       res.end("Not Found");
       return;
     }
 
     if (req.method === "HEAD") {
-      res.statusCode = 200;
+      res.statusCode = status;
       res.end();
       return;
     }
 
-    sendFile(res, filePath);
+    sendFile(res, filePath, status);
   } catch (err) {
     console.error("serve-production error:", err);
     if (!res.headersSent) {

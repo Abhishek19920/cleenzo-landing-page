@@ -10,6 +10,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import DryCleanersRajNagarExtension from "./pages/DryCleanersRajNagarExtension";
 import BestDryCleanersGhaziabad from "./pages/BestDryCleanersGhaziabad";
+import LocationServicePage from "./pages/LocationServicePage";
 import OrderTrackingPage from "./pages/OrderTrackingPage";
 import NotFound from "./pages/NotFound";
 import PageSEO from "./components/PageSEO";
@@ -17,6 +18,7 @@ import TrailingSlashRedirect from "./components/TrailingSlashRedirect";
 import { SchedulePickupProvider } from "./context/SchedulePickupContext";
 import { AppDownloadProvider } from "./context/AppDownloadContext";
 import { SERVICE_PAGE_PATHS } from "./data/servicePages";
+import { LOCATION_PAGE_PATHS } from "./data/locationPages";
 import { URL_REDIRECTS } from "./data/urlRedirects";
 import { DRY_CLEANERS_RNE_PATH } from "./data/dryCleanersRajNagarExtension";
 import { BEST_DRY_CLEANERS_GHAZIABAD_PATH } from "./data/bestDryCleanersGhaziabad";
@@ -48,6 +50,9 @@ function App() {
             />
             {SERVICE_PAGE_PATHS.map((path) => (
               <Route key={path} path={path.slice(1)} element={<ServicePage />} />
+            ))}
+            {LOCATION_PAGE_PATHS.map((path) => (
+              <Route key={path} path={path.slice(1)} element={<LocationServicePage />} />
             ))}
             {Object.entries(URL_REDIRECTS).map(([from, to]) => (
               <Route key={from} path={from} element={<Navigate to={to} replace />} />

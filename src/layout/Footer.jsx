@@ -21,6 +21,9 @@ const HUB_LINKS = [
 
 const SERVICE_LINKS = [
   { label: "Dry cleaners Raj Nagar Extn", to: "/dry-cleaners-raj-nagar-extension" },
+  { label: "Indirapuram pickup", to: "/laundry-dry-cleaning-indirapuram" },
+  { label: "Vaishali pickup", to: "/laundry-dry-cleaning-vaishali" },
+  { label: "Noida Extension pickup", to: "/laundry-dry-cleaning-noida-extension" },
   { label: "Sofa cleaning", to: "/sofa-cleaning" },
   { label: "Carpet cleaning", to: "/carpet-cleaning" },
   { label: "Curtain cleaning", to: "/curtain-cleaning" },

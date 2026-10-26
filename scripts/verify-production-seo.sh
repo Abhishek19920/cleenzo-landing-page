@@ -61,18 +61,48 @@ if [[ "$about_title" != *"About Cleenzo"* ]]; then
 fi
 echo "OK   /about/ → ${about_title}"
 
+echo "→ Soft-404 must be real HTTP 404 (not homepage shell)"
+soft_code="$(curl -s -o /tmp/cleenzo-soft404.html -w '%{http_code}' "${BASE}/this-page-does-not-exist-seo-check/")"
+soft_title="$(grep -oE '<title>[^<]+' /tmp/cleenzo-soft404.html | head -1 || true)"
+soft_robots="$(grep -oE 'name="robots" content="[^"]+"' /tmp/cleenzo-soft404.html | head -1 || true)"
+if [[ "$soft_code" != "404" ]]; then
+  echo "FAIL unknown URL returned HTTP $soft_code (expected 404)"
+  exit 1
+fi
+if [[ "$soft_title" == *"Raj Nagar Extension"* && "$soft_title" != *"not found"* ]]; then
+  echo "FAIL soft-404 still serving homepage title: ${soft_title}"
+  exit 1
+fi
+if [[ "$soft_robots" != *"noindex"* ]]; then
+  echo "FAIL 404 page missing noindex robots: ${soft_robots:-none}"
+  exit 1
+fi
+echo "OK   unknown URL → HTTP 404 + noindex (${soft_title})"
+
+echo "→ Location pages"
+check_url "/laundry-dry-cleaning-indirapuram/" \
+  "https://cleenzo.co.in/laundry-dry-cleaning-indirapuram/" \
+  "Indirapuram"
+check_url "/laundry-dry-cleaning-vaishali/" \
+  "https://cleenzo.co.in/laundry-dry-cleaning-vaishali/" \
+  "Vaishali"
+check_url "/laundry-dry-cleaning-noida-extension/" \
+  "https://cleenzo.co.in/laundry-dry-cleaning-noida-extension/" \
+  "Noida Extension"
+
 echo "→ robots.txt"
 curl -sf "${BASE}/robots.txt" | grep -q 'Sitemap: https://cleenzo.co.in/sitemap.xml'
 echo "OK   robots.txt"
 
 echo "→ sitemap"
 count="$(curl -s "${BASE}/sitemap.xml" | grep -c '<loc>' || true)"
-if [[ "$count" -lt 17 ]]; then
-  echo "FAIL sitemap URL count=$count (expected at least 17)"
+if [[ "$count" -lt 20 ]]; then
+  echo "FAIL sitemap URL count=$count (expected at least 20)"
   exit 1
 fi
 curl -s "${BASE}/sitemap.xml" | grep -q 'https://cleenzo.co.in/laundry-service-ghaziabad/'
 curl -s "${BASE}/sitemap.xml" | grep -q 'https://cleenzo.co.in/dry-cleaning-ghaziabad/'
+curl -s "${BASE}/sitemap.xml" | grep -q 'https://cleenzo.co.in/laundry-dry-cleaning-indirapuram/'
 echo "OK   sitemap (${count} URLs, apex)"
 
 echo "All SEO route serving checks passed."

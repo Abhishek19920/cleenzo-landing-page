@@ -29,6 +29,8 @@ import {
   BEST_DRY_CLEANERS_GHAZIABAD_SEO,
 } from "./data/bestDryCleanersGhaziabad";
 import { getServicePageByPath } from "./data/servicePages";
+import { getLocationPageByPath } from "./data/locationPages";
+import { getStaticRouteSeo } from "./seo/routes";
 
 export function upsertMeta(name, content, property = false) {
   const attr = property ? "property" : "name";
@@ -219,6 +221,28 @@ export function getMetaForPathname(pathname) {
     };
   }
 
+  if (pathKey === "/offers-terms") {
+    const route = getStaticRouteSeo("/offers-terms");
+    return {
+      siteName: SEO.siteName,
+      title: route?.title || "Offer Terms | Cleenzo",
+      description: route?.description || "",
+      locale: SEO.locale,
+      twitterCard: SEO.twitterCard,
+      url: canonicalUrl("/offers-terms"),
+      jsonLd: [
+        { id: "local", data: getLocalBusinessJsonLd() },
+        {
+          id: "breadcrumb",
+          data: getBreadcrumbJsonLd([
+            { name: "Home", url: canonicalUrl("/") },
+            { name: "Offer Terms", url: canonicalUrl("/offers-terms") },
+          ]),
+        },
+      ],
+    };
+  }
+
   if (pathKey === SEO_BLOG.path) {
     return {
       ...SEO_BLOG,
@@ -298,6 +322,31 @@ export function getMetaForPathname(pathname) {
   const servicePage = getServicePageByPath(pathKey);
   if (servicePage) {
     return buildServicePageMeta(servicePage);
+  }
+
+  const locationPage = getLocationPageByPath(pathKey);
+  if (locationPage) {
+    const url = canonicalUrl(locationPage.path);
+    return {
+      siteName: SEO.siteName,
+      title: locationPage.seo.title,
+      description: locationPage.seo.description,
+      keywords: locationPage.seo.keywords,
+      locale: SEO.locale,
+      twitterCard: SEO.twitterCard,
+      url,
+      jsonLd: [
+        { id: "local", data: getLocalBusinessJsonLd() },
+        { id: "faq", data: getPageFaqJsonLd(locationPage.faqs) },
+        {
+          id: "breadcrumb",
+          data: getBreadcrumbJsonLd([
+            { name: "Home", url: canonicalUrl("/") },
+            { name: locationPage.name, url },
+          ]),
+        },
+      ],
+    };
   }
 
   return {
