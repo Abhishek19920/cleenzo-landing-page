@@ -28,6 +28,13 @@ import {
   MONTHLY_LOYALTY_PERCENT_OFF,
   MONTHLY_LOYALTY_QUALIFYING_START,
 } from "../utils/monthlyLoyaltyCampaign";
+import {
+  SOFA_DRYCLEAN_PROMO_END,
+  SOFA_DRYCLEAN_PROMO_START,
+  SOFA_SHEET_LIST_INR,
+  SOFA_SHEET_PERCENT_OFF,
+  SOFA_SHEET_SALE_INR,
+} from "../utils/sofaDryCleanCampaign";
 
 /**
  * Homepage offer cards — edit copy, dates, and terms here.
@@ -80,12 +87,85 @@ const QUALITY_OFFERS_END = LIFETIME_OFFER_END;
 /** @type {HomepageOffer[]} */
 export const HOMEPAGE_OFFERS = [
   {
+    id: "sofa-dryclean-promo-oct2026",
+    active: true,
+    startDate: SOFA_DRYCLEAN_PROMO_START,
+    endDate: SOFA_DRYCLEAN_PROMO_END,
+    variant: "festive",
+    featured: true,
+    badge: "SOFA + DRY CLEAN PROMO",
+    discount: `${SOFA_SHEET_PERCENT_OFF}% OFF sofa sheets`,
+    secondaryBenefit: `+ ${FESTIVE_FIRST3_PERCENT_OFF}% OFF dry clean (first ${FESTIVE_FIRST3_MAX_ORDERS})`,
+    title: "Fresh sofa sheets & premium dry clean",
+    subtitle: `Sofa sheet cleaning ₹${SOFA_SHEET_LIST_INR} → ₹${SOFA_SHEET_SALE_INR} per sheet`,
+    description: `Sofa sheet cleaning at ₹${SOFA_SHEET_SALE_INR}/sheet (${SOFA_SHEET_PERCENT_OFF}% off the ₹${SOFA_SHEET_LIST_INR} rate). New customers also get flat ${FESTIVE_FIRST3_PERCENT_OFF}% off dry clean on the first ${FESTIVE_FIRST3_MAX_ORDERS} orders — max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR}. Blanket dry clean is eligible for the 30% offer.`,
+    audience: "Sofa sheet cleaning for everyone · Dry clean first-3 for new customers",
+    validityLabel: "25 Oct – 30 Nov 2026",
+    cta: { label: "Book This Offer", action: "schedule" },
+    termsSections: [
+      {
+        heading: "Campaign period",
+        body: "Valid 25 October – 30 November 2026 (Asia/Kolkata).",
+        todo: false,
+      },
+      {
+        heading: "Sofa sheet cleaning",
+        body: `Sofa sheet / sofa cover cleaning is ₹${SOFA_SHEET_SALE_INR} per sheet during the campaign (was ₹${SOFA_SHEET_LIST_INR}). Book a home visit or pickup for sofa sheets.`,
+        todo: false,
+      },
+      {
+        heading: "Dry clean — first 3 orders",
+        body: `New customers get ${FESTIVE_FIRST3_PERCENT_OFF}% off eligible dry clean (and blanket dry clean) on each of their first ${FESTIVE_FIRST3_MAX_ORDERS} orders, capped at ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} per order. Minimum order ₹500. Cannot be combined with another promotional coupon on the same order.`,
+        todo: false,
+      },
+      {
+        heading: "Blankets",
+        body: "Blanket dry clean lines are included in the first-3 30% dry clean discount when you qualify as a new customer.",
+        todo: false,
+      },
+      {
+        heading: "Service areas",
+        body: "Raj Nagar Extension, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram, Vaishali and nearby Ghaziabad localities.",
+        todo: false,
+      },
+    ],
+  },
+  {
+    id: "sofa-sheet-10-off-2026",
+    active: true,
+    startDate: SOFA_DRYCLEAN_PROMO_START,
+    endDate: SOFA_DRYCLEAN_PROMO_END,
+    variant: "heroes",
+    featured: false,
+    badge: "SOFA SHEET CLEANING",
+    discount: `${SOFA_SHEET_PERCENT_OFF}% OFF`,
+    secondaryBenefit: `₹${SOFA_SHEET_LIST_INR} → ₹${SOFA_SHEET_SALE_INR} per sheet`,
+    title: "Sofa sheet cleaning at home",
+    subtitle: "Fresh sofa. Cleaner home.",
+    description: `Professional sofa sheet cleaning for ₹${SOFA_SHEET_SALE_INR} per sheet during this promo (list price ₹${SOFA_SHEET_LIST_INR}). Book a home visit and we’ll come to you.`,
+    audience: "FOR EVERYONE · Home visit available",
+    validityLabel: "25 Oct – 30 Nov 2026",
+    cta: { label: "Book Sofa Cleaning", action: "schedule" },
+    termsSections: [
+      {
+        heading: "Price",
+        body: `₹${SOFA_SHEET_SALE_INR} per sofa sheet during the campaign window. Regular rate ₹${SOFA_SHEET_LIST_INR}.`,
+        todo: false,
+      },
+      {
+        heading: "How to book",
+        body: "Use Book Sofa Cleaning / home visit on the website, or WhatsApp the store. Final count of sheets is confirmed on site.",
+        todo: false,
+      },
+    ],
+  },
+  {
     id: "ganesh-chaturthi-2026",
     active: true,
     startDate: GANESH_CHATURTHI_START,
     endDate: GANESH_CHATURTHI_END,
     variant: "festive",
-    featured: true,
+    featured: false,
     badge: "GANESH CHATURTHI SPECIAL",
     discount: `FLAT ${GANESH_CHATURTHI_PERCENT_OFF}% OFF`,
     secondaryBenefit: `+ ${GANESH_CHATURTHI_CREDIT_PERCENT}% Cleenzo Credit`,
@@ -135,8 +215,8 @@ export const HOMEPAGE_OFFERS = [
     discount: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF`,
     secondaryBenefit: `Max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} · first ${FESTIVE_FIRST3_MAX_ORDERS} orders`,
     description:
-      `New to Cleenzo? Get ${FESTIVE_FIRST3_PERCENT_OFF}% off on your first ${FESTIVE_FIRST3_MAX_ORDERS} orders (minimum ₹500), capped at ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR}. You can choose ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit instead — that option has no ₹ cap. After 3 orders, repeat customers get ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% wallet credit.`,
-    audience: "FOR NEW CUSTOMERS",
+      `New to Cleenzo? Get flat ${FESTIVE_FIRST3_PERCENT_OFF}% off dry clean (blankets included) on your first ${FESTIVE_FIRST3_MAX_ORDERS} orders — max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} (min ₹500). Or choose ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit with no ₹ cap. After 3 orders, repeat customers get ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% wallet credit.`,
+    audience: "FOR NEW CUSTOMERS · Dry clean & blankets eligible",
     validityLabel: "Always on",
     cta: { label: "Book My First Pickup", action: "schedule" },
     termsSections: [
@@ -162,7 +242,7 @@ export const HOMEPAGE_OFFERS = [
       },
       {
         heading: "Eligible services",
-        body: "Applies to laundry wash & iron, wash & fold, premium laundry, dry clean, and steam iron / steam press. Police / force uniform services are excluded.",
+        body: "Dry clean (including blanket dry clean), premium laundry, and carpet cleaning are auto-discounted. Wash & iron / wash & fold and steam iron are not auto-discounted. Police / force uniforms are excluded.",
         todo: false,
       },
       {

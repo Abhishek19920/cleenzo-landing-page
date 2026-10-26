@@ -503,15 +503,28 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
           className="group w-full block rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 bg-white shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-cleenzo focus-visible:ring-offset-2"
           aria-label={slide.imageAlt || "View offer and book"}
         >
-          <span className="block w-full aspect-[7/3] max-h-[min(42vw,300px)] sm:max-h-[min(36vw,320px)] md:max-h-[380px] bg-cleenzo-pale/30 overflow-hidden">
+          <span
+            className={`block w-full mx-auto bg-cleenzo-pale/30 overflow-hidden ${
+              slide.imageFit === "contain"
+                ? "aspect-square max-h-[min(88vw,520px)]"
+                : "aspect-[7/3] max-h-[min(42vw,300px)] sm:max-h-[min(36vw,320px)] md:max-h-[380px]"
+            }`}
+          >
             <img
               src={slide.imageSrc}
               alt={slide.imageAlt || ""}
-              width={1400}
-              height={600}
-              className="w-full h-full object-cover object-center transition group-hover:opacity-[0.98]"
+              width={slide.imageFit === "contain" ? 1024 : 1400}
+              height={slide.imageFit === "contain" ? 1024 : 600}
+              className={`w-full h-full object-center transition group-hover:opacity-[0.98] ${
+                slide.imageFit === "contain" ? "object-contain" : "object-cover"
+              }`}
               decoding="async"
-              fetchPriority={slide.id === "freedom-rakhi-sale-2026" ? "high" : "auto"}
+              fetchPriority={
+                slide.id === "sofa-dryclean-promo-oct2026" ||
+                slide.id === "freedom-rakhi-sale-2026"
+                  ? "high"
+                  : "auto"
+              }
             />
           </span>
         </button>

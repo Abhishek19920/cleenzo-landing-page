@@ -3037,6 +3037,10 @@ export const GHAZIABAD_PRICING = {
     "sofa-cleaning": {
       "sofa": [
         {
+          "name": "Sofa Sheet Cleaning (per sheet) — was ₹200 · 10% off",
+          "price": 180
+        },
+        {
           "name": "Sofa Seat Cleaning (per seat)",
           "price": 270
         },
