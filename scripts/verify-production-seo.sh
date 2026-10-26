@@ -77,7 +77,12 @@ if [[ "$soft_robots" != *"noindex"* ]]; then
   echo "FAIL 404 page missing noindex robots: ${soft_robots:-none}"
   exit 1
 fi
-echo "OK   unknown URL → HTTP 404 + noindex (${soft_title})"
+soft_canon="$(grep -oE 'rel="canonical" href="[^"]+"' /tmp/cleenzo-soft404.html | head -1 || true)"
+if [[ -n "$soft_canon" ]]; then
+  echo "FAIL 404 should not declare a canonical (was pointing at homepage): ${soft_canon}"
+  exit 1
+fi
+echo "OK   unknown URL → HTTP 404 + noindex, no homepage canonical (${soft_title})"
 
 echo "→ Location pages"
 check_url "/laundry-dry-cleaning-indirapuram/" \

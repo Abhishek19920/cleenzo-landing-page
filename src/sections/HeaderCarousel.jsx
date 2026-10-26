@@ -496,7 +496,7 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
       } relative overflow-hidden`}
       aria-hidden="false"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8 pb-12 sm:pb-14">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8 pb-12 sm:pb-14">
         <button
           type="button"
           onClick={handleBannerClick}
@@ -506,8 +506,8 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
           <span
             className={`block w-full mx-auto bg-cleenzo-pale/30 overflow-hidden ${
               slide.imageFit === "contain"
-                ? "aspect-square max-h-[min(88vw,520px)]"
-                : "aspect-[7/3] max-h-[min(42vw,300px)] sm:max-h-[min(36vw,320px)] md:max-h-[380px]"
+                ? "aspect-square max-w-[min(88vw,520px)]"
+                : "aspect-[7/3] max-w-[880px]"
             }`}
           >
             <img
@@ -518,13 +518,8 @@ function ImageSlidePanel({ slide, onSchedule, onWhatsApp }) {
               className={`w-full h-full object-center transition group-hover:opacity-[0.98] ${
                 slide.imageFit === "contain" ? "object-contain" : "object-cover"
               }`}
+              loading="lazy"
               decoding="async"
-              fetchPriority={
-                slide.id === "sofa-dryclean-promo-oct2026" ||
-                slide.id === "freedom-rakhi-sale-2026"
-                  ? "high"
-                  : "auto"
-              }
             />
           </span>
         </button>

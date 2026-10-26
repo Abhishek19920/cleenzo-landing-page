@@ -75,6 +75,9 @@ function MilestoneStrip() {
           className="milestone-strip-towels"
           src={`${process.env.PUBLIC_URL || ""}/images/milestone-wash-bg.jpg`}
           alt=""
+          width={960}
+          height={540}
+          decoding="async"
         />
         <svg className="milestone-strip-bubbles" viewBox="0 0 1440 280" preserveAspectRatio="xMidYMid slice">
           <circle cx="70" cy="210" r="18" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="2" />

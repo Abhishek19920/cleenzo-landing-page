@@ -122,7 +122,8 @@ function PersonalHeroBanner() {
             src={personalHeroImage}
             alt="Cleenzo staff handing premium laundry bag to a customer at the store"
             className="personal-hero-image"
-            loading="eager"
+            width={1024}
+            height={768}
             decoding="async"
           />
         </div>

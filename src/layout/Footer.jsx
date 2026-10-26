@@ -126,6 +126,17 @@ function Footer() {
         <p className="text-slate-500 text-xs leading-relaxed">
           Cleenzo is a brand owned and operated by Shineworks Solutions Private Limited.
         </p>
+        <p className="text-slate-500 text-xs space-x-3">
+          <Link to="/privacy/" className="hover:text-white">
+            Privacy
+          </Link>
+          <Link to="/terms/" className="hover:text-white">
+            Terms
+          </Link>
+          <Link to="/offers-terms/" className="hover:text-white">
+            Offers
+          </Link>
+        </p>
         <p className="text-slate-500 text-xs">
           © {new Date().getFullYear()} Cleenzo. All rights reserved.
         </p>

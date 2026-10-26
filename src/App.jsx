@@ -6,6 +6,8 @@ import CommercialLaundry from "./pages/CommercialLaundry";
 import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
 import OffersTermsPage from "./pages/OffersTermsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import DryCleanersRajNagarExtension from "./pages/DryCleanersRajNagarExtension";
@@ -36,6 +38,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="offers-terms" element={<OffersTermsPage />} />
+            <Route path="privacy" element={<PrivacyPolicyPage />} />
+            <Route path="terms" element={<TermsOfServicePage />} />
             <Route path="order/:accessToken" element={<OrderTrackingPage />} />
             <Route path="invoice/:accessToken" element={<OrderTrackingPage />} />
             <Route path="blog" element={<BlogPage />} />

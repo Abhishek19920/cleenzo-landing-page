@@ -135,9 +135,13 @@ function main() {
 
   for (const route of ROUTES) {
     if (route.indexable === false) continue;
-    const html = applyRouteMeta(baseHtml, route);
+    let html = applyRouteMeta(baseHtml, route);
 
     if (route.path === "/") {
+      html = html.replace(
+        "</head>",
+        `    <link rel="preload" as="image" href="/images/milestone-wash-bg.jpg" fetchpriority="high" />\n  </head>`,
+      );
       fs.writeFileSync(ROOT_INDEX, html, "utf8");
       continue;
     }
@@ -147,7 +151,8 @@ function main() {
     fs.writeFileSync(path.join(routeDir, "index.html"), html, "utf8");
   }
 
-  // Real 404 document for Node/nginx — noindex, never reuse homepage canonical
+  // Real 404 document — noindex, and no canonical/og:url (those made Google treat
+  // missing URLs as alternates of the homepage).
   const notFoundRoute = {
     path: "/404",
     title: "Page not found | Cleenzo",
@@ -160,11 +165,19 @@ function main() {
   let notFoundHtml = applyRouteMeta(baseHtml, notFoundRoute);
   notFoundHtml = notFoundHtml.replace(
     /(<meta\s+name="robots"\s+content=")[^"]*(")/,
-    '$1noindex, follow$2',
+    "$1noindex, follow$2",
   );
   notFoundHtml = notFoundHtml.replace(
-    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
-    `$1${SITE_URL}/$2`,
+    /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>\s*/gi,
+    "",
+  );
+  notFoundHtml = notFoundHtml.replace(
+    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>\s*/gi,
+    "",
+  );
+  notFoundHtml = notFoundHtml.replace(
+    /<script type="application\/ld\+json" id="cleenzo-static-jsonld-\d+"[\s\S]*?<\/script>\s*/gi,
+    "",
   );
   fs.writeFileSync(path.join(BUILD_DIR, "404.html"), notFoundHtml, "utf8");
 

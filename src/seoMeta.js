@@ -99,7 +99,11 @@ export function applyPageMeta({
   upsertMeta("og:type", ogType, true);
   upsertMeta("og:site_name", siteName, true);
   upsertMeta("og:locale", locale, true);
-  upsertMeta("og:url", url, true);
+  if (url) {
+    upsertMeta("og:url", url, true);
+  } else {
+    document.querySelector('meta[property="og:url"]')?.remove();
+  }
   upsertMeta("og:image", image, true);
   upsertMeta("og:image:width", "1200", true);
   upsertMeta("og:image:height", "630", true);
@@ -110,7 +114,11 @@ export function applyPageMeta({
   upsertMeta("twitter:description", description);
   upsertMeta("twitter:image", image);
 
-  upsertLink("canonical", url);
+  if (url) {
+    upsertLink("canonical", url);
+  } else {
+    document.querySelector('link[rel="canonical"]')?.remove();
+  }
 
   upsertJsonLd("cleenzo-local-business-jsonld", jsonLd.find((j) => j.id === "local")?.data ?? null);
   upsertJsonLd("cleenzo-faq-jsonld", jsonLd.find((j) => j.id === "faq")?.data ?? null);
@@ -351,7 +359,7 @@ export function getMetaForPathname(pathname) {
 
   return {
     ...SEO_NOT_FOUND,
-    url: canonicalUrl(pathKey),
+    url: "",
     jsonLd: [],
   };
 }

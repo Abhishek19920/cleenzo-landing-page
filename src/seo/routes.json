@@ -18,6 +18,22 @@
       "indexable": true
     },
     {
+      "path": "/privacy",
+      "title": "Privacy Policy | Cleenzo Laundry Ghaziabad",
+      "description": "How Cleenzo collects and uses account, order, and payment data. Includes how to delete your Cleenzo app account from Profile.",
+      "h1": "Privacy Policy",
+      "intro": "Cleenzo privacy policy for the website and customer app, including account deletion.",
+      "indexable": true
+    },
+    {
+      "path": "/terms",
+      "title": "Terms of Service | Cleenzo Laundry Ghaziabad",
+      "description": "Cleenzo terms for pickup, estimates vs confirmed amounts, Cashfree payments, OTP login, and account deletion.",
+      "h1": "Terms of Service",
+      "intro": "Terms governing Cleenzo pickup bookings, pricing, payments and the customer app.",
+      "indexable": true
+    },
+    {
       "path": "/offers-terms",
       "title": "Offer Terms & Conditions | Cleenzo Laundry Ghaziabad",
       "description": "Full terms for Cleenzo offers — 30% off your first 3 orders for new customers (always on), the monthly loyalty benefit and the Refer & Earn ₹100 Cleenzo Credit program.",
