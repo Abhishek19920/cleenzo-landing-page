@@ -6,7 +6,6 @@ import {
   GOOGLE_REVIEWS_URL,
   getReviewSliderItems,
 } from "../data/googleReviews";
-import { STORE_ADDRESS } from "../constants";
 
 const AUTOPLAY_MS = 5500;
 const SWIPE_THRESHOLD = 48;
@@ -53,32 +52,20 @@ function GoogleGlyph() {
 
 function ReviewSlide({ review }) {
   return (
-    <article className="h-full flex flex-col justify-between rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-6 md:p-8 shadow-[0_20px_60px_rgba(10,61,145,0.18)]">
-      <div>
-        <div className="flex items-center justify-between gap-3 mb-5">
-          <StarRow rating={review.rating} size="lg" />
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-semibold text-white/90">
-            <GoogleGlyph />
-            Google
-          </span>
-        </div>
-        <blockquote className="text-white text-lg md:text-xl leading-relaxed font-medium">
-          “{review.text}”
-        </blockquote>
+    <article className="rounded-2xl border border-white/20 bg-white/10 p-4 md:p-5">
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <StarRow rating={review.rating} size="md" />
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-white/90">
+          <GoogleGlyph />
+          Google
+        </span>
       </div>
-      <footer className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between gap-3 text-sm">
-        <div>
-          <p className="font-bold text-white">{review.author}</p>
-          <p className="text-white/60 mt-0.5">{GOOGLE_BUSINESS_NAME}</p>
-        </div>
-        {review.datePublished ? (
-          <time className="text-white/50 shrink-0" dateTime={review.datePublished}>
-            {new Date(review.datePublished).toLocaleDateString("en-IN", {
-              month: "short",
-              year: "numeric",
-            })}
-          </time>
-        ) : null}
+      <blockquote className="text-white text-sm md:text-base leading-snug font-medium line-clamp-3 min-h-[3.9rem]">
+        “{review.text}”
+      </blockquote>
+      <footer className="mt-3 pt-3 border-t border-white/10 text-xs text-white/70">
+        <p className="font-bold text-white">{review.author}</p>
+        <p className="mt-0.5">{GOOGLE_BUSINESS_NAME}</p>
       </footer>
     </article>
   );
@@ -126,7 +113,7 @@ function GoogleReviewsSection({ compact = false }) {
     <section
       id="reviews"
       className={`relative overflow-hidden border-t border-cleenzo-sky-light ${
-        compact ? "py-12 md:py-14" : "py-16 md:py-24"
+        compact ? "py-8 md:py-10" : "py-8 md:py-12"
       }`}
       aria-labelledby="google-reviews-heading"
     >
@@ -140,24 +127,20 @@ function GoogleReviewsSection({ compact = false }) {
       />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
-          <p className="text-cleenzo-sky font-bold text-xs uppercase tracking-[0.24em] mb-3">
-            Google reviews & local trust
+        <div className="text-center max-w-3xl mx-auto mb-5 md:mb-6">
+          <p className="text-cleenzo-sky font-bold text-xs uppercase tracking-[0.24em] mb-2">
+            Google reviews
           </p>
           <h2
             id="google-reviews-heading"
-            className="text-2xl md:text-4xl font-black text-white mb-4 leading-tight"
+            className="text-xl md:text-3xl font-black text-white leading-tight"
           >
-            Happy customers choose Cleenzo in Raj Nagar Extension
+            Happy customers in Raj Nagar Extension
           </h2>
-          <p className="text-sky-100 leading-relaxed mb-5">
-            Families around AVS City Square, Raj Nagar Extension and nearby Ghaziabad societies
-            rely on Cleenzo for laundry, dry cleaning, steam iron and doorstep garment care.
-          </p>
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-white/15 bg-white/10 backdrop-blur-md px-5 py-2.5 text-white/90">
-            <StarRow rating={5} size="lg" />
+          <div className="mt-3 inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm text-white/90">
+            <StarRow rating={5} size="md" />
             <span className="font-bold text-white">{GOOGLE_RATING.label}</span>
-            <span className="text-sm text-white/70">· {GOOGLE_RATING.count} customer reviews on Google</span>
+            <span className="text-white/70">· {GOOGLE_RATING.count} reviews</span>
           </div>
         </div>
 
@@ -219,12 +202,12 @@ function GoogleReviewsSection({ compact = false }) {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-2.5">
           <a
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-white text-cleenzo font-bold px-6 py-3.5 rounded-full hover:bg-cleenzo-pale transition shadow-lg"
+            className="inline-flex items-center justify-center gap-2 bg-white text-cleenzo font-bold px-5 py-2.5 rounded-full hover:bg-cleenzo-pale transition text-sm"
           >
             <GoogleGlyph />
             Read on Google Maps
@@ -233,15 +216,11 @@ function GoogleReviewsSection({ compact = false }) {
             href={GOOGLE_REVIEWS_SHARE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center border border-white/25 bg-white/10 backdrop-blur-md text-white font-bold px-6 py-3.5 rounded-full hover:bg-white/15 transition"
+            className="inline-flex items-center justify-center border border-white/25 bg-white/10 text-white font-bold px-5 py-2.5 rounded-full hover:bg-white/15 transition text-sm"
           >
             Leave a Google review
           </a>
         </div>
-
-        <p className="mt-5 text-center text-xs md:text-sm text-white/55">
-          Local store: {STORE_ADDRESS}
-        </p>
       </div>
     </section>
   );

@@ -392,6 +392,22 @@ export const CAROUSEL_BANNERS = [
     expressSteps: ["Book pickup", "Expert cleaning", "Express delivery"],
   },
   {
+    id: "quality-care",
+    theme: "brand",
+    badge: "Quality first",
+    title: "German chemicals",
+    titleAccent: "Expert finish",
+    subtitle:
+      "What families trust us for. Every garment is inspected, treated with professional chemistry, and QC-checked before packing.",
+    primaryCta: { label: "Book quality care", action: "schedule" },
+    secondaryCta: { label: "Book on WhatsApp", action: "whatsapp" },
+    visual: {
+      emoji: "✦",
+      title: "Premium care",
+      tagline: "Suits, sarees & daily wear",
+    },
+  },
+  {
     id: "services",
     theme: "brand",
     badge: "🧺 Professional home & wardrobe care",

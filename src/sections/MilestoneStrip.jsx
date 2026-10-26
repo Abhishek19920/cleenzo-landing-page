@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { fetchStoreMilestone } from "../api/milestone";
+import { milestonePeriodCopy } from "../utils/storeMonths";
 import {
   scaledCount,
   useCountUpProgress,
@@ -62,6 +63,7 @@ function MilestoneStrip() {
   const ready = Boolean(data) && inView;
   const progress = useCountUpProgress(ready, 2100);
   const showCounts = Boolean(data) && progress > 0;
+  const period = milestonePeriodCopy();
 
   return (
     <section
@@ -96,19 +98,14 @@ function MilestoneStrip() {
               🎉 {data?.kicker ?? "Cleenzo Raj Nagar Extension"}
             </p>
             <p id="milestone-strip-title" className="milestone-strip-title">
-              {data?.periodLabel ?? "Our First 2 Months"}
+              {period.periodLabel}
             </p>
             <p className="milestone-strip-headline">
               {data?.headline ?? "Look What We’ve Achieved Together!"}
             </p>
-            <p className="milestone-strip-sub">
-              {data?.subline ??
-                "2 months of cleaning, caring & serving our community."}
-            </p>
+            <p className="milestone-strip-sub">{period.subline}</p>
           </div>
-          <p className="milestone-strip-tagline">
-            {data?.tagline ?? "2 Months of Cleenzo. And We’re Just Getting Started."}
-          </p>
+          <p className="milestone-strip-tagline">{period.tagline}</p>
         </div>
 
         <div className="milestone-strip-stats" role="list">

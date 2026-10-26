@@ -391,7 +391,7 @@ export const HOMEPAGE_OFFERS = [
   },
   {
     id: "premium-quality-care",
-    active: true,
+    active: false,
     startDate: QUALITY_OFFERS_START,
     endDate: QUALITY_OFFERS_END,
     variant: "quality",

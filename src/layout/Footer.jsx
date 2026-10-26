@@ -98,7 +98,9 @@ function Footer() {
                 {line}
               </span>
             ))}
+            <span className="block mt-2 text-cleenzo-sky font-semibold">Open in Google Maps</span>
           </a>
+          <p className="mt-3 text-slate-400 text-sm">Call {PHONE_DISPLAY}</p>
         </div>
 
         <div className="flex flex-col gap-3 text-sm md:items-end">
