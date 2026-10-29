@@ -5,7 +5,7 @@ import { APP_IS_LIVE, APP_LINKS } from "../constants";
 const AppDownloadContext = createContext(null);
 
 export function isAppDownloadAvailable() {
-  return APP_IS_LIVE && APP_LINKS.android !== "#" && APP_LINKS.ios !== "#";
+  return APP_IS_LIVE && APP_LINKS.android !== "#";
 }
 
 export function AppDownloadProvider({ children }) {

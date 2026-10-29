@@ -13,9 +13,12 @@ export default function PrivacyPolicyPage() {
       </LegalSection>
       <LegalSection heading="2. Data we collect">
         <p>
-          We collect your name, mobile number, Gmail address (for OTP sign-in), pickup
-          addresses, order contents, payment status (not full card numbers — payments
-          are processed by Cashfree), device push token, and support chat messages.
+          We collect your name, mobile number, WhatsApp number, optional Gmail address
+          (for OTP fallback), pickup addresses, order contents, payment status (not full
+          card numbers — payments are processed by Cashfree), device push token, crash
+          diagnostics from the app, and support chat messages. Rider GPS is collected
+          from the rider app while a job is active so the customer can see live tracking;
+          customers are not asked for background location.
         </p>
         <p>
           We do not sell personal data. Staff in the store ERP can see orders needed

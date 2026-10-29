@@ -26,10 +26,11 @@ export const STORE_MAPS_URL =
 export const COMMERCIAL_LAUNDRY_URL = "/commercial-laundry";
 
 export const APP_LINKS = {
-  android: "#",
+  android: "https://play.google.com/store/apps/details?id=in.cleenzo.user",
   ios: "#",
 };
 
+/** Android listing URL is set. Flip true only after Play shows the public page. */
 export const APP_IS_LIVE = false;
 
 export const APP_COMING_SOON = {
