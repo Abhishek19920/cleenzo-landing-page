@@ -10,6 +10,12 @@ const { SITE_URL, ROUTES } = require("./route-seo-data.cjs");
 const { buildJsonLdScripts } = require("./seo/schema-static.cjs");
 const { generateSitemap } = require("./generate-sitemap.cjs");
 const privacyPolicy = require("../src/legal/privacy-policy.json");
+const accountDeletion = require("../src/legal/account-deletion.json");
+
+const LEGAL_DOCS = {
+  "/privacy": privacyPolicy,
+  "/account-deletion": accountDeletion,
+};
 
 const BUILD_DIR = path.join(__dirname, "..", "build");
 const ROOT_INDEX = path.join(BUILD_DIR, "index.html");
@@ -40,8 +46,8 @@ function pageUrl(routePath) {
   return `${SITE_URL}${routePath.endsWith("/") ? routePath : `${routePath}/`}`;
 }
 
-function privacyPolicyArticleHtml() {
-  const sections = privacyPolicy.sections
+function legalArticleHtml(doc) {
+  const sections = doc.sections
     .map((section) => {
       const paras = section.paragraphs
         .map((p) => `<p>${escapeHtml(p)}</p>`)
@@ -50,9 +56,9 @@ function privacyPolicyArticleHtml() {
     })
     .join("");
   return `<article style="max-width:42rem;margin:2rem auto;padding:0 1rem;font-family:system-ui,sans-serif;color:#1e293b;line-height:1.6">
-        <h1>${escapeHtml(privacyPolicy.title)}</h1>
-        <p>Last updated ${escapeHtml(privacyPolicy.updated)}</p>
-        <p>${escapeHtml(privacyPolicy.intro)}</p>
+        <h1>${escapeHtml(doc.title)}</h1>
+        <p>Last updated ${escapeHtml(doc.updated)}</p>
+        <p>${escapeHtml(doc.intro)}</p>
         ${sections}
       </article>`;
 }
@@ -61,9 +67,10 @@ function buildNoscriptBlock(route) {
   const nav = NAV_LINKS.map(
     (link) => `<a href="${link.href}">${escapeHtml(link.label)}</a>`,
   ).join(" · ");
+  const legalDoc = LEGAL_DOCS[route.path];
   const body =
-    route.path === "/privacy"
-      ? privacyPolicyArticleHtml()
+    legalDoc
+      ? legalArticleHtml(legalDoc)
       : `<main
         style="
           max-width: 42rem;
@@ -170,10 +177,11 @@ function main() {
 
     const routeDir = path.join(BUILD_DIR, route.path.slice(1));
     fs.mkdirSync(routeDir, { recursive: true });
-    if (route.path === "/privacy") {
+    const legalDoc = LEGAL_DOCS[route.path];
+    if (legalDoc) {
       html = html.replace(
         /<div id="root"><\/div>/,
-        `<div id="root">${privacyPolicyArticleHtml()}</div>`,
+        `<div id="root">${legalArticleHtml(legalDoc)}</div>`,
       );
     }
     fs.writeFileSync(path.join(routeDir, "index.html"), html, "utf8");

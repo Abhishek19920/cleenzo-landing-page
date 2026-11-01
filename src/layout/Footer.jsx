@@ -132,6 +132,9 @@ function Footer() {
           <Link to="/privacy/" className="hover:text-white">
             Privacy
           </Link>
+          <Link to="/account-deletion/" className="hover:text-white">
+            Delete account
+          </Link>
           <Link to="/terms/" className="hover:text-white">
             Terms
           </Link>

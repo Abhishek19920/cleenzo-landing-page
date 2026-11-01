@@ -7,6 +7,7 @@ import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
 import OffersTermsPage from "./pages/OffersTermsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import AccountDeletionPage from "./pages/AccountDeletionPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -39,6 +40,7 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="offers-terms" element={<OffersTermsPage />} />
             <Route path="privacy" element={<PrivacyPolicyPage />} />
+            <Route path="account-deletion" element={<AccountDeletionPage />} />
             <Route path="terms" element={<TermsOfServicePage />} />
             <Route path="order/:accessToken" element={<OrderTrackingPage />} />
             <Route path="invoice/:accessToken" element={<OrderTrackingPage />} />

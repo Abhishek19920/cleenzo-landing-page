@@ -26,6 +26,14 @@
       "indexable": true
     },
     {
+      "path": "/account-deletion",
+      "title": "Delete your Cleenzo account | Cleenzo",
+      "description": "Request deletion of your Cleenzo customer app account and associated personal data. In-app: Profile → Delete account, or email cs.shineworks@gmail.com.",
+      "h1": "Delete your Cleenzo account",
+      "intro": "Request deletion of your Cleenzo customer app account (in.cleenzo.user). Use Profile → Delete account in the app, or email cs.shineworks@gmail.com with your mobile number.",
+      "indexable": true
+    },
+    {
       "path": "/terms",
       "title": "Terms of Service | Cleenzo Laundry Ghaziabad",
       "description": "Cleenzo terms for pickup, estimates vs confirmed amounts, Cashfree payments, OTP login, and account deletion.",

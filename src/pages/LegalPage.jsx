@@ -28,6 +28,10 @@ export default function LegalPage({ title, updated, children }) {
           Privacy Policy
         </Link>
         {" · "}
+        <Link to="/account-deletion/" className="font-semibold text-cleenzo hover:underline">
+          Delete account
+        </Link>
+        {" · "}
         <Link to="/terms/" className="font-semibold text-cleenzo hover:underline">
           Terms of Service
         </Link>

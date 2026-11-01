@@ -1,0 +1,27 @@
+{
+  "title": "Delete your Cleenzo account",
+  "updated": "2 November 2026",
+  "intro": "Use this page to request deletion of your Cleenzo customer app account (package in.cleenzo.user) and the personal data tied to that login. You do not need to sign in to send the request.",
+  "sections": [
+    {
+      "heading": "1. Delete in the app",
+      "paragraphs": [
+        "Open the Cleenzo Android app, go to Profile, then tap Delete account and confirm. This is the fastest way if you still have the app installed."
+      ]
+    },
+    {
+      "heading": "2. Request deletion by email",
+      "paragraphs": [
+        "Email cs.shineworks@gmail.com from the Gmail address on the account. Use the subject “Delete my Cleenzo account” and include the mobile number you use to sign in.",
+        "You can also call +91 99992 25311 or visit LGF-19, AVS City Square, Raj Nagar Extn, Ghaziabad — 201017 and ask staff to raise the same request."
+      ]
+    },
+    {
+      "heading": "3. What we delete",
+      "paragraphs": [
+        "We deactivate the login and anonymise the mobile number and email so they cannot be used to sign in again. Push tokens and the live customer profile are removed.",
+        "Historical bills may be kept without a live login where Indian tax and accounting rules require it. We do not keep a working app account after deletion is completed."
+      ]
+    }
+  ]
+}
