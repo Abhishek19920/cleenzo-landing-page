@@ -13,6 +13,7 @@ const fs = require("fs");
 const path = require("path");
 
 const BUILD_DIR = path.join(__dirname, "..", "build");
+const DOWNLOADS_DIR = process.env.APP_DOWNLOADS_DIR || path.join(__dirname, "..", "downloads");
 const PORT = Number(process.env.PORT || process.env.WEBSITE_PORT || 3003);
 const HOST = process.env.HOST || "0.0.0.0";
 const APEX_HOST = "cleenzo.co.in";
@@ -67,6 +68,7 @@ const CONTENT_TYPES = {
   ".woff": "font/woff",
   ".woff2": "font/woff2",
   ".map": "application/json",
+  ".apk": "application/vnd.android.package-archive",
 };
 
 function normalizeHost(hostHeader) {
@@ -92,6 +94,18 @@ function prerenderIndexPath(pathname) {
 }
 
 function resolveStaticFile(pathname) {
+  if (pathname.startsWith("/downloads/")) {
+    const name = path.basename(pathname);
+    if (!name || name === "." || name === "..") {
+      return { file: null, status: 404 };
+    }
+    const file = path.join(DOWNLOADS_DIR, name);
+    if (fs.existsSync(file) && fs.statSync(file).isFile()) {
+      return { file, status: 200 };
+    }
+    return { file: null, status: 404 };
+  }
+
   if (pathname === "/" || pathname === "") {
     return { file: path.join(BUILD_DIR, "index.html"), status: 200 };
   }
@@ -135,7 +149,9 @@ function sendFile(res, filePath, statusCode = 200) {
   res.setHeader("Content-Type", CONTENT_TYPES[ext] || "application/octet-stream");
   res.setHeader(
     "Cache-Control",
-    ext === ".html" ? "no-cache" : "public, max-age=31536000, immutable",
+    ext === ".html" || ext === ".apk"
+      ? "no-cache"
+      : "public, max-age=31536000, immutable",
   );
   fs.createReadStream(filePath).pipe(res);
 }

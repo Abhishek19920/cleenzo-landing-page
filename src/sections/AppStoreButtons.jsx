@@ -17,8 +17,8 @@ const variants = {
 
 function StoreButton({ platform, variant, onAppClick }) {
   const styles = variants[variant] || variants.onLight;
-  const isLive = isAppDownloadAvailable();
   const href = platform === "android" ? APP_LINKS.android : APP_LINKS.ios;
+  const canOpenStore = platform === "android" ? isAppDownloadAvailable() : Boolean(href && href !== "#");
   const className = `inline-flex items-center justify-center gap-3 font-bold px-6 py-3.5 rounded-2xl transition min-w-[200px] w-full sm:w-auto ${
     platform === "android" ? styles.android : styles.ios
   }`;
@@ -28,8 +28,8 @@ function StoreButton({ platform, variant, onAppClick }) {
       <>
         <GooglePlayIcon className="w-8 h-8 shrink-0" />
         <span className="text-left leading-tight">
-          <span className="block text-[10px] font-normal opacity-80">Get it on</span>
-          Google Play
+          <span className="block text-[10px] font-normal opacity-80">Download</span>
+          Android app
         </span>
       </>
     ) : (
@@ -42,13 +42,13 @@ function StoreButton({ platform, variant, onAppClick }) {
       </>
     );
 
-  if (!isLive) {
+  if (!canOpenStore) {
     return (
       <button
         type="button"
         onClick={onAppClick}
         className={className}
-        aria-label={`${platform === "android" ? "Google Play" : "App Store"} app coming soon`}
+        aria-label={`${platform === "android" ? "Android" : "App Store"} app coming soon`}
       >
         {content}
       </button>
@@ -56,7 +56,7 @@ function StoreButton({ platform, variant, onAppClick }) {
   }
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+    <a href={href} rel="noopener noreferrer" className={className} download={platform === "android" ? true : undefined}>
       {content}
     </a>
   );
