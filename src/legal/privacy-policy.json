@@ -1,0 +1,84 @@
+{
+  "title": "Privacy Policy",
+  "updated": "2 November 2026",
+  "intro": "This privacy policy applies to the Cleenzo customer Android app (package name in.cleenzo.user), the website https://cleenzo.co.in, WhatsApp booking, and in-store counter service operated by Shineworks Solutions Private Limited.",
+  "sections": [
+    {
+      "heading": "1. Who we are",
+      "paragraphs": [
+        "Cleenzo is a laundry and dry-cleaning brand operated by Shineworks Solutions Private Limited (“Cleenzo”, “we”, “us”). Registered store: LGF-19, AVS City Square, Raj Nagar Extn, Ghaziabad — 201017, India.",
+        "This policy explains how we collect, use, share, retain, and delete personal data for the Cleenzo customer app on Google Play (in.cleenzo.user), our website, WhatsApp, and store counter. It does not cover the separate rider app (in.cleenzo.rider) except where rider location is shown to a customer during an active delivery."
+      ]
+    },
+    {
+      "heading": "2. Data we collect",
+      "paragraphs": [
+        "Account and identity: name, mobile number, WhatsApp number, and optional Gmail address used to receive a login OTP.",
+        "Addresses and orders: pickup and delivery addresses you type in, order notes, estimated garment or service details, inspection results, bills, and order status.",
+        "Payments: payment status and transaction identifiers from our payment processor. We do not collect or store full card numbers, CVV, or UPI PINs. Cards and UPI stay with Cashfree.",
+        "App and device: push notification token, app version, crash and diagnostic logs, and basic device information needed to keep the app working. The customer app does not collect precise GPS, contacts, photos, files, or microphone audio.",
+        "Support: messages you send in-app or by phone, email, or WhatsApp.",
+        "Website: IP address, browser type, pages viewed, and cookies used for the site, including Google Tag Manager and Google Ads conversion measurement on cleenzo.co.in."
+      ]
+    },
+    {
+      "heading": "3. Why we use it",
+      "paragraphs": [
+        "We use this data to create and secure your account, send login OTPs, schedule pickup and delivery, confirm prices after inspection, take payment, send order updates, run offers and the Smiles wallet, provide customer support, keep the app reliable, and measure website ads.",
+        "We process this data because you asked for the service (account, orders, payments) and because we must keep certain bills for Indian tax and accounting rules."
+      ]
+    },
+    {
+      "heading": "4. Who we share it with",
+      "paragraphs": [
+        "We do not sell personal data. We share only what is needed with these types of parties:",
+        "Store staff and riders: name, mobile, address, and order details so they can pick up, process, and deliver clothes.",
+        "Cashfree: payment amount and status so you can pay a confirmed bill.",
+        "WhatsApp / Meta: mobile number and order or OTP message content when we message you on WhatsApp.",
+        "Google: Gmail address when you choose Gmail OTP; Play services for app distribution; Google Tag Manager and Google Ads on the website.",
+        "Expo (push service): device push token so we can send order notifications.",
+        "Cloud hosting: servers that store the app API and website (currently hosted in India on our production servers).",
+        "Authorities: if Indian law requires us to disclose records."
+      ]
+    },
+    {
+      "heading": "5. Location",
+      "paragraphs": [
+        "The customer app does not request background or precise location. You type an address for pickup. Rider GPS is collected only in the rider app while a job is active so you can see live tracking for that order."
+      ]
+    },
+    {
+      "heading": "6. Children",
+      "paragraphs": [
+        "Cleenzo is a general-audience laundry service. We do not direct the app or website at children, and we do not knowingly collect personal data from children. If you believe a child created an account, email cs.shineworks@gmail.com and we will delete it."
+      ]
+    },
+    {
+      "heading": "7. Retention and security",
+      "paragraphs": [
+        "Access tokens stay on your device. Login OTPs expire quickly. Order and account data are stored on our servers and transmitted over HTTPS.",
+        "We keep bills and tax records as required under Indian law even after you delete the app login. We do not keep live login for a deleted account."
+      ]
+    },
+    {
+      "heading": "8. Account deletion and your choices",
+      "paragraphs": [
+        "In the Cleenzo app go to Profile → Delete account. We deactivate the login and anonymise the mobile number and email so they cannot be used to sign in. You can also email cs.shineworks@gmail.com from the Gmail on the account and ask us to delete it.",
+        "You may close the app, turn off notifications in Android settings, or stop using WhatsApp updates by telling us in support."
+      ]
+    },
+    {
+      "heading": "9. Cookies and the website",
+      "paragraphs": [
+        "cleenzo.co.in uses cookies and similar tags for the site to function and to measure Google Ads. The Android app store listing and in-app Privacy policy link open this same public webpage. The policy is not a PDF or a file you must download, and it does not require a login."
+      ]
+    },
+    {
+      "heading": "10. Contact",
+      "paragraphs": [
+        "Privacy and grievance contact: cs.shineworks@gmail.com. Phone +91 99992 25311. Store: LGF-19, AVS City Square, Raj Nagar Extn, Ghaziabad — 201017, India.",
+        "This page is the privacy policy for the Cleenzo customer app in.cleenzo.user on Google Play and for https://cleenzo.co.in."
+      ]
+    }
+  ]
+}

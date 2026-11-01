@@ -9,6 +9,7 @@ const path = require("path");
 const { SITE_URL, ROUTES } = require("./route-seo-data.cjs");
 const { buildJsonLdScripts } = require("./seo/schema-static.cjs");
 const { generateSitemap } = require("./generate-sitemap.cjs");
+const privacyPolicy = require("../src/legal/privacy-policy.json");
 
 const BUILD_DIR = path.join(__dirname, "..", "build");
 const ROOT_INDEX = path.join(BUILD_DIR, "index.html");
@@ -39,13 +40,31 @@ function pageUrl(routePath) {
   return `${SITE_URL}${routePath.endsWith("/") ? routePath : `${routePath}/`}`;
 }
 
+function privacyPolicyArticleHtml() {
+  const sections = privacyPolicy.sections
+    .map((section) => {
+      const paras = section.paragraphs
+        .map((p) => `<p>${escapeHtml(p)}</p>`)
+        .join("");
+      return `<section><h2>${escapeHtml(section.heading)}</h2>${paras}</section>`;
+    })
+    .join("");
+  return `<article style="max-width:42rem;margin:2rem auto;padding:0 1rem;font-family:system-ui,sans-serif;color:#1e293b;line-height:1.6">
+        <h1>${escapeHtml(privacyPolicy.title)}</h1>
+        <p>Last updated ${escapeHtml(privacyPolicy.updated)}</p>
+        <p>${escapeHtml(privacyPolicy.intro)}</p>
+        ${sections}
+      </article>`;
+}
+
 function buildNoscriptBlock(route) {
   const nav = NAV_LINKS.map(
     (link) => `<a href="${link.href}">${escapeHtml(link.label)}</a>`,
   ).join(" · ");
-
-  return `<noscript>
-      <main
+  const body =
+    route.path === "/privacy"
+      ? privacyPolicyArticleHtml()
+      : `<main
         style="
           max-width: 42rem;
           margin: 2rem auto;
@@ -66,7 +85,10 @@ function buildNoscriptBlock(route) {
           <a href="tel:+919999225311">+91 99992 25311</a>
         </p>
         <nav aria-label="Primary">${nav}</nav>
-      </main>
+      </main>`;
+
+  return `<noscript>
+      ${body}
     </noscript>`;
 }
 
@@ -148,6 +170,12 @@ function main() {
 
     const routeDir = path.join(BUILD_DIR, route.path.slice(1));
     fs.mkdirSync(routeDir, { recursive: true });
+    if (route.path === "/privacy") {
+      html = html.replace(
+        /<div id="root"><\/div>/,
+        `<div id="root">${privacyPolicyArticleHtml()}</div>`,
+      );
+    }
     fs.writeFileSync(path.join(routeDir, "index.html"), html, "utf8");
   }
 
