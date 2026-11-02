@@ -56,7 +56,7 @@ function StoreButton({ platform, variant, onAppClick }) {
   }
 
   return (
-    <a href={href} rel="noopener noreferrer" className={className} download={platform === "android" ? true : undefined}>
+    <a href={href} rel="noopener noreferrer" className={className}>
       {content}
     </a>
   );

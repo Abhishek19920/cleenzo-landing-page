@@ -26,11 +26,11 @@ export const STORE_MAPS_URL =
 export const COMMERCIAL_LAUNDRY_URL = "/commercial-laundry";
 
 export const APP_LINKS = {
-  android: "https://cleenzo.co.in/downloads/cleenzo-user.apk",
+  android: "https://play.google.com/store/apps/details?id=in.cleenzo.user",
   ios: "#",
 };
 
-/** Android APK is public on the website. Play listing for in.cleenzo.user is not live yet. */
+/** Android button points at Play. iOS is still coming soon. */
 export const APP_IS_LIVE = true;
 
 export const APP_COMING_SOON = {
