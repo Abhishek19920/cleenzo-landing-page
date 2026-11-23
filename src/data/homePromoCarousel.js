@@ -1,9 +1,12 @@
 import { isOfferWithinListingWindow } from "../utils/offerDates";
 import { FREEDOM_SALE_END, FREEDOM_SALE_START } from "../utils/freedomCampaign";
 import {
-  FESTIVE_FIRST3_MAX_DISCOUNT_INR,
+  FESTIVE_FIRST3_CREDIT_PERCENT,
   FESTIVE_FIRST3_MAX_ORDERS,
+  FESTIVE_FIRST3_MIN_ORDER_INR,
   FESTIVE_FIRST3_PERCENT_OFF,
+  REPEAT_OFFER_CREDIT_PERCENT,
+  REPEAT_OFFER_PERCENT_OFF,
   LIFETIME_OFFER_END,
   OFFER_PROGRAM_START,
 } from "../utils/festiveCampaign";
@@ -26,7 +29,7 @@ export const PROMO_CAROUSEL_SLIDES = [
     type: "sofa-banner",
     theme: "light",
     offerId: "sofa-dryclean-promo-oct2026",
-    ariaLabel: `Sofa sheet cleaning ${SOFA_SHEET_PERCENT_OFF}% off — ₹${SOFA_SHEET_LIST_INR} cut to ₹${SOFA_SHEET_SALE_INR} per sheet. Dry clean flat ${FESTIVE_FIRST3_PERCENT_OFF}% off on your first ${FESTIVE_FIRST3_MAX_ORDERS} orders, max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR}. Blanket dry clean also eligible. Book now.`,
+    ariaLabel: `Sofa sheet cleaning ${SOFA_SHEET_PERCENT_OFF}% off — ₹${SOFA_SHEET_LIST_INR} cut to ₹${SOFA_SHEET_SALE_INR} per sheet. New customers: dry clean ${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} orders, min ₹${FESTIVE_FIRST3_MIN_ORDER_INR}. Blanket dry clean eligible. Book now.`,
     startDate: SOFA_DRYCLEAN_PROMO_START,
     endDate: SOFA_DRYCLEAN_PROMO_END,
     clickAction: "schedule",
@@ -47,8 +50,7 @@ export const PROMO_CAROUSEL_SLIDES = [
     type: "festive-banner",
     theme: "light",
     offerId: "festive-first3-2026",
-    ariaLabel:
-      "New customer offer — 30% off on your first 3 orders, capped at ₹700 (min ₹500). Or choose 20% off + 10% wallet credit with no cap. After 3 orders, repeat customers get 20% off + 10% credit. Free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram and Vaishali. Book now.",
+    ariaLabel: `New customer offer — ${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit to your wallet after each completed order, on your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders (min ₹${FESTIVE_FIRST3_MIN_ORDER_INR}). After ${FESTIVE_FIRST3_MAX_ORDERS} orders, repeat customers get ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% credit. Free pickup across Raj Nagar Extension, Sidharth Vihar, Indirapuram and Vaishali. Book now.`,
     startDate: OFFER_PROGRAM_START,
     endDate: LIFETIME_OFFER_END,
     clickAction: "schedule",

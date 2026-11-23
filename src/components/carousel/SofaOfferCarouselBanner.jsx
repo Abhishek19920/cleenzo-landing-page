@@ -1,5 +1,5 @@
 import {
-  FESTIVE_FIRST3_MAX_DISCOUNT_INR,
+  FESTIVE_FIRST3_CREDIT_PERCENT,
   FESTIVE_FIRST3_MAX_ORDERS,
   FESTIVE_FIRST3_PERCENT_OFF,
 } from "../../utils/festiveCampaign";
@@ -47,9 +47,9 @@ function SofaOfferCarouselBanner({ onClick, ariaLabel }) {
             <p className="sofa-offer-banner__deal-kicker">Dry clean</p>
             <p className="sofa-offer-banner__deal-pct">{FESTIVE_FIRST3_PERCENT_OFF}% off</p>
             <p className="sofa-offer-banner__price">
-              First {FESTIVE_FIRST3_MAX_ORDERS} orders
+              + {FESTIVE_FIRST3_CREDIT_PERCENT}% wallet credit
               <span className="sofa-offer-banner__deal-note">
-                Max ₹{FESTIVE_FIRST3_MAX_DISCOUNT_INR} · blankets included
+                First {FESTIVE_FIRST3_MAX_ORDERS} orders · blankets included
               </span>
             </p>
           </div>

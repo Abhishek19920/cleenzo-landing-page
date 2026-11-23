@@ -13,8 +13,9 @@ import {
 } from "../utils/ganeshChaturthiCampaign";
 import {
   OFFER_PROGRAM_START,
-  FESTIVE_FIRST3_MAX_DISCOUNT_INR,
+  FESTIVE_FIRST3_CREDIT_PERCENT,
   FESTIVE_FIRST3_MAX_ORDERS,
+  FESTIVE_FIRST3_MIN_ORDER_INR,
   FESTIVE_FIRST3_PERCENT_OFF,
   REPEAT_OFFER_CREDIT_PERCENT,
   REPEAT_OFFER_PERCENT_OFF,
@@ -95,10 +96,10 @@ export const HOMEPAGE_OFFERS = [
     featured: true,
     badge: "SOFA + DRY CLEAN PROMO",
     discount: `${SOFA_SHEET_PERCENT_OFF}% OFF sofa sheets`,
-    secondaryBenefit: `+ ${FESTIVE_FIRST3_PERCENT_OFF}% OFF dry clean (first ${FESTIVE_FIRST3_MAX_ORDERS})`,
+    secondaryBenefit: `+ ${FESTIVE_FIRST3_PERCENT_OFF}% off & ${FESTIVE_FIRST3_CREDIT_PERCENT}% credit on dry clean (first ${FESTIVE_FIRST3_MAX_ORDERS})`,
     title: "Fresh sofa sheets & premium dry clean",
     subtitle: `Sofa sheet cleaning ₹${SOFA_SHEET_LIST_INR} → ₹${SOFA_SHEET_SALE_INR} per sheet`,
-    description: `Sofa sheet cleaning at ₹${SOFA_SHEET_SALE_INR}/sheet (${SOFA_SHEET_PERCENT_OFF}% off the ₹${SOFA_SHEET_LIST_INR} rate). New customers also get flat ${FESTIVE_FIRST3_PERCENT_OFF}% off dry clean on the first ${FESTIVE_FIRST3_MAX_ORDERS} orders — max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR}. Blanket dry clean is eligible for the 30% offer.`,
+    description: `Sofa sheet cleaning at ₹${SOFA_SHEET_SALE_INR}/sheet (${SOFA_SHEET_PERCENT_OFF}% off the ₹${SOFA_SHEET_LIST_INR} rate). New customers also get ${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit on eligible dry clean for each of their first ${FESTIVE_FIRST3_MAX_ORDERS} orders (min ₹${FESTIVE_FIRST3_MIN_ORDER_INR}). Blanket dry clean is included.`,
     audience: "Sofa sheet cleaning for everyone · Dry clean first-3 for new customers",
     validityLabel: "25 Oct – 30 Nov 2026",
     cta: { label: "Book This Offer", action: "schedule" },
@@ -115,12 +116,12 @@ export const HOMEPAGE_OFFERS = [
       },
       {
         heading: "Dry clean — first 3 orders",
-        body: `New customers get ${FESTIVE_FIRST3_PERCENT_OFF}% off eligible dry clean (and blanket dry clean) on each of their first ${FESTIVE_FIRST3_MAX_ORDERS} orders, capped at ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} per order. Minimum order ₹500. Cannot be combined with another promotional coupon on the same order.`,
+        body: `New customers get ${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit on eligible dry clean (including blanket dry clean) on each of their first ${FESTIVE_FIRST3_MAX_ORDERS} orders. Minimum order ₹${FESTIVE_FIRST3_MIN_ORDER_INR}. Credit is added to the spendable wallet after the order is completed. Cannot be combined with another promotional coupon on the same order.`,
         todo: false,
       },
       {
         heading: "Blankets",
-        body: "Blanket dry clean lines are included in the first-3 30% dry clean discount when you qualify as a new customer.",
+        body: `Blanket dry clean lines are included in the new-customer ${FESTIVE_FIRST3_PERCENT_OFF}% off + ${FESTIVE_FIRST3_CREDIT_PERCENT}% credit offer when you qualify.`,
         todo: false,
       },
       {
@@ -213,9 +214,9 @@ export const HOMEPAGE_OFFERS = [
     featured: false,
     badge: "NEW CUSTOMER OFFER",
     discount: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF`,
-    secondaryBenefit: `Max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} · first ${FESTIVE_FIRST3_MAX_ORDERS} orders`,
+    secondaryBenefit: `+ ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit · first ${FESTIVE_FIRST3_MAX_ORDERS} orders`,
     description:
-      `New to Cleenzo? Get flat ${FESTIVE_FIRST3_PERCENT_OFF}% off dry clean (blankets included) on your first ${FESTIVE_FIRST3_MAX_ORDERS} orders — max ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} (min ₹500). Or choose ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit with no ₹ cap. After 3 orders, repeat customers get ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% wallet credit.`,
+      `New to Cleenzo? Get ${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit to your spendable wallet after each completed order — on your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders (min ₹${FESTIVE_FIRST3_MIN_ORDER_INR}). Dry clean (blankets included), premium laundry and carpet cleaning qualify. After ${FESTIVE_FIRST3_MAX_ORDERS} orders, the same ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% credit applies on eligible bills.`,
     audience: "FOR NEW CUSTOMERS · Dry clean & blankets eligible",
     validityLabel: "Always on",
     cta: { label: "Book My First Pickup", action: "schedule" },
@@ -232,7 +233,7 @@ export const HOMEPAGE_OFFERS = [
       },
       {
         heading: "Minimum order",
-        body: `Order subtotal must be at least ₹500 for the welcome discount to apply. Orders below ₹500 are billed at full price and do not use a first-3 slot.`,
+        body: `Order subtotal must be at least ₹${FESTIVE_FIRST3_MIN_ORDER_INR} for the welcome discount to apply. Orders below ₹${FESTIVE_FIRST3_MIN_ORDER_INR} are billed at full price and do not use a first-3 slot.`,
         todo: false,
       },
       {
@@ -246,8 +247,8 @@ export const HOMEPAGE_OFFERS = [
         todo: false,
       },
       {
-        heading: "Discount + cashback",
-        body: `${FESTIVE_FIRST3_PERCENT_OFF}% off is applied immediately on the eligible order value (minimum ₹500), up to ₹${FESTIVE_FIRST3_MAX_DISCOUNT_INR} per order. On any of those first ${FESTIVE_FIRST3_MAX_ORDERS} orders you may instead choose ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% Cleenzo Credit on the amount after that discount, with no ₹ cap. After 3 completed orders the ${REPEAT_OFFER_PERCENT_OFF}% + ${REPEAT_OFFER_CREDIT_PERCENT}% credit offer applies. Cannot be combined with a coupon code or another promotional offer.`,
+        heading: "Discount + Cleenzo Credit",
+        body: `${FESTIVE_FIRST3_PERCENT_OFF}% off is applied immediately on the eligible order value (minimum ₹${FESTIVE_FIRST3_MIN_ORDER_INR}). ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit is calculated on the amount after that discount and added to your spendable wallet once the order is completed. The same ${REPEAT_OFFER_PERCENT_OFF}% + ${REPEAT_OFFER_CREDIT_PERCENT}% credit rates apply after ${FESTIVE_FIRST3_MAX_ORDERS} completed orders. Cannot be combined with a coupon code or another promotional offer.`,
         todo: false,
       },
       {

@@ -1,9 +1,17 @@
 import { SERVICE_AREAS } from "../seo";
 import {
+  FESTIVE_FIRST3_CREDIT_PERCENT,
   FESTIVE_FIRST3_MAX_ORDERS,
   FESTIVE_FIRST3_MIN_ORDER_INR,
   FESTIVE_FIRST3_PERCENT_OFF,
+  REPEAT_OFFER_CREDIT_PERCENT,
+  REPEAT_OFFER_PERCENT_OFF,
 } from "../utils/festiveCampaign";
+
+const WELCOME_OFFER_SHORT = `${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit`;
+const WELCOME_FIRST3_PHRASE = `${WELCOME_OFFER_SHORT} on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders (min ₹${FESTIVE_FIRST3_MIN_ORDER_INR})`;
+const WELCOME_ELIGIBLE_SERVICES =
+  "Dry clean, premium laundry and carpet cleaning are auto-discounted on eligible orders. Wash & iron, wash & fold and steam iron are not auto-discounted.";
 
 export const SERVICE_PAGE_PATHS = [
   "/laundry-service-ghaziabad",
@@ -21,18 +29,16 @@ export const SERVICE_PAGES = {
   "/laundry-service-ghaziabad": {
     path: "/laundry-service-ghaziabad",
     h1: "Laundry Service in Ghaziabad",
-    badge: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders`,
-    subtitle:
-      "Get 30% OFF on each of your first 3 eligible orders. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery. Wash & fold from ₹99/kg in Raj Nagar Extension.",
+    badge: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF + ${FESTIVE_FIRST3_CREDIT_PERCENT}% credit · first ${FESTIVE_FIRST3_MAX_ORDERS}`,
+    subtitle: `Get ${WELCOME_FIRST3_PHRASE}. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery. Wash & fold from ₹99/kg in Raj Nagar Extension.`,
     heroPills: [
       { icon: "🛵", label: "Free Pickup" },
       { icon: "⚡", label: "24-Hour Dry Cleaning" },
       { icon: "🚪", label: "Doorstep Delivery" },
     ],
     seo: {
-      title: "Laundry Service in Ghaziabad | 30% OFF First 3 Orders | Cleenzo",
-      description:
-        "30% OFF on each of your first 3 eligible orders (min ₹500). Professional laundry in Ghaziabad with Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery. Wash & fold from ₹99/kg.",
+      title: `Laundry Service in Ghaziabad | ${FESTIVE_FIRST3_PERCENT_OFF}% OFF + ${FESTIVE_FIRST3_CREDIT_PERCENT}% Credit | Cleenzo`,
+      description: `${WELCOME_FIRST3_PHRASE}. Professional laundry in Ghaziabad with Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery. Wash & fold from ₹99/kg.`,
       keywords:
         "laundry service near me, best laundry service, raj nagar extension laundry, free pickup laundry, laundry service ghaziabad, wash and fold raj nagar, cleenzo laundry",
     },
@@ -103,8 +109,7 @@ export const SERVICE_PAGES = {
     faqs: [
       {
         question: "What is the promotional laundry offer in Ghaziabad?",
-        answer:
-          `The promotional offer is ${FESTIVE_FIRST3_PERCENT_OFF}% OFF on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders (minimum ₹${FESTIVE_FIRST3_MIN_ORDER_INR}). Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are standard Cleenzo USPs, not part of that discount.`,
+        answer: `The promotional offer is ${WELCOME_FIRST3_PHRASE}. ${WELCOME_ELIGIBLE_SERVICES} Cleenzo Credit is added to your spendable wallet after each completed order. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are standard Cleenzo USPs, not part of that discount.`,
       },
       {
         question: "Does Cleenzo provide Free Pickup for laundry in Raj Nagar Extension?",
@@ -154,7 +159,7 @@ export const SERVICE_PAGES = {
       {
         question: "Are Free Pickup and 24-Hour Dry Cleaning promotional offers?",
         answer:
-          "No. They are core Cleenzo USPs along with Doorstep Delivery. The promotional offer is 30% OFF on each of your first 3 eligible orders.",
+          `No. They are core Cleenzo USPs along with Doorstep Delivery. The promotional offer is ${WELCOME_FIRST3_PHRASE}.`,
       },
     ],
   },
@@ -162,9 +167,8 @@ export const SERVICE_PAGES = {
   "/dry-cleaning-ghaziabad": {
     path: "/dry-cleaning-ghaziabad",
     h1: "Professional Dry Cleaning in Ghaziabad",
-    badge: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders`,
-    subtitle:
-      "Dry Cleaning Offers Near You in Ghaziabad. Get 30% OFF on each of your first 3 eligible orders. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.",
+    badge: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF + ${FESTIVE_FIRST3_CREDIT_PERCENT}% credit · first ${FESTIVE_FIRST3_MAX_ORDERS}`,
+    subtitle: `Dry Cleaning Offers Near You in Ghaziabad. Get ${WELCOME_FIRST3_PHRASE}. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.`,
     heroPills: [
       { icon: "🛵", label: "Free Pickup" },
       { icon: "⚡", label: "24-Hour Dry Cleaning" },
@@ -173,22 +177,20 @@ export const SERVICE_PAGES = {
     offerHighlight: {
       eyebrow: "Promotional offer",
       title: "Dry Cleaning Offers Near You in Ghaziabad",
-      lead: `Get ${FESTIVE_FIRST3_PERCENT_OFF}% OFF on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders.`,
+      lead: `Get ${WELCOME_FIRST3_PHRASE}.`,
       points: [
         "For new customers with no previously completed Cleenzo order before the offer start.",
         `Applies on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders — not only the first bill.`,
-        `Minimum order value ₹${FESTIVE_FIRST3_MIN_ORDER_INR}.`,
-        "Dry cleaning is included, along with laundry wash & iron, wash & fold, premium laundry and steam iron.",
+        `Minimum order value ₹${FESTIVE_FIRST3_MIN_ORDER_INR}. Credit lands in your spendable wallet after the order is completed.`,
+        WELCOME_ELIGIBLE_SERVICES,
+        `After ${FESTIVE_FIRST3_MAX_ORDERS} completed orders, the same ${REPEAT_OFFER_PERCENT_OFF}% off plus ${REPEAT_OFFER_CREDIT_PERCENT}% credit applies.`,
       ],
       usp: "Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.",
     },
     seo: {
-      title:
-        "Dry Cleaning Offers Near Me in Ghaziabad | 30% Off First 3 Orders | Cleenzo",
-      description:
-        "30% OFF on each of your first 3 eligible orders (min ₹500). Professional dry cleaning in Ghaziabad with Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.",
-      keywords:
-        "dry clean offers near me, dry cleaning offers near me, dry cleaning offers Ghaziabad, dry cleaning discount near me, 30% off dry cleaning Ghaziabad, first 3 dry cleaning orders, affordable dry cleaning near me, dry cleaner offers Raj Nagar Extension",
+      title: `Dry Cleaning Offers Near Me in Ghaziabad | ${FESTIVE_FIRST3_PERCENT_OFF}% Off + Credit | Cleenzo`,
+      description: `${WELCOME_FIRST3_PHRASE}. Professional dry cleaning in Ghaziabad with Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.`,
+      keywords: `dry clean offers near me, dry cleaning offers near me, dry cleaning offers Ghaziabad, dry cleaning discount near me, ${FESTIVE_FIRST3_PERCENT_OFF}% off dry cleaning Ghaziabad, first 3 dry cleaning orders, affordable dry cleaning near me, dry cleaner offers Raj Nagar Extension`,
     },
     serviceType: "Dry Cleaning",
     heroImage: "/images/banners/dry-cleaning-service-ghaziabad.jpg",
@@ -196,10 +198,10 @@ export const SERVICE_PAGES = {
       "Cleenzo dry cleaning service pickup in Raj Nagar Extension, Ghaziabad",
     sections: [
       {
-        title: "30% OFF on Your First 3 Dry Cleaning Orders",
+        title: `${FESTIVE_FIRST3_PERCENT_OFF}% OFF + ${FESTIVE_FIRST3_CREDIT_PERCENT}% Credit on Your First ${FESTIVE_FIRST3_MAX_ORDERS} Dry Cleaning Orders`,
         body: [
-          `Cleenzo’s promotional offer for dry cleaning in Ghaziabad is straightforward: new customers receive ${FESTIVE_FIRST3_PERCENT_OFF}% off on each of their first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders (minimum ₹${FESTIVE_FIRST3_MIN_ORDER_INR}). Dry clean is included — so a search for dry cleaning offers near me should land on this discount, not a one-time coupon that expires after the first bill.`,
-          `The same first-3 offer covers laundry wash & iron, wash & fold, premium laundry and steam iron. It cannot be combined with another promotional code. Full terms are on the offer terms page.`,
+          `Cleenzo’s promotional offer for dry cleaning in Ghaziabad is straightforward: new customers receive ${WELCOME_FIRST3_PHRASE}. Dry clean is included — so a search for dry cleaning offers near me should land on this ongoing benefit, not a one-time coupon that expires after the first bill.`,
+          `${WELCOME_ELIGIBLE_SERVICES} It cannot be combined with another promotional code. Full terms are on the offer terms page.`,
           `Professional dry cleaning is the service. Cleenzo’s standard USPs are Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery — across Raj Nagar Extension, AVS City Square, Sidharth Vihar, Kanawani, Ahinsa Khand, Indirapuram and Vaishali.`,
         ],
         links: [
@@ -261,16 +263,15 @@ export const SERVICE_PAGES = {
     faqs: [
       {
         question: "Is there a dry cleaning offer near me in Ghaziabad?",
-        answer:
-          `Yes. The promotional offer is ${FESTIVE_FIRST3_PERCENT_OFF}% OFF on each of the first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders for new customers, with a minimum order value of ₹${FESTIVE_FIRST3_MIN_ORDER_INR}. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are standard service benefits, not part of that discount.`,
+        answer: `Yes. The promotional offer is ${WELCOME_FIRST3_PHRASE} for new customers. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are standard service benefits, not part of that discount.`,
       },
       {
-        question: "Does the 30% offer apply to dry cleaning?",
+        question: `Does the ${FESTIVE_FIRST3_PERCENT_OFF}% + credit offer apply to dry cleaning?`,
         answer:
-          "Yes. Dry cleaning is included in the first 3 eligible orders, along with laundry wash & iron, wash & fold, premium laundry and steam iron.",
+          `Yes. Dry cleaning is auto-discounted on eligible first-${FESTIVE_FIRST3_MAX_ORDERS} orders, along with premium laundry and carpet cleaning on the same bill when those lines qualify. Wash & iron, wash & fold and steam iron are not auto-discounted.`,
       },
       {
-        question: "How many times can I use the 30% dry cleaning offer?",
+        question: `How many times can I use the ${FESTIVE_FIRST3_PERCENT_OFF}% dry cleaning offer?`,
         answer:
           `Eligible new customers can receive the offer on each of their first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders — not only on the first bill.`,
       },

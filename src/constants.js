@@ -26,20 +26,27 @@ export const STORE_MAPS_URL =
 export const COMMERCIAL_LAUNDRY_URL = "/commercial-laundry";
 
 export const APP_LINKS = {
-  android: "https://play.google.com/store/apps/details?id=in.cleenzo.user",
-  ios: "#",
+  /** Direct install file hosted on cleenzo.co.in */
+  android: "/downloads/cleenzo-user.apk",
+  /**
+   * Same Android APK for direct download. iPhone cannot install APK files;
+   * the button still offers the file for households that share an Android phone.
+   * App Store listing can replace this when published.
+   */
+  ios: "/downloads/cleenzo-user.apk",
+  playStore: "https://play.google.com/store/apps/details?id=in.cleenzo.user",
 };
 
-/** Android button points at Play. iOS is still coming soon. */
+/** Direct APK download is live on the website. */
 export const APP_IS_LIVE = true;
 
 export const APP_COMING_SOON = {
-  title: "App will be live soon!",
-  subtitle: "Google Play & App Store",
+  title: "Download the Cleenzo app",
+  subtitle: "Android APK · direct install",
   message:
-    "The Cleenzo mobile app isn't on the stores yet. Book on WhatsApp or schedule a free pickup on our website — we'll notify you when Android and iOS apps go live.",
+    "Download the Cleenzo Android APK from this site and install it on your phone. iPhone App Store listing is coming soon — iPhones cannot install APK files.",
   whatsappMessage:
-    "Hi Cleenzo! Please notify me when your mobile app goes live on Google Play and the App Store.",
+    "Hi Cleenzo! Please share the latest app download link for Android and iPhone.",
 };
 
 export const SOCIAL_LINKS = [

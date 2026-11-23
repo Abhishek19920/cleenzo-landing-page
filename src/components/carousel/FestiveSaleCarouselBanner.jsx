@@ -1,4 +1,5 @@
 import {
+  FESTIVE_FIRST3_CREDIT_PERCENT,
   FESTIVE_FIRST3_MAX_ORDERS,
   FESTIVE_FIRST3_PERCENT_OFF,
   OFFER_PROGRAM_START,
@@ -41,9 +42,10 @@ function FestiveSaleCarouselBanner({ onClick, ariaLabel }) {
           <p className="festive-sale-banner__flat">New here?</p>
           <p className="festive-sale-banner__pct">{FESTIVE_FIRST3_PERCENT_OFF}% OFF</p>
           <p className="festive-sale-banner__credit">
-            Max ₹700
+            + {FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit
             <span className="festive-sale-banner__credit-sub">
-              on your first <strong>{FESTIVE_FIRST3_MAX_ORDERS} orders</strong>
+              to your wallet after each of your first{" "}
+              <strong>{FESTIVE_FIRST3_MAX_ORDERS} orders</strong>
             </span>
           </p>
           <span className="festive-sale-banner__audience">

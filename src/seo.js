@@ -10,6 +10,11 @@ import {
 } from "./seo/business";
 import { getStaticRouteSeo } from "./seo/routes";
 import { PHONE_DISPLAY, PHONE_TEL, SOCIAL_LINKS, STORE_ADDRESS, STORE_ADDRESS_LINES, WHATSAPP_NUMBER } from "./constants";
+import {
+  FESTIVE_FIRST3_CREDIT_PERCENT,
+  FESTIVE_FIRST3_MAX_ORDERS,
+  FESTIVE_FIRST3_PERCENT_OFF,
+} from "./utils/festiveCampaign";
 import { GOOGLE_RATING, GOOGLE_REVIEWS_SCHEMA, GOOGLE_REVIEWS_URL, GOOGLE_BUSINESS_NAME } from "./data/googleReviews";
 
 export const SITE_URL = process.env.REACT_APP_SITE_URL || SITE_CANONICAL_ORIGIN;
@@ -111,7 +116,7 @@ export const SEO_FAQ = [
   {
     question: "Are Free Pickup and 24-Hour Dry Cleaning promotional offers?",
     answer:
-      "No. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are core service benefits. The promotional offer is 30% OFF on each of your first 3 eligible orders.",
+      `No. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are core service benefits. The promotional offer is ${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders.`,
   },
   {
     question: "Which areas do you serve?",

@@ -3,7 +3,8 @@ import { isOfferActive, OFFERS_TIMEZONE } from "./offerDates";
 /**
  * New-customer & referral offer program (IST, inclusive).
  *
- * Must stay in sync with FESTIVE_FIRST3_2026 in the backend campaign config.
+ * Must stay in sync with REPEAT_CREDIT_2026 / welcome eligibility in the backend.
+ * Live offer: 10% off + 10% wallet credit (Welcome 30% retired).
  */
 export const OFFER_PROGRAM_START = "2026-09-01";
 export const LIFETIME_OFFER_END = "2099-12-31";
@@ -17,23 +18,25 @@ export const FESTIVE_SALE_END = LIFETIME_OFFER_END;
 /** Discounted orders a new customer may place under the program. */
 export const FESTIVE_FIRST3_MAX_ORDERS = 3;
 
-/** Percent off (immediate) for a new customer's first three orders. */
-export const FESTIVE_FIRST3_PERCENT_OFF = 30;
-
-/** ₹ ceiling on the first-3 30% discount. */
-export const FESTIVE_FIRST3_MAX_DISCOUNT_INR = 700;
+/** Instant percent off for new-customer first-3 and later welcome bills. */
+export const FESTIVE_FIRST3_PERCENT_OFF = 10;
 
 /**
- * Alternate the customer can choose on those first 3 orders, and the standing
- * offer after 3 completed orders. No ₹ cap.
+ * No ₹ ceiling on the live 10% path. Kept as null so UI can hide "max ₹…" copy.
+ * @deprecated Welcome 30% ₹700 cap is retired.
  */
-export const REPEAT_OFFER_PERCENT_OFF = 20;
+export const FESTIVE_FIRST3_MAX_DISCOUNT_INR = null;
+
+/** Cleenzo Credit % to the spendable wallet after the order is completed. */
+export const FESTIVE_FIRST3_CREDIT_PERCENT = 10;
+
+/**
+ * Same rates after 3 completed orders (and the only welcome path now).
+ */
+export const REPEAT_OFFER_PERCENT_OFF = 10;
 export const REPEAT_OFFER_CREDIT_PERCENT = 10;
 
-/** @deprecated The 30% path does not pay credit. Kept so older imports still resolve. */
-export const FESTIVE_FIRST3_CREDIT_PERCENT = 0;
-
-/** Minimum eligible order subtotal (₹) for the first-3 discount. */
+/** Minimum eligible order subtotal (₹) for the welcome discount. */
 export const FESTIVE_FIRST3_MIN_ORDER_INR = 500;
 
 /** Cleenzo Credit paid to the referrer once their invitee's first order lands. */

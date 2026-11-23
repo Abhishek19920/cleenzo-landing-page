@@ -1,4 +1,10 @@
 import { STORE_ADDRESS, PHONE_DISPLAY } from "../constants";
+import {
+  FESTIVE_FIRST3_CREDIT_PERCENT,
+  FESTIVE_FIRST3_MAX_ORDERS,
+  FESTIVE_FIRST3_MIN_ORDER_INR,
+  FESTIVE_FIRST3_PERCENT_OFF,
+} from "../utils/festiveCampaign";
 
 /**
  * Pickup-area location pages for primary target localities.
@@ -114,7 +120,7 @@ export const LOCATION_PAGES = [
       {
         question: "How do new-customer offers work in Vaishali?",
         answer:
-          "Eligible new customers can get 30% OFF on each of their first 3 orders (min ₹500). Free Pickup and Doorstep Delivery are standard USPs. See offer terms for full eligibility.",
+          `Eligible new customers can get ${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit on each of their first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders (min ₹${FESTIVE_FIRST3_MIN_ORDER_INR}). Free Pickup and Doorstep Delivery are standard USPs. See offer terms for full eligibility.`,
       },
     ],
   },

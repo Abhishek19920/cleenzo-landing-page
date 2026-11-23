@@ -1,12 +1,19 @@
 import { STORE_ADDRESS, PHONE_DISPLAY } from "../constants";
+import {
+  FESTIVE_FIRST3_CREDIT_PERCENT,
+  FESTIVE_FIRST3_MAX_ORDERS,
+  FESTIVE_FIRST3_MIN_ORDER_INR,
+  FESTIVE_FIRST3_PERCENT_OFF,
+} from "../utils/festiveCampaign";
+
+const WELCOME_FIRST3_PHRASE = `${FESTIVE_FIRST3_PERCENT_OFF}% instant off plus ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders (min ₹${FESTIVE_FIRST3_MIN_ORDER_INR})`;
 
 export const BEST_DRY_CLEANERS_GHAZIABAD_PATH = "/best-dry-cleaners-in-ghaziabad";
 
 export const BEST_DRY_CLEANERS_GHAZIABAD_SEO = {
   siteName: "Cleenzo",
-  title: "Best Dry Cleaners in Ghaziabad | 30% OFF First 3 Orders | Cleenzo",
-  description:
-    "30% OFF on each of your first 3 eligible orders (min ₹500). Professional dry cleaning in Ghaziabad with Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.",
+  title: `Best Dry Cleaners in Ghaziabad | ${FESTIVE_FIRST3_PERCENT_OFF}% OFF + Credit | Cleenzo`,
+  description: `${WELCOME_FIRST3_PHRASE}. Professional dry cleaning in Ghaziabad with Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.`,
   keywords:
     "best dry cleaners in ghaziabad, dry cleaners in ghaziabad, dry cleaning in ghaziabad, best dry cleaning service in ghaziabad, dry cleaner near me, laundry and dry cleaning in ghaziabad, professional dry cleaning in ghaziabad, doorstep dry cleaning in ghaziabad, dry cleaning service in raj nagar extension, dry cleaner in raj nagar extension, laundry service in ghaziabad",
   locale: "en_IN",
@@ -18,8 +25,7 @@ export const BEST_DRY_CLEANERS_GHAZIABAD_SEO = {
 export const BEST_DRY_CLEANERS_GHAZIABAD_CONTENT = {
   h1: "Best Dry Cleaners in Ghaziabad",
   badge: "Trusted dry cleaning · Ghaziabad & Raj Nagar Extension",
-  subtitle:
-    "Professional dry cleaning in Ghaziabad. Get 30% OFF on each of your first 3 eligible orders. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.",
+  subtitle: `Professional dry cleaning in Ghaziabad. Get ${WELCOME_FIRST3_PHRASE}. Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.`,
   heroImage: {
     src: "/images/banners/dry-cleaning-service-ghaziabad.jpg",
     alt: "Best dry cleaners in Ghaziabad — Cleenzo professional dry cleaning with doorstep pickup",
@@ -28,8 +34,8 @@ export const BEST_DRY_CLEANERS_GHAZIABAD_CONTENT = {
   },
   offer: {
     badge: "New customer offer",
-    title: "30% OFF on each of your first 3 eligible orders",
-    subtitle: "Minimum order ₹500 · always on for new customers",
+    title: `${FESTIVE_FIRST3_PERCENT_OFF}% off + ${FESTIVE_FIRST3_CREDIT_PERCENT}% Cleenzo Credit on each of your first ${FESTIVE_FIRST3_MAX_ORDERS} eligible orders`,
+    subtitle: `Minimum order ₹${FESTIVE_FIRST3_MIN_ORDER_INR} · credit after delivery · always on for new customers`,
     usp: "Enjoy Cleenzo's Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery.",
     note: "See offer terms for eligibility. Pickup and 24-hour return are standard service benefits, not this discount.",
   },
@@ -167,7 +173,7 @@ export const BEST_DRY_CLEANERS_GHAZIABAD_CONTENT = {
     {
       question: "How does Cleenzo's first 3 orders offer work?",
       answer:
-        "The promotional offer is 30% OFF on each of your first 3 eligible orders (minimum ₹500) for new customers. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are standard Cleenzo USPs, not part of that discount. See the full offer terms for details.",
+        `The promotional offer is ${WELCOME_FIRST3_PHRASE} for new customers. Dry clean, premium laundry and carpet cleaning qualify. Free Pickup, 24-Hour Dry Cleaning and Doorstep Delivery are standard Cleenzo USPs, not part of that discount. See the full offer terms for details.`,
     },
     {
       question: "How can I check dry cleaning prices?",

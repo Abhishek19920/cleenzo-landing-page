@@ -7,6 +7,11 @@ import {
   useSchedulePickup,
 } from "../../context/SchedulePickupContext";
 import { SERVICE_AREAS } from "../../data/servicePages";
+import {
+  FESTIVE_FIRST3_CREDIT_PERCENT,
+  FESTIVE_FIRST3_MAX_ORDERS,
+  FESTIVE_FIRST3_PERCENT_OFF,
+} from "../../utils/festiveCampaign";
 import { canonicalPath, normalizePathKey } from "../../seo/routes";
 import { openWhatsAppBooking } from "../../whatsapp";
 import "./service-page.css";
@@ -36,7 +41,12 @@ const RELATED_SERVICES = [
   { path: "/laundry-service-ghaziabad", label: "Laundry", icon: "🧺", desc: "Wash & fold · Wash & iron" },
   { path: "/dry-cleaning-ghaziabad", label: "Dry cleaning", icon: "🧥", desc: "Suits, silk & woollens" },
   { path: "/dry-cleaners-raj-nagar-extension", label: "Dry cleaners RNE", icon: "📍", desc: "Raj Nagar Extension hub" },
-  { path: "/best-dry-cleaners-in-ghaziabad", label: "Why Cleenzo", icon: "⭐", desc: "30% off first 3 orders" },
+  {
+    path: "/best-dry-cleaners-in-ghaziabad",
+    label: "Why Cleenzo",
+    icon: "⭐",
+    desc: `${FESTIVE_FIRST3_PERCENT_OFF}% off + ${FESTIVE_FIRST3_CREDIT_PERCENT}% credit · first ${FESTIVE_FIRST3_MAX_ORDERS}`,
+  },
   { path: "/shoe-cleaning", label: "Shoe cleaning", icon: "👟", desc: "Sneakers & leather care" },
   { path: "/sofa-cleaning", label: "Sofa cleaning", icon: "🛋️", desc: "Fabric & upholstery" },
   { path: "/carpet-cleaning", label: "Carpet cleaning", icon: "🧶", desc: "Rugs & room carpets" },
